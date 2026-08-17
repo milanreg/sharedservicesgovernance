@@ -31,7 +31,7 @@ const TICKET_RISKS: Record<string, Risk> = {
     mitigation:
       "In Quality Review with Dominik Czerwiński. Do not ship Principal User until this is Closed.",
     assessment:
-      "RICE 21.6 — highest near-term ROI. Touches every IAM tenant and is a PU go-live blocker.",
+      "RICE 21.6 — highest near-term return on investment. Touches every Identity and Access Management tenant and is a Principal User go-live blocker.",
     references: [
       { label: "RSH-4220", href: jira("RSH-4220") },
       { label: "RSH-1846 Principal User", href: jira("RSH-1846") },
@@ -39,14 +39,14 @@ const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-2169": {
     level: "red",
-    reason: "Entity-group inheritance is blocked on MDM; VAS cannot expand members.",
+    reason: "Entity-group inheritance is blocked on Master Data Management (MDM); Vizor API Service (VAS) cannot expand members.",
     mitigation:
-      "Do not staff until MDM membership is unblocked in writing, or explicitly defer inheritance.",
+      "Do not staff until Master Data Management (MDM) membership is unblocked in writing, or explicitly defer inheritance.",
     assessment:
       "RICE 0.67 at 40% confidence. Principal User reach will be incorrect until this is resolved or deferred.",
     references: [
       { label: "RSH-2169", href: jira("RSH-2169") },
-      { label: "Vizor AuthN/Z entityGroups", href: CONFLUENCE.auth },
+      { label: "Vizor Authentication and Authorization entityGroups", href: CONFLUENCE.auth },
     ],
   },
   "RSH-2451": {
@@ -125,7 +125,7 @@ export const iamGovernance: ProjectGovernance = {
   name: "IAM",
   fullName: "Identity and Access Management",
   rag: "Amber",
-  platform: "RSH Platform",
+  platform: "Regnology Supervision Hub (RSH) Platform",
   summary:
     "Shared authentication and authorization for Regnology solutions. Foundations shipped; Principal User and mirroring still decide whether products retire local user management.",
   initiativeKey: "RSH-96",
@@ -136,20 +136,20 @@ export const iamGovernance: ProjectGovernance = {
     'Jira: project = RSH AND summary ~ "[IAM]" (634 done, 209 open) · sprint in openSprints() on board 2936. Confluence: IAM Integration (v17, Jan 2026), Vizor Authentication and Authorization (v62, May 2026), What IAM Service Offers (v6).',
   populated: true,
   sprint: {
-    name: sprint.name,
+    name: "Regnology Supervision Hub Platform 2616",
     start: sprint.start,
     end: sprint.end,
     committed: sprint.committed,
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on RSH board 2936. Sixteen IAM items committed. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936. Sixteen Identity and Access Management items committed. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Highest delivery risk: privilege escalation RSH-4220 in Quality Review, plus RSH-2169 blocked on MDM. Five of sixteen tickets are unassigned.",
+      "Highest delivery risk: privilege escalation RSH-4220 in Quality Review, plus RSH-2169 blocked on Master Data Management (MDM). Five of sixteen tickets are unassigned.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
-    name: "RSH PL 2615",
+    name: "Regnology Supervision Hub Platform 2615",
     dates: "30 Jul – 13 Aug 2026",
     narrative:
       "Previous sprint closed a large reach-API slice. Six of sixteen 2616 items were already on a closed sprint — 38% of the current IAM commitment is carry-over.",
@@ -164,14 +164,14 @@ export const iamGovernance: ProjectGovernance = {
       },
       {
         title: "Left 2615 without landing in 2616",
-        body: "RForge scaffolding and ContextData OpenAPI at Ready for integration; unscoped PU groups at PO Accepted.",
+        body: "RForge scaffolding and ContextData OpenAPI at Ready for integration; unscoped Principal User groups at Product Owner Accepted.",
       },
     ],
     closed: previousSprintClosed,
     leftover: leftoverFrom2615,
   },
   overview: {
-    intro: `Shared Identity and Access Management for Regnology solutions. Synthesized from Jira initiative RSH-96, Phase 2 RSH-903, Confluence IAM Integration v17, Vizor AuthN/Z v62, and What IAM Service Offers.`,
+    intro: `Shared Identity and Access Management for Regnology solutions. Synthesized from Jira initiative RSH-96, Phase 2 RSH-903, Confluence IAM Integration v17, Vizor Authentication and Authorization v62, and What IAM Service Offers.`,
     callout:
       "IAM is the common authentication and authorization module for regulator and regulated users. If a Vizor application turns it on, it must be used for both Portal and Supervision Centre, and only in containers. Foundations shipped. Principal User, entity scoping, permission mirroring, and stabilization still decide whether products can retire local user management. Initiative RAG: Amber (Jan 2026) — scope creep vs original plan.",
     vision: [
@@ -207,7 +207,7 @@ export const iamGovernance: ProjectGovernance = {
   },
   stakeholderGantt: {
     intro:
-      "Integration roadmap for product delivery with other apps. Data points are Jira implementation links on RSH-96 plus Confluence consumer contracts. Use this view with RTG, CBBB, and consuming POs — not the engineering backlog Gantt.",
+      "Integration roadmap for product delivery with other apps. Data points are Jira implementation links on RSH-96 plus Confluence consumer contracts. Use this view with release and technical governance, Central Bank of Barbados, and consuming product owners — not the engineering backlog Gantt.",
     highlights: [
       {
         title: "Shipped value",
@@ -215,11 +215,11 @@ export const iamGovernance: ProjectGovernance = {
       },
       {
         title: "2026 forcing function",
-        body: "CBBB / Rconnect needs mirrored permissions. Vizor must stay all-or-nothing (Portal + SC, containers only).",
+        body: "Central Bank of Barbados / Rconnect needs mirrored permissions. Vizor must stay all-or-nothing (Portal and Supervision Centre, containers only).",
       },
       {
         title: "Unscheduled",
-        body: "RFS-1688 is New. PAT, WCAG, Multi-Core, and Windows Server sit after PU.",
+        body: "RFS-1688 is New. Personal Access Tokens, Web Content Accessibility Guidelines, Multi-Core Identity Provider, and Windows Server sit after Principal User.",
       },
     ],
     items: stakeholderGantt,
@@ -232,19 +232,19 @@ export const iamGovernance: ProjectGovernance = {
   bottlenecks: bottlenecks.map((b) => {
     const ticketRisk = b.ticket.startsWith("RSH-") ? TICKET_RISKS[b.ticket] : undefined;
     const extra: Record<string, Risk> = {
-      "VAS config": {
+      "Vizor API Service config": {
         level: "red",
         reason: "Audience validation is disabled in known environments.",
         mitigation:
-          "Set VAS_IAM_INTERNAL_AUDIENCE / EXTERNAL and apply the P5.8.1 issuer SQL fix-up before calling an environment production-hardened.",
+          "Set VAS_IAM_INTERNAL_AUDIENCE / EXTERNAL (Vizor API Service audience) and apply the P5.8.1 issuer SQL fix-up before calling an environment production-hardened.",
         assessment:
-          "Documented in Vizor AuthN/Z v62. Empty audience config means VAS is not validating token audience.",
-        references: [{ label: "Vizor AuthN/Z v62", href: CONFLUENCE.auth }],
+          "Documented in Vizor Authentication and Authorization v62. Empty audience config means Vizor API Service is not validating token audience.",
+        references: [{ label: "Vizor Authentication and Authorization v62", href: CONFLUENCE.auth }],
       },
       "RSH-1025": {
         level: "amber",
         reason: "Closed epic does not mean the capability is in market.",
-        mitigation: "Track RSH-1846 and the RSH-4255 Make Work clone as the real PU path.",
+        mitigation: "Track RSH-1846 and the RSH-4255 Make Work clone as the real Principal User path.",
         assessment: "R3 Keycloak removal remains New.",
         references: [
           { label: "RSH-1025", href: jira("RSH-1025") },
@@ -255,7 +255,7 @@ export const iamGovernance: ProjectGovernance = {
         level: "amber",
         reason: "Integration doc still flags undocumented or unsupported paths.",
         mitigation:
-          "Split external vs internal user docs. Document registration, migration (or not supported), and VP-from-Internal deny.",
+          "Split external vs internal user docs. Document registration, migration (or not supported), and managing Vizor Portal users from Internal Identity and Access Management deny.",
         assessment: "IAM Integration v17 (Jan 2026) lists these as open documentation gaps.",
         references: [{ label: "IAM Integration v17", href: CONFLUENCE.integration }],
       },
@@ -273,5 +273,71 @@ export const iamGovernance: ProjectGovernance = {
     return { ...b, risk: ticketRisk ?? extra[b.ticket] };
   }),
   next90days:
-    "Protect the next 90 days: sequence privilege-escalation, OpenSSL, entity scoping, mirroring, and audience/issuer hardening before PAT, WCAG, translations, or third-party modules. Treat Principal User (RSH-4255) as the milestone that lets Vizor/R3 turn local UM off.",
+    "Protect the next 90 days: sequence privilege-escalation, OpenSSL, entity scoping, mirroring, and audience/issuer hardening before Personal Access Tokens, Web Content Accessibility Guidelines 2.2, translations, or third-party modules. Treat Principal User (RSH-4255) as the milestone that lets Vizor and Regulator 3 turn local user management off.",
+  projectSummary: {
+    jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RSH/summary",
+    done: 634,
+    open: 209,
+    highPriorityOpen: 46,
+    unassignedOpen: 173,
+    epics: 44,
+    currentRelease: {
+      name: "26.3.0.00 Regnology Supervision Hub Platform",
+      date: "27 Aug 2026",
+      released: false,
+    },
+    lastRelease: {
+      name: "26.2.0.00 Regnology Supervision Hub Platform",
+      date: "28 May 2026",
+    },
+    narrative:
+      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board. Phase 1 authentication and authorization shipped. Initiative RSH-96 is Amber because of scope creep versus the original plan. Current platform release 26.3 is unreleased (27 Aug 2026). Counts below use Jira JQL project = RSH AND summary ~ \"[IAM]\".",
+  },
+  pmFocus: {
+    thisSprint: [
+      "Close privilege-escalation RSH-4220 in Quality Review before any Principal User demo.",
+      "Assign the five unassigned sprint tickets (RSH-4244, RSH-3763, RSH-2169, RSH-4261, RSH-3239).",
+      "Keep entity-scoping RSH-3042 through Quality Review — Principal User depends on it.",
+      "Do not staff Master Data Management (MDM) inheritance RSH-2169 until membership expansion is unblocked in writing.",
+      "Finish OpenSSL AppSec RSH-2451 this sprint; it has sat Ready across two sprints.",
+    ],
+    sequence: [
+      {
+        order: 1,
+        item: "Privilege-escalation fix",
+        ticket: "RSH-4220",
+        why: "Go-live blocker for delegated Principal User administration. Highest near-term return on investment.",
+      },
+      {
+        order: 2,
+        item: "OpenSSL application security",
+        ticket: "RSH-2451",
+        why: "Low effort, high visibility. Cheap to close; looks like unmanaged security debt if it spills again.",
+      },
+      {
+        order: 3,
+        item: "Entity-scoping migration",
+        ticket: "RSH-3042",
+        why: "Vizor API Service (VAS) already assumes this model. Unblocks Principal User.",
+      },
+      {
+        order: 4,
+        item: "Permission mirroring for Central Bank of Barbados",
+        ticket: "RSH-2150",
+        why: "Must label. Rconnect at Barbados needs mirrored permissions, not implicit ones.",
+      },
+      {
+        order: 5,
+        item: "Principal User — Make Work",
+        ticket: "RSH-4255",
+        why: "Kill-switch for Vizor and Regulator 3 local user management. Sequence after 1–4.",
+      },
+    ],
+    questions: [
+      "Will Master Data Management (MDM) unblock entity-group membership in 26.3, or do we defer inheritance in writing?",
+      "What is the acceptance criteria for Principal User so Vizor can turn Security.Login.Type = IAM and retire local user management?",
+      "Is audience validation (empty VAS_IAM_INTERNAL_AUDIENCE / EXTERNAL) a go-live gate for the next customer environment?",
+      "Should Personal Access Tokens, Web Content Accessibility Guidelines 2.2, and Multi-Core Identity Provider stay out of 26.3?",
+    ],
+  },
 };

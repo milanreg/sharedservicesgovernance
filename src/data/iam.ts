@@ -61,7 +61,7 @@ export const sprintTickets: Ticket[] = [
     summary: "[IAM] Spike: Migrate users and groups to entity scoping",
     status: "In Quality Review",
     owner: "Shashank Prasad",
-    why: "VAS effectivePermissions already assumes this model",
+    why: "Vizor API Service (VAS) effectivePermissions already assumes this model",
     spillover: true,
   },
   {
@@ -138,7 +138,7 @@ export const sprintTickets: Ticket[] = [
     summary: "[IAM] [Blocked] Entity group inheritance for entity access",
     status: "Ready",
     owner: "Unassigned",
-    why: "VAS entityGroups contract cannot expand members — blocked on MDM",
+    why: "Vizor API Service (VAS) entityGroups contract cannot expand members — blocked on Master Data Management (MDM)",
     blocked: true,
   },
   {
@@ -241,23 +241,23 @@ export const phase2 = [
   { key: "RSH-4221", title: "IAM User Guide", status: "In Implementation", owner: "Kartik Sharma" },
   { key: "RSH-429", title: "Defects and Tech Debt — Backlog", status: "Ready", owner: "Adam Ennis" },
   { key: "RSH-794", title: "Translations", status: "Ready", owner: "Unassigned" },
-  { key: "RSH-795", title: "Multi-Core IDP", status: "Ready", owner: "Unassigned" },
+  { key: "RSH-795", title: "Multi-Core Identity Provider (IDP)", status: "Ready", owner: "Unassigned" },
   { key: "RSH-4255", title: "Principal User — Make Work", status: "New", owner: "Unassigned" },
-  { key: "RSH-4256", title: "WCAG 2.2 Level AA", status: "New", owner: "Unassigned" },
+  { key: "RSH-4256", title: "Web Content Accessibility Guidelines (WCAG) 2.2 Level AA", status: "New", owner: "Unassigned" },
   { key: "RSH-4258", title: "User Profile Management — Improvements", status: "New", owner: "Unassigned" },
-  { key: "RSH-4262", title: "PAT", status: "New", owner: "Jan-Hendrik Hühne" },
+  { key: "RSH-4262", title: "Personal Access Token (PAT)", status: "New", owner: "Jan-Hendrik Hühne" },
   { key: "RSH-4263", title: "Support for Third-Party Modules", status: "New", owner: "Unassigned" },
-  { key: "RSH-321", title: "Support for Non-Standard IDPs", status: "New", owner: "Unassigned" },
+  { key: "RSH-321", title: "Support for Non-Standard Identity Providers (IDPs)", status: "New", owner: "Unassigned" },
   { key: "RSH-1314", title: "Support for Windows Server Deployments", status: "New", owner: "Unassigned" },
 ];
 
 export const consumers = [
   { name: "RSH Licensing", key: "RSH-99", state: "Closed", note: "First production consumer" },
   { name: "R3 Data Collection", key: "RSH-718", state: "Closed", note: "Required endpoints shipped (RSH-1488)" },
-  { name: "Vizor Licensing & AEOI", key: "REG-49745", state: "In Implementation", note: "IAM Integration doc v17 · AuthN/Z v62" },
+  { name: "Vizor Licensing & Automatic Exchange of Information (AEOI)", key: "REG-49745", state: "In Implementation", note: "IAM Integration doc v17 · Authentication and Authorization v62" },
   { name: "R3 × RSH Shared IAM", key: "REG-48802", state: "In Implementation", note: "Work package still open" },
   { name: "RSH Analytics", key: "RSH-719", state: "In Implementation", note: "Target 26.2 · blocked by RSH-4251" },
-  { name: "Rconnect / CBBB", key: "RSH-2150", state: "In Implementation", note: "Permission mirroring is the Must/CBBB path" },
+  { name: "Rconnect / Central Bank of Barbados (CBBB)", key: "RSH-2150", state: "In Implementation", note: "Permission mirroring is the Must / Central Bank of Barbados path" },
   { name: "RFS", key: "RFS-1688", state: "New", note: "Not scheduled" },
 ];
 
@@ -272,8 +272,8 @@ export const backlogGantt: GanttItem[] = [
   { id: "pu2", label: "Principal User — Make Work", ticket: "RSH-4255", start: "2026-09-01", end: "2026-12-18", status: "planned", lane: "PL 26.3" },
   { id: "inherit", label: "Entity-group inheritance", ticket: "RSH-2169", start: "2026-08-01", end: "2026-12-31", status: "blocked", lane: "Blocked" },
   { id: "pat", label: "Personal access tokens", ticket: "RSH-4262", start: "2027-01-08", end: "2027-03-31", status: "later", lane: "Later" },
-  { id: "wcag", label: "WCAG 2.2 AA", ticket: "RSH-4256", start: "2027-01-15", end: "2027-04-30", status: "later", lane: "Later" },
-  { id: "multicore", label: "Multi-Core IDP", ticket: "RSH-795", start: "2027-02-01", end: "2027-06-30", status: "later", lane: "Later" },
+  { id: "wcag", label: "Web Content Accessibility Guidelines 2.2 AA", ticket: "RSH-4256", start: "2027-01-15", end: "2027-04-30", status: "later", lane: "Later" },
+  { id: "multicore", label: "Multi-Core Identity Provider", ticket: "RSH-795", start: "2027-02-01", end: "2027-06-30", status: "later", lane: "Later" },
   { id: "win", label: "Windows Server deployments", ticket: "RSH-1314", start: "2027-03-01", end: "2027-08-15", status: "later", lane: "Later" },
 ];
 
@@ -282,34 +282,34 @@ export const stakeholderGantt: GanttItem[] = [
   { id: "r3dc", label: "R3 Data Collection endpoints", ticket: "RSH-718", start: "2025-09-01", end: "2026-05-28", status: "done", lane: "Shipped" },
   { id: "vizor", label: "Vizor Portal + Supervision Centre", ticket: "REG-49745", start: "2025-10-10", end: "2026-12-15", status: "active", lane: "In market" },
   { id: "r3share", label: "R3 × RSH Shared IAM WP", ticket: "REG-48802", start: "2026-01-15", end: "2026-12-15", status: "active", lane: "In market" },
-  { id: "cbbb", label: "Rconnect CBBB — mirrored permissions", ticket: "RSH-2150", start: "2026-03-01", end: "2026-11-30", status: "active", lane: "Must / CBBB" },
+  { id: "cbbb", label: "Rconnect Central Bank of Barbados — mirrored permissions", ticket: "RSH-2150", start: "2026-03-01", end: "2026-11-30", status: "active", lane: "Must / Central Bank of Barbados" },
   { id: "an", label: "RSH Analytics 26.2", ticket: "RSH-719", start: "2026-04-01", end: "2026-10-31", status: "active", lane: "In market" },
   { id: "rfs", label: "RFS × RSH Shared IAM", ticket: "RFS-1688", start: "2027-01-08", end: "2027-06-30", status: "later", lane: "Unscheduled" },
 ];
 
 export const stakeholders = [
-  { name: "Robert Binder", role: "Initiative owner", interest: "RSH-96 Shared IAM · Scale (RSH-179)", raci: "A", org: "RSH Platform" },
-  { name: "Adam Ennis", role: "Engineering lead", interest: "Phase 2 epics, AppSec, Principal User", raci: "R / A (delivery)", org: "RSH IAM" },
-  { name: "Anke Dohse", role: "RTG / delivery governance", interest: "Staffing, onboarding FRR + hire", raci: "C", org: "Product ops" },
-  { name: "Dominik Czerwiński", role: "IAM permissions / reach API", interest: "Privilege escalation, scoped groups", raci: "R", org: "RSH IAM" },
-  { name: "Celso Garcia", role: "Entity-aware roles / Keycloak ops", interest: "RSH-3496, Keycloak restart, group-id grant", raci: "R", org: "RSH IAM" },
-  { name: "Shashank Prasad", role: "Entity scoping / mirroring", interest: "RSH-3042, RSH-3503, mirroring bugs", raci: "R", org: "RSH IAM" },
-  { name: "Pawel Skrzypczynski", role: "Platform integration", interest: "Dev cluster, Analyser, module rollout", raci: "R", org: "RSH Platform" },
-  { name: "Kartik Sharma", role: "Documentation", interest: "IAM User Guide (RSH-4221)", raci: "R", org: "RSH IAM" },
-  { name: "Jan-Hendrik Hühne", role: "PAT owner", interest: "RSH-4262 — later horizon", raci: "C", org: "RSH Platform" },
-  { name: "Nico Romero", role: "Vizor AuthN/Z author", interest: "Confluence v62 (May 2026)", raci: "C", org: "Vizor" },
+  { name: "Robert Binder", role: "Initiative owner", interest: "RSH-96 Shared Identity and Access Management · Scale (RSH-179)", raci: "A", org: "Regnology Supervision Hub Platform" },
+  { name: "Adam Ennis", role: "Engineering lead", interest: "Phase 2 epics, application security, Principal User", raci: "R / A (delivery)", org: "Regnology Supervision Hub Identity and Access Management" },
+  { name: "Anke Dohse", role: "Release and technical governance / delivery governance", interest: "Staffing, onboarding FRR + hire", raci: "C", org: "Product ops" },
+  { name: "Dominik Czerwiński", role: "Identity and Access Management permissions / reach API", interest: "Privilege escalation, scoped groups", raci: "R", org: "Regnology Supervision Hub Identity and Access Management" },
+  { name: "Celso Garcia", role: "Entity-aware roles / Keycloak operations", interest: "RSH-3496, Keycloak restart, group-id grant", raci: "R", org: "Regnology Supervision Hub Identity and Access Management" },
+  { name: "Shashank Prasad", role: "Entity scoping / mirroring", interest: "RSH-3042, RSH-3503, mirroring bugs", raci: "R", org: "Regnology Supervision Hub Identity and Access Management" },
+  { name: "Pawel Skrzypczynski", role: "Platform integration", interest: "Dev cluster, Analyser, module rollout", raci: "R", org: "Regnology Supervision Hub Platform" },
+  { name: "Kartik Sharma", role: "Documentation", interest: "Identity and Access Management User Guide (RSH-4221)", raci: "R", org: "Regnology Supervision Hub Identity and Access Management" },
+  { name: "Jan-Hendrik Hühne", role: "Personal Access Token owner", interest: "RSH-4262 — later horizon", raci: "C", org: "Regnology Supervision Hub Platform" },
+  { name: "Nico Romero", role: "Vizor Authentication and Authorization author", interest: "Confluence v62 (May 2026)", raci: "C", org: "Vizor" },
   { name: "Malachy Walsh", role: "IAM Integration author", interest: "Confluence v17 — undocumented gaps", raci: "C", org: "Vizor" },
   { name: "Iryna Shaban", role: "Rconnect IAM consumer", interest: "What IAM Service Offers · country in permissions", raci: "C", org: "Rconnect" },
-  { name: "CBBB / Rconnect", role: "Customer forcing function", interest: "Mirrored permissions, not implicit ones", raci: "I / C", org: "External" },
+  { name: "Central Bank of Barbados / Rconnect", role: "Customer forcing function", interest: "Mirrored permissions, not implicit ones", raci: "I / C", org: "External" },
 ];
 
 export const raciRows = [
   ["Initiative strategy (RSH-96)", "A", "C", "I", "I", "C"],
   ["Sprint commitment & delivery", "I", "A", "R", "I", "I"],
   ["Principal User (RSH-1846 / 4255)", "A", "R", "R", "C", "C"],
-  ["Permission mirroring / CBBB", "A", "R", "R", "C", "I"],
+  ["Permission mirroring / Central Bank of Barbados", "A", "R", "R", "C", "I"],
   ["Privilege-escalation & AppSec", "I", "A", "R", "I", "A"],
-  ["Entity scoping / MDM inheritance", "C", "A", "R", "C", "I"],
+  ["Entity scoping / Master Data Management inheritance", "C", "A", "R", "C", "I"],
   ["Vizor / R3 / Analytics integration", "C", "C", "R", "A", "I"],
   ["Consumer documentation", "I", "C", "R", "C", "I"],
 ];
@@ -324,7 +324,7 @@ export const rice = [
     impact: 3,
     confidence: 0.9,
     effort: 1,
-    why: "Touches every IAM tenant. In Quality Review. Highest near-term ROI and a PU prerequisite.",
+    why: "Touches every Identity and Access Management tenant. In Quality Review. Highest near-term return on investment and a Principal User prerequisite.",
     bottleneck: false,
   },
   {
@@ -344,7 +344,7 @@ export const rice = [
     impact: 3,
     confidence: 0.8,
     effort: 4,
-    why: "CBBB / Rconnect Must. Revenue and client-satisfaction forcing function.",
+    why: "Central Bank of Barbados / Rconnect Must. Revenue and client-satisfaction forcing function.",
     bottleneck: false,
   },
   {
@@ -374,7 +374,7 @@ export const rice = [
     impact: 2,
     confidence: 0.4,
     effort: 6,
-    why: "Blocked on MDM. Do not staff until MDM membership is unblocked in writing.",
+    why: "Blocked on Master Data Management (MDM). Do not staff until MDM membership is unblocked in writing.",
     bottleneck: true,
   },
   {
@@ -388,13 +388,13 @@ export const rice = [
     bottleneck: false,
   },
   {
-    item: "PAT / WCAG / Multi-Core",
+    item: "Personal Access Token / accessibility / Multi-Core Identity Provider",
     ticket: "RSH-4262",
     reach: 4,
     impact: 1,
     confidence: 0.55,
     effort: 8,
-    why: "Platform completeness, not the next 90 days. Sequence after PU + hardening.",
+    why: "Platform completeness, not the next 90 days. Sequence after Principal User + hardening.",
     bottleneck: false,
   },
 ];
@@ -405,16 +405,16 @@ export function riceScore(row: (typeof rice)[number]) {
 
 export const bottlenecks = [
   {
-    title: "MDM entity-group membership",
+    title: "Master Data Management (MDM) entity-group membership",
     ticket: "RSH-2169",
     detail:
-      "VAS entityGroups cannot expand members. Principal User and scoped permissions will lie about reach until MDM inheritance is explicit or deferred.",
+      "Vizor API Service (VAS) entityGroups cannot expand members. Principal User and scoped permissions will lie about reach until Master Data Management (MDM) inheritance is explicit or deferred.",
   },
   {
     title: "Audience validation is off",
-    ticket: "VAS config",
+    ticket: "Vizor API Service config",
     detail:
-      "VAS_IAM_INTERNAL_AUDIENCE / EXTERNAL default empty in known environments. Issuer auto-population needed a manual SQL fix-up in P5.8.1. Treat as go-live risk.",
+      "VAS_IAM_INTERNAL_AUDIENCE / EXTERNAL default empty in all known environments. Issuer auto-population needed a manual SQL fix-up in P5.8.1. Treat as a go-live risk.",
   },
   {
     title: "Closed epic ≠ capability in market",

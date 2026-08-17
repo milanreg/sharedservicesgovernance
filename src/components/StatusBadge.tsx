@@ -11,7 +11,10 @@ export function StatusBadge({
 }) {
   const tone: StatusTone = workflowTone(status, { blocked });
   const hue = tone === "other" ? otherHue(status) : undefined;
-  const label = [blocked ? `${status} · Blocked` : status, spillover ? "spillover" : ""]
+  const label = [
+    blocked ? `${status} · Blocked` : status,
+    spillover ? "carried from previous sprint" : "",
+  ]
     .filter(Boolean)
     .join(" · ");
 

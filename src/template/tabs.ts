@@ -1,7 +1,9 @@
 /** Single tab contract for every Shared Services project dashboard. */
 export const GOVERNANCE_TABS = [
+  { id: "summary", label: "Summary" },
   { id: "sprint", label: "Sprint details" },
   { id: "spillover", label: "Sprint spillovers" },
+  { id: "pm", label: "PM delivery focus" },
   { id: "overview", label: "Product overview" },
   { id: "backlog", label: "Product Gantt" },
   { id: "stakeholders", label: "Stakeholders" },

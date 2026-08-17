@@ -260,9 +260,39 @@ button,
 }
 
 .stat {
+  appearance: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
   background: var(--white);
   border: 1px solid var(--rule);
   padding: 14px 16px;
+}
+
+.stat:hover {
+  border-color: var(--navy);
+}
+
+.stat-active {
+  outline: 2px solid var(--navy);
+  outline-offset: 1px;
+}
+
+.stat-keys,
+.stat small {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.35;
+}
+
+.stat-hint {
+  margin: -8px 0 16px;
 }
 
 .stat b {
@@ -273,7 +303,7 @@ button,
   line-height: 1.1;
 }
 
-.stat span {
+.stat > span {
   font-size: 12px;
   color: var(--ink-muted);
   letter-spacing: 0.04em;
@@ -286,7 +316,7 @@ button,
 }
 
 .stat-done b,
-.stat-done span {
+.stat-done > span {
   color: var(--green);
 }
 
@@ -296,7 +326,7 @@ button,
 }
 
 .stat-alert b,
-.stat-alert span {
+.stat-alert > span {
   color: var(--rose);
 }
 
@@ -590,11 +620,12 @@ tr.row-other td:first-child {
 }
 
 .risk-info-pop {
-  display: none;
+  display: block;
   position: absolute;
-  z-index: 20;
-  left: 0;
-  top: calc(100% + 6px);
+  z-index: 30;
+  right: calc(100% + 8px);
+  left: auto;
+  top: 0;
   width: 320px;
   background: var(--navy);
   color: var(--white);
@@ -628,13 +659,24 @@ tr.row-other td:first-child {
   color: #e8dcc4;
 }
 
-.risk-info:hover .risk-info-pop,
-.risk-info:focus-within .risk-info-pop {
-  display: block;
-}
-
 .card h3 .risk-info {
   margin-left: 8px;
+}
+
+.section-focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 6px;
+  background: rgba(31, 92, 99, 0.04);
+  padding: 4px 8px 8px;
+}
+
+.pm-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.pm-list li {
+  margin-bottom: 8px;
 }
 
 .muted {

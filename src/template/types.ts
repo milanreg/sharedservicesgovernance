@@ -152,6 +152,22 @@ export type ProjectGovernance = {
   rice: RiceItem[];
   bottlenecks: Bottleneck[];
   next90days?: string;
+  projectSummary: {
+    jiraUrl: string;
+    done: number;
+    open: number;
+    highPriorityOpen: number;
+    unassignedOpen: number;
+    epics: number;
+    currentRelease?: { name: string; date: string; released: boolean };
+    lastRelease?: { name: string; date: string };
+    narrative: string;
+  };
+  pmFocus: {
+    thisSprint: string[];
+    sequence: { order: number; item: string; ticket: string; why: string }[];
+    questions: string[];
+  };
 };
 
 export function riceScore(row: RiceItem) {
@@ -215,5 +231,19 @@ export function emptyProject(
     raci: { headers: [], rows: [] },
     rice: [],
     bottlenecks: [],
+    projectSummary: {
+      jiraUrl: "",
+      done: 0,
+      open: 0,
+      highPriorityOpen: 0,
+      unassignedOpen: 0,
+      epics: 0,
+      narrative: "Project summary will appear here once Jira is connected.",
+    },
+    pmFocus: {
+      thisSprint: [],
+      sequence: [],
+      questions: [],
+    },
   };
 }
