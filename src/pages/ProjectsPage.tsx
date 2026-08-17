@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Topbar } from "../components/Topbar";
-import { projects } from "../data/iam";
+import { portfolio } from "../data/catalog";
+import { ragTone } from "../template/status";
 
 export function ProjectsPage() {
   return (
@@ -16,9 +17,9 @@ export function ProjectsPage() {
           </p>
         </div>
         <div className="cards">
-          {projects.map((p) => (
+          {portfolio.map((p) => (
             <Link key={p.slug} className="project-card" to={`/projects/${p.slug}`}>
-              <span className={`pill ${p.rag === "Amber" ? "amber" : "teal"}`}>{p.rag}</span>
+              <span className={`pill ${ragTone(p.rag)}`}>{p.rag}</span>
               <h2>{p.name}</h2>
               <p>{p.summary}</p>
               <div className="meta-row">

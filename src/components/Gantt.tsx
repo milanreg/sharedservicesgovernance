@@ -1,26 +1,29 @@
-import { JIRA, type GanttItem } from "../data/iam";
+import type { GanttItem } from "../template/types";
 
 const RANGE_START = Date.parse("2025-03-01");
 const RANGE_END = Date.parse("2027-08-31");
 const SPAN = RANGE_END - RANGE_START;
 
-const TICKS = [
-  "Q2 25",
-  "Q3 25",
-  "Q4 25",
-  "Q1 26",
-  "Q2 26",
-  "Q3 26",
-  "Q4 26",
-  "H1 27",
-];
+const TICKS = ["Q2 25", "Q3 25", "Q4 25", "Q1 26", "Q2 26", "Q3 26", "Q4 26", "H1 27"];
 
 function pct(iso: string) {
   const t = Date.parse(iso);
   return Math.min(100, Math.max(0, ((t - RANGE_START) / SPAN) * 100));
 }
 
-export function Gantt({ items, caption }: { items: GanttItem[]; caption: string }) {
+export function Gantt({
+  items,
+  caption,
+  ticketBaseUrl,
+}: {
+  items: GanttItem[];
+  caption: string;
+  ticketBaseUrl: string;
+}) {
+  if (!items.length) {
+    return <p className="empty-note">No Gantt items in this project yet.</p>;
+  }
+
   return (
     <div className="gantt">
       <div className="gantt-axis">
@@ -39,7 +42,7 @@ export function Gantt({ items, caption }: { items: GanttItem[]; caption: string 
             <div className="gantt-label">
               {item.label}
               {item.ticket ? (
-                <a href={`${JIRA}/${item.ticket}`} target="_blank" rel="noreferrer">
+                <a href={`${ticketBaseUrl}/${item.ticket}`} target="_blank" rel="noreferrer">
                   {item.ticket}
                 </a>
               ) : null}
@@ -76,9 +79,11 @@ export function Gantt({ items, caption }: { items: GanttItem[]; caption: string 
           Later
         </span>
       </div>
-      <p className="muted" style={{ margin: "10px 0 0" }}>
-        {caption}
-      </p>
+      {caption ? (
+        <p className="muted" style={{ margin: "10px 0 0" }}>
+          {caption}
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import type { GanttItem, Ticket } from "../template/types";
+
 export const JIRA = "https://regnology-cloud.atlassian.net/browse";
 export const BOARD =
   "https://regnology-cloud.atlassian.net/jira/software/c/projects/RSH/boards/2936";
@@ -28,24 +30,7 @@ export const sprint = {
   spillover: 6,
 };
 
-export type TicketStatus =
-  | "Closed"
-  | "In Quality Review"
-  | "In Implementation"
-  | "Ready"
-  | "New"
-  | "Ready for integration"
-  | "PO Accepted";
-
-export type Ticket = {
-  key: string;
-  summary: string;
-  status: TicketStatus;
-  owner: string;
-  why?: string;
-  blocked?: boolean;
-  spillover?: boolean;
-};
+export type { GanttItem, Ticket } from "../template/types";
 
 export const sprintTickets: Ticket[] = [
   {
@@ -276,16 +261,6 @@ export const consumers = [
   { name: "RFS", key: "RFS-1688", state: "New", note: "Not scheduled" },
 ];
 
-export type GanttItem = {
-  id: string;
-  label: string;
-  ticket?: string;
-  start: string;
-  end: string;
-  status: "done" | "active" | "planned" | "blocked" | "later";
-  lane?: string;
-};
-
 export const backlogGantt: GanttItem[] = [
   { id: "auth", label: "Authentication foundation", ticket: "RSH-97", start: "2025-03-01", end: "2025-10-15", status: "done", lane: "Phase 1" },
   { id: "authz", label: "Authorization + module roles", ticket: "RSH-100", start: "2025-04-01", end: "2025-11-20", status: "done", lane: "Phase 1" },
@@ -460,30 +435,3 @@ export const bottlenecks = [
       "RSH-96 is the strategy initiative (Amber, Jan 2026). RSH-4254 (14 Aug) is a maintenance epic whose stated goal is to get IAM actually working.",
   },
 ];
-
-export const projects = [
-  {
-    slug: "iam",
-    name: "IAM",
-    full: "Identity and Access Management",
-    rag: "Amber",
-    summary: "Shared authentication and authorization for Regnology solutions. Foundations shipped; Principal User and mirroring still decide whether products retire local user management.",
-    stats: ["634 [IAM] closed", "209 still open", "Sprint 2616 active"],
-  },
-  {
-    slug: "rconnect-submission",
-    name: "RCONNECT SUBMISSION",
-    full: "Rconnect Submission",
-    rag: "TBD",
-    summary: "Submission flow across Rcloud / NiFi. Governance tabs will be added once the product briefing is connected.",
-    stats: ["Portfolio card ready", "Tabs not yet wired"],
-  },
-  {
-    slug: "rconnect-communicator",
-    name: "RCONNECT COMMUNICATOR",
-    full: "Rconnect Communicator",
-    rag: "TBD",
-    summary: "Supervisory messaging module. Governance tabs will be added once the product briefing is connected.",
-    stats: ["Portfolio card ready", "Tabs not yet wired"],
-  },
-] as const;
