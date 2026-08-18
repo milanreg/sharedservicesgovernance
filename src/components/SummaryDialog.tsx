@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { buildDigest, formatDay, type Digest } from "../template/digest";
 import { workflowTone } from "../template/status";
 import { ticketHref, type ActivityList, type ProjectGovernance } from "../template/types";
@@ -119,6 +119,11 @@ function Upcoming({ digest, baseUrl }: { digest: Digest; baseUrl: string }) {
   );
 }
 
+/**
+ * Mounted only while open. A dialog left in the DOM can be forced visible by a
+ * stray display rule beating the user-agent stylesheet, which is exactly how
+ * this review once ended up rendered inline on the page.
+ */
 export function SummaryDialog({
   project,
   open,
@@ -128,15 +133,23 @@ export function SummaryDialog({
   open: boolean;
   onClose: () => void;
 }) {
+  if (!open) return null;
+  return <Review project={project} onClose={onClose} />;
+}
+
+function Review({
+  project,
+  onClose,
+}: {
+  project: ProjectGovernance;
+  onClose: () => void;
+}) {
   const ref = useRef<HTMLDialogElement>(null);
 
   // showModal is the only way to get the backdrop, focus trap, and Esc for free.
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
-    if (open && !dialog.open) dialog.showModal();
-    if (!open && dialog.open) dialog.close();
-  }, [open]);
+  useLayoutEffect(() => {
+    ref.current?.showModal();
+  }, []);
 
   const digest = buildDigest(project);
   const window = `${formatDay(digest.from.toISOString())} – ${formatDay(digest.to.toISOString())}`;

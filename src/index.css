@@ -58,14 +58,21 @@ button,
   min-height: 100vh;
   background: var(--navy);
   color: var(--white);
-  display: grid;
-  place-items: center;
-  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  padding: 56px 24px;
 }
 
 .landing-inner {
   max-width: 720px;
   text-align: center;
+}
+
+.landing-cards {
+  width: min(1080px, 100%);
 }
 
 .kicker {
@@ -85,27 +92,11 @@ button,
   margin: 0 0 16px;
 }
 
-.landing p {
+.landing-inner p {
   color: #c9d4dc;
-  margin: 0 auto 36px;
+  margin: 0 auto;
   max-width: 520px;
   font-size: 16px;
-}
-
-.btn-primary {
-  appearance: none;
-  border: 0;
-  background: var(--paper);
-  color: var(--navy);
-  padding: 14px 28px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: #fff;
 }
 
 /* Shell */
@@ -179,7 +170,8 @@ button,
   background: var(--white);
   border: 1px solid var(--rule);
   padding: 22px 22px 20px;
-  color: inherit;
+  /* Explicit, not inherited: these cards also sit on the dark landing page. */
+  color: var(--ink);
   min-height: 240px;
 }
 
@@ -214,6 +206,7 @@ button,
   text-transform: uppercase;
   padding: 3px 8px;
   background: var(--paper-2);
+  color: var(--ink);
 }
 
 .pill.amber {

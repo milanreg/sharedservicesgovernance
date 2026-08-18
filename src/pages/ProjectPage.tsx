@@ -13,7 +13,7 @@ export function ProjectPage() {
         <Topbar title="Project" />
         <main className="page">
           <p className="muted">
-            <Link to="/projects">← Portfolio</Link>
+            <Link to="/">← Portfolio</Link>
           </p>
           <div className="coming">
             <h1 style={{ fontFamily: "var(--serif)", fontWeight: 500 }}>Unknown project</h1>

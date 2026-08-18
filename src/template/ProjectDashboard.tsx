@@ -920,7 +920,7 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
       <Topbar title={`${project.name} governance`} />
       <main className="page">
         <p className="muted">
-          <Link to="/projects">← Portfolio</Link>
+          <Link to="/">← Portfolio</Link>
         </p>
         <div className="iam-head">
           <div>
