@@ -20,9 +20,28 @@ export function SyncButton({
     setState("syncing");
     setMessage(null);
     try {
-      const response = await fetch(`/api/sync/${slug}`, { method: "POST" });
-      const body = await response.json();
-      if (!response.ok) throw new Error(body?.error ?? `Sync failed (${response.status}).`);
+      let response: Response;
+      try {
+        response = await fetch(`/api/sync/${slug}`, { method: "POST" });
+      } catch {
+        throw new Error(
+          "Could not reach the sync endpoint. The dev server that served this page is not running — restart it with npm run dev and reload.",
+        );
+      }
+
+      // A stopped or plugin-less server answers with an HTML error page.
+      const raw = await response.text();
+      let body: { error?: string } | LiveSnapshot;
+      try {
+        body = JSON.parse(raw);
+      } catch {
+        throw new Error(
+          `The sync endpoint returned ${response.status} as HTML, not JSON. This page is probably served by a build or a server without the sync plugin — run npm run dev and reload.`,
+        );
+      }
+      if (!response.ok) {
+        throw new Error(("error" in body && body.error) || `Sync failed (${response.status}).`);
+      }
 
       const snapshot = body as LiveSnapshot;
       onSynced(snapshot);
