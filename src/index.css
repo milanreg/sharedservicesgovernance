@@ -621,17 +621,17 @@ tr.row-other td:first-child {
 
 .risk-info-pop {
   display: block;
-  position: absolute;
-  z-index: 30;
-  right: calc(100% + 8px);
-  left: auto;
-  top: 0;
-  width: 320px;
+  position: fixed;
+  z-index: 60;
+  width: min(320px, calc(100vw - 16px));
+  max-height: calc(100vh - 16px);
+  overflow-y: auto;
   background: var(--navy);
   color: var(--white);
   padding: 12px 14px;
   font-size: 12.5px;
   line-height: 1.4;
+  box-shadow: 0 10px 30px rgba(11, 31, 51, 0.28);
 }
 
 .risk-info-pop p {
@@ -677,6 +677,87 @@ tr.row-other td:first-child {
 
 .pm-list li {
   margin-bottom: 8px;
+}
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 18px 0 24px;
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  font-size: 12.5px;
+}
+
+.section-nav a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.section-nav a:hover {
+  border-bottom-color: var(--teal);
+}
+
+.flow-list {
+  margin: 0 0 22px;
+  padding-left: 20px;
+}
+
+.flow-list li {
+  margin-bottom: 10px;
+}
+
+.flow-list b {
+  display: block;
+  font-family: var(--serif);
+  font-size: 14.5px;
+}
+
+.flow-list span {
+  color: var(--ink-muted);
+  font-size: 13px;
+}
+
+.phase {
+  margin-bottom: 28px;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--teal);
+}
+
+.phase-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.phase-head h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.phase-exit-label {
+  margin: 14px 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.ticket-links {
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+code {
+  font-size: 12.5px;
+  background: var(--sand);
+  padding: 1px 5px;
 }
 
 .muted {

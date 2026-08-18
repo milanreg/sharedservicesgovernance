@@ -86,6 +86,62 @@ export type EpicRow = {
   status: string;
 };
 
+export type ArchitectureComponent = {
+  component: string;
+  responsibility: string;
+  technology: string;
+  owner: string;
+};
+
+export type FlowStep = {
+  step: number;
+  title: string;
+  detail: string;
+};
+
+export type DecisionRecord = {
+  title: string;
+  detail: string;
+  reference?: RiskReference;
+};
+
+export type ImplementationNote = {
+  area: string;
+  detail: string;
+  tickets: string[];
+  state: string;
+};
+
+export type ConfigRow = {
+  setting: string;
+  value: string;
+  meaning: string;
+  warning?: boolean;
+};
+
+export type DeploymentTarget = {
+  environment: string;
+  topology: string;
+  state: string;
+  note: string;
+};
+
+export type RoadmapItem = {
+  key: string;
+  title: string;
+  status: string;
+  note: string;
+};
+
+export type RoadmapPhase = {
+  phase: string;
+  window: string;
+  state: string;
+  goal: string;
+  items: RoadmapItem[];
+  exit: string[];
+};
+
 /**
  * Canonical governance payload. Every project dashboard renders this shape.
  * Refactor ProjectDashboard when the layout must change; add a new dataset
@@ -132,6 +188,23 @@ export type ProjectGovernance = {
     layers: LayerRow[];
     consumers: ConsumerRow[];
     epics: EpicRow[];
+    architecture: {
+      intro: string;
+      components: ArchitectureComponent[];
+      flow: FlowStep[];
+      decisions: DecisionRecord[];
+    };
+    implementation: {
+      intro: string;
+      notes: ImplementationNote[];
+      config: ConfigRow[];
+    };
+    deployment: {
+      intro: string;
+      targets: DeploymentTarget[];
+      pipeline: string[];
+    };
+    roadmap: RoadmapPhase[];
   };
   backlogGantt: {
     intro: string;
@@ -215,6 +288,10 @@ export function emptyProject(
       layers: [],
       consumers: [],
       epics: [],
+      architecture: { intro: "", components: [], flow: [], decisions: [] },
+      implementation: { intro: "", notes: [], config: [] },
+      deployment: { intro: "", targets: [], pipeline: [] },
+      roadmap: [],
     },
     backlogGantt: {
       intro: "Backlog Gantt will render from epics and versions once connected.",

@@ -7,7 +7,7 @@ import { StatusBadge } from "../components/StatusBadge";
 import { Topbar } from "../components/Topbar";
 import { ragTone, workflowTone } from "../template/status";
 import { isSprintSlice, sprintSlices, type SprintSlice } from "../template/slices";
-import { GOVERNANCE_TABS, isTabId, type TabId } from "../template/tabs";
+import { DEFAULT_TAB, GOVERNANCE_TABS, isTabId, type TabId } from "../template/tabs";
 import {
   riceScore,
   ticketHref,
@@ -64,207 +64,6 @@ function TicketTable({
   );
 }
 
-function SummaryTab({ project }: { project: ProjectGovernance }) {
-  const s = project.projectSummary;
-  const groups = sprintSlices(project.tickets);
-  if (!project.populated) {
-    return <EmptyTab title="Summary" body={s.narrative} />;
-  }
-
-  return (
-    <section className="panel">
-      <h2>Project summary</h2>
-      <p className="muted">
-        {s.narrative}{" "}
-        {s.jiraUrl ? (
-          <a href={s.jiraUrl} target="_blank" rel="noreferrer">
-            Open Jira project summary
-          </a>
-        ) : null}
-      </p>
-
-      <div className="stats">
-        <div className="stat">
-          <b>{s.done}</b>
-          <span>Done Identity and Access Management tickets</span>
-          <small>Jira: status category Done</small>
-        </div>
-        <div className="stat">
-          <b>{s.open}</b>
-          <span>Open Identity and Access Management tickets</span>
-          <small>Jira: status category not Done</small>
-        </div>
-        <div className="stat stat-alert">
-          <b>{s.highPriorityOpen}</b>
-          <span>High or critical still open</span>
-          <small>Priority Highest, High, or Critical</small>
-        </div>
-        <div className="stat">
-          <b>{s.unassignedOpen}</b>
-          <span>Open and unassigned</span>
-          <small>Assignee is empty</small>
-        </div>
-      </div>
-
-      <div className="grid-2">
-        <div className="card">
-          <h3>Releases</h3>
-          {s.currentRelease ? (
-            <p>
-              Current: {s.currentRelease.name} · {s.currentRelease.date} ·{" "}
-              {s.currentRelease.released ? "Released" : "Unreleased"}
-            </p>
-          ) : null}
-          {s.lastRelease ? (
-            <p className="muted">
-              Last released: {s.lastRelease.name} · {s.lastRelease.date}
-            </p>
-          ) : null}
-          <p className="muted">{s.epics} Identity and Access Management epics on the board.</p>
-        </div>
-        <div className="card">
-          <h3>This sprint mix</h3>
-          <p>Closed {groups.done.length} · Implementation + Quality Review {groups.wip.length} · Blocked {groups.attention.length} · Waiting {groups.waiting.length} · Committed {groups.committed.length}</p>
-          <p className="muted">{project.sprint.headline}</p>
-        </div>
-      </div>
-
-      <h3>Glossary</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Term</th>
-            <th>Full form</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[
-            ["RSH", "Regnology Supervision Hub"],
-            ["IAM", "Identity and Access Management"],
-            ["MDM", "Master Data Management"],
-            ["VAS", "Vizor API Service"],
-            ["IDP", "Identity Provider"],
-            ["PAT", "Personal Access Token"],
-            ["WCAG", "Web Content Accessibility Guidelines"],
-            ["CBBB", "Central Bank of Barbados"],
-            ["RACI", "Responsible, Accountable, Consulted, Informed"],
-            ["RICE", "Reach, Impact, Confidence, Effort"],
-            ["Principal User", "Delegated entity-scoped user administrator"],
-          ].map(([term, full]) => (
-            <tr key={term}>
-              <td>{term}</td>
-              <td>{full}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
-  );
-}
-
-function PmTab({ project }: { project: ProjectGovernance }) {
-  const focus = project.pmFocus;
-  if (!project.populated) {
-    return (
-      <EmptyTab
-        title="PM delivery focus"
-        body="Product-manager delivery actions will appear here once the briefing is connected."
-      />
-    );
-  }
-
-  const unassigned = project.tickets.filter((t) => t.owner === "Unassigned" && t.status !== "Closed");
-  const red = project.tickets.filter((t) => t.risk?.level === "red");
-  const ranked = [...project.rice].sort((a, b) => riceScore(b) - riceScore(a)).slice(0, 3);
-
-  return (
-    <section className="panel">
-      <h2>Product manager delivery focus</h2>
-      <p className="muted">
-        Working view for this sprint: what to protect, what to sequence, and which
-        questions still need an answer before the next release.
-      </p>
-
-      <div className="callout danger">{project.next90days}</div>
-
-      <h3>Do this sprint</h3>
-      <ol className="pm-list">
-        {focus.thisSprint.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ol>
-
-      <h3>Delivery sequence (highest return first)</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Item</th>
-            <th>Ticket</th>
-            <th>Why it is next</th>
-          </tr>
-        </thead>
-        <tbody>
-          {focus.sequence.map((row) => (
-            <tr key={row.ticket}>
-              <td>{row.order}</td>
-              <td>{row.item}</td>
-              <td>
-                <a href={ticketHref(project.ticketBaseUrl, row.ticket)} target="_blank" rel="noreferrer">
-                  {row.ticket}
-                </a>
-              </td>
-              <td>{row.why}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <div className="grid-2">
-        <div>
-          <h3>Red risks still open</h3>
-          <TicketTable rows={red} baseUrl={project.ticketBaseUrl} />
-        </div>
-        <div>
-          <h3>Unassigned in this sprint</h3>
-          <TicketTable rows={unassigned} baseUrl={project.ticketBaseUrl} />
-        </div>
-      </div>
-
-      <h3>Top RICE (Reach × Impact × Confidence / Effort)</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Ticket</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ranked.map((row) => (
-            <tr key={row.ticket}>
-              <td>{row.item}</td>
-              <td>
-                <a href={ticketHref(project.ticketBaseUrl, row.ticket)} target="_blank" rel="noreferrer">
-                  {row.ticket}
-                </a>
-              </td>
-              <td className="rice-score">{riceScore(row).toFixed(1)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <h3>Open questions</h3>
-      <ul className="pm-list">
-        {focus.questions.map((q) => (
-          <li key={q}>{q}</li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 function EmptyTab({ title, body }: { title: string; body: string }) {
   return (
     <section className="panel">
@@ -287,6 +86,9 @@ function SprintTab({
 
   const groups = sprintSlices(project.tickets);
   const focus = (id: SprintSlice) => (slice === id ? "section-focus" : "");
+  const pm = project.pmFocus;
+  const unassigned = project.tickets.filter((t) => t.owner === "Unassigned" && t.status !== "Closed");
+  const red = project.tickets.filter((t) => t.risk?.level === "red");
 
   return (
     <section className="panel">
@@ -300,6 +102,48 @@ function SprintTab({
         ) : null}
       </p>
       {project.sprint.headline ? <div className="callout">{project.sprint.headline}</div> : null}
+
+      {pm.thisSprint.length ? (
+        <>
+          <h3>Product manager focus — do this sprint</h3>
+          <ol className="pm-list">
+            {pm.thisSprint.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ol>
+        </>
+      ) : null}
+
+      {pm.sequence.length ? (
+        <>
+          <h3>Delivery sequence (highest return first)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Ticket</th>
+                <th>Why it is next</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pm.sequence.map((row) => (
+                <tr key={row.ticket}>
+                  <td>{row.order}</td>
+                  <td>{row.item}</td>
+                  <td>
+                    <a href={ticketHref(project.ticketBaseUrl, row.ticket)} target="_blank" rel="noreferrer">
+                      {row.ticket}
+                    </a>
+                  </td>
+                  <td>{row.why}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      ) : null}
+
       {slice === "committed" ? (
         <div className="section-focus" id="slice-committed">
           <h3>All tickets in this sprint commitment</h3>
@@ -332,6 +176,28 @@ function SprintTab({
         <h3>Ready / not started</h3>
         <TicketTable rows={groups.waiting} baseUrl={project.ticketBaseUrl} />
       </div>
+
+      <div className="grid-2">
+        <div>
+          <h3>Red risks still open</h3>
+          <TicketTable rows={red} baseUrl={project.ticketBaseUrl} />
+        </div>
+        <div>
+          <h3>Unassigned in this sprint</h3>
+          <TicketTable rows={unassigned} baseUrl={project.ticketBaseUrl} />
+        </div>
+      </div>
+
+      {pm.questions.length ? (
+        <>
+          <h3>Open questions</h3>
+          <ul className="pm-list">
+            {pm.questions.map((q) => (
+              <li key={q}>{q}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
     </section>
   );
 }
@@ -372,8 +238,54 @@ function SpilloverTab({ project }: { project: ProjectGovernance }) {
   );
 }
 
+const OVERVIEW_SECTIONS = [
+  { id: "ov-snapshot", label: "Delivery snapshot" },
+  { id: "ov-architecture", label: "Technical architecture" },
+  { id: "ov-implementation", label: "Implementation" },
+  { id: "ov-deployment", label: "Deployment" },
+  { id: "ov-roadmap", label: "Roadmap by phase" },
+  { id: "ov-bottlenecks", label: "Bottlenecks" },
+  { id: "ov-jira", label: "Jira map" },
+  { id: "ov-glossary", label: "Glossary" },
+];
+
+const GLOSSARY: [string, string][] = [
+  ["RSH", "Regnology Supervision Hub"],
+  ["IAM", "Identity and Access Management"],
+  ["MDM", "Master Data Management"],
+  ["VAS", "Vizor API Service"],
+  ["VSC / VP", "Vizor Supervision Centre / Vizor Portal"],
+  ["IDP", "Identity Provider"],
+  ["PAT", "Personal Access Token"],
+  ["RFC 8693", "OAuth 2.0 token exchange standard"],
+  ["WCAG", "Web Content Accessibility Guidelines"],
+  ["CBBB", "Central Bank of Barbados"],
+  ["RACI", "Responsible, Accountable, Consulted, Informed"],
+  ["RICE", "Reach, Impact, Confidence, Effort"],
+  ["Principal User", "Delegated entity-scoped user administrator"],
+  ["Reach", "What a caller may see or manage, derived from role entity context"],
+];
+
+function TicketLinks({ keys, baseUrl }: { keys: string[]; baseUrl: string }) {
+  return (
+    <span className="ticket-links">
+      {keys.map((key, i) => (
+        <span key={key}>
+          {i > 0 ? ", " : ""}
+          <a href={ticketHref(baseUrl, key)} target="_blank" rel="noreferrer">
+            {key}
+          </a>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function OverviewTab({ project }: { project: ProjectGovernance }) {
   const { overview } = project;
+  const s = project.projectSummary;
+  const groups = sprintSlices(project.tickets);
+  const { architecture, implementation, deployment, roadmap } = overview;
   if (!project.populated) {
     return <EmptyTab title="Product overview" body={overview.intro} />;
   }
@@ -383,6 +295,14 @@ function OverviewTab({ project }: { project: ProjectGovernance }) {
       <h2>Product overview</h2>
       <p className="muted">{overview.intro}</p>
       {overview.callout ? <div className="callout">{overview.callout}</div> : null}
+
+      <nav className="section-nav" aria-label="Overview sections">
+        {OVERVIEW_SECTIONS.map((section) => (
+          <a key={section.id} href={`#${section.id}`}>
+            {section.label}
+          </a>
+        ))}
+      </nav>
 
       <div className="grid-2">
         <div className="card">
@@ -399,7 +319,263 @@ function OverviewTab({ project }: { project: ProjectGovernance }) {
         </div>
       </div>
 
-      <h3>Jira ticket map</h3>
+      <h3 id="ov-snapshot">Delivery snapshot</h3>
+      <p className="muted">
+        {s.narrative}{" "}
+        {s.jiraUrl ? (
+          <a href={s.jiraUrl} target="_blank" rel="noreferrer">
+            Open Jira project summary
+          </a>
+        ) : null}
+      </p>
+      <div className="stats">
+        <div className="stat">
+          <b>{s.done}</b>
+          <span>Done Identity and Access Management tickets</span>
+          <small>Jira: status category Done</small>
+        </div>
+        <div className="stat">
+          <b>{s.open}</b>
+          <span>Open Identity and Access Management tickets</span>
+          <small>Jira: status category not Done</small>
+        </div>
+        <div className="stat stat-alert">
+          <b>{s.highPriorityOpen}</b>
+          <span>High or critical still open</span>
+          <small>Priority Highest, High, or Critical</small>
+        </div>
+        <div className="stat">
+          <b>{s.unassignedOpen}</b>
+          <span>Open and unassigned</span>
+          <small>Assignee is empty</small>
+        </div>
+      </div>
+      <div className="grid-2">
+        <div className="card">
+          <h3>Releases</h3>
+          {s.currentRelease ? (
+            <p>
+              Current: {s.currentRelease.name} · {s.currentRelease.date} ·{" "}
+              {s.currentRelease.released ? "Released" : "Unreleased"}
+            </p>
+          ) : null}
+          {s.lastRelease ? (
+            <p className="muted">
+              Last released: {s.lastRelease.name} · {s.lastRelease.date}
+            </p>
+          ) : null}
+          <p className="muted">{s.epics} Identity and Access Management epics on the board.</p>
+        </div>
+        <div className="card">
+          <h3>This sprint mix</h3>
+          <p>
+            Closed {groups.done.length} · Implementation + Quality Review {groups.wip.length} · Blocked{" "}
+            {groups.attention.length} · Waiting {groups.waiting.length} · Committed {groups.committed.length}
+          </p>
+          <p className="muted">{project.sprint.headline}</p>
+        </div>
+      </div>
+
+      <h3 id="ov-architecture">Technical architecture</h3>
+      <p className="muted">{architecture.intro}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Responsibility</th>
+            <th>Technology</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          {architecture.components.map((c) => (
+            <tr key={c.component}>
+              <td>{c.component}</td>
+              <td>{c.responsibility}</td>
+              <td>{c.technology}</td>
+              <td>{c.owner}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h4>Request flow — login to enforced permission</h4>
+      <ol className="flow-list">
+        {architecture.flow.map((step) => (
+          <li key={step.step}>
+            <b>{step.title}</b>
+            <span>{step.detail}</span>
+          </li>
+        ))}
+      </ol>
+
+      <h4>Architectural decisions that constrain everything else</h4>
+      <div className="grid-2">
+        {architecture.decisions.map((d) => (
+          <div className="card" key={d.title}>
+            <h3>{d.title}</h3>
+            <p>{d.detail}</p>
+            {d.reference ? (
+              <p className="muted">
+                <a href={d.reference.href} target="_blank" rel="noreferrer">
+                  {d.reference.label}
+                </a>
+              </p>
+            ) : null}
+          </div>
+        ))}
+      </div>
+
+      <h3 id="ov-implementation">Implementation details</h3>
+      <p className="muted">{implementation.intro}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>What is being built</th>
+            <th>Tickets</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody>
+          {implementation.notes.map((n) => (
+            <tr key={n.area} className={`row-${workflowTone(n.state)}`}>
+              <td>{n.area}</td>
+              <td>{n.detail}</td>
+              <td>
+                <TicketLinks keys={n.tickets} baseUrl={project.ticketBaseUrl} />
+              </td>
+              <td>{n.state}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h4>Configuration that decides whether it works</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Setting</th>
+            <th>Current value</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          {implementation.config.map((c) => (
+            <tr key={c.setting} className={c.warning ? "row-red" : ""}>
+              <td>
+                <code>{c.setting}</code>
+              </td>
+              <td>{c.value}</td>
+              <td>{c.meaning}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h3 id="ov-deployment">Deployment architecture and implementation</h3>
+      <p className="muted">{deployment.intro}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Environment</th>
+            <th>Topology</th>
+            <th>State</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {deployment.targets.map((t) => (
+            <tr key={t.environment} className={`row-${workflowTone(t.state)}`}>
+              <td>{t.environment}</td>
+              <td>{t.topology}</td>
+              <td>{t.state}</td>
+              <td>{t.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h4>Rollout sequence</h4>
+      <ol className="pm-list">
+        {deployment.pipeline.map((step) => (
+          <li key={step.slice(0, 40)}>{step}</li>
+        ))}
+      </ol>
+
+      <h3 id="ov-roadmap">Complete product roadmap by phase</h3>
+      <p className="muted">
+        Every epic on the initiative, segregated into the phase that has to finish before the next one
+        should start. Phase exit criteria are the governance gate, not the ticket count.
+      </p>
+      {roadmap.map((phase) => (
+        <div className="phase" key={phase.phase}>
+          <header className="phase-head">
+            <h4>{phase.phase}</h4>
+            <span className="pill">{phase.window}</span>
+            <span className={`pill ${ragTone(phase.state === "Closed" ? "Green" : "Amber")}`}>
+              {phase.state}
+            </span>
+          </header>
+          <p>{phase.goal}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {phase.items.map((item) => (
+                <tr key={item.key} className={`row-${workflowTone(item.status)}`}>
+                  <td>
+                    <a href={ticketHref(project.ticketBaseUrl, item.key)} target="_blank" rel="noreferrer">
+                      {item.key}
+                    </a>
+                  </td>
+                  <td>{item.title}</td>
+                  <td>
+                    <StatusBadge status={item.status} />
+                  </td>
+                  <td>{item.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {phase.exit.length ? (
+            <>
+              <p className="phase-exit-label">Exit criteria</p>
+              <ul className="pm-list">
+                {phase.exit.map((e) => (
+                  <li key={e.slice(0, 40)}>{e}</li>
+                ))}
+              </ul>
+            </>
+          ) : null}
+        </div>
+      ))}
+
+      <h3 id="ov-bottlenecks">Bottlenecks</h3>
+      <p className="muted">
+        What is actually holding delivery up. Each card carries the reason, the mitigation, and the
+        assessment behind the risk rating.
+      </p>
+      <div className="grid-2">
+        {project.bottlenecks.map((b) => (
+          <div className="card" key={b.title}>
+            <h3>
+              {b.title}
+              {b.risk ? <RiskInfo risk={b.risk} /> : null}
+            </h3>
+            <p className="muted">{b.ticket}</p>
+            <p>{b.detail}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 id="ov-jira">Jira ticket map</h3>
       <table>
         <thead>
           <tr>
@@ -476,6 +652,24 @@ function OverviewTab({ project }: { project: ProjectGovernance }) {
               <td>
                 <StatusBadge status={e.status} />
               </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h3 id="ov-glossary">Glossary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Full form</th>
+          </tr>
+        </thead>
+        <tbody>
+          {GLOSSARY.map(([term, full]) => (
+            <tr key={term}>
+              <td>{term}</td>
+              <td>{full}</td>
             </tr>
           ))}
         </tbody>
@@ -667,11 +861,9 @@ const PANELS: Record<
   TabId,
   (props: { project: ProjectGovernance; slice?: SprintSlice }) => ReactElement
 > = {
-  summary: ({ project }) => <SummaryTab project={project} />,
+  overview: ({ project }) => <OverviewTab project={project} />,
   sprint: ({ project, slice }) => <SprintTab project={project} slice={slice} />,
   spillover: ({ project }) => <SpilloverTab project={project} />,
-  pm: ({ project }) => <PmTab project={project} />,
-  overview: ({ project }) => <OverviewTab project={project} />,
   backlog: ({ project }) => <BacklogGanttTab project={project} />,
   stakeholders: ({ project }) => <StakeholdersTab project={project} />,
   rice: ({ project }) => <RiceTab project={project} />,
@@ -700,7 +892,7 @@ function TicketKeys({ tickets, baseUrl }: { tickets: Ticket[]; baseUrl: string }
 export function ProjectDashboard({ project }: { project: ProjectGovernance }) {
   const [params, setParams] = useSearchParams();
   const requested = params.get("tab");
-  const tab: TabId = isTabId(requested) ? requested : "summary";
+  const tab: TabId = isTabId(requested) ? requested : DEFAULT_TAB;
   const requestedSlice = params.get("slice");
   const slice = isSprintSlice(requestedSlice) ? requestedSlice : undefined;
   const Panel = PANELS[tab];

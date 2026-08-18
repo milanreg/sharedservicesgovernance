@@ -1,4 +1,14 @@
-import type { GanttItem, Ticket } from "../template/types";
+import type {
+  ArchitectureComponent,
+  DecisionRecord,
+  DeploymentTarget,
+  FlowStep,
+  GanttItem,
+  ImplementationNote,
+  ConfigRow,
+  RoadmapPhase,
+  Ticket,
+} from "../template/types";
 
 export const JIRA = "https://regnology-cloud.atlassian.net/browse";
 export const BOARD =
@@ -249,6 +259,371 @@ export const phase2 = [
   { key: "RSH-4263", title: "Support for Third-Party Modules", status: "New", owner: "Unassigned" },
   { key: "RSH-321", title: "Support for Non-Standard Identity Providers (IDPs)", status: "New", owner: "Unassigned" },
   { key: "RSH-1314", title: "Support for Windows Server Deployments", status: "New", owner: "Unassigned" },
+];
+
+export const architecture: {
+  intro: string;
+  components: ArchitectureComponent[];
+  flow: FlowStep[];
+  decisions: DecisionRecord[];
+} = {
+  intro:
+    "IAM is a security orchestration layer, not another user table. Products stop owning login, password, and two-factor authentication; they validate a token and read permissions. IAM owns users, groups, roles, and the permission model. Synthesized from Confluence IAM Integration v17 and Vizor Authentication and Authorization v62.",
+  components: [
+    {
+      component: "Identity provider (Keycloak)",
+      responsibility:
+        "Stores identities and credentials, issues ID and access tokens, performs login, password, and two-factor flows for both security boundaries.",
+      technology: "Keycloak, one realm per security boundary (Internal / External)",
+      owner: "Celso Garcia",
+    },
+    {
+      component: "IAM API",
+      responsibility:
+        "Owns users, groups, roles, modules, clients, and the permission model. Exposes the reach API so a caller only sees what its own role context allows.",
+      technology: "Containerized service on the Regnology Supervision Hub platform",
+      owner: "Dominik Czerwiński",
+    },
+    {
+      component: "IAM UI",
+      responsibility:
+        "Administration surface for users, groups, permissions, join-group flows, and My profile. Delegated administration is the Principal User experience.",
+      technology: "Platform front end, embedded in consuming products",
+      owner: "Dominik Czerwiński",
+    },
+    {
+      component: "Permission store and mirroring",
+      responsibility:
+        "Holds role + context (module, entity, entity group) grants and mirrors them into consumer-specific permission names via a mirroring config map.",
+      technology: "IAM API persistence plus mirroring configuration",
+      owner: "Shashank Prasad",
+    },
+    {
+      component: "Vizor API Service (VAS)",
+      responsibility:
+        "Consumer-side token validation and authorization. Calls effectivePermissions and entityGroups to resolve what the caller may do in Vizor.",
+      technology: "Vizor API Service with IAM audience and issuer configuration",
+      owner: "Nico Romero (Vizor)",
+    },
+    {
+      component: "Consuming products",
+      responsibility:
+        "Vizor Portal and Supervision Centre, Regulator 3, Analytics, Licensing, and Rconnect. They sync user and permissions from IAM on login, email, or any user action.",
+      technology: "Container deployments with Security.Login.Type = IAM",
+      owner: "Pawel Skrzypczynski",
+    },
+  ],
+  flow: [
+    {
+      step: 1,
+      title: "Login against the identity provider",
+      detail:
+        "The user authenticates against Keycloak in the correct security boundary — Internal for Supervision Centre, External for Portal and regulated firms.",
+    },
+    {
+      step: 2,
+      title: "Small ID token on the wire",
+      detail:
+        "The identity provider returns a deliberately small ID token. Custom permissions are kept out of it so HTTP header limits are never exceeded.",
+    },
+    {
+      step: 3,
+      title: "RFC 8693 token exchange",
+      detail:
+        "The product exchanges the ID token for an access token that carries custom_permissions, and attaches it to the request rather than to every session header.",
+    },
+    {
+      step: 4,
+      title: "Consumer validates issuer and audience",
+      detail:
+        "Vizor API Service validates the token issuer and audience. Where the audience settings are empty the token audience is effectively unchecked — see the deployment configuration table.",
+    },
+    {
+      step: 5,
+      title: "Resolve reach from role context",
+      detail:
+        "IAM derives caller reach from role entity context. A grant is role plus context: module, entity, and entity group. A direct group-id grant is a true OR-path regardless of scope overlap (RSH-3481).",
+    },
+    {
+      step: 6,
+      title: "Sync and mirror into the product",
+      detail:
+        "On login, email, or any user action the product re-syncs user and permissions from IAM. Where a consumer needs its own permission vocabulary, mirroring maps IAM grants onto it (RSH-2150).",
+    },
+  ],
+  decisions: [
+    {
+      title: "Token exchange instead of fat tokens",
+      detail:
+        "Custom permissions blow HTTP header limits when carried in the ID token. RFC 8693 token exchange keeps the ID token small and moves custom_permissions to a request-scoped access token. This is the single most load-bearing architectural driver.",
+      reference: { label: "IAM Integration v17", href: CONFLUENCE.integration },
+    },
+    {
+      title: "Two security boundaries, never mixed",
+      detail:
+        "Internal (Supervision Centre, regulator staff) and External (Portal, regulated firms) are separate boundaries. Managing Vizor Portal users from Internal IAM is explicitly denied.",
+      reference: { label: "Vizor Authentication and Authorization v62", href: CONFLUENCE.auth },
+    },
+    {
+      title: "All-or-nothing per Vizor application",
+      detail:
+        "Security.Login.Type = IAM (uppercase) overrides every other login type. If a Vizor application turns IAM on, it applies to both Portal and Supervision Centre, and only in container deployments.",
+      reference: { label: "IAM Integration v17", href: CONFLUENCE.integration },
+    },
+    {
+      title: "Access is role plus context, not a flat role list",
+      detail:
+        "Every grant carries a module, an entity, and optionally an entity group. Entity-aware roles landed in RSH-3496; the migration of existing users and permissions onto this model is RSH-3042 and RSH-3503.",
+      reference: { label: "RSH-3496", href: `${JIRA}/RSH-3496` },
+    },
+    {
+      title: "Delegated administration is capped by the administrator's own roles",
+      detail:
+        "A Principal User may only manage users inside their entity scope, and only up to the roles they themselves hold. RSH-4220 is the open defect where that cap can be escaped.",
+      reference: { label: "RSH-4220", href: `${JIRA}/RSH-4220` },
+    },
+  ],
+};
+
+export const implementation: {
+  intro: string;
+  notes: ImplementationNote[];
+  config: ConfigRow[];
+} = {
+  intro:
+    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 16 Aug 2026 snapshot.",
+  notes: [
+    {
+      area: "Entity-aware permission model",
+      detail:
+        "Roles, vocabulary, parsing, and front end were made entity-aware, then the entity dimension was layered on top of the module dimension in the permissions view.",
+      tickets: ["RSH-3496", "RSH-3500"],
+      state: "Closed",
+    },
+    {
+      area: "Reach API",
+      detail:
+        "Caller reach is derived from role entity context, with the [*] marker de-overloaded. Users, groups, and create-scope all read reach from the same source.",
+      tickets: ["RSH-3497", "RSH-3499", "RSH-3498", "RSH-4242"],
+      state: "Closed",
+    },
+    {
+      area: "Entity scoping migration",
+      detail:
+        "Spikes to migrate existing users, groups, and permissions onto entity scoping and the new permission version. Vizor API Service already assumes the target model, so the migration is on the critical path for Principal User.",
+      tickets: ["RSH-3042", "RSH-3503"],
+      state: "In Quality Review / In Implementation",
+    },
+    {
+      area: "Scoped group administration",
+      detail:
+        "A direct group-id grant must behave as a true OR-path. Assigning a scoped permission from the IAM module to a scoped group is still broken.",
+      tickets: ["RSH-3481", "RSH-4246"],
+      state: "In Implementation / Ready",
+    },
+    {
+      area: "Authorization defects",
+      detail:
+        "Privilege escalation via View + Manage Permissions, entity visibility without Permission:Manage, duplicate permissions for identical role and module, and an internal GUID leaked in group-delete errors.",
+      tickets: ["RSH-4220", "RSH-4244", "RSH-3239", "RSH-4261"],
+      state: "In Quality Review / Ready / New",
+    },
+    {
+      area: "Permission mirroring",
+      detail:
+        "Maps IAM grants onto consumer permission names through a mirroring config map. The role value and module name case bug was fixed; Rconnect still needs country in the permission model.",
+      tickets: ["RSH-2150", "RSH-3238"],
+      state: "In Implementation",
+    },
+    {
+      area: "Self-service and profile",
+      detail:
+        "My profile, user creation with an optional initial permission, and the user guide. Legacy profile, change-password, and two-factor pages in the product are redirected or denied once IAM is on.",
+      tickets: ["RSH-105", "RSH-793", "RSH-3479", "RSH-4221"],
+      state: "Closed / In Implementation",
+    },
+    {
+      area: "Application security",
+      detail:
+        "OpenSSL issue in the IAM API has been Ready across two sprints. Cheap to close and highly visible as security debt if it spills again.",
+      tickets: ["RSH-2451"],
+      state: "Ready",
+    },
+    {
+      area: "Consumer integration",
+      detail:
+        "Analyser integration blocks the Analytics 26.2 consumer. RForge fixer scaffolding and the user-context ContextData OpenAPI routes are still waiting for integration.",
+      tickets: ["RSH-4251", "RSH-3515", "RSH-3137"],
+      state: "In Implementation / Ready for integration",
+    },
+  ],
+  config: [
+    {
+      setting: "Security.Login.Type",
+      value: "IAM (uppercase)",
+      meaning:
+        "Switches the Vizor application onto IAM. Overrides every other login type for both Supervision Centre and Portal. Container deployments only.",
+    },
+    {
+      setting: "VAS_IAM_INTERNAL_AUDIENCE",
+      value: "empty in all known environments",
+      meaning:
+        "Vizor API Service is not validating the token audience for the Internal boundary. Treat as a go-live gate before the next customer environment.",
+      warning: true,
+    },
+    {
+      setting: "VAS_IAM_EXTERNAL_AUDIENCE",
+      value: "empty in all known environments",
+      meaning: "Same exposure as the internal audience, on the Portal / regulated-firm boundary.",
+      warning: true,
+    },
+    {
+      setting: "IAM issuer",
+      value: "manual SQL fix-up in P5.8.1",
+      meaning:
+        "Issuer auto-population did not work and needed a hand-applied SQL correction. Anything that recreates the environment must reapply it.",
+      warning: true,
+    },
+    {
+      setting: "Permission mirroring config map",
+      value: "per-consumer mapping",
+      meaning:
+        "Maps IAM role and module names onto consumer permission names. Case sensitivity here caused RSH-3238.",
+    },
+  ],
+};
+
+export const deployment: {
+  intro: string;
+  targets: DeploymentTarget[];
+  pipeline: string[];
+} = {
+  intro:
+    "IAM ships as containers on the Regnology Supervision Hub platform. There is no supported non-container path today, which is why Windows Server deployments (RSH-1314) are still on the later horizon and why the dev cluster is the proving ground for every consumer.",
+  targets: [
+    {
+      environment: "Dev cluster",
+      topology: "All modules pointed at IAM and the platform, Keycloak pod alongside the IAM API",
+      state: "In Implementation",
+      note: "RSH-2453 is the integration proving ground for Vizor, Analytics, and Rconnect. It has spilled across sprints.",
+    },
+    {
+      environment: "Continuous integration pipeline",
+      topology: "Keycloak pod restarted automatically when the pipeline needs it",
+      state: "In Implementation",
+      note: "RSH-4066 removes the manual restart that was destabilizing every module integration run.",
+    },
+    {
+      environment: "Vizor container deployments",
+      topology: "Portal and Supervision Centre on one identity provider, two security boundaries",
+      state: "In Implementation",
+      note: "REG-49745. Audience validation must be switched on before an environment counts as hardened.",
+    },
+    {
+      environment: "Customer environments (P5.8.1 baseline)",
+      topology: "Containers with the IAM issuer applied by SQL fix-up",
+      state: "Manual step required",
+      note: "Documented in Vizor Authentication and Authorization v62. Treat the fix-up as part of the deployment runbook until it is automated.",
+    },
+    {
+      environment: "Windows Server",
+      topology: "Not supported",
+      state: "New",
+      note: "RSH-1314. Until this lands, any customer that cannot run containers cannot adopt IAM.",
+    },
+  ],
+  pipeline: [
+    "Build the IAM API and IAM UI containers on the Regnology Supervision Hub platform release train (currently 26.3.0.00, unreleased, 27 Aug 2026).",
+    "Deploy Keycloak plus the IAM API into the target cluster; the pipeline restarts the Keycloak pod when required (RSH-4066).",
+    "Point each module at IAM and the platform in the dev cluster and prove the integration there first (RSH-2453).",
+    "Set Security.Login.Type = IAM on the consuming application, then set the internal and external audience values.",
+    "Apply the issuer SQL fix-up where P5.8.1 auto-population did not run, then re-verify token issuer and audience.",
+    "Sync users and permissions, apply the mirroring config map for consumers that need their own vocabulary, and verify reach in the IAM UI.",
+  ],
+};
+
+export const roadmap: RoadmapPhase[] = [
+  {
+    phase: "Phase 1 — Foundations",
+    window: "Mar 2025 – Jan 2026",
+    state: "Closed",
+    goal:
+      "Stand up shared authentication, authorization, and self-service so a product can log in against IAM at all.",
+    items: [
+      { key: "RSH-97", title: "Authentication", status: "Closed", note: "Identity provider, login, password, two-factor" },
+      { key: "RSH-100", title: "Authorization and module roles", status: "Closed", note: "Role and module permission model" },
+      { key: "RSH-105", title: "User self-service", status: "Closed", note: "My profile and self-service flows" },
+      { key: "RSH-99", title: "RSH Licensing on IAM", status: "Closed", note: "First production consumer" },
+      { key: "RSH-1488", title: "Required endpoints for Regulator 3", status: "Closed", note: "Unblocked R3 Data Collection (RSH-718)" },
+    ],
+    exit: [
+      "Licensing and R3 Data Collection are live on IAM.",
+      "Authentication, authorization, and self-service epics are Closed.",
+    ],
+  },
+  {
+    phase: "Phase 2 — Delegated administration and mirroring",
+    window: "Jan 2026 – Dec 2026",
+    state: "In Implementation",
+    goal:
+      "Make IAM good enough that Vizor and Regulator 3 can retire local user management: entity scoping, Principal User, and permission mirroring.",
+    items: [
+      { key: "RSH-1025", title: "Close feature gaps vs R3 / Vizor / eReg user management", status: "Closed", note: "Split into RSH-1846 and cloned as RSH-4255" },
+      { key: "RSH-1323", title: "Improvements 26.2.0.00", status: "Closed", note: "Release-scoped improvements" },
+      { key: "RSH-1846", title: "Principal User (user manager)", status: "In Implementation", note: "Blocked in practice by RSH-4220 and entity scoping" },
+      { key: "RSH-2150", title: "Permission mirroring", status: "In Implementation", note: "Must label — Central Bank of Barbados / Rconnect" },
+      { key: "RSH-793", title: "User profile management", status: "In Implementation", note: "Improvements tracked separately as RSH-4258" },
+      { key: "RSH-4221", title: "IAM user guide", status: "In Implementation", note: "Kartik Sharma" },
+      { key: "RSH-3042", title: "Entity scoping migration", status: "In Quality Review", note: "Vizor API Service already assumes this model" },
+      { key: "RSH-429", title: "Defects and tech debt backlog", status: "Ready", note: "Standing quality budget" },
+      { key: "RSH-2169", title: "Entity group inheritance", status: "Blocked", note: "Blocked on Master Data Management membership expansion" },
+    ],
+    exit: [
+      "Privilege escalation RSH-4220 is Closed.",
+      "Entity scoping and permission migration are complete (RSH-3042, RSH-3503).",
+      "A Principal User can administer users inside an entity scope without escaping their own roles.",
+      "Mirrored permissions satisfy the Central Bank of Barbados / Rconnect contract, including country in the permission model.",
+    ],
+  },
+  {
+    phase: "Phase 2.5 — Stabilization for release 26.3",
+    window: "Aug 2026 – Dec 2026",
+    state: "New / High / Must",
+    goal:
+      "Make the shipped capability actually work in customer environments rather than adding scope. This is the working-state track that sits under the RSH-96 strategy initiative.",
+    items: [
+      { key: "RSH-4254", title: "Stabilization epic", status: "New", note: "High · Must · platform release 26.3" },
+      { key: "RSH-4255", title: "Principal User — make work", status: "New", note: "Clone of the closed feature-gap epic; the real go-live path" },
+      { key: "RSH-2451", title: "OpenSSL application security", status: "Ready", note: "Ready across two sprints" },
+      { key: "RSH-2453", title: "All modules on IAM in the dev cluster", status: "In Implementation", note: "Integration proving ground" },
+      { key: "RSH-4251", title: "IAM–Analyser integration", status: "In Implementation", note: "Blocks the Analytics 26.2 consumer (RSH-719)" },
+    ],
+    exit: [
+      "Audience validation is switched on and the issuer fix-up is automated.",
+      "Every module runs against IAM in the dev cluster.",
+      "No open Critical or High authorization defects.",
+    ],
+  },
+  {
+    phase: "Phase 3 — Platform completeness",
+    window: "2027",
+    state: "New / Ready",
+    goal:
+      "Broaden reach once delegated administration is real: tokens for machines, accessibility, non-standard identity providers, and non-container deployments.",
+    items: [
+      { key: "RSH-4262", title: "Personal access tokens", status: "New", note: "Jan-Hendrik Hühne" },
+      { key: "RSH-4256", title: "Web Content Accessibility Guidelines 2.2 Level AA", status: "New", note: "Unassigned" },
+      { key: "RSH-795", title: "Multi-core identity provider", status: "Ready", note: "Unassigned" },
+      { key: "RSH-321", title: "Non-standard identity providers", status: "New", note: "Unassigned" },
+      { key: "RSH-1314", title: "Windows Server deployments", status: "New", note: "Unblocks non-container customers" },
+      { key: "RSH-4263", title: "Third-party module support", status: "New", note: "Unassigned" },
+      { key: "RSH-794", title: "Translations", status: "Ready", note: "Unassigned" },
+      { key: "RFS-1688", title: "RFS × RSH shared IAM", status: "New", note: "Not scheduled" },
+    ],
+    exit: [
+      "Nothing in this phase should start before the Phase 2.5 exit criteria are met.",
+    ],
+  },
 ];
 
 export const consumers = [
