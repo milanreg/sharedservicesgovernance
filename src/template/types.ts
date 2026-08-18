@@ -142,6 +142,43 @@ export type RoadmapPhase = {
   exit: string[];
 };
 
+export type ConfluenceDoc = {
+  title: string;
+  version: number | null;
+  updated: string;
+  url: string;
+};
+
+/**
+ * What a Jira and Confluence sync can actually refresh. Everything else in
+ * ProjectGovernance is hand-authored judgement and is never overwritten.
+ */
+export type LiveSnapshot = {
+  slug: string;
+  syncedAt: string;
+  projectSummary: {
+    done: number;
+    open: number;
+    highPriorityOpen: number;
+    unassignedOpen: number;
+    epics: number;
+    currentRelease?: { name: string; date: string; released: boolean };
+    lastRelease?: { name: string; date: string };
+  };
+  sprint?: {
+    name: string;
+    start: string;
+    end: string;
+    committed: number;
+    done: number;
+    inProgress: number;
+    blocked: number;
+  };
+  tickets: Ticket[];
+  confluence: ConfluenceDoc[];
+  warnings: string[];
+};
+
 /**
  * Canonical governance payload. Every project dashboard renders this shape.
  * Refactor ProjectDashboard when the layout must change; add a new dataset
@@ -160,6 +197,8 @@ export type ProjectGovernance = {
   snapshot: string;
   sources: string;
   populated: boolean;
+  lastSynced?: string;
+  confluenceDocs?: ConfluenceDoc[];
   sprint: {
     name: string;
     start: string;

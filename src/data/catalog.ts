@@ -1,5 +1,5 @@
-import { iamGovernance } from "./iamGovernance";
-import { emptyProject, type ProjectGovernance } from "../template/types";
+import { iamGovernance, TICKET_RISKS } from "./iamGovernance";
+import { emptyProject, type ProjectGovernance, type Risk } from "../template/types";
 
 export const portfolio = [
   {
@@ -52,7 +52,16 @@ const bySlug: Record<string, ProjectGovernance> = {
   "rconnect-communicator": rconnectCommunicator,
 };
 
+/** Risk assessments are keyed by ticket so they survive a sync. */
+const risksBySlug: Record<string, Record<string, Risk>> = {
+  iam: TICKET_RISKS,
+};
+
 export function getProject(slug: string | undefined): ProjectGovernance | undefined {
   if (!slug) return undefined;
   return bySlug[slug];
+}
+
+export function getTicketRisks(slug: string): Record<string, Risk> {
+  return risksBySlug[slug] ?? {};
 }

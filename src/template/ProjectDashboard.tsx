@@ -1,16 +1,20 @@
 import type { ReactElement } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Gantt } from "../components/Gantt";
 import { RiskInfo, RiskReason } from "../components/RiskInfo";
 import { StatusBadge } from "../components/StatusBadge";
+import { SyncButton } from "../components/SyncButton";
 import { Topbar } from "../components/Topbar";
+import { getTicketRisks } from "../data/catalog";
+import { applyLive, bundledSnapshot } from "../data/live";
 import { ragTone, workflowTone } from "../template/status";
 import { isSprintSlice, sprintSlices, type SprintSlice } from "../template/slices";
 import { DEFAULT_TAB, GOVERNANCE_TABS, isTabId, type TabId } from "../template/tabs";
 import {
   riceScore,
   ticketHref,
+  type LiveSnapshot,
   type ProjectGovernance,
   type Ticket,
 } from "../template/types";
@@ -889,7 +893,9 @@ function TicketKeys({ tickets, baseUrl }: { tickets: Ticket[]; baseUrl: string }
   );
 }
 
-export function ProjectDashboard({ project }: { project: ProjectGovernance }) {
+export function ProjectDashboard({ project: authored }: { project: ProjectGovernance }) {
+  const [live, setLive] = useState<LiveSnapshot | undefined>(() => bundledSnapshot(authored.slug));
+  const project = live ? applyLive(authored, live, getTicketRisks(authored.slug)) : authored;
   const [params, setParams] = useSearchParams();
   const requested = params.get("tab");
   const tab: TabId = isTabId(requested) ? requested : DEFAULT_TAB;
@@ -934,6 +940,7 @@ export function ProjectDashboard({ project }: { project: ProjectGovernance }) {
               sprint {project.sprint.name}
             </p>
           </div>
+          <SyncButton slug={project.slug} lastSynced={project.lastSynced} onSynced={setLive} />
         </div>
 
         <div className="status-legend" aria-label="Status colours">
@@ -1017,6 +1024,21 @@ export function ProjectDashboard({ project }: { project: ProjectGovernance }) {
         <div className="sources">
           {project.sources}
           {project.snapshot ? ` Snapshot ${project.snapshot}.` : ""}
+          {project.confluenceDocs?.length ? (
+            <p>
+              Confluence at last sync:{" "}
+              {project.confluenceDocs.map((doc, i) => (
+                <span key={doc.url}>
+                  {i > 0 ? " · " : ""}
+                  <a href={doc.url} target="_blank" rel="noreferrer">
+                    {doc.title}
+                  </a>
+                  {doc.version ? ` v${doc.version}` : ""}
+                  {doc.updated ? ` (${doc.updated})` : ""}
+                </span>
+              ))}
+            </p>
+          ) : null}
         </div>
       </main>
     </div>

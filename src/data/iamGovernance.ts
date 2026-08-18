@@ -27,7 +27,7 @@ function jira(key: string) {
   return `${JIRA}/${key}`;
 }
 
-const TICKET_RISKS: Record<string, Risk> = {
+export const TICKET_RISKS: Record<string, Risk> = {
   "RSH-4220": {
     level: "red",
     reason:

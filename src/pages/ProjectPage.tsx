@@ -24,5 +24,5 @@ export function ProjectPage() {
     );
   }
 
-  return <ProjectDashboard project={project} />;
+  return <ProjectDashboard key={project.slug} project={project} />;
 }
