@@ -49,6 +49,7 @@ export function applyLive(
     populated: project.populated || tickets.length > 0,
     lastSynced: snapshot.syncedAt,
     confluenceDocs: snapshot.confluence.length ? snapshot.confluence : project.confluenceDocs,
+    activity: snapshot.activity ?? project.activity,
     snapshot: formatSyncedAt(snapshot.syncedAt),
     tickets: tickets.length ? tickets : project.tickets,
     sprint: snapshot.sprint ? { ...project.sprint, ...snapshot.sprint } : project.sprint,

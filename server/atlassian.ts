@@ -1,4 +1,11 @@
-import type { ConfluenceDoc, LiveSnapshot, Ticket } from "../src/template/types";
+import type {
+  ActivityItem,
+  ActivityList,
+  ActivityWindow,
+  ConfluenceDoc,
+  LiveSnapshot,
+  Ticket,
+} from "../src/template/types";
 import type { ProjectSyncConfig } from "./syncConfig";
 
 export type Credentials = {
@@ -8,6 +15,11 @@ export type Credentials = {
   confluenceBaseUrl?: string;
   confluenceToken?: string;
 };
+
+/** How far the delivery review looks back and forward. */
+const WINDOW_DAYS = 30;
+/** Open work untouched for this long is treated as stalled rather than active. */
+const STALE_DAYS = 14;
 
 export class SyncError extends Error {
   constructor(
@@ -145,12 +157,22 @@ type JiraIssue = {
     summary: string;
     status?: { name: string };
     assignee?: { displayName: string } | null;
+    priority?: { name: string } | null;
     closedSprints?: { id: number }[];
+    resolutiondate?: string | null;
+    created?: string;
+    updated?: string;
+    duedate?: string | null;
   };
 };
 
-async function search(creds: Credentials, jql: string, maxResults: number): Promise<JiraIssue[]> {
-  const fields = ["summary", "status", "assignee"];
+async function search(
+  creds: Credentials,
+  jql: string,
+  maxResults: number,
+  extraFields: string[] = [],
+): Promise<JiraIssue[]> {
+  const fields = ["summary", "status", "assignee", ...extraFields];
   try {
     const result = await jira<{ issues: JiraIssue[] }>(creds, "/rest/api/3/search/jql", {
       method: "POST",
@@ -229,6 +251,19 @@ async function readReleases(creds: Credentials, projectKey: string) {
   const upcoming = dated.filter((v) => !v.released).sort(byDate)[0];
   const shipped = dated.filter((v) => v.released).sort(byDate).at(-1);
 
+  const today = new Date().setHours(0, 0, 0, 0);
+  const horizon = today + WINDOW_DAYS * 86_400_000;
+  const at = (v: Version) => new Date(v.releaseDate as string).getTime();
+  const strip = (v: Version) => ({
+    name: v.name,
+    date: (v.releaseDate as string).slice(0, 10),
+    released: false,
+  });
+
+  const pending = dated.filter((v) => !v.released).sort(byDate);
+  const dueSoon = pending.filter((v) => at(v) >= today && at(v) <= horizon).map(strip);
+  const overdue = pending.filter((v) => at(v) < today).map(strip);
+
   return {
     currentRelease: upcoming
       ? { name: upcoming.name, date: formatDate(upcoming.releaseDate), released: false }
@@ -236,6 +271,8 @@ async function readReleases(creds: Credentials, projectKey: string) {
     lastRelease: shipped
       ? { name: shipped.name, date: formatDate(shipped.releaseDate) }
       : undefined,
+    dueSoon,
+    overdue,
   };
 }
 
@@ -280,13 +317,128 @@ async function readConfluence(
   return docs.filter((doc): doc is ConfluenceDoc => Boolean(doc));
 }
 
+function toActivity(issue: JiraIssue, date?: string | null): ActivityItem {
+  return {
+    key: issue.key,
+    summary: issue.fields.summary ?? "",
+    status: issue.fields.status?.name ?? "Unknown",
+    owner: issue.fields.assignee?.displayName ?? "Unassigned",
+    date: date ? date.slice(0, 10) : "",
+    priority: issue.fields.priority?.name,
+  };
+}
+
+/** Enough rows to read the shape of the window without bloating the snapshot. */
+const SAMPLE = 25;
+
+/**
+ * The count comes from Jira rather than the sample length, so a window with
+ * more items than the cap still reports the truth. One failed list degrades to
+ * a warning instead of costing the whole review.
+ */
+async function activityList(
+  creds: Credentials,
+  jql: string,
+  order: string,
+  field: keyof JiraIssue["fields"],
+  label: string,
+  warnings: string[],
+): Promise<ActivityList> {
+  try {
+    const [total, issues] = await Promise.all([
+      count(creds, jql),
+      search(creds, `${jql} ORDER BY ${order}`, SAMPLE, [field as string, "priority"]),
+    ]);
+    return {
+      total,
+      items: issues.map((issue) =>
+        toActivity(issue, issue.fields[field] as string | null | undefined),
+      ),
+    };
+  } catch (error) {
+    warnings.push(`${label} could not be read: ${(error as Error).message}`);
+    return { total: 0, items: [] };
+  }
+}
+
+type VersionRef = { name: string; date: string; released: boolean };
+
+async function readActivity(
+  creds: Credentials,
+  scope: string,
+  releases: VersionRef[],
+  overdueReleases: VersionRef[],
+  warnings: string[],
+): Promise<ActivityWindow> {
+  const open = `${scope} AND statusCategory != Done`;
+  const [delivered, raised, due, stalled] = await Promise.all([
+    activityList(
+      creds,
+      `${scope} AND resolved >= -${WINDOW_DAYS}d`,
+      "resolved DESC",
+      "resolutiondate",
+      "Recently delivered",
+      warnings,
+    ),
+    activityList(
+      creds,
+      `${scope} AND created >= -${WINDOW_DAYS}d`,
+      "created DESC",
+      "created",
+      "Recently raised",
+      warnings,
+    ),
+    activityList(
+      creds,
+      `${open} AND duedate >= startOfDay() AND duedate <= ${WINDOW_DAYS}d`,
+      "duedate ASC",
+      "duedate",
+      "Work due in the next 30 days",
+      warnings,
+    ),
+    activityList(
+      creds,
+      `${open} AND updated <= -${STALE_DAYS}d`,
+      "updated ASC",
+      "updated",
+      "Stalled work",
+      warnings,
+    ),
+  ]);
+
+  return { days: WINDOW_DAYS, delivered, raised, due, stalled, releases, overdueReleases };
+}
+
+/**
+ * Proves the exclusion is valid JQL before every later query depends on it —
+ * an unknown issue type would otherwise fail the whole sync.
+ */
+async function resolveScope(
+  creds: Credentials,
+  config: ProjectSyncConfig,
+  warnings: string[],
+): Promise<string> {
+  if (!config.excludeJql) return config.scopeJql;
+
+  const scope = `(${config.scopeJql}) AND (${config.excludeJql})`;
+  try {
+    await count(creds, scope);
+    return scope;
+  } catch (error) {
+    warnings.push(
+      `Scope exclusion was ignored (${(error as Error).message}); counts include everything matching the project scope.`,
+    );
+    return config.scopeJql;
+  }
+}
+
 export async function buildSnapshot(
   slug: string,
   config: ProjectSyncConfig,
   creds: Credentials,
 ): Promise<LiveSnapshot> {
   const warnings: string[] = [];
-  const scope = config.scopeJql;
+  const scope = await resolveScope(creds, config, warnings);
 
   const openScope = `${scope} AND statusCategory != Done`;
   const [done, open, unassignedOpen, epics] = await Promise.all([
@@ -308,10 +460,12 @@ export async function buildSnapshot(
     }
   }
 
-  const releases = await readReleases(creds, config.jiraProjectKey).catch((error: Error) => {
-    warnings.push(`Releases could not be read: ${error.message}`);
-    return { currentRelease: undefined, lastRelease: undefined };
-  });
+  const { dueSoon, overdue, ...releases } = await readReleases(creds, config.jiraProjectKey).catch(
+    (error: Error) => {
+      warnings.push(`Releases could not be read: ${error.message}`);
+      return { currentRelease: undefined, lastRelease: undefined, dueSoon: [], overdue: [] };
+    },
+  );
 
   const sprintData = config.boardId
     ? await readSprint(creds, config.boardId, warnings)
@@ -322,6 +476,7 @@ export async function buildSnapshot(
     sprintData.tickets = issues.map(toTicket);
   }
 
+  const activity = await readActivity(creds, scope, dueSoon, overdue, warnings);
   const confluence = await readConfluence(creds, config.confluencePageIds ?? [], warnings);
 
   return {
@@ -330,6 +485,7 @@ export async function buildSnapshot(
     projectSummary: { done, open, highPriorityOpen, unassignedOpen, epics, ...releases },
     sprint: sprintData.sprint,
     tickets: sprintData.tickets,
+    activity,
     confluence,
     warnings,
   };

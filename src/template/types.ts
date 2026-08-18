@@ -149,6 +149,34 @@ export type ConfluenceDoc = {
   url: string;
 };
 
+export type ActivityItem = {
+  key: string;
+  summary: string;
+  status: string;
+  owner: string;
+  /** ISO date of whatever the list is about: resolved, created, or due. */
+  date: string;
+  priority?: string;
+};
+
+/** A capped sample plus the real Jira count, so totals never lie. */
+export type ActivityList = {
+  total: number;
+  items: ActivityItem[];
+};
+
+/** Jira movement either side of today, for the delivery review dialog. */
+export type ActivityWindow = {
+  days: number;
+  delivered: ActivityList;
+  raised: ActivityList;
+  due: ActivityList;
+  stalled: ActivityList;
+  releases: { name: string; date: string; released: boolean }[];
+  /** Unreleased versions whose date has already passed. */
+  overdueReleases: { name: string; date: string; released: boolean }[];
+};
+
 /**
  * What a Jira and Confluence sync can actually refresh. Everything else in
  * ProjectGovernance is hand-authored judgement and is never overwritten.
@@ -175,6 +203,7 @@ export type LiveSnapshot = {
     blocked: number;
   };
   tickets: Ticket[];
+  activity?: ActivityWindow;
   confluence: ConfluenceDoc[];
   warnings: string[];
 };
@@ -199,6 +228,7 @@ export type ProjectGovernance = {
   populated: boolean;
   lastSynced?: string;
   confluenceDocs?: ConfluenceDoc[];
+  activity?: ActivityWindow;
   sprint: {
     name: string;
     start: string;

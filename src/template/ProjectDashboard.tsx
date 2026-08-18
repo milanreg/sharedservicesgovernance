@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Gantt } from "../components/Gantt";
 import { RiskInfo, RiskReason } from "../components/RiskInfo";
 import { StatusBadge } from "../components/StatusBadge";
+import { SummaryDialog } from "../components/SummaryDialog";
 import { SyncButton } from "../components/SyncButton";
 import { Topbar } from "../components/Topbar";
 import { getTicketRisks } from "../data/catalog";
@@ -895,6 +896,7 @@ function TicketKeys({ tickets, baseUrl }: { tickets: Ticket[]; baseUrl: string }
 
 export function ProjectDashboard({ project: authored }: { project: ProjectGovernance }) {
   const [live, setLive] = useState<LiveSnapshot | undefined>(() => bundledSnapshot(authored.slug));
+  const [reviewOpen, setReviewOpen] = useState(false);
   const project = live ? applyLive(authored, live, getTicketRisks(authored.slug)) : authored;
   const [params, setParams] = useSearchParams();
   const requested = params.get("tab");
@@ -940,8 +942,15 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
               sprint {project.sprint.name}
             </p>
           </div>
-          <SyncButton slug={project.slug} lastSynced={project.lastSynced} onSynced={setLive} />
+          <div className="head-actions">
+            <button type="button" className="review-btn" onClick={() => setReviewOpen(true)}>
+              30-day summary
+            </button>
+            <SyncButton slug={project.slug} lastSynced={project.lastSynced} onSynced={setLive} />
+          </div>
         </div>
+
+        <SummaryDialog project={project} open={reviewOpen} onClose={() => setReviewOpen(false)} />
 
         <div className="status-legend" aria-label="Status colours">
           <span>
