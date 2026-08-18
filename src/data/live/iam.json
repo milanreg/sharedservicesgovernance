@@ -1,0 +1,221 @@
+{
+  "slug": "iam",
+  "syncedAt": "2026-08-18T11:59:31.085Z",
+  "projectSummary": {
+    "done": 634,
+    "open": 219,
+    "highPriorityOpen": 46,
+    "unassignedOpen": 177,
+    "epics": 44,
+    "currentRelease": {
+      "name": "R1.3.0.01_RSH_10.02.26",
+      "date": "10 Feb 2026",
+      "released": false
+    },
+    "lastRelease": {
+      "name": "26.2.0.00_RSH-PL_28.05.26",
+      "date": "28 May 2026"
+    }
+  },
+  "sprint": {
+    "name": "RSH PL 2616",
+    "start": "13 Aug 2026",
+    "end": "27 Aug 2026",
+    "committed": 23,
+    "done": 2,
+    "inProgress": 13,
+    "blocked": 1
+  },
+  "tickets": [
+    {
+      "key": "RSH-3496",
+      "summary": "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
+      "status": "Closed",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-3481",
+      "summary": "[IAM] Remove direct group-id grant path entirely",
+      "status": "In Implementation",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-4251",
+      "summary": "IAM-Analyser integration issue",
+      "status": "In Quality Review",
+      "owner": "Pawel Skrzypczynski",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4066",
+      "summary": "[IAM] Restart keycloak pod automatically in the pipeline when needed",
+      "status": "In PO Review",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-3763",
+      "summary": "[IAM] Provide join groups functionality with pagination and search",
+      "status": "In Implementation",
+      "owner": "Shashank Prasad",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-3503",
+      "summary": "[IAM] Spike: Migrate existing IAM permissions to new version",
+      "status": "In Quality Review",
+      "owner": "Shashank Prasad",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-3042",
+      "summary": "[IAM] Spike: Migrate users and groups to entity scoping",
+      "status": "In Quality Review",
+      "owner": "Shashank Prasad",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-2452",
+      "summary": "AppSec: keycloak-config-cli dependency track issue",
+      "status": "Ready",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-2451",
+      "summary": "AppSec: Open ssl issue in IAM API",
+      "status": "Ready",
+      "owner": "Adam Ennis",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-4250",
+      "summary": "Testing 26.3.0.00_RSH-PL_27.08.26",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4249",
+      "summary": "Release Delivery 26.3.0.00_RSH-PL_27.08.26",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4246",
+      "summary": "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
+      "status": "In Implementation",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4244",
+      "summary": "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4220",
+      "summary": "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
+      "status": "In Quality Review",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-3239",
+      "summary": "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-2453",
+      "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
+      "status": "In Implementation",
+      "owner": "Pawel Skrzypczynski",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-2169",
+      "summary": "[IAM] [Blocked] Entity group inheritance for entity access",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": true,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4096",
+      "summary": "AppSec: Evaluate and adopt a hardened Keycloak runtime image without curl",
+      "status": "In Quality Review",
+      "owner": "Pawel Skrzypczynski",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-4238",
+      "summary": "Permission mirroring (source / mirrored lifecycle)",
+      "status": "In Implementation",
+      "owner": "Kartik Sharma",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4222",
+      "summary": "Frontend access controls & restrictions by effective permissions",
+      "status": "In Implementation",
+      "owner": "Kartik Sharma",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4260",
+      "summary": "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
+      "status": "Closed",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4261",
+      "summary": "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
+      "status": "In Quality Review",
+      "owner": "Shashank Prasad",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-4302",
+      "summary": "SonarQube: Rules update Fixes",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    }
+  ],
+  "confluence": [],
+  "warnings": [
+    "Confluence page 253473412 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 226552828 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 266593053 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host."
+  ]
+}

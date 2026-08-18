@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Connect, Plugin } from "vite";
@@ -15,6 +15,34 @@ function send(res: Parameters<Connect.NextHandleFunction>[1], status: number, bo
   res.end(JSON.stringify(body));
 }
 
+function parseEnvFile(file: string): Record<string, string> {
+  if (!existsSync(file)) return {};
+  const values: Record<string, string> = {};
+  for (const line of readFileSync(file, "utf8").split(/\r?\n/)) {
+    const match = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/);
+    if (!match) continue;
+    const value = match[2].trim().replace(/^(['"])(.*)\1$/, "$2");
+    values[match[1]] = value;
+  }
+  return values;
+}
+
+/**
+ * Credentials may live outside this repo — point ENV_FILE at an existing file
+ * (for example the regnology-mcp .env) instead of copying secrets around.
+ */
+function resolveEnv(mode: string) {
+  const local = { ...loadEnv(mode, process.cwd(), ""), ...process.env };
+  const pointer = local.ENV_FILE;
+  if (!pointer) return local;
+
+  const file = resolve(process.cwd(), pointer);
+  if (!existsSync(file)) {
+    throw new SyncError(`ENV_FILE points at ${file}, which does not exist.`, 412);
+  }
+  return { ...parseEnvFile(file), ...local };
+}
+
 async function handleSync(slug: string, mode: string) {
   const config = getSyncConfig(slug);
   if (!config) {
@@ -24,7 +52,7 @@ async function handleSync(slug: string, mode: string) {
     );
   }
 
-  const env = { ...loadEnv(mode, process.cwd(), ""), ...process.env };
+  const env = resolveEnv(mode);
   const snapshot = await buildSnapshot(slug, config, readCredentials(env));
 
   mkdirSync(SNAPSHOT_DIR, { recursive: true });

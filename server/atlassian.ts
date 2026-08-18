@@ -3,8 +3,8 @@ import type { ProjectSyncConfig } from "./syncConfig";
 
 export type Credentials = {
   jiraBaseUrl: string;
-  jiraEmail: string;
-  jiraToken: string;
+  /** Ready-to-send Authorization header: Basic for Cloud, Bearer for a PAT. */
+  jiraAuth: string;
   confluenceBaseUrl?: string;
   confluenceToken?: string;
 };
@@ -18,22 +18,81 @@ export class SyncError extends Error {
   }
 }
 
+function pick(env: Record<string, string | undefined>, ...names: string[]) {
+  for (const name of names) {
+    const value = env[name]?.trim();
+    if (value) return value;
+  }
+  return undefined;
+}
+
+const trimSlash = (url: string) => url.replace(/\/$/, "");
+const basic = (email: string, token: string) =>
+  `Basic ${Buffer.from(`${email}:${token}`).toString("base64")}`;
+
+/**
+ * A URL and a token only work together, so candidates are resolved as whole
+ * sets rather than key by key. Cloud comes first: the dashboards link to Cloud
+ * issues, and a credentials file shared with regnology-mcp also carries
+ * Data Center values that would otherwise win on name alone.
+ */
+function readJira(env: Record<string, string | undefined>) {
+  const cloudUrl = pick(env, "JIRA_CLOUD_BASE_URL", "JIRA_CLOUD_URL");
+  const cloudEmail = pick(env, "JIRA_CLOUD_EMAIL");
+  const cloudToken = pick(env, "JIRA_CLOUD_API_TOKEN");
+  if (cloudUrl && cloudEmail && cloudToken) {
+    return { jiraBaseUrl: trimSlash(cloudUrl), jiraAuth: basic(cloudEmail, cloudToken) };
+  }
+
+  const url = pick(env, "JIRA_BASE_URL", "JIRA_URL");
+  const email = pick(env, "JIRA_EMAIL");
+  const token = pick(env, "JIRA_API_TOKEN");
+  if (url && email && token) {
+    return { jiraBaseUrl: trimSlash(url), jiraAuth: basic(email, token) };
+  }
+
+  const pat = pick(env, "JIRA_PAT", "JIRA_PERSONAL_TOKEN");
+  if (url && pat) {
+    return { jiraBaseUrl: trimSlash(url), jiraAuth: `Bearer ${pat}` };
+  }
+
+  return undefined;
+}
+
 /** Reads credentials without ever echoing their values back to the caller. */
 export function readCredentials(env: Record<string, string | undefined>): Credentials {
-  const missing = ["JIRA_BASE_URL", "JIRA_EMAIL", "JIRA_API_TOKEN"].filter((key) => !env[key]);
-  if (missing.length) {
+  const jira = readJira(env);
+  if (!jira) {
     throw new SyncError(
-      `Jira credentials are not configured. Add ${missing.join(", ")} to .env — see .env.example.`,
+      "Jira credentials are not configured. Set JIRA_CLOUD_BASE_URL, JIRA_CLOUD_EMAIL and JIRA_CLOUD_API_TOKEN (or the JIRA_BASE_URL / JIRA_EMAIL / JIRA_API_TOKEN equivalents) in .env, or point ENV_FILE at an existing credentials file — see .env.example.",
       412,
     );
   }
+
+  const confluenceBaseUrl = pick(env, "CONFLUENCE_BASE_URL", "CONFLUENCE_URL");
   return {
-    jiraBaseUrl: (env.JIRA_BASE_URL as string).replace(/\/$/, ""),
-    jiraEmail: env.JIRA_EMAIL as string,
-    jiraToken: env.JIRA_API_TOKEN as string,
-    confluenceBaseUrl: env.CONFLUENCE_BASE_URL?.replace(/\/$/, ""),
-    confluenceToken: env.CONFLUENCE_TOKEN,
+    ...jira,
+    confluenceBaseUrl: confluenceBaseUrl ? trimSlash(confluenceBaseUrl) : undefined,
+    confluenceToken: pick(env, "CONFLUENCE_TOKEN", "CONFLUENCE_PAT"),
   };
+}
+
+/**
+ * Node reports every transport problem as a bare "fetch failed", which reads as
+ * a bug rather than "that host needs the VPN". Name the host instead.
+ */
+async function request(url: string, init: RequestInit) {
+  try {
+    return await fetch(url, init);
+  } catch (error) {
+    const host = new URL(url).host;
+    const cause = (error as { cause?: { code?: string } }).cause?.code;
+    const reason = cause === "UND_ERR_CONNECT_TIMEOUT" ? "timed out" : "could not be reached";
+    throw new SyncError(
+      `${host} ${reason}${cause ? ` (${cause})` : ""}. Check the URL, and the VPN if it is an internal host.`,
+      502,
+    );
+  }
 }
 
 async function jira<T>(
@@ -41,11 +100,10 @@ async function jira<T>(
   path: string,
   init?: { method?: string; body?: unknown },
 ): Promise<T> {
-  const auth = Buffer.from(`${creds.jiraEmail}:${creds.jiraToken}`).toString("base64");
-  const response = await fetch(`${creds.jiraBaseUrl}${path}`, {
+  const response = await request(`${creds.jiraBaseUrl}${path}`, {
     method: init?.method ?? "GET",
     headers: {
-      Authorization: `Basic ${auth}`,
+      Authorization: creds.jiraAuth,
       Accept: "application/json",
       ...(init?.body ? { "Content-Type": "application/json" } : {}),
     },
@@ -195,7 +253,7 @@ async function readConfluence(
     pageIds.map(async (id): Promise<ConfluenceDoc | undefined> => {
       const url = `${creds.confluenceBaseUrl}/rest/api/content/${id}?expand=version`;
       try {
-        const response = await fetch(url, {
+        const response = await request(url, {
           headers: { Authorization: `Bearer ${creds.confluenceToken}`, Accept: "application/json" },
         });
         if (!response.ok) {

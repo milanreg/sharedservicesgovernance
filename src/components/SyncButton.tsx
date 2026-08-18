@@ -4,6 +4,27 @@ import type { LiveSnapshot } from "../template/types";
 
 type State = "idle" | "syncing" | "done" | "error";
 
+/**
+ * A header is the wrong place for a wall of warnings — one line here, the rest
+ * on hover. Warnings that differ only by an id are counted, not repeated.
+ */
+function summarize(snapshot: LiveSnapshot): string {
+  const { warnings, tickets, confluence } = snapshot;
+  if (!warnings.length) {
+    return `Synced ${tickets.length} sprint items and ${confluence.length} Confluence pages.`;
+  }
+
+  const groups = new Map<string, number>();
+  for (const warning of warnings) {
+    const shape = warning.replace(/\b\d{4,}\b/g, "…");
+    groups.set(shape, (groups.get(shape) ?? 0) + 1);
+  }
+
+  const [shape, repeats] = [...groups][0];
+  const rest = groups.size > 1 ? ` (+${groups.size - 1} more)` : "";
+  return `Synced ${tickets.length} sprint items. ${repeats > 1 ? `${repeats}× ` : ""}${shape}${rest}`;
+}
+
 export function SyncButton({
   slug,
   lastSynced,
@@ -15,10 +36,12 @@ export function SyncButton({
 }) {
   const [state, setState] = useState<State>("idle");
   const [message, setMessage] = useState<string | null>(null);
+  const [detail, setDetail] = useState<string | null>(null);
 
   const sync = async () => {
     setState("syncing");
     setMessage(null);
+    setDetail(null);
     try {
       let response: Response;
       try {
@@ -46,11 +69,8 @@ export function SyncButton({
       const snapshot = body as LiveSnapshot;
       onSynced(snapshot);
       setState("done");
-      setMessage(
-        snapshot.warnings.length
-          ? `Synced with ${snapshot.warnings.length} warning${snapshot.warnings.length > 1 ? "s" : ""}: ${snapshot.warnings.join(" ")}`
-          : `Synced ${snapshot.tickets.length} sprint items and ${snapshot.confluence.length} Confluence pages.`,
-      );
+      setMessage(summarize(snapshot));
+      setDetail(snapshot.warnings.join("\n") || null);
     } catch (error) {
       setState("error");
       setMessage((error as Error).message);
@@ -65,7 +85,11 @@ export function SyncButton({
       <small className="sync-note">
         {lastSynced ? `Last synced ${formatSyncedAt(lastSynced)}` : "Showing the authored snapshot"}
       </small>
-      {message ? <small className={`sync-msg sync-${state}`}>{message}</small> : null}
+      {message ? (
+        <small className={`sync-msg sync-${state}`} title={detail ?? undefined}>
+          {message}
+        </small>
+      ) : null}
     </div>
   );
 }
