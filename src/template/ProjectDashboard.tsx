@@ -944,7 +944,7 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
           </div>
           <div className="head-actions">
             <button type="button" className="review-btn" onClick={() => setReviewOpen(true)}>
-              30-day summary
+              Summary
             </button>
             <SyncButton slug={project.slug} lastSynced={project.lastSynced} onSynced={setLive} />
           </div>

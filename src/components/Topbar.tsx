@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 export function Topbar({ title }: { title: string }) {
   return (
     <header className="topbar">
-      <strong>{title}</strong>
+      <Link className="topbar-title" to="/">
+        <strong>{title}</strong>
+      </Link>
       <Link to="/">Shared Services</Link>
     </header>
   );

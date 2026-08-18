@@ -136,6 +136,18 @@ button,
   font-size: 18px;
 }
 
+.topbar a.topbar-title {
+  color: var(--white);
+  font-size: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.topbar a.topbar-title:hover {
+  text-decoration: underline;
+}
+
 .page {
   padding: 32px 28px 64px;
   max-width: 1280px;
@@ -294,8 +306,12 @@ button,
   border: 1px solid var(--rule);
   background: var(--white);
   color: var(--ink);
-  display: flex;
   flex-direction: column;
+}
+
+/* Scoped to [open] so the UA rule that hides a closed dialog still wins. */
+.review[open] {
+  display: flex;
 }
 
 .review::backdrop {
