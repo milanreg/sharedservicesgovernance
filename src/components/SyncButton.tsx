@@ -37,6 +37,9 @@ export function SyncButton({
   const [state, setState] = useState<State>("idle");
   const [message, setMessage] = useState<string | null>(null);
   const [detail, setDetail] = useState<string | null>(null);
+  // Naming the origin matters: the failure is usually that this tab is pointed
+  // at a different port than the server that has the endpoint.
+  const origin = window.location.origin;
 
   const sync = async () => {
     setState("syncing");
@@ -48,18 +51,18 @@ export function SyncButton({
         response = await fetch(`/api/sync/${slug}`, { method: "POST" });
       } catch {
         throw new Error(
-          "Could not reach the sync endpoint. The dev server that served this page is not running — restart it with npm run dev and reload.",
+          `Could not reach ${origin}. The server that served this page has stopped — start it with npm run dev and reload.`,
         );
       }
 
-      // A stopped or plugin-less server answers with an HTML error page.
+      // A server older than the sync endpoint answers with an HTML 404 page.
       const raw = await response.text();
       let body: { error?: string } | LiveSnapshot;
       try {
         body = JSON.parse(raw);
       } catch {
         throw new Error(
-          `The sync endpoint returned ${response.status} as HTML, not JSON. This page is probably served by a build or a server without the sync plugin — run npm run dev and reload.`,
+          `${origin} has no sync endpoint (HTTP ${response.status}). It is an older server left running from a previous session. Stop it, run npm run dev, and reload this page from the address it prints.`,
         );
       }
       if (!response.ok) {

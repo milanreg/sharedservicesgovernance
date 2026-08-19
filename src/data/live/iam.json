@@ -1,11 +1,11 @@
 {
   "slug": "iam",
-  "syncedAt": "2026-08-18T13:18:15.988Z",
+  "syncedAt": "2026-08-19T09:21:27.806Z",
   "projectSummary": {
     "done": 363,
     "open": 149,
     "highPriorityOpen": 40,
-    "unassignedOpen": 117,
+    "unassignedOpen": 114,
     "epics": 44,
     "currentRelease": {
       "name": "R1.3.0.01_RSH_10.02.26",
@@ -38,7 +38,7 @@
     {
       "key": "RSH-3481",
       "summary": "[IAM] Remove direct group-id grant path entirely",
-      "status": "In Implementation",
+      "status": "In Quality Review",
       "owner": "Celso Garcia",
       "blocked": false,
       "spillover": true
@@ -166,7 +166,7 @@
     {
       "key": "RSH-4096",
       "summary": "AppSec: Evaluate and adopt a hardened Keycloak runtime image without curl",
-      "status": "In Quality Review",
+      "status": "In PO Review",
       "owner": "Pawel Skrzypczynski",
       "blocked": false,
       "spillover": true
@@ -364,7 +364,7 @@
       ]
     },
     "raised": {
-      "total": 50,
+      "total": 49,
       "items": [
         {
           "key": "RSH-4263",
@@ -378,7 +378,7 @@
           "key": "RSH-4262",
           "summary": "[IAM] PAT",
           "status": "New",
-          "owner": "Jan-Hendrik Hühne",
+          "owner": "Shashank Prasad",
           "date": "2026-08-14",
           "priority": "Medium"
         },
@@ -410,7 +410,7 @@
           "key": "RSH-4256",
           "summary": "[IAM] WCAG 2.2 Level AA",
           "status": "New",
-          "owner": "Unassigned",
+          "owner": "CE-Dominik Czerwiński",
           "date": "2026-08-14",
           "priority": "Medium"
         },
@@ -418,7 +418,7 @@
           "key": "RSH-4255",
           "summary": "[IAM] Principal User (User Manager) - Make Work",
           "status": "New",
-          "owner": "Unassigned",
+          "owner": "CE-Dominik Czerwiński",
           "date": "2026-08-14",
           "priority": "High"
         },

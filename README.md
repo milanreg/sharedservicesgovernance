@@ -6,8 +6,16 @@ populated from Jira RSH board 2936 and Confluence IAM docs (snapshot 16 Aug 2026
 
 ```bash
 npm install
-npm run dev
+npm run dev    # http://localhost:5173 — sources, hot reload
+npm start      # http://localhost:4173 — built assets, same sync endpoint
 ```
+
+Both ports are pinned with `strictPort`, so a second server fails to start
+rather than drifting to the next free port. That matters: a server left running
+from an earlier session keeps answering on the address in your bookmark, and if
+it predates a feature it will 404 the requests the current code makes. If
+`npm run dev` reports the port is in use, stop the old process instead of
+letting two servers coexist.
 
 ## Syncing Jira and Confluence
 
@@ -27,7 +35,7 @@ ticket key across a sync.
 
 ## 30-day delivery review
 
-The **30-day summary** button next to Sync opens a dialog covering the window
+The **Summary** button next to Sync opens a dialog covering the window
 either side of today: what was delivered and raised in the last 30 days, what is
 due to land in the next 30 (releases, dated Jira work, and roadmap milestones),
 and what is stuck — overdue unreleased versions, blocked tickets, open work Jira
@@ -77,7 +85,9 @@ with a warning rather than failing the sync.
 
 ### Production
 
-The sync endpoint lives in a Vite plugin (`server/syncPlugin.ts`), so it exists
-in `npm run dev` and `npm run preview` only. A static production deploy has no
-Node process — rehost that handler behind whatever serves the built assets, and
-keep the tokens server-side.
+The sync endpoint lives in a Vite plugin (`server/syncPlugin.ts`), so it needs a
+Node process. `npm start` builds and then serves the built app through
+`vite preview`, which runs the same handler — use that for a shared internal
+instance. A file-copy deploy to a static host has no Node process and the Sync
+button will 404 there; rehost the handler behind whatever serves the assets, and
+keep the tokens server-side either way.
