@@ -8,7 +8,7 @@ import { SummaryDialog } from "../components/SummaryDialog";
 import { SyncButton } from "../components/SyncButton";
 import { Topbar } from "../components/Topbar";
 import { getTicketRisks } from "../data/catalog";
-import { applyLive, bundledSnapshot } from "../data/live";
+import { applyLive } from "../data/live";
 import { ragTone, workflowTone } from "../template/status";
 import { isSprintSlice, sprintSlices, type SprintSlice } from "../template/slices";
 import { DEFAULT_TAB, GOVERNANCE_TABS, isTabId, type TabId } from "../template/tabs";
@@ -895,7 +895,8 @@ function TicketKeys({ tickets, baseUrl }: { tickets: Ticket[]; baseUrl: string }
 }
 
 export function ProjectDashboard({ project: authored }: { project: ProjectGovernance }) {
-  const [live, setLive] = useState<LiveSnapshot | undefined>(() => bundledSnapshot(authored.slug));
+  // The catalog already folded in the bundled snapshot; this holds a fresh sync.
+  const [live, setLive] = useState<LiveSnapshot | undefined>();
   const [reviewOpen, setReviewOpen] = useState(false);
   const project = live ? applyLive(authored, live, getTicketRisks(authored.slug)) : authored;
   const [params, setParams] = useSearchParams();

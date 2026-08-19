@@ -1,14 +1,30 @@
 import { iamGovernance, TICKET_RISKS } from "./iamGovernance";
+import { applyLive, bundledSnapshot } from "./live";
 import { emptyProject, type ProjectGovernance, type Risk } from "../template/types";
+
+/**
+ * Resolved once here rather than per page, so the portfolio cards and the
+ * dashboard can never quote different numbers for the same product.
+ */
+function withLive(project: ProjectGovernance): ProjectGovernance {
+  const snapshot = bundledSnapshot(project.slug);
+  return snapshot ? applyLive(project, snapshot, TICKET_RISKS) : project;
+}
+
+const iam = withLive(iamGovernance);
 
 export const portfolio = [
   {
-    slug: iamGovernance.slug,
-    name: iamGovernance.name,
-    full: iamGovernance.fullName,
-    rag: iamGovernance.rag,
-    summary: iamGovernance.summary,
-    stats: ["634 [IAM] closed", "209 still open", "Sprint 2616 active"],
+    slug: iam.slug,
+    name: iam.name,
+    full: iam.fullName,
+    rag: iam.rag,
+    summary: iam.summary,
+    stats: [
+      `${iam.projectSummary.done} closed`,
+      `${iam.projectSummary.open} still open`,
+      `${iam.sprint.name} active`,
+    ],
   },
   {
     slug: "rconnect-submission",
@@ -28,7 +44,7 @@ export const portfolio = [
       "Supervisory messaging module. Same governance tabs as IAM; briefing not yet connected.",
     stats: ["Template ready", "Jira not yet wired"],
   },
-] as const;
+];
 
 const rconnectSubmission: ProjectGovernance = emptyProject({
   slug: "rconnect-submission",
@@ -47,7 +63,7 @@ const rconnectCommunicator: ProjectGovernance = emptyProject({
 });
 
 const bySlug: Record<string, ProjectGovernance> = {
-  iam: iamGovernance,
+  iam,
   "rconnect-submission": rconnectSubmission,
   "rconnect-communicator": rconnectCommunicator,
 };
