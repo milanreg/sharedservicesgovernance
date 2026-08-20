@@ -207,13 +207,28 @@ function formatDate(value?: string): string {
   return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
-async function readSprint(creds: Credentials, boardId: number, warnings: string[]) {
+async function readSprint(
+  creds: Credentials,
+  boardId: number,
+  match: string | undefined,
+  warnings: string[],
+) {
   type Sprint = { id: number; name: string; startDate?: string; endDate?: string };
   const sprints = await jira<{ values: Sprint[] }>(
     creds,
     `/rest/agile/1.0/board/${boardId}/sprint?state=active`,
   );
-  const active = sprints.values?.[0];
+  const open = sprints.values ?? [];
+  const needle = match?.toLowerCase();
+  const named = needle ? open.filter((s) => s.name.toLowerCase().includes(needle)) : open;
+
+  if (needle && !named.length && open.length) {
+    warnings.push(
+      `No active sprint on board ${boardId} matches “${match}”; used ${open[0].name} instead.`,
+    );
+  }
+
+  const active = named[0] ?? open[0];
   if (!active) {
     warnings.push(`No active sprint on board ${boardId}.`);
     return { sprint: undefined, tickets: [] as Ticket[] };
@@ -468,7 +483,7 @@ export async function buildSnapshot(
   );
 
   const sprintData = config.boardId
-    ? await readSprint(creds, config.boardId, warnings)
+    ? await readSprint(creds, config.boardId, config.sprintNameContains, warnings)
     : { sprint: undefined, tickets: [] as Ticket[] };
 
   if (!sprintData.tickets.length && !config.boardId) {

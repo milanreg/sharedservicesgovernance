@@ -1,4 +1,8 @@
 import { iamGovernance, TICKET_RISKS } from "./iamGovernance";
+import {
+  rconnectSubmissionGovernance,
+  TICKET_RISKS as RCON_SUBMISSION_RISKS,
+} from "./rconnectSubmissionGovernance";
 import { applyLive, bundledSnapshot } from "./live";
 import { emptyProject, type ProjectGovernance, type Risk } from "../template/types";
 
@@ -6,12 +10,13 @@ import { emptyProject, type ProjectGovernance, type Risk } from "../template/typ
  * Resolved once here rather than per page, so the portfolio cards and the
  * dashboard can never quote different numbers for the same product.
  */
-function withLive(project: ProjectGovernance): ProjectGovernance {
+function withLive(project: ProjectGovernance, risks: Record<string, Risk>): ProjectGovernance {
   const snapshot = bundledSnapshot(project.slug);
-  return snapshot ? applyLive(project, snapshot, TICKET_RISKS) : project;
+  return snapshot ? applyLive(project, snapshot, risks) : project;
 }
 
-const iam = withLive(iamGovernance);
+const iam = withLive(iamGovernance, TICKET_RISKS);
+const rconnectSubmission = withLive(rconnectSubmissionGovernance, RCON_SUBMISSION_RISKS);
 
 export const portfolio = [
   {
@@ -27,13 +32,16 @@ export const portfolio = [
     ],
   },
   {
-    slug: "rconnect-submission",
-    name: "RCONNECT SUBMISSION",
-    full: "Rconnect Submission",
-    rag: "TBD" as const,
-    summary:
-      "Submission flow across Rcloud / NiFi. Same governance tabs as IAM; briefing not yet connected.",
-    stats: ["Template ready", "Jira not yet wired"],
+    slug: rconnectSubmission.slug,
+    name: rconnectSubmission.name,
+    full: rconnectSubmission.fullName,
+    rag: rconnectSubmission.rag,
+    summary: rconnectSubmission.summary,
+    stats: [
+      `${rconnectSubmission.projectSummary.done} resolved`,
+      `${rconnectSubmission.projectSummary.open} still open`,
+      `${rconnectSubmission.sprint.name} active`,
+    ],
   },
   {
     slug: "rconnect-communicator",
@@ -45,14 +53,6 @@ export const portfolio = [
     stats: ["Template ready", "Jira not yet wired"],
   },
 ];
-
-const rconnectSubmission: ProjectGovernance = emptyProject({
-  slug: "rconnect-submission",
-  name: "RCONNECT SUBMISSION",
-  fullName: "Rconnect Submission",
-  platform: "Rconnect",
-  summary: portfolio[1].summary,
-});
 
 const rconnectCommunicator: ProjectGovernance = emptyProject({
   slug: "rconnect-communicator",
@@ -71,6 +71,7 @@ const bySlug: Record<string, ProjectGovernance> = {
 /** Risk assessments are keyed by ticket so they survive a sync. */
 const risksBySlug: Record<string, Record<string, Risk>> = {
   iam: TICKET_RISKS,
+  "rconnect-submission": RCON_SUBMISSION_RISKS,
 };
 
 export function getProject(slug: string | undefined): ProjectGovernance | undefined {

@@ -12,6 +12,11 @@ export type ProjectSyncConfig = {
    */
   excludeJql?: string;
   boardId?: number;
+  /**
+   * Picks one team's sprint when several run concurrently on a shared board.
+   * Matched case-insensitively against the sprint name.
+   */
+  sprintNameContains?: string;
   confluencePageIds?: string[];
 };
 
@@ -24,6 +29,21 @@ export const SYNC_CONFIG: Record<string, ProjectSyncConfig> = {
     excludeJql: 'issuetype not in ("Test", "Test Execution")',
     boardId: 2936,
     confluencePageIds: ["253473412", "266593053", "226552828"],
+  },
+  "rconnect-submission": {
+    jiraProjectKey: "RCON",
+    scopeJql: "project = RCON",
+    /**
+     * RCON holds two products. Communicator hangs off the RCON-276 "Rconnect
+     * for RSH" work package, so removing that subtree leaves Submission —
+     * the RCON-271 enablers and the RCON-872 Rconnect CORE tree.
+     */
+    excludeJql:
+      'issue not in portfolioChildIssuesOf("RCON-276") AND key != RCON-276 AND issuetype not in ("Test", "Test Execution")',
+    boardId: 3734,
+    // Board 3734 runs five active sprints at once, one per team.
+    sprintNameContains: "RCON.S",
+    confluencePageIds: ["271223446", "274800732", "293881399", "299214127", "307763856"],
   },
 };
 

@@ -1,0 +1,645 @@
+{
+  "slug": "rconnect-submission",
+  "syncedAt": "2026-08-19T10:53:36.990Z",
+  "projectSummary": {
+    "done": 806,
+    "open": 67,
+    "highPriorityOpen": 10,
+    "unassignedOpen": 29,
+    "epics": 45,
+    "currentRelease": {
+      "name": "RCON.C 1.2.0",
+      "date": "26 Aug 2026",
+      "released": false
+    },
+    "lastRelease": {
+      "name": "RCON.C 1.1.0",
+      "date": "27 Jul 2026"
+    }
+  },
+  "sprint": {
+    "name": "RCON.S sprint 14",
+    "start": "10 Aug 2026",
+    "end": "21 Aug 2026",
+    "committed": 15,
+    "done": 0,
+    "inProgress": 11,
+    "blocked": 0
+  },
+  "tickets": [
+    {
+      "key": "RCON-1381",
+      "summary": "[Ni-FI] Differentiate TEST/PROD submissions by parsing the FiTax file name",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-902",
+      "summary": "[BE] [Error Handling NiFi] Add an information of error reason",
+      "status": "In Implementation",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1126",
+      "summary": "[PwC] Allow Super Admin, Admin, and Employee with Edit rights to create, edit, and delete entities",
+      "status": "In Implementation",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1231",
+      "summary": "Enhancement - Delete Entity (BE)",
+      "status": "In Implementation",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1355",
+      "summary": "[BUG] Resubmit report is not working correctly",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1173",
+      "summary": "Create instance to integrate Nifi-registry updater",
+      "status": "In Implementation",
+      "owner": "Vinodh Soundararajan",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1248",
+      "summary": "Test Automation pipeline creation",
+      "status": "In Implementation",
+      "owner": "Kamil Burek",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1221",
+      "summary": "Regression Test Suite ",
+      "status": "In Implementation",
+      "owner": "Rafał Bator",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1306",
+      "summary": "Improve validation errors display for records with multiple errors",
+      "status": "In PO Review",
+      "owner": "Rafał Bator",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1313",
+      "summary": "Validate UI auto refresh on rconnect platform",
+      "status": "New",
+      "owner": "Rafał Bator",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1335",
+      "summary": "Design - UX Enahncement ",
+      "status": "In PO Review",
+      "owner": "Kamil Burek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1336",
+      "summary": "RTH - RCON Integration to add RCON as independent component",
+      "status": "In Implementation",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1382",
+      "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
+      "status": "New",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1390",
+      "summary": "upgrading one ui version to 6.0.1",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1366",
+      "summary": "[BE] Differentiate TEST/PROD submissions by parsing the FiTax file name",
+      "status": "In Implementation",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    }
+  ],
+  "activity": {
+    "days": 30,
+    "delivered": {
+      "total": 86,
+      "items": [
+        {
+          "key": "RCON-398",
+          "summary": "Calendar - Phase 3",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1210",
+          "summary": "[RCON.S 2.1.0] Maintenance and Improvements",
+          "status": "Ready for integration",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-583",
+          "summary": "CESOP - Enhancements Phase 3",
+          "status": "Closed",
+          "owner": "CE-Anastasiia Oratovska",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-773",
+          "summary": "Authenticate to IRS api",
+          "status": "Done",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-857",
+          "summary": "Integrate 10099 workflows with monitor microservice",
+          "status": "Done",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-856",
+          "summary": "Prepare process for receiveing status from IRS",
+          "status": "Done",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-775",
+          "summary": "Prepare process for receiving any change in the submission",
+          "status": "Done",
+          "owner": "Unassigned",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-774",
+          "summary": "Prepare process for sending reports to IRS",
+          "status": "Done",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-772",
+          "summary": "Prepare connection to activemq instance",
+          "status": "Done",
+          "owner": "Unassigned",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-170",
+          "summary": "[IMAP-plugin] Main functionality",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-278",
+          "summary": "CH: Connect to SNB",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-930",
+          "summary": "PL: Connect to tON (middle supervisor system BPS and SGB)",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-282",
+          "summary": "UK: Connect to Bank of England (BEEDS)",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-281",
+          "summary": "LU: Connect to CSSF (eDesk Portal)",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-280",
+          "summary": "DE: Connect to Bundesbank (NExt)",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-279",
+          "summary": "NL: Connect to DNB",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-1028",
+          "summary": "Communicator in Rconnect",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-08-18",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1264",
+          "summary": "Publishing documentation on RKH for Communicator",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1139",
+          "summary": "Add Latvia to the Test Framework",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1298",
+          "summary": "CESOP - Rconnect - M2M - Finland 13",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1339",
+          "summary": "Support Ticket - RTH",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1338",
+          "summary": "Support Ticket - RRH(Abacus 360), FiTax",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1233",
+          "summary": "Prevent deletion of referenced countryRegime",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1069",
+          "summary": "Following dynamic credentials, legacy credentials tables have to be removed",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1302",
+          "summary": "Maintenance: Fix Sonar issues for rconnect-configuration",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Medium"
+        }
+      ]
+    },
+    "raised": {
+      "total": 46,
+      "items": [
+        {
+          "key": "RCON-1409",
+          "summary": "Manual report upload must reject a file that does not belong to this case's entity and show why it failed",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-18",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1408",
+          "summary": "CESOP - Enhancements Phase 3 OPEN",
+          "status": "New",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1407",
+          "summary": "Rconnect Communicator",
+          "status": "To Do",
+          "owner": "Alexander Becht",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1406",
+          "summary": "Application Security",
+          "status": "New",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1405",
+          "summary": "[PwC] User Feedback '26",
+          "status": "New",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1404",
+          "summary": "Do not auto-create an unusable entity; fail with a clear integrator error until credentials exist",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-18",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1403",
+          "summary": "alphabetical order and searchable entity list",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-18",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1402",
+          "summary": "[Bug] Entities page: Edit Configuration sporadically opens with empty values",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-13",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1401",
+          "summary": "equalize values from the view to the exported excel file",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1390",
+          "summary": "upgrading one ui version to 6.0.1",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1386",
+          "summary": "Enhancement - Delete Entity (FE)",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1385",
+          "summary": "Remove zookeeper image from chart",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1384",
+          "summary": "Update nifi image to 2.11",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1382",
+          "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
+          "status": "New",
+          "owner": "CE-Dwitiya Halder",
+          "date": "2026-08-10",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1381",
+          "summary": "[Ni-FI] Differentiate TEST/PROD submissions by parsing the FiTax file name",
+          "status": "In Implementation",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-08-10",
+          "priority": "Critical"
+        },
+        {
+          "key": "RCON-1379",
+          "summary": "Enablers] Support RTH Integration",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1378",
+          "summary": "[Enablers] Support integration with the UMOJA platform",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1377",
+          "summary": "[2.2.0] Maintenance & Improvements",
+          "status": "New",
+          "owner": "Anca Dobrea",
+          "date": "2026-08-10",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1375",
+          "summary": "Enablers] Support RRH Integrations with tON and German Regulator",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1369",
+          "summary": "Communicator: In-App & E-mail Notifications",
+          "status": "Ready for delivery",
+          "owner": "Unassigned",
+          "date": "2026-08-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1367",
+          "summary": "[PwC] Check files name is parsed correctly for countries already implemented",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-05",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1366",
+          "summary": "[BE] Differentiate TEST/PROD submissions by parsing the FiTax file name",
+          "status": "In Implementation",
+          "owner": "Benjamin Garaude",
+          "date": "2026-08-05",
+          "priority": "Critical"
+        },
+        {
+          "key": "RCON-1365",
+          "summary": "UI unit test coverage",
+          "status": "New",
+          "owner": "Kamil Burek",
+          "date": "2026-08-05",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1355",
+          "summary": "[BUG] Resubmit report is not working correctly",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-30",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1349",
+          "summary": "[Bug] Search in all columns for entities doesn't work corrcectly.",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-28",
+          "priority": "Medium"
+        }
+      ]
+    },
+    "due": {
+      "total": 0,
+      "items": []
+    },
+    "stalled": {
+      "total": 7,
+      "items": [
+        {
+          "key": "RCON-269",
+          "summary": "Rconnect",
+          "status": "In Progress",
+          "owner": "Alexander Becht",
+          "date": "2026-03-11",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-272",
+          "summary": "[Enablers] Support Integrators",
+          "status": "In Implementation",
+          "owner": "Anca Dobrea",
+          "date": "2026-05-18",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-1140",
+          "summary": "Rcloud Readiness",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-05-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-931",
+          "summary": "Merge RCON.S Services into a Monolith",
+          "status": "In Implementation",
+          "owner": "Anca Dobrea",
+          "date": "2026-06-16",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1234",
+          "summary": "Handling DataCollection permissions",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-27",
+          "priority": "Minor"
+        },
+        {
+          "key": "RCON-1143",
+          "summary": "Support Suspend on Idle Feature",
+          "status": "Ready",
+          "owner": "CE-Dwitiya Halder",
+          "date": "2026-07-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1172",
+          "summary": "Insuficient CPU when creating new instances",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-27",
+          "priority": "Not defined"
+        }
+      ]
+    },
+    "releases": [
+      {
+        "name": "RCON.C 1.2.0",
+        "date": "2026-08-26",
+        "released": false
+      }
+    ],
+    "overdueReleases": []
+  },
+  "confluence": [],
+  "warnings": [
+    "Confluence page 271223446 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 307763856 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 299214127 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 293881399 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 274800732 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host."
+  ]
+}
