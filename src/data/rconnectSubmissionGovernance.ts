@@ -156,7 +156,7 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
   boardUrl: BOARD,
   snapshot: SNAPSHOT,
   sources:
-    "Jira: project = RCON, less the RCON-276 Communicator subtree and Xray test artefacts (806 resolved, 67 open, 45 epics) · board 3734, sprint RCON.S sprint 14. Confluence RCON space: Rconnect Submission product page (v2, Feb 2026), seven architecture decision records, the Rconnect and NiFi integration guides, Deploy as a component on PROD, and the security vulnerability triage (Aug 2026).",
+    "Jira: project = RCON, less the RCON-276 Communicator subtree and Xray test artefacts (806 resolved, 70 open, 45 epics) · board 3734, sprint RCON.S sprint 14. Confluence RCON space: Rconnect Submission product page (v2, Feb 2026), seven architecture decision records, the Rconnect and NiFi integration guides, Deploy as a component on PROD, and the security vulnerability triage (Aug 2026).",
   populated: true,
   sprint: {
     name: sprint.name,
@@ -250,7 +250,7 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     const extra: Record<string, Risk> = {
       "RCON-1210": {
         level: "amber",
-        reason: "Resolved is not released: 806 items read as done against 67 open.",
+        reason: "Resolved is not released: 806 items read as done against 70 open.",
         mitigation:
           "Treat Ready for integration as work in progress in every report, and release the sprint-13 tranche before adding to it.",
         assessment:
@@ -299,9 +299,9 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RCON/summary",
     done: 806,
-    open: 67,
+    open: 70,
     highPriorityOpen: 10,
-    unassignedOpen: 29,
+    unassignedOpen: 31,
     epics: 45,
     currentRelease: { name: "RCON.C 1.2.0", date: "26 Aug 2026", released: false },
     lastRelease: { name: "RCON.C 1.1.0", date: "27 Jul 2026" },

@@ -3,8 +3,12 @@ import {
   rconnectSubmissionGovernance,
   TICKET_RISKS as RCON_SUBMISSION_RISKS,
 } from "./rconnectSubmissionGovernance";
+import {
+  rconnectCommunicatorGovernance,
+  TICKET_RISKS as RCON_COMMUNICATOR_RISKS,
+} from "./rconnectCommunicatorGovernance";
 import { applyLive, bundledSnapshot } from "./live";
-import { emptyProject, type ProjectGovernance, type Risk } from "../template/types";
+import type { ProjectGovernance, Risk } from "../template/types";
 
 /**
  * Resolved once here rather than per page, so the portfolio cards and the
@@ -17,6 +21,7 @@ function withLive(project: ProjectGovernance, risks: Record<string, Risk>): Proj
 
 const iam = withLive(iamGovernance, TICKET_RISKS);
 const rconnectSubmission = withLive(rconnectSubmissionGovernance, RCON_SUBMISSION_RISKS);
+const rconnectCommunicator = withLive(rconnectCommunicatorGovernance, RCON_COMMUNICATOR_RISKS);
 
 export const portfolio = [
   {
@@ -44,23 +49,18 @@ export const portfolio = [
     ],
   },
   {
-    slug: "rconnect-communicator",
-    name: "RCONNECT COMMUNICATOR",
-    full: "Rconnect Communicator",
-    rag: "TBD" as const,
-    summary:
-      "Supervisory messaging module. Same governance tabs as IAM; briefing not yet connected.",
-    stats: ["Template ready", "Jira not yet wired"],
+    slug: rconnectCommunicator.slug,
+    name: rconnectCommunicator.name,
+    full: rconnectCommunicator.fullName,
+    rag: rconnectCommunicator.rag,
+    summary: rconnectCommunicator.summary,
+    stats: [
+      `${rconnectCommunicator.projectSummary.done} resolved`,
+      `${rconnectCommunicator.projectSummary.open} still open`,
+      `${rconnectCommunicator.sprint.name} active`,
+    ],
   },
 ];
-
-const rconnectCommunicator: ProjectGovernance = emptyProject({
-  slug: "rconnect-communicator",
-  name: "RCONNECT COMMUNICATOR",
-  fullName: "Rconnect Communicator",
-  platform: "Rconnect",
-  summary: portfolio[2].summary,
-});
 
 const bySlug: Record<string, ProjectGovernance> = {
   iam,
@@ -72,6 +72,7 @@ const bySlug: Record<string, ProjectGovernance> = {
 const risksBySlug: Record<string, Record<string, Risk>> = {
   iam: TICKET_RISKS,
   "rconnect-submission": RCON_SUBMISSION_RISKS,
+  "rconnect-communicator": RCON_COMMUNICATOR_RISKS,
 };
 
 export function getProject(slug: string | undefined): ProjectGovernance | undefined {

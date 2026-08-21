@@ -1,0 +1,799 @@
+{
+  "slug": "rconnect-communicator",
+  "syncedAt": "2026-08-21T02:18:42.363Z",
+  "projectSummary": {
+    "done": 243,
+    "open": 58,
+    "highPriorityOpen": 1,
+    "unassignedOpen": 33,
+    "epics": 28,
+    "currentRelease": {
+      "name": "RCON.C 1.2.0",
+      "date": "26 Aug 2026",
+      "released": false
+    },
+    "lastRelease": {
+      "name": "RCON.C 1.1.0",
+      "date": "27 Jul 2026"
+    }
+  },
+  "sprint": {
+    "name": "Yolo - Communicator Sprint 21",
+    "start": "12 Aug 2026",
+    "end": "26 Aug 2026",
+    "committed": 23,
+    "done": 1,
+    "inProgress": 15,
+    "blocked": 0
+  },
+  "tickets": [
+    {
+      "key": "RCON-1304",
+      "summary": "Chart/wrapper: different modes of operation",
+      "status": "In PO Review",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1213",
+      "summary": "Persist Case and Thread Change History in Database",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1287",
+      "summary": "Allow removing due date on cases and threads",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1301",
+      "summary": "Refine UI for removing due date",
+      "status": "Done",
+      "owner": "Igor Lesiv",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1380",
+      "summary": "Release RCON.C 1.2.0",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1373",
+      "summary": "Communicator: Prepare example performance tests",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "ONADD-10796",
+      "summary": "CVE-2026-67213 Datacalc",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "ONADD-10795",
+      "summary": "[DataCalc] release 10.3.0",
+      "status": "New",
+      "owner": "Kamil Matuszewski",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1299",
+      "summary": "Clean up untagged images in Communicator dev Artifact Registry",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1357",
+      "summary": "Auto-grant IAM permissions from module registration (getCommunicationDimensions)",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1296",
+      "summary": "[Bug] thread list can show outdated unread counts when messages arrive close together",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1297",
+      "summary": "[Bug] reporting entity dropdown can show wrong module's entities when creating a case",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1295",
+      "summary": "[Bug] navigating away from /cases quickly can bounce you back into a case",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1399",
+      "summary": "Communicator: Design mockup for attachments UI",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1397",
+      "summary": "Communicator: Design mockup for case and thread history UI",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1398",
+      "summary": "Communicator: Design mockup for thread assignee UI",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1400",
+      "summary": "Communicator: Fix e2e tests after latest platform changes",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-972",
+      "summary": "Support for filtering/sorting/pagination on backend side for the Dashboard table",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "ONADD-10788",
+      "summary": "DataCalc (ETL): adopt Regnology AsciiDoc theme 1.3.0 (gradle-common 1.8.8)",
+      "status": "In PO Review",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1359",
+      "summary": "Fix registration purpose for group membership endpoint (getEntityGroupMemberships)",
+      "status": "Implemented",
+      "owner": "Agent RND Rconnect C Dev",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "ONADD-10802",
+      "summary": "[DataCalc] Bump Java version to 21",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1352",
+      "summary": "Use Valkey for shared cache of in-memory data (e.g. entities)",
+      "status": "In Implementation",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1312",
+      "summary": "[Bug] app instance can crash on startup when several instances launch together on a fresh environment",
+      "status": "In PO Review",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": false
+    }
+  ],
+  "activity": {
+    "days": 30,
+    "delivered": {
+      "total": 30,
+      "items": [
+        {
+          "key": "RCON-1303",
+          "summary": "Chart: external UI-only mode with configurable backend via proxy",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1258",
+          "summary": "Communicator: Share file attachments in thread messages",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1383",
+          "summary": "Communicator: External Keycloak client setup uses internal client names",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1301",
+          "summary": "Refine UI for removing due date",
+          "status": "Done",
+          "owner": "Igor Lesiv",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1356",
+          "summary": "Communicator: Limit white-labeling to header/footer chrome and emails (not page content)",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1353",
+          "summary": "Deliver Communicator sizing templates (modes × S/M/L, incl. Valkey) to Rcloud/Marley",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1308",
+          "summary": "[Bug] Case item options can belong to a previously selected entity",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1307",
+          "summary": "[Bug] Case actions can reflect the previously viewed case after fast navigation",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1374",
+          "summary": "Communicator: Align frontend with SonarQube for QG code coverage",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1293",
+          "summary": "Document AI thread summary architecture and review MCP guidelines",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1291",
+          "summary": "Complete Rforge system onboarding for Communicator team",
+          "status": "Closed",
+          "owner": "Ewa Grabowska",
+          "date": "2026-08-10",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-920",
+          "summary": "In-App & E-mail Notifications",
+          "status": "Ready for integration",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1177",
+          "summary": "Update OneUI version",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1351",
+          "summary": "Start entities refresh via IAM module-list polling instead of registration confirmation",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1348",
+          "summary": "Align public vs General thread terminology in UI and docs",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-05",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1272",
+          "summary": "Hide Rconnect Communicator module name on general messaging cases",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-05",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1290",
+          "summary": "Move dev Helm secrets from values file to Google Secret Manager",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-05",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1300",
+          "summary": "External UI: F5 on case details fails with IAM redirect URI error",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1350",
+          "summary": "Communicator: Overdue filter should exclude closed cases",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1347",
+          "summary": "[Bug] Hide Internal note checkbox on internal threads",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1344",
+          "summary": "Upgrade RSH Platform chart on dev and verify no breaking changes",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1288",
+          "summary": "Configure Marley staging for outbound email",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1309",
+          "summary": "[Bug] Users from different sign-in sources can be treated as the same person",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-07-30",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1310",
+          "summary": "[Bug] A user can receive permissions from another sign-in domain",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-07-30",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1294",
+          "summary": "[Bug] opening a thread with many messages is slow, loads grow with message count",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-07-30",
+          "priority": "Low"
+        }
+      ]
+    },
+    "raised": {
+      "total": 39,
+      "items": [
+        {
+          "key": "RCON-1400",
+          "summary": "Communicator: Fix e2e tests after latest platform changes",
+          "status": "In PO Review",
+          "owner": "Ewa Grabowska",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1399",
+          "summary": "Communicator: Design mockup for attachments UI",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1398",
+          "summary": "Communicator: Design mockup for thread assignee UI",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1397",
+          "summary": "Communicator: Design mockup for case and thread history UI",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1393",
+          "summary": "Communicator: Internal thread Open/Closed status and case status exclusion",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1392",
+          "summary": "Internal thread status and case status calculation",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1391",
+          "summary": "Communicator: Show error curtain when Keycloak token fetch fails",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-11",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1383",
+          "summary": "Communicator: External Keycloak client setup uses internal client names",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1380",
+          "summary": "Release RCON.C 1.2.0",
+          "status": "In Implementation",
+          "owner": "Ewa Grabowska",
+          "date": "2026-08-10",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1374",
+          "summary": "Communicator: Align frontend with SonarQube for QG code coverage",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1373",
+          "summary": "Communicator: Prepare example performance tests",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1372",
+          "summary": "Live updates for cases, threads, and conversations (no page refresh)",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1371",
+          "summary": "Align AI Thread Summary with Regnology AI standards",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1370",
+          "summary": "Native IAM permissions and group support",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1368",
+          "summary": "Filter dashboard by assigned to me",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-05",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1364",
+          "summary": "Assignment notifications and auto-follow",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1363",
+          "summary": "Auto-assign thread creator",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1362",
+          "summary": "Assign, reassign, or clear own-side thread owner",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1361",
+          "summary": "Show per-side assignees on a thread",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1360",
+          "summary": "[Bug] Failed case item loading leaves Create Case permanently disabled",
+          "status": "In Implementation",
+          "owner": "Agent RND Rconnect C Dev",
+          "date": "2026-08-03",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1359",
+          "summary": "Fix registration purpose for group membership endpoint (getEntityGroupMemberships)",
+          "status": "Implemented",
+          "owner": "Agent RND Rconnect C Dev",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1358",
+          "summary": "Revisit edit role requirement for case creation",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1357",
+          "summary": "Auto-grant IAM permissions from module registration (getCommunicationDimensions)",
+          "status": "In Implementation",
+          "owner": "Ewa Grabowska",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1356",
+          "summary": "Communicator: Limit white-labeling to header/footer chrome and emails (not page content)",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-07-30",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1354",
+          "summary": "Deploy buckets on RCloud",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-29",
+          "priority": "Not defined"
+        }
+      ]
+    },
+    "due": {
+      "total": 0,
+      "items": []
+    },
+    "stalled": {
+      "total": 19,
+      "items": [
+        {
+          "key": "RCON-947",
+          "summary": "[Phase 3] Enhancements to be considered",
+          "status": "New",
+          "owner": "Anca Dobrea",
+          "date": "2026-02-12",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1000",
+          "summary": "Client Testing Feedback",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-04-15",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-834",
+          "summary": "Create new Module Case from external Module using UI",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-05-07",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-919",
+          "summary": "Communicator Phase 2 (Extended Functionality)",
+          "status": "In Implementation",
+          "owner": "Anca Dobrea",
+          "date": "2026-05-25",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1267",
+          "summary": "Communicator onPrem",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-09",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1271",
+          "summary": "Support Suspend-on-Idle on Rcloud",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-09",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1268",
+          "summary": "Define localization mechanism for Communicator",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-09",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1094",
+          "summary": "Make registration mechanism multi pod proof",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1160",
+          "summary": "Dynamic Context",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1161",
+          "summary": "Case and Thread History",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1257",
+          "summary": "Communicator for Industry",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-07-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-924",
+          "summary": "[Redesign] UI/UX Improvements",
+          "status": "In Implementation",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-07-28",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1266",
+          "summary": "Post Go-Live Features",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1358",
+          "summary": "Revisit edit role requirement for case creation",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1048",
+          "summary": "Communicator Phase 2: Technical Tasks and Maitanance",
+          "status": "In Implementation",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-03",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1104",
+          "summary": "Agentic AI Features",
+          "status": "In Implementation",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1370",
+          "summary": "Native IAM permissions and group support",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1371",
+          "summary": "Align AI Thread Summary with Regnology AI standards",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1113",
+          "summary": "[PoC] AI Thread Summary",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-06",
+          "priority": "Not defined"
+        }
+      ]
+    },
+    "releases": [
+      {
+        "name": "RCON.C 1.2.0",
+        "date": "2026-08-26",
+        "released": false
+      }
+    ],
+    "overdueReleases": []
+  },
+  "confluence": [],
+  "warnings": []
+}

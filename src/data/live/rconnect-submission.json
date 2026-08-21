@@ -1,11 +1,11 @@
 {
   "slug": "rconnect-submission",
-  "syncedAt": "2026-08-19T10:53:36.990Z",
+  "syncedAt": "2026-08-21T02:29:49.297Z",
   "projectSummary": {
     "done": 806,
-    "open": 67,
+    "open": 70,
     "highPriorityOpen": 10,
-    "unassignedOpen": 29,
+    "unassignedOpen": 31,
     "epics": 45,
     "currentRelease": {
       "name": "RCON.C 1.2.0",
@@ -356,8 +356,32 @@
       ]
     },
     "raised": {
-      "total": 46,
+      "total": 48,
       "items": [
+        {
+          "key": "RCON-1412",
+          "summary": "Document NiFi error handling",
+          "status": "New",
+          "owner": "CE-Dwitiya Halder",
+          "date": "2026-08-19",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1411",
+          "summary": "Define the event/communication schema for the messaging-bus queue",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-19",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1410",
+          "summary": "Add an optional messaging-bus queue to the Helm stack",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-19",
+          "priority": "Major"
+        },
         {
           "key": "RCON-1409",
           "summary": "Manual report upload must reject a file that does not belong to this case's entity and show why it failed",
@@ -533,30 +557,6 @@
           "owner": "Benjamin Garaude",
           "date": "2026-08-05",
           "priority": "Critical"
-        },
-        {
-          "key": "RCON-1365",
-          "summary": "UI unit test coverage",
-          "status": "New",
-          "owner": "Kamil Burek",
-          "date": "2026-08-05",
-          "priority": "Major"
-        },
-        {
-          "key": "RCON-1355",
-          "summary": "[BUG] Resubmit report is not working correctly",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-07-30",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1349",
-          "summary": "[Bug] Search in all columns for entities doesn't work corrcectly.",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-07-28",
-          "priority": "Medium"
         }
       ]
     },
@@ -565,7 +565,7 @@
       "items": []
     },
     "stalled": {
-      "total": 7,
+      "total": 9,
       "items": [
         {
           "key": "RCON-269",
@@ -621,6 +621,22 @@
           "status": "New",
           "owner": "Unassigned",
           "date": "2026-07-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1367",
+          "summary": "[PwC] Check files name is parsed correctly for countries already implemented",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-08-05",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1002",
+          "summary": "Remove Updater Service from the Architecture",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-08-06",
           "priority": "Not defined"
         }
       ]

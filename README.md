@@ -1,16 +1,21 @@
 # IAM-Stat — Shared Services project governance
 
 Regnology Shared Services dashboard. The landing page carries a three-project
-portfolio. Two are connected:
+portfolio, all three connected:
 
 - **IAM** — Jira RSH board 2936 plus the Confluence IAM docs (snapshot 16 Aug 2026).
 - **Rconnect Submission** — Jira RCON board 3734 plus the Confluence RCON space:
   seven architecture decision records, the Rconnect and NiFi integration guides,
-  the production deployment guide, and the security triage (snapshot 19 Aug 2026).
+  the production deployment guide, and the security triage.
+- **Rconnect Communicator** — the RCON-276 subtree on the same board, sprint
+  `Yolo - Communicator Sprint 21`. Its design decisions live in epic and story
+  descriptions rather than Confluence, so the briefing is sourced from Jira.
 
-Rconnect Communicator still renders the empty template. RCON holds both Rconnect
-products, so the Submission scope removes the RCON-276 Communicator subtree —
-see `server/syncConfig.ts`.
+One Jira project holds both Rconnect products, so the two scopes are mirror
+images: Submission excludes the RCON-276 subtree and Communicator keeps only it.
+Board 3734 also runs several teams' sprints at once, which is what
+`sprintNameContains` picks between — `RCON.S` for Submission, `Communicator` for
+Communicator. See `server/syncConfig.ts`.
 
 ```bash
 npm install

@@ -45,6 +45,15 @@ export const SYNC_CONFIG: Record<string, ProjectSyncConfig> = {
     sprintNameContains: "RCON.S",
     confluencePageIds: ["271223446", "274800732", "293881399", "299214127", "307763856"],
   },
+  "rconnect-communicator": {
+    jiraProjectKey: "RCON",
+    scopeJql: "project = RCON",
+    // The mirror image of the Submission scope: keep only the RCON-276 subtree.
+    excludeJql:
+      'issue in portfolioChildIssuesOf("RCON-276") AND issuetype not in ("Test", "Test Execution")',
+    boardId: 3734,
+    sprintNameContains: "Communicator",
+  },
 };
 
 export function getSyncConfig(slug: string): ProjectSyncConfig | undefined {
