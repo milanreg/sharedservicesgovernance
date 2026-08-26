@@ -1,5 +1,3 @@
-import { runSync, syncErrorStatus } from "../../server/sync";
-
 /**
  * The deployed board has no Vite process, so the Vite plugin's sync endpoint
  * does not exist there. This is the same sync behind a serverless function.
@@ -19,13 +17,29 @@ export default {
       return json(400, { error: "No project slug in the request path." });
     }
 
+    // Imported here rather than at module scope so a load failure comes back as
+    // a readable message instead of an opaque platform-level crash.
+    let sync: typeof import("../../server/sync");
     try {
-      return json(200, await runSync(slug, process.env));
+      sync = await import("../../server/sync");
     } catch (error) {
-      return json(syncErrorStatus(error), { error: (error as Error).message });
+      return json(500, {
+        error: `The sync module failed to load on the server: ${describe(error)}`,
+      });
+    }
+
+    try {
+      return json(200, await sync.runSync(slug, process.env));
+    } catch (error) {
+      return json(sync.syncErrorStatus(error), { error: describe(error) });
     }
   },
 };
+
+function describe(error: unknown): string {
+  if (error instanceof Error) return `${error.name}: ${error.message}`;
+  return String(error);
+}
 
 function json(status: number, body: unknown): Response {
   return new Response(JSON.stringify(body), {
