@@ -112,7 +112,9 @@ starts from. Commit a local sync to move that baseline. It also reaches only
 what is on the public internet: Jira Cloud syncs fine, while Confluence Data
 Center and Jira Data Center sit behind the VPN and come back as warnings.
 
-Set the same credentials as environment variables in the Vercel project.
+Set `JIRA_CLOUD_BASE_URL`, `JIRA_CLOUD_EMAIL`, and `JIRA_CLOUD_API_TOKEN` as
+environment variables in the Vercel project. Without them the endpoint answers
+412 and says so, rather than failing silently.
 `vercel.json` also routes every non-`/api` path to `index.html`; without it the
 host serves 404 for deep links like `/projects/iam`, since the router is
 client-side.
