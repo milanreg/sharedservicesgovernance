@@ -492,13 +492,43 @@ button,
 }
 
 .sync-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.75;
   cursor: progress;
+}
+
+.sync-spinner {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 8px;
+  vertical-align: -1px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: sync-spin 0.7s linear infinite;
+}
+
+@keyframes sync-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sync-spinner {
+    animation-duration: 2.4s;
+  }
 }
 
 .sync-note {
   color: var(--ink-muted);
   font-size: 11.5px;
+}
+
+/* A day-old board should not look as trustworthy as one synced minutes ago. */
+.sync-stale {
+  color: var(--amber);
+  font-weight: 600;
 }
 
 .sync-msg {
