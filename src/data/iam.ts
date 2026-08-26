@@ -23,7 +23,7 @@ export const CONFLUENCE = {
   strategy: "https://confluence.regnology.net/pages/viewpage.action?pageId=194395208",
 };
 
-export const SNAPSHOT = "16 Aug 2026";
+export const SNAPSHOT = "26 Aug 2026";
 
 export const sprint = {
   name: "RSH PL 2616",
@@ -391,7 +391,7 @@ export const implementation: {
   config: ConfigRow[];
 } = {
   intro:
-    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 16 Aug 2026 snapshot.",
+    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 26 Aug 2026 snapshot, the day before sprint 2616 and release 26.3.0.00 close.",
   notes: [
     {
       area: "Entity-aware permission model",
@@ -412,21 +412,21 @@ export const implementation: {
       detail:
         "Spikes to migrate existing users, groups, and permissions onto entity scoping and the new permission version. Vizor API Service already assumes the target model, so the migration is on the critical path for Principal User.",
       tickets: ["RSH-3042", "RSH-3503"],
-      state: "In Quality Review / In Implementation",
+      state: "Ready for integration (both)",
     },
     {
       area: "Scoped group administration",
       detail:
         "A direct group-id grant must behave as a true OR-path. Assigning a scoped permission from the IAM module to a scoped group is still broken.",
       tickets: ["RSH-3481", "RSH-4246"],
-      state: "In Implementation / Ready",
+      state: "Ready for integration / Closed",
     },
     {
       area: "Authorization defects",
       detail:
         "Privilege escalation via View + Manage Permissions, entity visibility without Permission:Manage, duplicate permissions for identical role and module, and an internal GUID leaked in group-delete errors.",
       tickets: ["RSH-4220", "RSH-4244", "RSH-3239", "RSH-4261"],
-      state: "In Quality Review / Ready / New",
+      state: "Ready for integration (all four)",
     },
     {
       area: "Permission mirroring",
@@ -574,7 +574,7 @@ export const roadmap: RoadmapPhase[] = [
       { key: "RSH-2150", title: "Permission mirroring", status: "In Implementation", note: "Must label — Central Bank of Barbados / Rconnect" },
       { key: "RSH-793", title: "User profile management", status: "In Implementation", note: "Improvements tracked separately as RSH-4258" },
       { key: "RSH-4221", title: "IAM user guide", status: "In Implementation", note: "Kartik Sharma" },
-      { key: "RSH-3042", title: "Entity scoping migration", status: "In Quality Review", note: "Vizor API Service already assumes this model" },
+      { key: "RSH-3042", title: "Entity scoping migration", status: "Ready for integration", note: "Vizor API Service already assumes this model" },
       { key: "RSH-429", title: "Defects and tech debt backlog", status: "Ready", note: "Standing quality budget" },
       { key: "RSH-2169", title: "Entity group inheritance", status: "Blocked", note: "Blocked on Master Data Management membership expansion" },
     ],
@@ -699,7 +699,7 @@ export const rice = [
     impact: 3,
     confidence: 0.9,
     effort: 1,
-    why: "Touches every Identity and Access Management tenant. In Quality Review. Highest near-term return on investment and a Principal User prerequisite.",
+    why: "Touches every Identity and Access Management tenant. Ready for integration in 26.3.0.00, not yet Closed. Highest near-term return on investment and a Principal User prerequisite.",
     bottleneck: false,
   },
   {

@@ -521,7 +521,9 @@ button,
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Auto-fit rather than a fixed count: projects surface a different number of
+     sprint buckets, and a fixed grid leaves the last card stranded on its own row. */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 12px;
   margin-bottom: 20px;
 }

@@ -177,6 +177,15 @@ function SprintTab({
         <TicketTable rows={groups.wip} baseUrl={project.ticketBaseUrl} />
       </div>
 
+      <div className={focus("integration")} id="slice-integration">
+        <h3>Ready for integration</h3>
+        <p className="muted">
+          Development is finished and the change is queued for a release. It is not delivered
+          until the ticket closes.
+        </p>
+        <TicketTable rows={groups.integration} baseUrl={project.ticketBaseUrl} />
+      </div>
+
       <div id="slice-waiting">
         <h3>Ready / not started</h3>
         <TicketTable rows={groups.waiting} baseUrl={project.ticketBaseUrl} />
@@ -374,8 +383,9 @@ function OverviewTab({ project }: { project: ProjectGovernance }) {
         <div className="card">
           <h3>This sprint mix</h3>
           <p>
-            Closed {groups.done.length} · Implementation + Quality Review {groups.wip.length} · Blocked{" "}
-            {groups.attention.length} · Waiting {groups.waiting.length} · Committed {groups.committed.length}
+            Closed {groups.done.length} · Implementation + Quality Review {groups.wip.length} · Ready
+            for integration {groups.integration.length} · Blocked {groups.attention.length} · Waiting{" "}
+            {groups.waiting.length} · Committed {groups.committed.length}
           </p>
           <p className="muted">{project.sprint.headline}</p>
         </div>
@@ -999,6 +1009,15 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
             <b>{groups.wip.length}</b>
             <span>In progress (Implementation + Quality Review)</span>
             <TicketKeys tickets={groups.wip} baseUrl={project.ticketBaseUrl} />
+          </button>
+          <button
+            type="button"
+            className={`stat ${slice === "integration" ? "stat-active" : ""}`}
+            onClick={() => openSlice("integration")}
+          >
+            <b>{groups.integration.length}</b>
+            <span>Ready for integration</span>
+            <TicketKeys tickets={groups.integration} baseUrl={project.ticketBaseUrl} />
           </button>
           <button
             type="button"

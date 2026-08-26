@@ -33,7 +33,7 @@ export const TICKET_RISKS: Record<string, Risk> = {
     reason:
       "Privilege escalation: View + Manage Permissions can self-grant Manage Users/Groups/Clients.",
     mitigation:
-      "In Quality Review with Dominik Czerwiński. Do not ship Principal User until this is Closed.",
+      "Cleared Quality Review and sits Ready for integration in 26.3.0.00, unassigned. Do not ship Principal User until this is Closed, not merely integrated.",
     assessment:
       "RICE 21.6 — highest near-term return on investment. Touches every Identity and Access Management tenant and is a Principal User go-live blocker.",
     references: [
@@ -63,7 +63,7 @@ export const TICKET_RISKS: Record<string, Risk> = {
   "RSH-4251": {
     level: "amber",
     reason: "Analytics 26.2 cannot complete without the Analyser IAM integration.",
-    mitigation: "Keep Pawel Skrzypczynski on this; do not claim Analytics live until Closed.",
+    mitigation: "Ready for integration but unassigned; do not claim Analytics live until Closed.",
     assessment: "Consumer RSH-719 is In Implementation and blocked by this ticket.",
     references: [
       { label: "RSH-4251", href: jira("RSH-4251") },
@@ -72,15 +72,15 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-4244": {
     level: "amber",
-    reason: "Authorization leak: entity visibility without Permission:Manage. Unassigned.",
-    mitigation: "Assign before sprint end. Treat as an authz defect, not UX.",
-    assessment: "Unowned Ready work in an active sprint is a slip risk.",
+    reason: "Authorization leak: entity visibility without Permission:Manage. Still unassigned.",
+    mitigation: "Ready for integration. Treat as an authz defect, not UX, and name an owner for the integration itself.",
+    assessment: "An unowned authz fix riding into a release is a verification risk, not just a slip risk.",
     references: [{ label: "RSH-4244", href: jira("RSH-4244") }],
   },
   "RSH-3763": {
     level: "amber",
-    reason: "Critical join-groups pagination is still Ready and unassigned; RSH-4260 closed as duplicate.",
-    mitigation: "Pull into WIP this sprint. Owner is still empty.",
+    reason: "Critical join-groups pagination reached Ready for integration unassigned; RSH-4260 closed as duplicate.",
+    mitigation: "Owner is still empty. Confirm it actually lands in 26.3.0.00 rather than carrying to 2617.",
     assessment: "Closing the duplicate without landing pagination leaves the UX defect open.",
     references: [
       { label: "RSH-3763", href: jira("RSH-3763") },
@@ -90,7 +90,7 @@ export const TICKET_RISKS: Record<string, Risk> = {
   "RSH-3042": {
     level: "amber",
     reason: "Entity-scoping spike spilled from 2615. Principal User depends on this model.",
-    mitigation: "Protect through Quality Review with Shashank Prasad.",
+    mitigation: "Ready for integration. Spike output must turn into a migration plan before Principal User ships.",
     assessment: "VAS effectivePermissions already assumes entity scoping.",
     references: [
       { label: "RSH-3042", href: jira("RSH-3042") },
@@ -106,15 +106,15 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-3503": {
     level: "amber",
-    reason: "Permission-version migration spilled from 2615 and is still In Implementation.",
-    mitigation: "Pair with RSH-3042; same owner (Shashank Prasad).",
+    reason: "Permission-version migration spilled from 2615 and is now Ready for integration, unassigned.",
+    mitigation: "Pair with RSH-3042 — both spikes cleared together and both still need an owner to act on them.",
     assessment: "Companion spike to entity scoping — slipping one slips both.",
     references: [{ label: "RSH-3503", href: jira("RSH-3503") }],
   },
   "RSH-3481": {
     level: "amber",
     reason: "Group-id OR-path spilled from 2615; scoped-group permission model is incomplete without it.",
-    mitigation: "Keep Celso Garcia on it through Implementation.",
+    mitigation: "Ready for integration and unassigned. Verify the OR-path behaviour once 26.3.0.00 is cut.",
     references: [{ label: "RSH-3481", href: jira("RSH-3481") }],
   },
 };
@@ -137,7 +137,7 @@ export const iamGovernance: ProjectGovernance = {
   boardUrl: BOARD,
   snapshot: SNAPSHOT,
   sources:
-    'Jira: project = RSH AND summary ~ "[IAM]" (634 done, 209 open) · sprint in openSprints() on board 2936. Confluence: IAM Integration (v17, Jan 2026), Vizor Authentication and Authorization (v62, May 2026), What IAM Service Offers (v6).',
+    'Jira: project = RSH AND summary ~ "[IAM]", excluding Xray Test and Test Execution issues · sprint in openSprints() on board 2936. Counts come from the sync, not from this line. Confluence: IAM Integration (v17), Vizor Authentication and Authorization (v62), What IAM Service Offers (v6).',
   populated: true,
   sprint: {
     name: "Regnology Supervision Hub Platform 2616",
@@ -147,16 +147,16 @@ export const iamGovernance: ProjectGovernance = {
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936. Sixteen Identity and Access Management items committed. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936, closing the same day platform release 26.3.0.00 is cut. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Highest delivery risk: privilege escalation RSH-4220 in Quality Review, plus RSH-2169 blocked on Master Data Management (MDM). Five of sixteen tickets are unassigned.",
+      "Eleven items cleared development into Ready for integration in the final week, including privilege escalation RSH-4220 — a large batch to integrate and verify on the last day. Thirteen of twenty-five tickets carry no owner, and RSH-2169 is still blocked on Master Data Management (MDM).",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
     name: "Regnology Supervision Hub Platform 2615",
     dates: "30 Jul – 13 Aug 2026",
     narrative:
-      "Previous sprint closed a large reach-API slice. Six of sixteen 2616 items were already on a closed sprint — 38% of the current IAM commitment is carry-over.",
+      "Previous sprint closed a large reach-API slice. Six of the 2616 items were already on a closed sprint, and the commitment has since grown to twenty-five — carry-over is now roughly a quarter of the sprint.",
     cards: [
       {
         title: "Closed in 2615",
@@ -211,7 +211,7 @@ export const iamGovernance: ProjectGovernance = {
       "Bars are derived from Phase 1 closed epics, Phase 2 children of RSH-903, current sprint spikes, and unscheduled New items. Dates are planning horizons, not Jira due dates (those fields are empty on these epics).",
     items: backlogGantt,
     caption:
-      "Source: RSH-96 / RSH-903 children · RSH board 2936 · snapshot 16 Aug 2026. Today sits in Q3 2026.",
+      "Source: RSH-96 / RSH-903 children · RSH board 2936 · snapshot 26 Aug 2026. Today sits in Q3 2026.",
   },
   stakeholderGantt: {
     intro:
@@ -232,7 +232,7 @@ export const iamGovernance: ProjectGovernance = {
     ],
     items: stakeholderGantt,
     caption:
-      "Source: RSH-96 issue links · REG-49745 / REG-48802 / RFS-1688 · Confluence IAM Integration v17. Snapshot 16 Aug 2026.",
+      "Source: RSH-96 issue links · REG-49745 / REG-48802 / RFS-1688 · Confluence IAM Integration v17. Snapshot 26 Aug 2026.",
   },
   stakeholders,
   raci: { headers: raciHeaders, rows: raciRows },
@@ -303,9 +303,10 @@ export const iamGovernance: ProjectGovernance = {
   },
   pmFocus: {
     thisSprint: [
-      "Close privilege-escalation RSH-4220 in Quality Review before any Principal User demo.",
-      "Assign the five unassigned sprint tickets (RSH-4244, RSH-3763, RSH-2169, RSH-4261, RSH-3239).",
-      "Keep entity-scoping RSH-3042 through Quality Review — Principal User depends on it.",
+      "Decide what actually lands in 26.3.0.00 on 27 Aug. Eleven items sit at Ready for integration and will not all be verified in a day.",
+      "Take privilege-escalation RSH-4220 from Ready for integration to Closed before any Principal User demo. Integrated is not fixed.",
+      "Put an owner on the unassigned half of the sprint — every one of the eleven integration-ready items, including the four authorization defects, has no name against it.",
+      "Turn the entity-scoping spikes RSH-3042 and RSH-3503 into a migration plan now that both have cleared; Principal User depends on the outcome, not the spike.",
       "Do not staff Master Data Management (MDM) inheritance RSH-2169 until membership expansion is unblocked in writing.",
       "Finish OpenSSL AppSec RSH-2451 this sprint; it has sat Ready across two sprints.",
     ],
