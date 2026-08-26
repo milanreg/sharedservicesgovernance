@@ -18,10 +18,12 @@ export default {
     }
 
     // Imported here rather than at module scope so a load failure comes back as
-    // a readable message instead of an opaque platform-level crash.
-    let sync: typeof import("../../server/sync");
+    // a readable message instead of an opaque platform-level crash. The .js
+    // extension is required: Node resolves these specifiers at runtime under
+    // ESM, and it does not guess extensions the way a bundler does.
+    let sync: typeof import("../../server/sync.js");
     try {
-      sync = await import("../../server/sync");
+      sync = await import("../../server/sync.js");
     } catch (error) {
       return json(500, {
         error: `The sync module failed to load on the server: ${describe(error)}`,

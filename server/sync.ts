@@ -1,6 +1,8 @@
 import type { LiveSnapshot } from "../src/template/types";
-import { buildSnapshot, readCredentials, SyncError } from "./atlassian";
-import { getSyncConfig } from "./syncConfig";
+// Extensions are explicit throughout this module's graph because it is also
+// loaded by Node directly, from the deployed serverless function.
+import { buildSnapshot, readCredentials, SyncError } from "./atlassian.js";
+import { getSyncConfig } from "./syncConfig.js";
 
 /**
  * Shared by the Vite dev plugin and the deployed serverless function so the

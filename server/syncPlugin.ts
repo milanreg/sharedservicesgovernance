@@ -3,8 +3,8 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Connect, Plugin } from "vite";
 import { loadEnv } from "vite";
-import { SyncError } from "./atlassian";
-import { runSync, syncErrorStatus } from "./sync";
+import { SyncError } from "./atlassian.js";
+import { runSync, syncErrorStatus } from "./sync.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SNAPSHOT_DIR = resolve(here, "../src/data/live");

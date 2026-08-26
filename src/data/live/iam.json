@@ -1,6 +1,6 @@
 {
   "slug": "iam",
-  "syncedAt": "2026-08-26T19:08:57.761Z",
+  "syncedAt": "2026-08-26T19:40:01.713Z",
   "projectSummary": {
     "done": 375,
     "open": 156,
@@ -901,25 +901,10 @@
       }
     ]
   },
-  "confluence": [
-    {
-      "title": "IAM Integration",
-      "version": 17,
-      "updated": "8 Jan 2026",
-      "url": "https://confluence.regnology.net/pages/viewpage.action?pageId=253473412"
-    },
-    {
-      "title": "IAM - Vizor Authentication and Authorization",
-      "version": 62,
-      "updated": "5 May 2026",
-      "url": "https://confluence.regnology.net/pages/viewpage.action?pageId=266593053"
-    },
-    {
-      "title": "What IAM Service Offers",
-      "version": 6,
-      "updated": "24 Jun 2025",
-      "url": "https://confluence.regnology.net/pages/viewpage.action?pageId=226552828"
-    }
-  ],
-  "warnings": []
+  "confluence": [],
+  "warnings": [
+    "Confluence page 253473412 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 226552828 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host.",
+    "Confluence page 266593053 unreachable: confluence.regnology.net timed out (UND_ERR_CONNECT_TIMEOUT). Check the URL, and the VPN if it is an internal host."
+  ]
 }
