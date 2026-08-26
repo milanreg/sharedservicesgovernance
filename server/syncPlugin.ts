@@ -3,8 +3,8 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Connect, Plugin } from "vite";
 import { loadEnv } from "vite";
-import { buildSnapshot, readCredentials, SyncError } from "./atlassian";
-import { getSyncConfig } from "./syncConfig";
+import { SyncError } from "./atlassian";
+import { runSync, syncErrorStatus } from "./sync";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SNAPSHOT_DIR = resolve(here, "../src/data/live");
@@ -44,17 +44,9 @@ function resolveEnv(mode: string) {
 }
 
 async function handleSync(slug: string, mode: string) {
-  const config = getSyncConfig(slug);
-  if (!config) {
-    throw new SyncError(
-      `No Jira or Confluence mapping is registered for “${slug}”. Add one in server/syncConfig.ts.`,
-      404,
-    );
-  }
+  const snapshot = await runSync(slug, resolveEnv(mode));
 
-  const env = resolveEnv(mode);
-  const snapshot = await buildSnapshot(slug, config, readCredentials(env));
-
+  // Only worth doing locally, where the file is committed as the new baseline.
   mkdirSync(SNAPSHOT_DIR, { recursive: true });
   writeFileSync(resolve(SNAPSHOT_DIR, `${slug}.json`), `${JSON.stringify(snapshot, null, 2)}\n`);
 
@@ -62,9 +54,9 @@ async function handleSync(slug: string, mode: string) {
 }
 
 /**
- * Serves POST /api/sync/:slug from the Vite dev and preview servers. A static
- * production deploy has no Node process, so it needs this handler rehosted
- * behind whatever serves the built assets.
+ * Serves POST /api/sync/:slug from the Vite dev and preview servers. The
+ * deployed board has no Vite process, so it runs the same sync through
+ * api/sync/[slug].ts instead.
  */
 export function syncPlugin(): Plugin {
   const middleware: Connect.NextHandleFunction = (req, res, next) => {
@@ -75,8 +67,7 @@ export function syncPlugin(): Plugin {
     handleSync(match[1], process.env.NODE_ENV ?? "development")
       .then((snapshot) => send(res, 200, snapshot))
       .catch((error: unknown) => {
-        const status = error instanceof SyncError ? error.status : 500;
-        send(res, status, { error: (error as Error).message });
+        send(res, syncErrorStatus(error), { error: (error as Error).message });
       });
   };
 

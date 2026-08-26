@@ -98,9 +98,21 @@ with a warning rather than failing the sync.
 
 ### Production
 
-The sync endpoint lives in a Vite plugin (`server/syncPlugin.ts`), so it needs a
-Node process. `npm start` builds and then serves the built app through
-`vite preview`, which runs the same handler — use that for a shared internal
-instance. A file-copy deploy to a static host has no Node process and the Sync
-button will 404 there; rehost the handler behind whatever serves the assets, and
-keep the tokens server-side either way.
+Syncing needs a Node process, and there are three that provide one. Locally the
+Vite plugin (`server/syncPlugin.ts`) serves it in `npm run dev` and in
+`npm start`, which builds and serves through `vite preview`. On Vercel the same
+sync runs as a function from `api/sync/[slug].ts`. All three call `runSync` in
+`server/sync.ts`, so the deployed board syncs through the same code as a local
+one, and tokens stay server-side in every case.
+
+Two differences on the deployed board. It cannot write `src/data/live/<slug>.json`,
+because the filesystem there is read-only and per-request — a sync refreshes the
+open page, and the committed snapshot remains the baseline every fresh load
+starts from. Commit a local sync to move that baseline. It also reaches only
+what is on the public internet: Jira Cloud syncs fine, while Confluence Data
+Center and Jira Data Center sit behind the VPN and come back as warnings.
+
+Set the same credentials as environment variables in the Vercel project.
+`vercel.json` also routes every non-`/api` path to `index.html`; without it the
+host serves 404 for deep links like `/projects/iam`, since the router is
+client-side.

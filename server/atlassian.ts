@@ -76,7 +76,7 @@ export function readCredentials(env: Record<string, string | undefined>): Creden
   const jira = readJira(env);
   if (!jira) {
     throw new SyncError(
-      "Jira credentials are not configured. Set JIRA_CLOUD_BASE_URL, JIRA_CLOUD_EMAIL and JIRA_CLOUD_API_TOKEN (or the JIRA_BASE_URL / JIRA_EMAIL / JIRA_API_TOKEN equivalents) in .env, or point ENV_FILE at an existing credentials file — see .env.example.",
+      "Jira credentials are not configured. Set JIRA_CLOUD_BASE_URL, JIRA_CLOUD_EMAIL and JIRA_CLOUD_API_TOKEN (or the JIRA_BASE_URL / JIRA_EMAIL / JIRA_API_TOKEN equivalents). Locally that means .env or an ENV_FILE pointer — see .env.example; on a deployment it means the host's environment variables.",
       412,
     );
   }

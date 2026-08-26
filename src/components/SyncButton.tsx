@@ -69,8 +69,10 @@ export function SyncButton({
   const [startedAt, setStartedAt] = useState(0);
   const [now, setNow] = useState(() => Date.now());
   // Naming the origin matters: the failure is usually that this tab is pointed
-  // at a different port than the server that has the endpoint.
+  // at a different port than the server that has the endpoint. A hosted origin
+  // fails for entirely different reasons, so the advice has to differ too.
   const origin = window.location.origin;
+  const local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname);
 
   // Ticks so the elapsed counter moves during a sync and the age of the last
   // sync keeps climbing in a tab nobody has reloaded.
@@ -92,7 +94,9 @@ export function SyncButton({
         response = await fetch(`/api/sync/${slug}`, { method: "POST" });
       } catch {
         throw new Error(
-          `Could not reach ${origin}. The server that served this page has stopped — start it with npm run dev and reload.`,
+          local
+            ? `Could not reach ${origin}. The server that served this page has stopped — start it with npm run dev and reload.`
+            : `Could not reach ${origin}. Check your connection and try again.`,
         );
       }
 
@@ -103,7 +107,11 @@ export function SyncButton({
         body = JSON.parse(raw);
       } catch {
         throw new Error(
-          `${origin} has no sync endpoint (HTTP ${response.status}). It is an older server left running from a previous session. Stop it, run npm run dev, and reload this page from the address it prints.`,
+          `${origin} has no sync endpoint (HTTP ${response.status}). ${
+            local
+              ? "It is an older server left running from a previous session. Stop it, run npm run dev, and reload this page from the address it prints."
+              : "This deployment is missing the sync function — redeploy from a commit that includes api/sync."
+          }`,
         );
       }
       if (!response.ok) {
