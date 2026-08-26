@@ -39,7 +39,8 @@ export default {
 };
 
 function describe(error: unknown): string {
-  if (error instanceof Error) return `${error.name}: ${error.message}`;
+  // The class name is noise in the header of a dashboard; the message is not.
+  if (error instanceof Error) return error.message || error.name;
   return String(error);
 }
 
