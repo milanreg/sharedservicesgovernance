@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { ChatWidget } from "../components/ChatWidget";
 import { Gantt } from "../components/Gantt";
 import { RiskInfo, RiskReason } from "../components/RiskInfo";
 import { StatusBadge } from "../components/StatusBadge";
@@ -1070,6 +1071,7 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
           ) : null}
         </div>
       </main>
+      <ChatWidget project={project} />
     </div>
   );
 }

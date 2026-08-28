@@ -58,6 +58,29 @@ Counts come from Jira, not from the sample rows shown, so a list capped at ten
 still reports the true total. Without a sync the dialog falls back to the last
 recorded sprint and says so.
 
+## Ask the board
+
+Every project page has an **Ask about {product}** button in the bottom-right
+corner. It answers from the same payload the tabs render — sprint, tickets,
+risks, architecture, deployment, roadmap, stakeholders, RICE — and quotes that
+data rather than generating prose. Ticket keys, "what is blocked", "what should
+we do first", and "how does the architecture work" are handled as first-class
+questions; everything else is retrieved by search over those passages.
+
+The [IAM user guide](https://main.docs.dev.suptech.regnology.io/user-guide/iam/iam-overview/)
+sits behind Okta, so the assistant cannot read it at runtime. After you sign in
+in a browser, copy the `_oauth2_proxy` cookie and run:
+
+```powershell
+$env:DOCS_COOKIE = "_oauth2_proxy=<value>"
+npm run ingest:docs
+```
+
+That writes `src/data/docs/iam.json`, which is then indexed the same way as the
+governance payload. Until that file exists, questions about the user guide are
+answered with a link to the page rather than a paraphrase of content we have
+not read.
+
 ### Credentials
 
 Copy `.env.example` to `.env` and fill it in. `.env` is git-ignored.

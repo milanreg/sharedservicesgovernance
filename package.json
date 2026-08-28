@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "start": "npm run build && vite preview"
+    "start": "npm run build && vite preview",
+    "ingest:docs": "node scripts/ingest-docs.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
