@@ -1,11 +1,11 @@
 {
   "slug": "iam",
-  "syncedAt": "2026-08-26T20:32:08.931Z",
+  "syncedAt": "2026-09-03T10:23:28.369Z",
   "projectSummary": {
-    "done": 375,
-    "open": 156,
-    "highPriorityOpen": 33,
-    "unassignedOpen": 128,
+    "done": 379,
+    "open": 158,
+    "highPriorityOpen": 30,
+    "unassignedOpen": 126,
     "epics": 44,
     "currentRelease": {
       "name": "R1.3.0.01_RSH_10.02.26",
@@ -18,139 +18,43 @@
     }
   },
   "sprint": {
-    "name": "RSH PL 2616",
-    "start": "13 Aug 2026",
-    "end": "27 Aug 2026",
-    "committed": 25,
-    "done": 6,
-    "inProgress": 6,
+    "name": "RSH PL 2617",
+    "start": "27 Aug 2026",
+    "end": "10 Sept 2026",
+    "committed": 8,
+    "done": 0,
+    "inProgress": 5,
     "blocked": 1
   },
   "tickets": [
     {
-      "key": "RSH-3496",
-      "summary": "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
-      "status": "Closed",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-3481",
-      "summary": "[IAM] Remove direct group-id grant path entirely",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-4251",
-      "summary": "IAM-Analyser integration issue",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
+      "key": "RSH-4211",
+      "summary": "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
+      "status": "New",
+      "owner": "Paweł Śnieżek",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-4066",
-      "summary": "[IAM] Restart keycloak pod automatically in the pipeline when needed",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
+      "key": "RSH-4214",
+      "summary": "[IAM] Allow unscoped module permissions",
+      "status": "In PO Review",
+      "owner": "CE-Dominik Czerwiński",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-3763",
-      "summary": "[IAM] Provide join groups functionality with pagination and search",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-3503",
-      "summary": "[IAM] Spike: Migrate existing IAM permissions to new version",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-3042",
-      "summary": "[IAM] Spike: Migrate users and groups to entity scoping",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-2452",
-      "summary": "AppSec: keycloak-config-cli dependency track issue",
-      "status": "Closed",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-2451",
-      "summary": "AppSec: Open ssl issue in IAM API",
-      "status": "Ready",
-      "owner": "Adam Ennis",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-4250",
-      "summary": "Testing 26.3.0.00_RSH-PL_27.08.26",
+      "key": "RSH-4215",
+      "summary": "[IAM] Add module permission manager as IAM role",
       "status": "In Implementation",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4249",
-      "summary": "Release Delivery 26.3.0.00_RSH-PL_27.08.26",
-      "status": "In Implementation",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4246",
-      "summary": "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
-      "status": "Closed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4244",
-      "summary": "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4220",
-      "summary": "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-3239",
-      "summary": "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
+      "owner": "Celso Garcia",
       "blocked": false,
       "spillover": false
     },
     {
       "key": "RSH-2453",
       "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
-      "status": "In Implementation",
+      "status": "In Quality Review",
       "owner": "Pawel Skrzypczynski",
       "blocked": false,
       "spillover": true
@@ -164,65 +68,25 @@
       "spillover": false
     },
     {
-      "key": "RSH-4096",
-      "summary": "AppSec: Evaluate and adopt a hardened Keycloak runtime image without curl",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-4238",
-      "summary": "Permission mirroring (source / mirrored lifecycle)",
-      "status": "Closed",
-      "owner": "Kartik Sharma",
+      "key": "RSH-4784",
+      "summary": "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
+      "status": "Ready",
+      "owner": "Paweł Śnieżek",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-4222",
-      "summary": "Frontend access controls & restrictions by effective permissions",
-      "status": "Closed",
-      "owner": "Kartik Sharma",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4260",
-      "summary": "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
-      "status": "Closed",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4261",
-      "summary": "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4302",
-      "summary": "SonarQube: Rules update Fixes",
+      "key": "RSH-5442",
+      "summary": "[DC] Entity groups - \"All\" Group",
       "status": "In Implementation",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4907",
-      "summary": "[IAM] Bug: Missing permission information in \"Permission assigned\" email",
-      "status": "In PO Review",
       "owner": "Shashank Prasad",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-4908",
-      "summary": "[IAM] Bug: Entity ID displayed instead of name in \"Permissions Unassigned\" email",
-      "status": "Quality Reviewed",
+      "key": "RSH-5675",
+      "summary": "[IAM CI] Cancel superseded pipelines and ensure terminal state.",
+      "status": "In Quality Review",
       "owner": "Shashank Prasad",
       "blocked": false,
       "spillover": false
@@ -231,8 +95,40 @@
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 28,
+      "total": 30,
       "items": [
+        {
+          "key": "RSH-5558",
+          "summary": "[IAM] Bug: IAM roles are filtered by available unscoped roles before selecting scope",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-27",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-5458",
+          "summary": "[IAM] Improved Xray Jira Reports",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-27",
+          "priority": "Low"
+        },
+        {
+          "key": "RSH-4908",
+          "summary": "[IAM] Bug: Entity ID displayed instead of name in \"Permissions Unassigned\" email",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-27",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-4907",
+          "summary": "[IAM] Bug: Missing permission information in \"Permission assigned\" email",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-27",
+          "priority": "High"
+        },
         {
           "key": "RSH-4241",
           "summary": "(Update) - IAM module permissions assignment with Entity/EntityGroup scoping",
@@ -400,44 +296,68 @@
           "owner": "CE-Dominik Czerwiński",
           "date": "2026-08-13",
           "priority": "Blocker"
-        },
-        {
-          "key": "RSH-3500",
-          "summary": "[IAM] Permissions view/manage: entity dimension on top of the module dimension",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-08-13",
-          "priority": "Blocker"
-        },
-        {
-          "key": "RSH-4242",
-          "summary": "[IAM] Modules / Clients / Roles from ReachApi + final CleanUp",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-08-13",
-          "priority": "Blocker"
-        },
-        {
-          "key": "RSH-3137",
-          "summary": "[IAM] Publish user-context ContextData routes in OpenAPI and migrate PrincipalPermissionDataService",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-08-13",
-          "priority": "Low"
-        },
-        {
-          "key": "RSH-3515",
-          "summary": "[IAM] Add RForge fixer scaffolding (.mem + AGENTS.md) to supervisory-hub/iam",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-08-13",
-          "priority": "Medium"
         }
       ]
     },
     "raised": {
-      "total": 50,
+      "total": 48,
       "items": [
+        {
+          "key": "RSH-5848",
+          "summary": "[IAM] Allow unscoped module permissions",
+          "status": "New",
+          "owner": "CE-Dominik Czerwiński",
+          "date": "2026-09-02",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-5843",
+          "summary": "RSH-4214 - IAM integration tests",
+          "status": "Draft",
+          "owner": "Unassigned",
+          "date": "2026-09-01",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-5832",
+          "summary": "IAM Test Plan",
+          "status": "New",
+          "owner": "Celso Garcia",
+          "date": "2026-09-01",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-5678",
+          "summary": "[IAM] Integration Tests Consolidation",
+          "status": "Ready",
+          "owner": "Celso Garcia",
+          "date": "2026-08-31",
+          "priority": "Low"
+        },
+        {
+          "key": "RSH-5675",
+          "summary": "[IAM CI] Cancel superseded pipelines and ensure terminal state.",
+          "status": "In Quality Review",
+          "owner": "Shashank Prasad",
+          "date": "2026-08-31",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-5638",
+          "summary": "RSH-5558 - IAM integration tests",
+          "status": "Draft",
+          "owner": "Unassigned",
+          "date": "2026-08-27",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-5558",
+          "summary": "[IAM] Bug: IAM roles are filtered by available unscoped roles before selecting scope",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-08-27",
+          "priority": "High"
+        },
         {
           "key": "RSH-5502",
           "summary": "RSH-2362 - IAM integration tests",
@@ -489,8 +409,8 @@
         {
           "key": "RSH-5458",
           "summary": "[IAM] Improved Xray Jira Reports",
-          "status": "Ready",
-          "owner": "Celso Garcia",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "date": "2026-08-26",
           "priority": "Low"
         },
@@ -505,16 +425,16 @@
         {
           "key": "RSH-4908",
           "summary": "[IAM] Bug: Entity ID displayed instead of name in \"Permissions Unassigned\" email",
-          "status": "Quality Reviewed",
-          "owner": "Shashank Prasad",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "date": "2026-08-25",
           "priority": "High"
         },
         {
           "key": "RSH-4907",
           "summary": "[IAM] Bug: Missing permission information in \"Permission assigned\" email",
-          "status": "In PO Review",
-          "owner": "Shashank Prasad",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "date": "2026-08-25",
           "priority": "High"
         },
@@ -581,88 +501,15 @@
           "owner": "Unassigned",
           "date": "2026-08-20",
           "priority": "Not defined"
-        },
-        {
-          "key": "RSH-4651",
-          "summary": "RSH-3500 - IAM integration tests",
-          "status": "Draft",
-          "owner": "Unassigned",
-          "date": "2026-08-20",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RSH-4263",
-          "summary": "[IAM] Support for Third-Party Modules",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RSH-4262",
-          "summary": "[IAM] PAT",
-          "status": "New",
-          "owner": "Shashank Prasad",
-          "date": "2026-08-14",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-4261",
-          "summary": "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-08-14",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-4260",
-          "summary": "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-08-14",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-4258",
-          "summary": "[IAM] User Profile Management - Improvements",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RSH-4256",
-          "summary": "[IAM] WCAG 2.2 Level AA",
-          "status": "New",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-08-14",
-          "priority": "Medium"
         }
       ]
     },
     "due": {
-      "total": 2,
-      "items": [
-        {
-          "key": "RSH-2150",
-          "summary": "[IAM] Permission Mirroring",
-          "status": "In Implementation",
-          "owner": "Adam Ennis",
-          "date": "2026-08-31",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-138",
-          "summary": "Onboard Rconnect (incl. IAM & Rcloud)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-31",
-          "priority": "High"
-        }
-      ]
+      "total": 0,
+      "items": []
     },
     "stalled": {
-      "total": 85,
+      "total": 93,
       "items": [
         {
           "key": "RSH-323",
@@ -675,14 +522,6 @@
         {
           "key": "RSH-325",
           "summary": "CPF1.4: Documentation - IAM Plugin System SDK & Developer Guide",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2025-08-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-237",
-          "summary": "[IAM] Support integration with multiple IAM providers",
           "status": "New",
           "owner": "Unassigned",
           "date": "2025-08-20",
@@ -801,14 +640,6 @@
           "priority": "Medium"
         },
         {
-          "key": "RSH-235",
-          "summary": "[IAM] Redirect authenticated users to personalized landing page",
-          "status": "Ready",
-          "owner": "Unassigned",
-          "date": "2025-12-04",
-          "priority": "Medium"
-        },
-        {
           "key": "RSH-370",
           "summary": "[IAM] Create in app documentation for IAM",
           "status": "New",
@@ -863,18 +694,29 @@
           "owner": "Unassigned",
           "date": "2026-02-13",
           "priority": "Low"
+        },
+        {
+          "key": "RSH-717",
+          "summary": "RSH IAM - Module Integration Support",
+          "status": "In Implementation",
+          "owner": "Robert Binder",
+          "date": "2026-03-30",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-1202",
+          "summary": "[Test Coverage]: RSH IAM -> Login",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-03-30",
+          "priority": "Medium"
         }
       ]
     },
     "releases": [
       {
-        "name": "26.3.0.00_RSH-PL_27.08.26",
-        "date": "2026-08-27",
-        "released": false
-      },
-      {
-        "name": "26.3.0.00_RSH-EX_27.08.26",
-        "date": "2026-08-27",
+        "name": "26.3.1.00_RSH-PL_24.09.26",
+        "date": "2026-09-24",
         "released": false
       }
     ],
@@ -897,6 +739,16 @@
       {
         "name": "26.2.1.00_RSH-PL_22.07.26",
         "date": "2026-07-22",
+        "released": false
+      },
+      {
+        "name": "26.3.0.00_RSH-PL_27.08.26",
+        "date": "2026-08-27",
+        "released": false
+      },
+      {
+        "name": "26.3.0.00_RSH-EX_27.08.26",
+        "date": "2026-08-27",
         "released": false
       }
     ]

@@ -9,7 +9,7 @@ import {
   consumers,
   deployment,
   implementation,
-  leftoverFrom2615,
+  leftoverFrom2616,
   phase2,
   previousSprintClosed,
   raciHeaders,
@@ -33,7 +33,7 @@ export const TICKET_RISKS: Record<string, Risk> = {
     reason:
       "Privilege escalation: View + Manage Permissions can self-grant Manage Users/Groups/Clients.",
     mitigation:
-      "Cleared Quality Review and sits Ready for integration in 26.3.0.00, unassigned. Do not ship Principal User until this is Closed, not merely integrated.",
+      "Left sprint 2616 at Ready for integration, still unassigned, and was not pulled into 2617. Do not ship Principal User until this is Closed, not merely integrated.",
     assessment:
       "RICE 21.6 — highest near-term return on investment. Touches every Identity and Access Management tenant and is a Principal User go-live blocker.",
     references: [
@@ -55,9 +55,9 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-2451": {
     level: "amber",
-    reason: "OpenSSL AppSec has sat Ready across two sprints.",
-    mitigation: "Close this sprint under Adam Ennis — low effort, high visibility.",
-    assessment: "RICE 3.4. Cheap to finish; looks like unmanaged security debt if it slips again.",
+    reason: "OpenSSL AppSec has sat Ready across three sprints and is not on the 2617 board.",
+    mitigation: "Still Ready under Adam Ennis and not even on the 2617 board. Close it or drop it from the working set in writing.",
+    assessment: "RICE 3.4. Three sprints at Ready is unmanaged security debt, not a sequencing choice.",
     references: [{ label: "RSH-2451", href: jira("RSH-2451") }],
   },
   "RSH-4251": {
@@ -100,7 +100,7 @@ export const TICKET_RISKS: Record<string, Risk> = {
   "RSH-2453": {
     level: "amber",
     reason: "Dev-cluster IAM rollout has spilled across sprints.",
-    mitigation: "Keep as integration proving ground; do not start new consumers until it lands.",
+    mitigation: "In Quality Review this sprint under Pawel Skrzypczynski. Close it in 2617 — it has already spilled across five platform sprints.",
     assessment: "Vizor, Analytics, and Rconnect all need this path proven.",
     references: [{ label: "RSH-2453", href: jira("RSH-2453") }],
   },
@@ -114,7 +114,7 @@ export const TICKET_RISKS: Record<string, Risk> = {
   "RSH-3481": {
     level: "amber",
     reason: "Group-id OR-path spilled from 2615; scoped-group permission model is incomplete without it.",
-    mitigation: "Ready for integration and unassigned. Verify the OR-path behaviour once 26.3.0.00 is cut.",
+    mitigation: "Ready for integration and unassigned. Left 2616; confirm the grant-path removal actually ships rather than rotting in the integration queue.",
     references: [{ label: "RSH-3481", href: jira("RSH-3481") }],
   },
 };
@@ -140,39 +140,39 @@ export const iamGovernance: ProjectGovernance = {
     'Jira: project = RSH AND summary ~ "[IAM]", excluding Xray Test and Test Execution issues · sprint in openSprints() on board 2936. Counts come from the sync, not from this line. Confluence: IAM Integration (v17), Vizor Authentication and Authorization (v62), What IAM Service Offers (v6).',
   populated: true,
   sprint: {
-    name: "Regnology Supervision Hub Platform 2616",
+    name: "Regnology Supervision Hub Platform 2617",
     start: sprint.start,
     end: sprint.end,
     committed: sprint.committed,
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936, closing the same day platform release 26.3.0.00 is cut. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Eleven items cleared development into Ready for integration in the final week, including privilege escalation RSH-4220 — a large batch to integrate and verify on the last day. Thirteen of twenty-five tickets carry no owner, and RSH-2169 is still blocked on Master Data Management (MDM).",
+      "Eight items on 2617 after 2616 left a large Ready-for-integration queue unclosed. Core IAM work is unscoped module permissions and a module permission manager role; dev-cluster IAM is in Quality Review. The same sprint also picked up PAT (RSH-4784 / RSH-4211) and an MDM entity-group spike (RSH-5442). Privilege-escalation RSH-4220 was not pulled in, and RSH-2169 is still blocked.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
-    name: "Regnology Supervision Hub Platform 2615",
-    dates: "30 Jul – 13 Aug 2026",
+    name: "Regnology Supervision Hub Platform 2616",
+    dates: "13 Aug – 27 Aug 2026",
     narrative:
-      "Previous sprint closed a large reach-API slice. Six of the 2616 items were already on a closed sprint, and the commitment has since grown to twenty-five — carry-over is now roughly a quarter of the sprint.",
+      "2616 closed three IAM items — entity-aware roles, the scoped-permission assignment bug, and a join-groups UX duplicate — then left fourteen others sitting Ready for integration or Ready, almost all unassigned. Only two of those (dev-cluster IAM and the MDM-blocked inheritance ticket) were pulled into 2617.",
     cards: [
       {
-        title: "Closed in 2615",
-        body: "Reach API, entity dimension on permissions, optional initial permission, mirroring case bug. Entity-aware roles finished in 2616.",
+        title: "Closed in 2616",
+        body: "Entity-aware roles (RSH-3496), scoped-permission assignment to a scoped group (RSH-4246), and the join-groups scroll duplicate (RSH-4260).",
       },
       {
-        title: "Carried into 2616",
-        body: "Entity scoping, permission migration, group-id OR-path, dev-cluster IAM, OpenSSL. One of six closed this sprint so far.",
+        title: "Carried into 2617",
+        body: "Dev-cluster IAM (RSH-2453) now in Quality Review, and entity-group inheritance (RSH-2169) still blocked on Master Data Management.",
       },
       {
-        title: "Left 2615 without landing in 2616",
-        body: "RForge scaffolding and ContextData OpenAPI at Ready for integration; unscoped Principal User groups at Product Owner Accepted.",
+        title: "Left 2616 without landing in 2617",
+        body: "Privilege escalation, both entity-scoping spikes, the group-id grant removal, four authorization defects, Analyser integration, Keycloak restart, and OpenSSL — all still Ready for integration or Ready, all but OpenSSL unassigned.",
       },
     ],
     closed: previousSprintClosed,
-    leftover: leftoverFrom2615,
+    leftover: leftoverFrom2616,
   },
   overview: {
     intro: `Shared Identity and Access Management for Regnology solutions. Synthesized from Jira initiative RSH-96, Phase 2 RSH-903, Confluence IAM Integration v17, Vizor Authentication and Authorization v62, and What IAM Service Offers.`,
@@ -211,7 +211,7 @@ export const iamGovernance: ProjectGovernance = {
       "Bars are derived from Phase 1 closed epics, Phase 2 children of RSH-903, current sprint spikes, and unscheduled New items. Dates are planning horizons, not Jira due dates (those fields are empty on these epics).",
     items: backlogGantt,
     caption:
-      "Source: RSH-96 / RSH-903 children · RSH board 2936 · snapshot 26 Aug 2026. Today sits in Q3 2026.",
+      "Source: RSH-96 / RSH-903 children · RSH board 2936 · snapshot 3 Sep 2026. Today sits in Q3 2026.",
   },
   stakeholderGantt: {
     intro:
@@ -232,7 +232,7 @@ export const iamGovernance: ProjectGovernance = {
     ],
     items: stakeholderGantt,
     caption:
-      "Source: RSH-96 issue links · REG-49745 / REG-48802 / RFS-1688 · Confluence IAM Integration v17. Snapshot 26 Aug 2026.",
+      "Source: RSH-96 issue links · REG-49745 / REG-48802 / RFS-1688 · Confluence IAM Integration v17. Snapshot 3 Sep 2026.",
   },
   stakeholders,
   raci: { headers: raciHeaders, rows: raciRows },
@@ -270,8 +270,8 @@ export const iamGovernance: ProjectGovernance = {
       "RSH-4254": {
         level: "amber",
         reason: "Strategy initiative and stabilization epic are two tracks for one product.",
-        mitigation: "Treat RSH-4254 as the 26.3 working-state epic; keep RSH-96 as the strategy parent.",
-        assessment: "RSH-96 RAG Amber (Jan 2026) for scope creep vs original plan.",
+        mitigation: "Treat RSH-4254 as the 26.4 working-state epic (retitled from 26.3); keep RSH-96 as the strategy parent.",
+        assessment: "RSH-96 RAG Amber (Jan 2026) for scope creep vs original plan. Stabilization slipped a release.",
         references: [
           { label: "RSH-96", href: jira("RSH-96") },
           { label: "RSH-4254", href: jira("RSH-4254") },
@@ -284,10 +284,10 @@ export const iamGovernance: ProjectGovernance = {
     "Protect the next 90 days: sequence privilege-escalation, OpenSSL, entity scoping, mirroring, and audience/issuer hardening before Personal Access Tokens, Web Content Accessibility Guidelines 2.2, translations, or third-party modules. Treat Principal User (RSH-4255) as the milestone that lets Vizor and Regulator 3 turn local user management off.",
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RSH/summary",
-    done: 634,
-    open: 209,
-    highPriorityOpen: 46,
-    unassignedOpen: 173,
+    done: 379,
+    open: 158,
+    highPriorityOpen: 30,
+    unassignedOpen: 126,
     epics: 44,
     currentRelease: {
       name: "26.3.0.00 Regnology Supervision Hub Platform",
@@ -299,16 +299,16 @@ export const iamGovernance: ProjectGovernance = {
       date: "28 May 2026",
     },
     narrative:
-      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board. Phase 1 authentication and authorization shipped. Initiative RSH-96 is Amber because of scope creep versus the original plan. Current platform release 26.3 is unreleased (27 Aug 2026). Counts below use Jira JQL project = RSH AND summary ~ \"[IAM]\".",
+      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board. Phase 1 authentication and authorization shipped. Initiative RSH-96 is Amber because of scope creep versus the original plan. Sprint 2617 is an eight-item mixed commitment; fourteen 2616 items still sit Ready for integration outside it. Counts below use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
   },
   pmFocus: {
     thisSprint: [
-      "Decide what actually lands in 26.3.0.00 on 27 Aug. Eleven items sit at Ready for integration and will not all be verified in a day.",
-      "Take privilege-escalation RSH-4220 from Ready for integration to Closed before any Principal User demo. Integrated is not fixed.",
-      "Put an owner on the unassigned half of the sprint — every one of the eleven integration-ready items, including the four authorization defects, has no name against it.",
-      "Turn the entity-scoping spikes RSH-3042 and RSH-3503 into a migration plan now that both have cleared; Principal User depends on the outcome, not the spike.",
-      "Do not staff Master Data Management (MDM) inheritance RSH-2169 until membership expansion is unblocked in writing.",
-      "Finish OpenSSL AppSec RSH-2451 this sprint; it has sat Ready across two sprints.",
+      "Land the IAM slice of 2617: unscoped module permissions (RSH-4214 out of PO review) and the module permission manager role (RSH-4215).",
+      "Close dev-cluster IAM RSH-2453 from Quality Review — it has now spilled across five platform sprints.",
+      "Watch RSH-5442 (MDM \"All\" entity group). It is the first concrete movement on the dependency that has RSH-2169 blocked.",
+      "Privilege-escalation RSH-4220 left 2616 at Ready for integration, unassigned, and is not on this board. Name an owner or admit it missed 26.3.",
+      "PAT work (RSH-4784 / RSH-4211) started in the same sprint as an unclosed 2616 integration queue. Do not let Phase 3 crowd out the privilege-escalation and scoping leftovers.",
+      "OpenSSL AppSec RSH-2451 has sat Ready across three sprints and was not committed. Close it or drop it in writing.",
     ],
     sequence: [
       {

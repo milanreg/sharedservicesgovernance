@@ -23,125 +23,75 @@ export const CONFLUENCE = {
   strategy: "https://confluence.regnology.net/pages/viewpage.action?pageId=194395208",
 };
 
-export const SNAPSHOT = "26 Aug 2026";
+export const SNAPSHOT = "3 Sep 2026";
 
 export const sprint = {
-  name: "RSH PL 2616",
-  id: 9056,
-  start: "13 Aug 2026",
-  end: "27 Aug 2026",
+  name: "RSH PL 2617",
+  id: 21351,
+  start: "27 Aug 2026",
+  end: "10 Sep 2026",
   board: 2936,
-  committed: 16,
-  done: 2,
-  inProgress: 7,
-  ready: 5,
-  new: 2,
+  committed: 8,
+  done: 0,
+  inProgress: 5,
+  ready: 2,
+  new: 1,
   blocked: 1,
-  spillover: 6,
+  spillover: 2,
 };
 
 export type { GanttItem, Ticket } from "../template/types";
 
 export const sprintTickets: Ticket[] = [
   {
-    key: "RSH-4260",
-    summary: "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
-    status: "Closed",
-    owner: "Unassigned",
-    why: "UX defect; duplicates join-groups pagination work",
-  },
-  {
-    key: "RSH-3496",
-    summary: "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
-    status: "Closed",
+    key: "RSH-4215",
+    summary: "[IAM] Add module permission manager as IAM role",
+    status: "In Implementation",
     owner: "Celso Garcia",
-    why: "Foundation for entity-scoped Principal User",
-    spillover: true,
+    why: "New role so a module can manage its own permissions without a platform-wide grant",
   },
   {
-    key: "RSH-4220",
-    summary:
-      "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
-    status: "In Quality Review",
+    key: "RSH-4214",
+    summary: "[IAM] Allow unscoped module permissions",
+    status: "In PO Review",
     owner: "Dominik Czerwiński",
-    why: "Privilege escalation — go-live blocker for delegated admin",
+    why: "Unblocks module-level grants that do not carry an entity scope",
   },
   {
-    key: "RSH-3042",
-    summary: "[IAM] Spike: Migrate users and groups to entity scoping",
+    key: "RSH-5675",
+    summary: "[IAM CI] Cancel superseded pipelines and ensure terminal state",
     status: "In Quality Review",
     owner: "Shashank Prasad",
-    why: "Vizor API Service (VAS) effectivePermissions already assumes this model",
-    spillover: true,
-  },
-  {
-    key: "RSH-4251",
-    summary: "IAM–Analyser integration issue",
-    status: "In Implementation",
-    owner: "Pawel Skrzypczynski",
-    why: "Analytics consumer (RSH-719) cannot complete without this",
-  },
-  {
-    key: "RSH-4066",
-    summary: "[IAM] Restart keycloak pod automatically in the pipeline when needed",
-    status: "In Implementation",
-    owner: "Celso Garcia",
-    why: "Dev-cluster stability for all module integrations",
-  },
-  {
-    key: "RSH-3503",
-    summary: "[IAM] Spike: Migrate existing IAM permissions to new version",
-    status: "In Implementation",
-    owner: "Shashank Prasad",
-    why: "Companion to entity-scoping migration",
-    spillover: true,
-  },
-  {
-    key: "RSH-3481",
-    summary:
-      "[IAM] Direct group-id grant is a true OR-path (view/manage a specific group regardless of scope overlap)",
-    status: "In Implementation",
-    owner: "Celso Garcia",
-    why: "Permission model correctness for scoped groups",
-    spillover: true,
+    why: "Stops stale pipelines from racing the live one and leaving the IAM build hanging",
   },
   {
     key: "RSH-2453",
     summary: "Configure all modules to use IAM and Platform in Dev Cluster",
-    status: "In Implementation",
+    status: "In Quality Review",
     owner: "Pawel Skrzypczynski",
     why: "Integration proving ground for Vizor, Analytics, Rconnect",
     spillover: true,
   },
   {
-    key: "RSH-4246",
-    summary: "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
-    status: "Ready",
-    owner: "Dominik Czerwiński",
-    why: "Breaks scoped-group administration",
+    key: "RSH-5442",
+    summary: '[DC] Entity groups - "All" Group',
+    status: "In Implementation",
+    owner: "Shashank Prasad",
+    why: "Master Data Management work that entity-group inheritance (RSH-2169) is waiting on",
   },
   {
-    key: "RSH-4244",
-    summary:
-      "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
+    key: "RSH-4784",
+    summary: "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
     status: "Ready",
-    owner: "Unassigned",
-    why: "Authorization leak on entity visibility",
+    owner: "Paweł Śnieżek",
+    why: "Phase 3 PAT spike — started while the 2616 integration queue is still unclosed",
   },
   {
-    key: "RSH-3763",
-    summary: "[IAM] Provide join groups functionality with pagination and search",
-    status: "Ready",
-    owner: "Unassigned",
-    why: "Replaces RSH-4260; Critical-priority UX",
-  },
-  {
-    key: "RSH-2451",
-    summary: "AppSec: OpenSSL issue in IAM API",
-    status: "Ready",
-    owner: "Adam Ennis",
-    why: "Security debt sitting Ready across two sprints",
-    spillover: true,
+    key: "RSH-4211",
+    summary: "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
+    status: "New",
+    owner: "Paweł Śnieżek",
+    why: "The production PAT story that sits behind the RSH-4784 spike",
   },
   {
     key: "RSH-2169",
@@ -150,94 +100,106 @@ export const sprintTickets: Ticket[] = [
     owner: "Unassigned",
     why: "Vizor API Service (VAS) entityGroups contract cannot expand members — blocked on Master Data Management (MDM)",
     blocked: true,
-  },
-  {
-    key: "RSH-4261",
-    summary: "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
-    status: "New",
-    owner: "Unassigned",
-    why: "Information leak in error UX",
-  },
-  {
-    key: "RSH-3239",
-    summary:
-      "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
-    status: "New",
-    owner: "Unassigned",
-    why: "Data integrity of the permission store",
+    spillover: true,
   },
 ];
 
 export const previousSprintClosed: Ticket[] = [
   {
-    key: "RSH-4242",
-    summary: "[IAM] Modules / Clients / Roles from ReachApi + final CleanUp",
+    key: "RSH-4246",
+    summary: "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
     status: "Closed",
     owner: "Dominik Czerwiński",
   },
   {
-    key: "RSH-3500",
-    summary: "[IAM] Permissions view/manage: entity dimension on top of the module dimension",
+    key: "RSH-3496",
+    summary: "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
     status: "Closed",
-    owner: "Dominik Czerwiński",
+    owner: "Celso Garcia",
   },
   {
-    key: "RSH-3499",
-    summary: "[IAM] Users view + manage reach from role context",
+    key: "RSH-4260",
+    summary: "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
     status: "Closed",
-    owner: "Zuzanna Twardowska",
-  },
-  {
-    key: "RSH-3498",
-    summary: "[IAM] Groups view + manage + create-scope reach from role context",
-    status: "Closed",
-    owner: "Dominik Czerwiński",
-  },
-  {
-    key: "RSH-3497",
-    summary: "[IAM] Derive caller reach from role entity context (reach API + [*]-marker de-overload)",
-    status: "Closed",
-    owner: "Dominik Czerwiński",
-  },
-  {
-    key: "RSH-3479",
-    summary: "[IAM] User creation with an optional initial permission",
-    status: "Closed",
-    owner: "Dominik Czerwiński",
-  },
-  {
-    key: "RSH-3455",
-    summary: "[IAM] Constrain the permission-modal context selector to the group's scope label",
-    status: "Closed",
-    owner: "Dominik Czerwiński",
-  },
-  {
-    key: "RSH-3238",
-    summary:
-      "[IAM] Bug: Mirrored permission role value and module name case getting changed based on permission mirroring config map",
-    status: "Closed",
-    owner: "Shashank Prasad",
+    owner: "Unassigned",
   },
 ];
 
-export const leftoverFrom2615: Ticket[] = [
+/** 2616 items that did not make the 2617 commitment. */
+export const leftoverFrom2616: Ticket[] = [
   {
-    key: "RSH-3515",
-    summary: "[IAM] Add RForge fixer scaffolding to supervisory-hub/iam",
+    key: "RSH-4220",
+    summary:
+      "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Privilege escalation — go-live blocker for delegated admin",
+  },
+  {
+    key: "RSH-3042",
+    summary: "[IAM] Spike: Migrate users and groups to entity scoping",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Vizor API Service (VAS) effectivePermissions already assumes this model",
+  },
+  {
+    key: "RSH-3503",
+    summary: "[IAM] Spike: Migrate existing IAM permissions to new version",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Companion to entity-scoping migration",
+  },
+  {
+    key: "RSH-3481",
+    summary: "[IAM] Remove direct group-id grant path entirely",
     status: "Ready for integration",
     owner: "Unassigned",
   },
   {
-    key: "RSH-3137",
-    summary: "[IAM] Publish user-context ContextData routes in OpenAPI",
+    key: "RSH-4244",
+    summary:
+      "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Authorization leak on entity visibility",
+  },
+  {
+    key: "RSH-3763",
+    summary: "[IAM] Provide join groups functionality with pagination and search",
     status: "Ready for integration",
     owner: "Unassigned",
   },
   {
-    key: "RSH-3478",
-    summary: "[IAM] Restrict unscoped group visibility to unscoped principal users",
-    status: "PO Accepted",
+    key: "RSH-3239",
+    summary:
+      "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
+    status: "Ready for integration",
     owner: "Unassigned",
+  },
+  {
+    key: "RSH-4261",
+    summary: "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
+    status: "Ready for integration",
+    owner: "Unassigned",
+  },
+  {
+    key: "RSH-4251",
+    summary: "IAM-Analyser integration issue",
+    status: "Ready for integration",
+    owner: "Unassigned",
+  },
+  {
+    key: "RSH-4066",
+    summary: "[IAM] Restart keycloak pod automatically in the pipeline when needed",
+    status: "Ready for integration",
+    owner: "Unassigned",
+  },
+  {
+    key: "RSH-2451",
+    summary: "AppSec: OpenSSL issue in IAM API",
+    status: "Ready",
+    owner: "Adam Ennis",
+    why: "Security debt sitting Ready across three sprints and not committed to 2617",
   },
 ];
 
@@ -252,7 +214,7 @@ export const phase2 = [
   { key: "RSH-429", title: "Defects and Tech Debt — Backlog", status: "Ready", owner: "Adam Ennis" },
   { key: "RSH-794", title: "Translations", status: "Ready", owner: "Unassigned" },
   { key: "RSH-795", title: "Multi-Core Identity Provider (IDP)", status: "Ready", owner: "Unassigned" },
-  { key: "RSH-4255", title: "Principal User — Make Work", status: "New", owner: "Unassigned" },
+  { key: "RSH-4255", title: "Principal User — Make Work", status: "New", owner: "Dominik Czerwiński" },
   { key: "RSH-4256", title: "Web Content Accessibility Guidelines (WCAG) 2.2 Level AA", status: "New", owner: "Unassigned" },
   { key: "RSH-4258", title: "User Profile Management — Improvements", status: "New", owner: "Unassigned" },
   { key: "RSH-4262", title: "Personal Access Token (PAT)", status: "New", owner: "Jan-Hendrik Hühne" },
@@ -391,7 +353,7 @@ export const implementation: {
   config: ConfigRow[];
 } = {
   intro:
-    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 26 Aug 2026 snapshot, the day before sprint 2616 and release 26.3.0.00 close.",
+    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 3 Sep 2026 snapshot, a week into sprint 2617.",
   notes: [
     {
       area: "Entity-aware permission model",
@@ -419,7 +381,7 @@ export const implementation: {
       detail:
         "A direct group-id grant must behave as a true OR-path. Assigning a scoped permission from the IAM module to a scoped group is still broken.",
       tickets: ["RSH-3481", "RSH-4246"],
-      state: "Ready for integration / Closed",
+      state: "Ready for integration / Closed (RSH-4246 Closed in 2616)",
     },
     {
       area: "Authorization defects",
@@ -443,18 +405,25 @@ export const implementation: {
       state: "Closed / In Implementation",
     },
     {
+      area: "Unscoped module permissions",
+      detail:
+        "A module-level grant that does not carry an entity scope, plus a dedicated module permission manager role so a product can administer its own permissions.",
+      tickets: ["RSH-4214", "RSH-4215"],
+      state: "In PO Review / In Implementation",
+    },
+    {
       area: "Application security",
       detail:
-        "OpenSSL issue in the IAM API has been Ready across two sprints. Cheap to close and highly visible as security debt if it spills again.",
+        "OpenSSL issue in the IAM API has been Ready across three sprints and was not committed to 2617. Cheap to close and highly visible as security debt.",
       tickets: ["RSH-2451"],
-      state: "Ready",
+      state: "Ready (not in 2617)",
     },
     {
       area: "Consumer integration",
       detail:
-        "Analyser integration blocks the Analytics 26.2 consumer. RForge fixer scaffolding and the user-context ContextData OpenAPI routes are still waiting for integration.",
-      tickets: ["RSH-4251", "RSH-3515", "RSH-3137"],
-      state: "In Implementation / Ready for integration",
+        "Analyser integration still sits Ready for integration and still blocks the Analytics consumer. Dev-cluster IAM (RSH-2453) has reached Quality Review in 2617. RForge scaffolding and ContextData OpenAPI have not moved.",
+      tickets: ["RSH-4251", "RSH-2453", "RSH-3515", "RSH-3137"],
+      state: "Ready for integration / In Quality Review",
     },
   ],
   config: [
@@ -504,14 +473,14 @@ export const deployment: {
     {
       environment: "Dev cluster",
       topology: "All modules pointed at IAM and the platform, Keycloak pod alongside the IAM API",
-      state: "In Implementation",
-      note: "RSH-2453 is the integration proving ground for Vizor, Analytics, and Rconnect. It has spilled across sprints.",
+      state: "In Quality Review",
+      note: "RSH-2453 is the integration proving ground for Vizor, Analytics, and Rconnect. It has spilled across five sprints and is now in Quality Review.",
     },
     {
       environment: "Continuous integration pipeline",
       topology: "Keycloak pod restarted automatically when the pipeline needs it",
-      state: "In Implementation",
-      note: "RSH-4066 removes the manual restart that was destabilizing every module integration run.",
+      state: "Ready for integration",
+      note: "RSH-4066 removes the manual restart that was destabilizing every module integration run. Left 2616 unassigned.",
     },
     {
       environment: "Vizor container deployments",
@@ -533,7 +502,7 @@ export const deployment: {
     },
   ],
   pipeline: [
-    "Build the IAM API and IAM UI containers on the Regnology Supervision Hub platform release train (currently 26.3.0.00, unreleased, 27 Aug 2026).",
+    "Build the IAM API and IAM UI containers on the Regnology Supervision Hub platform release train (26.3.0.00 cut 27 Aug 2026; stabilization now tracked as 26.4 under RSH-4254).",
     "Deploy Keycloak plus the IAM API into the target cluster; the pipeline restarts the Keycloak pod when required (RSH-4066).",
     "Point each module at IAM and the platform in the dev cluster and prove the integration there first (RSH-2453).",
     "Set Security.Login.Type = IAM on the consuming application, then set the internal and external audience values.",
@@ -592,11 +561,11 @@ export const roadmap: RoadmapPhase[] = [
     goal:
       "Make the shipped capability actually work in customer environments rather than adding scope. This is the working-state track that sits under the RSH-96 strategy initiative.",
     items: [
-      { key: "RSH-4254", title: "Stabilization epic", status: "New", note: "High · Must · platform release 26.3" },
-      { key: "RSH-4255", title: "Principal User — make work", status: "New", note: "Clone of the closed feature-gap epic; the real go-live path" },
-      { key: "RSH-2451", title: "OpenSSL application security", status: "Ready", note: "Ready across two sprints" },
-      { key: "RSH-2453", title: "All modules on IAM in the dev cluster", status: "In Implementation", note: "Integration proving ground" },
-      { key: "RSH-4251", title: "IAM–Analyser integration", status: "In Implementation", note: "Blocks the Analytics 26.2 consumer (RSH-719)" },
+      { key: "RSH-4254", title: "Stabilization epic", status: "New", note: "Retitled Stabilization Release — 26.4" },
+      { key: "RSH-4255", title: "Principal User — make work", status: "New", note: "Now assigned to Dominik Czerwiński; the real go-live path" },
+      { key: "RSH-2451", title: "OpenSSL application security", status: "Ready", note: "Ready across three sprints; not in 2617" },
+      { key: "RSH-2453", title: "All modules on IAM in the dev cluster", status: "In Quality Review", note: "Integration proving ground" },
+      { key: "RSH-4251", title: "IAM–Analyser integration", status: "Ready for integration", note: "Blocks the Analytics consumer (RSH-719); left 2616 unassigned" },
     ],
     exit: [
       "Audience validation is switched on and the issuer fix-up is automated.",
@@ -699,7 +668,7 @@ export const rice = [
     impact: 3,
     confidence: 0.9,
     effort: 1,
-    why: "Touches every Identity and Access Management tenant. Ready for integration in 26.3.0.00, not yet Closed. Highest near-term return on investment and a Principal User prerequisite.",
+    why: "Touches every Identity and Access Management tenant. Left 2616 at Ready for integration, still unassigned and not Closed. Highest near-term return on investment and a Principal User prerequisite.",
     bottleneck: false,
   },
   {
@@ -759,7 +728,7 @@ export const rice = [
     impact: 2,
     confidence: 0.85,
     effort: 2,
-    why: "Spillover Ready for two sprints. Cheap to close; looks bad if it sits.",
+    why: "Ready across three sprints and not even committed to 2617. Cheap to close; looks like unmanaged security debt.",
     bottleneck: false,
   },
   {
