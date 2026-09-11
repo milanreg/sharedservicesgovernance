@@ -23,46 +23,39 @@ export const CONFLUENCE = {
   strategy: "https://confluence.regnology.net/pages/viewpage.action?pageId=194395208",
 };
 
-export const SNAPSHOT = "3 Sep 2026";
+export const SNAPSHOT = "11 Sep 2026";
 
 export const sprint = {
-  name: "RSH PL 2617",
+  name: "RSH PL 2618",
   id: 21351,
-  start: "27 Aug 2026",
-  end: "10 Sep 2026",
+  start: "10 Sep 2026",
+  end: "24 Sep 2026",
   board: 2936,
-  committed: 8,
+  committed: 11,
   done: 0,
-  inProgress: 5,
-  ready: 2,
-  new: 1,
+  inProgress: 4,
+  ready: 6,
+  new: 0,
   blocked: 1,
-  spillover: 2,
+  spillover: 6,
 };
 
 export type { GanttItem, Ticket } from "../template/types";
 
 export const sprintTickets: Ticket[] = [
   {
-    key: "RSH-4215",
-    summary: "[IAM] Add module permission manager as IAM role",
+    key: "RSH-6545",
+    summary: "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
     status: "In Implementation",
-    owner: "Celso Garcia",
-    why: "New role so a module can manage its own permissions without a platform-wide grant",
-  },
-  {
-    key: "RSH-4214",
-    summary: "[IAM] Allow unscoped module permissions",
-    status: "In PO Review",
-    owner: "Dominik Czerwiński",
-    why: "Unblocks module-level grants that do not carry an entity scope",
-  },
-  {
-    key: "RSH-5675",
-    summary: "[IAM CI] Cancel superseded pipelines and ensure terminal state",
-    status: "In Quality Review",
     owner: "Shashank Prasad",
-    why: "Stops stale pipelines from racing the live one and leaving the IAM build hanging",
+    why: "Search leaving the user on page 3 of an empty result is a real admin-UX defect",
+  },
+  {
+    key: "RSH-6559",
+    summary: "[PL] Spike: initial investigation for RDM stand-alone on RSH",
+    status: "In Implementation",
+    owner: "Dominik Czerwiński",
+    why: "Platform spike on the same board — not IAM product work",
   },
   {
     key: "RSH-2453",
@@ -74,24 +67,56 @@ export const sprintTickets: Ticket[] = [
   },
   {
     key: "RSH-5442",
-    summary: '[DC] Entity groups - "All" Group',
-    status: "In Implementation",
+    summary: '[IAM] DC Entity groups - "All" Group',
+    status: "In PO Review",
     owner: "Shashank Prasad",
     why: "Master Data Management work that entity-group inheritance (RSH-2169) is waiting on",
+    spillover: true,
+  },
+  {
+    key: "RSH-786",
+    summary: "[IAM] Add preferred language to user profile and tokens",
+    status: "Ready",
+    owner: "Celso Garcia",
+    why: "Companion to the translations spike — language has to travel with the token",
+  },
+  {
+    key: "RSH-6560",
+    summary: "[IAM] Spike: review SupTech modules' approaches to translations",
+    status: "Ready",
+    owner: "Celso Garcia",
+    why: "Phase 3 translations work starting while 26.4 stabilization is still New",
+  },
+  {
+    key: "RSH-6535",
+    summary: "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
+    status: "Ready",
+    owner: "Shashank Prasad",
+    why: "Moves Keycloak off the in-cluster database toward a production-shaped topology",
+  },
+  {
+    key: "RSH-4211",
+    summary: "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
+    status: "Ready",
+    owner: "Paweł Śnieżek",
+    why: "The production PAT story that sits behind the RSH-4784 spike",
+    spillover: true,
   },
   {
     key: "RSH-4784",
     summary: "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
     status: "Ready",
     owner: "Paweł Śnieżek",
-    why: "Phase 3 PAT spike — started while the 2616 integration queue is still unclosed",
+    why: "Phase 3 PAT spike",
+    spillover: true,
   },
   {
-    key: "RSH-4211",
-    summary: "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
-    status: "New",
-    owner: "Paweł Śnieżek",
-    why: "The production PAT story that sits behind the RSH-4784 spike",
+    key: "RSH-2451",
+    summary: "AppSec: OpenSSL issue in IAM API",
+    status: "Ready",
+    owner: "Adam Ennis",
+    why: "Security debt now on the board after three sprints at Ready",
+    spillover: true,
   },
   {
     key: "RSH-2169",
@@ -106,100 +131,59 @@ export const sprintTickets: Ticket[] = [
 
 export const previousSprintClosed: Ticket[] = [
   {
-    key: "RSH-4246",
-    summary: "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
-    status: "Closed",
-    owner: "Dominik Czerwiński",
-  },
-  {
-    key: "RSH-3496",
-    summary: "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
-    status: "Closed",
-    owner: "Celso Garcia",
-  },
-  {
-    key: "RSH-4260",
-    summary: "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
-    status: "Closed",
-    owner: "Unassigned",
-  },
-];
-
-/** 2616 items that did not make the 2617 commitment. */
-export const leftoverFrom2616: Ticket[] = [
-  {
     key: "RSH-4220",
     summary:
       "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
-    status: "Ready for integration",
+    status: "Closed",
     owner: "Unassigned",
-    why: "Privilege escalation — go-live blocker for delegated admin",
   },
   {
     key: "RSH-3042",
     summary: "[IAM] Spike: Migrate users and groups to entity scoping",
-    status: "Ready for integration",
+    status: "Closed",
     owner: "Unassigned",
-    why: "Vizor API Service (VAS) effectivePermissions already assumes this model",
   },
   {
     key: "RSH-3503",
     summary: "[IAM] Spike: Migrate existing IAM permissions to new version",
-    status: "Ready for integration",
-    owner: "Unassigned",
-    why: "Companion to entity-scoping migration",
-  },
-  {
-    key: "RSH-3481",
-    summary: "[IAM] Remove direct group-id grant path entirely",
-    status: "Ready for integration",
+    status: "Closed",
     owner: "Unassigned",
   },
   {
-    key: "RSH-4244",
-    summary:
-      "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
-    status: "Ready for integration",
-    owner: "Unassigned",
-    why: "Authorization leak on entity visibility",
-  },
-  {
-    key: "RSH-3763",
-    summary: "[IAM] Provide join groups functionality with pagination and search",
-    status: "Ready for integration",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-3239",
-    summary:
-      "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
-    status: "Ready for integration",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-4261",
-    summary: "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
-    status: "Ready for integration",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-4251",
-    summary: "IAM-Analyser integration issue",
-    status: "Ready for integration",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-4066",
-    summary: "[IAM] Restart keycloak pod automatically in the pipeline when needed",
-    status: "Ready for integration",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-2451",
-    summary: "AppSec: OpenSSL issue in IAM API",
-    status: "Ready",
+    key: "RSH-1846",
+    summary: "[IAM] Principal User (User Manager)",
+    status: "Closed",
     owner: "Adam Ennis",
-    why: "Security debt sitting Ready across three sprints and not committed to 2617",
+  },
+  {
+    key: "RSH-2150",
+    summary: "[IAM] Permission Mirroring",
+    status: "Closed",
+    owner: "Adam Ennis",
+  },
+];
+
+/** 2617 items that did not make the 2618 commitment. */
+export const leftoverFrom2617: Ticket[] = [
+  {
+    key: "RSH-4214",
+    summary: "[IAM] Allow unscoped module permissions",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Cleared 2617 and was not pulled into 2618",
+  },
+  {
+    key: "RSH-4215",
+    summary: "[IAM] Add module permission manager as IAM role",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Cleared 2617 and was not pulled into 2618",
+  },
+  {
+    key: "RSH-5675",
+    summary: "[IAM CI] Cancel superseded pipelines and ensure terminal state",
+    status: "Ready for integration",
+    owner: "Unassigned",
   },
 ];
 
@@ -207,8 +191,8 @@ export const phase2 = [
   { key: "RSH-1025", title: "Close Feature Gaps wrt R3/VIZ/eReg UM", status: "Closed", owner: "Adam Ennis" },
   { key: "RSH-1323", title: "Improvements 26.2.0.00", status: "Closed", owner: "Adam Ennis" },
   { key: "RSH-1488", title: "Required Endpoints for R3", status: "Closed", owner: "Adam Ennis" },
-  { key: "RSH-1846", title: "Principal User (User Manager)", status: "In Implementation", owner: "Adam Ennis" },
-  { key: "RSH-2150", title: "Permission Mirroring", status: "In Implementation", owner: "Adam Ennis" },
+  { key: "RSH-1846", title: "Principal User (User Manager)", status: "Closed", owner: "Adam Ennis" },
+  { key: "RSH-2150", title: "Permission Mirroring", status: "Closed", owner: "Adam Ennis" },
   { key: "RSH-793", title: "User Profile Management", status: "In Implementation", owner: "Adam Ennis" },
   { key: "RSH-4221", title: "IAM User Guide", status: "In Implementation", owner: "Kartik Sharma" },
   { key: "RSH-429", title: "Defects and Tech Debt — Backlog", status: "Ready", owner: "Adam Ennis" },
@@ -353,7 +337,7 @@ export const implementation: {
   config: ConfigRow[];
 } = {
   intro:
-    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 3 Sep 2026 snapshot, a week into sprint 2617.",
+    "How the architecture is actually being built, ticket by ticket. States are the Jira statuses in the 11 Sep 2026 snapshot, day two of sprint 2618.",
   notes: [
     {
       area: "Entity-aware permission model",
@@ -374,7 +358,7 @@ export const implementation: {
       detail:
         "Spikes to migrate existing users, groups, and permissions onto entity scoping and the new permission version. Vizor API Service already assumes the target model, so the migration is on the critical path for Principal User.",
       tickets: ["RSH-3042", "RSH-3503"],
-      state: "Ready for integration (both)",
+      state: "Closed (both spikes)",
     },
     {
       area: "Scoped group administration",
@@ -539,11 +523,11 @@ export const roadmap: RoadmapPhase[] = [
     items: [
       { key: "RSH-1025", title: "Close feature gaps vs R3 / Vizor / eReg user management", status: "Closed", note: "Split into RSH-1846 and cloned as RSH-4255" },
       { key: "RSH-1323", title: "Improvements 26.2.0.00", status: "Closed", note: "Release-scoped improvements" },
-      { key: "RSH-1846", title: "Principal User (user manager)", status: "In Implementation", note: "Blocked in practice by RSH-4220 and entity scoping" },
-      { key: "RSH-2150", title: "Permission mirroring", status: "In Implementation", note: "Must label — Central Bank of Barbados / Rconnect" },
+      { key: "RSH-1846", title: "Principal User (user manager)", status: "Closed", note: "Epic Closed; Make Work clone RSH-4255 is still New — Closed is not in-market" },
+      { key: "RSH-2150", title: "Permission mirroring", status: "Closed", note: "Epic Closed — confirm Barbados / Rconnect is actually consuming mirrored grants" },
       { key: "RSH-793", title: "User profile management", status: "In Implementation", note: "Improvements tracked separately as RSH-4258" },
       { key: "RSH-4221", title: "IAM user guide", status: "In Implementation", note: "Kartik Sharma" },
-      { key: "RSH-3042", title: "Entity scoping migration", status: "Ready for integration", note: "Vizor API Service already assumes this model" },
+      { key: "RSH-3042", title: "Entity scoping migration", status: "Closed", note: "Spike Closed with RSH-3503; migration plan is the remaining work" },
       { key: "RSH-429", title: "Defects and tech debt backlog", status: "Ready", note: "Standing quality budget" },
       { key: "RSH-2169", title: "Entity group inheritance", status: "Blocked", note: "Blocked on Master Data Management membership expansion" },
     ],
@@ -601,7 +585,7 @@ export const consumers = [
   { name: "Vizor Licensing & Automatic Exchange of Information (AEOI)", key: "REG-49745", state: "In Implementation", note: "IAM Integration doc v17 · Authentication and Authorization v62" },
   { name: "R3 × RSH Shared IAM", key: "REG-48802", state: "In Implementation", note: "Work package still open" },
   { name: "RSH Analytics", key: "RSH-719", state: "In Implementation", note: "Target 26.2 · blocked by RSH-4251" },
-  { name: "Rconnect / Central Bank of Barbados (CBBB)", key: "RSH-2150", state: "In Implementation", note: "Permission mirroring is the Must / Central Bank of Barbados path" },
+  { name: "Rconnect / Central Bank of Barbados (CBBB)", key: "RSH-2150", state: "Closed", note: "Mirroring epic Closed — confirm Barbados is consuming mirrored grants" },
   { name: "RFS", key: "RFS-1688", state: "New", note: "Not scheduled" },
 ];
 
@@ -609,8 +593,8 @@ export const backlogGantt: GanttItem[] = [
   { id: "auth", label: "Authentication foundation", ticket: "RSH-97", start: "2025-03-01", end: "2025-10-15", status: "done", lane: "Phase 1" },
   { id: "authz", label: "Authorization + module roles", ticket: "RSH-100", start: "2025-04-01", end: "2025-11-20", status: "done", lane: "Phase 1" },
   { id: "self", label: "User self-service", ticket: "RSH-105", start: "2025-06-01", end: "2026-01-31", status: "done", lane: "Phase 1" },
-  { id: "pu", label: "Principal User", ticket: "RSH-1846", start: "2026-01-15", end: "2026-11-15", status: "active", lane: "Phase 2" },
-  { id: "mirror", label: "Permission mirroring", ticket: "RSH-2150", start: "2026-02-01", end: "2026-09-30", status: "active", lane: "Phase 2" },
+  { id: "pu", label: "Principal User", ticket: "RSH-1846", start: "2026-01-15", end: "2026-11-15", status: "done", lane: "Phase 2" },
+  { id: "mirror", label: "Permission mirroring", ticket: "RSH-2150", start: "2026-02-01", end: "2026-09-30", status: "done", lane: "Phase 2" },
   { id: "scope", label: "Entity scoping migration", ticket: "RSH-3042", start: "2026-07-01", end: "2026-10-15", status: "active", lane: "Phase 2" },
   { id: "stab", label: "Stabilization / make-work", ticket: "RSH-4254", start: "2026-08-14", end: "2026-11-30", status: "planned", lane: "PL 26.3" },
   { id: "pu2", label: "Principal User — Make Work", ticket: "RSH-4255", start: "2026-09-01", end: "2026-12-18", status: "planned", lane: "PL 26.3" },
@@ -668,7 +652,7 @@ export const rice = [
     impact: 3,
     confidence: 0.9,
     effort: 1,
-    why: "Touches every Identity and Access Management tenant. Left 2616 at Ready for integration, still unassigned and not Closed. Highest near-term return on investment and a Principal User prerequisite.",
+    why: "Closed in Jira. Touches every Identity and Access Management tenant — verify it is in a released build before treating Principal User as unblocked.",
     bottleneck: false,
   },
   {
@@ -678,7 +662,7 @@ export const rice = [
     impact: 3,
     confidence: 0.7,
     effort: 5,
-    why: "Kill-switch for Vizor/R3 local user management. Highest strategic ROI if entity scoping lands.",
+    why: "Epic Closed. The Make Work clone RSH-4255 is still New — Closed is not the same as products retiring local user management.",
     bottleneck: false,
   },
   {
@@ -688,7 +672,7 @@ export const rice = [
     impact: 3,
     confidence: 0.8,
     effort: 4,
-    why: "Central Bank of Barbados / Rconnect Must. Revenue and client-satisfaction forcing function.",
+    why: "Epic Closed. Still the Must path for Central Bank of Barbados / Rconnect — confirm they consume mirrored grants.",
     bottleneck: false,
   },
   {
@@ -698,7 +682,7 @@ export const rice = [
     impact: 2,
     confidence: 0.75,
     effort: 4,
-    why: "Unblocks Principal User. VAS contract already assumes this model.",
+    why: "Spike Closed with RSH-3503. VAS already assumed the model; the remaining work is the migration plan, not another spike.",
     bottleneck: false,
   },
   {
@@ -728,7 +712,7 @@ export const rice = [
     impact: 2,
     confidence: 0.85,
     effort: 2,
-    why: "Ready across three sprints and not even committed to 2617. Cheap to close; looks like unmanaged security debt.",
+    why: "On the 2618 board at Ready after three idle sprints. Cheap to close this sprint.",
     bottleneck: false,
   },
   {
@@ -764,7 +748,7 @@ export const bottlenecks = [
     title: "Closed epic ≠ capability in market",
     ticket: "RSH-1025",
     detail:
-      "Close Feature Gaps is Closed, then split into RSH-1846 and cloned as RSH-4255 Make Work. R3 Keycloak removal is still New.",
+      "RSH-1025 and RSH-1846 are both Closed. The Make Work clone RSH-4255 is still New. Closed epic is not capability in market.",
   },
   {
     title: "Integration doc gaps",

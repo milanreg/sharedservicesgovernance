@@ -30,190 +30,294 @@ export const CONFLUENCE = {
     "https://confluence.regnology.net/spaces/RCON/pages/274799332/Deploy+as+a+component+on+PROD",
 };
 
-export const SNAPSHOT = "19 Aug 2026";
+export const SNAPSHOT = "11 Sep 2026";
 
 export const sprint = {
-  name: "RCON.S sprint 14",
+  name: "RCON.S sprint 16",
   id: 2947,
-  start: "10 Aug 2026",
-  end: "21 Aug 2026",
+  start: "7 Sep 2026",
+  end: "18 Sep 2026",
   board: 3734,
-  goal: "Internal Production Release · UI/UX flow update",
-  committed: 15,
-  done: 0,
-  // Implementation only. The two In PO Review items count as waiting, not in flight.
-  inProgress: 9,
+  goal: "Enablers support · messaging-bus integration · Spring Boot 4 · NiFi registry updater",
+  committed: 25,
+  done: 1,
+  inProgress: 7,
   blocked: 0,
 };
 
-/** RCON.S sprint 14 as at 19 Aug 2026 — two days before the sprint closes. */
+/** RCON.S sprint 16 as at 11 Sep 2026 — mid-sprint, one Closed. */
 export const sprintTickets: Ticket[] = [
   {
-    key: "RCON-1366",
-    summary: "[BE] Differentiate TEST/PROD submissions by parsing the FiTax file name",
-    status: "In Implementation",
-    owner: "Benjamin Garaude",
-    why: "Critical. TEST and PROD CESOP submissions are told apart only by the TestProd segment of the FiTax exchange file name",
-  },
-  {
-    key: "RCON-1381",
-    summary: "[Ni-FI] Differentiate TEST/PROD submissions by parsing the FiTax file name",
-    status: "In Implementation",
-    owner: "CE-Alexandru Calinescu",
-    why: "NiFi half of RCON-1366; the flow and the backend have to agree or a test file reaches a live authority",
-  },
-  {
-    key: "RCON-902",
-    summary: "[BE] [Error Handling NiFi] Add an information of error reason",
-    status: "In Implementation",
-    owner: "CE-Dwitiya Halder",
-    why: "Carry-over. Without a reason on the failure, every NiFi error looks the same to a supervisor",
-  },
-  {
-    key: "RCON-1382",
-    summary: "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
+    key: "RCON-1426",
+    summary: "[Spike] Investigate on-prem / private cloud support",
     status: "New",
-    owner: "CE-Dwitiya Halder",
-    why: "NiFi half of RCON-902, still New with the sprint closing",
+    owner: "Konstantin Artsiomenka",
+    why: "On-prem variant is still only sketched in ADR-0005; this spike is the first ticketed look",
   },
   {
-    key: "RCON-1336",
-    summary: "RTH - RCON Integration to add RCON as independent component",
-    status: "In Implementation",
-    owner: "Benjamin Garaude",
-    why: "First integrator on the standalone model from ADR-0006 rather than a subchart of the parent app",
-  },
-  {
-    key: "RCON-1173",
-    summary: "Create instance to integrate Nifi-registry updater",
-    status: "In Implementation",
-    owner: "Vinodh Soundararajan",
-    why: "Proving ground for the ADR-0005 updater; also the point where ADR-0004 and ADR-0005 disagree",
-  },
-  {
-    key: "RCON-1126",
-    summary:
-      "[PwC] Allow Super Admin, Admin, and Employee with Edit rights to create, edit, and delete entities",
-    status: "In Implementation",
-    owner: "Benjamin Garaude",
-    why: "Client-driven permission change on the entity model",
-  },
-  {
-    key: "RCON-1231",
-    summary: "Enhancement - Delete Entity (BE)",
-    status: "In Implementation",
-    owner: "Benjamin Garaude",
-    why: "Pairs with RCON-1233, which stops a referenced countryRegime being deleted",
-  },
-  {
-    key: "RCON-1221",
-    summary: "Regression Test Suite",
-    status: "In Implementation",
-    owner: "Rafał Bator",
-    why: "High. The monolith merge and the database consolidation both need a regression net that does not exist yet",
-  },
-  {
-    key: "RCON-1248",
-    summary: "Test Automation pipeline creation",
-    status: "In Implementation",
-    owner: "Kamil Burek",
-    why: "Companion to RCON-1221 — a suite nobody runs on every build is not a safety net",
-  },
-  {
-    key: "RCON-1335",
-    summary: "Design - UX Enhancement",
-    status: "In PO Review",
-    owner: "Kamil Burek",
-    why: "The UI/UX half of the sprint goal",
-  },
-  {
-    key: "RCON-1306",
-    summary: "Improve validation errors display for records with multiple errors",
-    status: "In PO Review",
-    owner: "Rafał Bator",
-    spillover: true,
-    why: "The only item carried from sprint 13, and it has sat in Product Owner review across both",
-  },
-  {
-    key: "RCON-1313",
-    summary: "Validate UI auto refresh on rconnect platform",
-    status: "New",
-    owner: "Rafał Bator",
-    why: "Still New two days before the sprint ends",
-  },
-  {
-    key: "RCON-1390",
-    summary: "Upgrading one-ui version to 6.0.1",
+    key: "RCON-1481",
+    summary: "Suspend on Idle - continue investigating the options to evaluate cost",
     status: "New",
     owner: "Unassigned",
-    why: "Unassigned New work inside the committed sprint",
+    why: "Cost spike, unassigned New in a committed sprint",
+  },
+  {
+    key: "RCON-1236",
+    summary: "[SPIKE] Handle report frequency from RCON",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Spillover spike, still New and unassigned",
+  },
+  {
+    key: "RCON-1453",
+    summary: "Add regime_report_type attribute so that users can filter by report type",
+    status: "New",
+    owner: "Unassigned",
+    why: "Unassigned New filter work in the committed sprint",
   },
   {
     key: "RCON-1355",
     summary: "[BUG] Resubmit report is not working correctly",
     status: "New",
     owner: "Unassigned",
+    spillover: true,
     why: "Unassigned bug on the retry path; shares a messageRefId problem with the manual-upload work",
+  },
+  {
+    key: "RCON-1173",
+    summary: "Create instance to integrate Nifi-registry updater",
+    status: "In Implementation",
+    owner: "Vinodh Soundararajan",
+    spillover: true,
+    why: "Proving ground for the ADR-0005 updater; also the point where ADR-0004 and ADR-0005 disagree",
+  },
+  {
+    key: "RCON-1248",
+    summary: "Test Automation pipeline creation",
+    status: "In Implementation",
+    owner: "Kamil Burek",
+    spillover: true,
+    why: "Companion to the now-Closed RCON-1221 suite — a suite nobody runs on every build is not a safety net",
+  },
+  {
+    key: "RCON-1334",
+    summary: "Create force override of tag on pipelines",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Unassigned pipeline spillover, still New",
+  },
+  {
+    key: "RCON-1342",
+    summary: "cesop Sweden - unable to download feedback",
+    status: "Closed",
+    owner: "Unassigned",
+    why: "The only Closed item in sprint 16 so far",
+  },
+  {
+    key: "RCON-1343",
+    summary: "Rconnect-backend: fix in memory sorting",
+    status: "In Implementation",
+    owner: "Konstantin Artsiomenka",
+    why: "Backend sort correctness; sits under the monolith-merge work",
+  },
+  {
+    key: "RCON-1365",
+    summary: "Improve existing UI unit test coverage",
+    status: "New",
+    owner: "Kamil Burek",
+    why: "Coverage work alongside the test-automation pipeline",
+  },
+  {
+    key: "RCON-1390",
+    summary: "upgrading one ui version to 6.0.1",
+    status: "Implemented",
+    owner: "Kamil Burek",
+    spillover: true,
+    why: "one-ui 6.0.1 upgrade; Implemented, waiting on a release",
+  },
+  {
+    key: "RCON-1382",
+    summary: "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
+    status: "In Implementation",
+    owner: "Dwitiya Halder",
+    spillover: true,
+    why: "NiFi half of the now-Closed RCON-902; a reason the flow never sends cannot be displayed",
+  },
+  {
+    key: "RCON-1410",
+    summary: "Add an optional messaging-bus queue to the Helm stack",
+    status: "Ready for integration",
+    owner: "Konstantin Artsiomenka",
+    spillover: true,
+    why: "Helm half of the messaging-bus pair; resolved at RFI, not yet released",
+  },
+  {
+    key: "RCON-1411",
+    summary: "Define the event/communication schema for the messaging-bus queue",
+    status: "Ready for integration",
+    owner: "Konstantin Artsiomenka",
+    spillover: true,
+    why: "Schema half of the messaging-bus pair; lands with RCON-1410",
+  },
+  {
+    key: "RCON-1476",
+    summary: "Enhance Copy RConnect dependencies Jenkins Job",
+    status: "In Implementation",
+    owner: "Konstantin Artsiomenka",
+    why: "DevOps job that copies dependencies into a development environment",
+  },
+  {
+    key: "RCON-1486",
+    summary: "[FE] Display Ni-Fi errors in user friendly manner",
+    status: "New",
+    owner: "Unassigned",
+    why: "UI half of the NiFi error-reason work; unassigned New",
+  },
+  {
+    key: "RCON-1490",
+    summary: "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
+    status: "In Implementation",
+    owner: "Benjamin Garaude",
+    why: "Spring Boot 4 on the submission backend",
+  },
+  {
+    key: "RCON-1134",
+    summary: "Integrate Ni-Fi registry updater",
+    status: "In Implementation",
+    owner: "Alexandru Calinescu",
+    spillover: true,
+    why: "Pairs with RCON-1173 — the updater instance is useless until the flow catalogue is wired in",
+  },
+  {
+    key: "RCON-1499",
+    summary: "[Enablers] Support — Alexandru (S16)",
+    status: "Ready",
+    owner: "Alexandru Calinescu",
+    why: "Sprint-16 enablers booking",
+  },
+  {
+    key: "RCON-1500",
+    summary: "[Enablers] Support — Konstantin (S16)",
+    status: "New",
+    owner: "Konstantin Artsiomenka",
+    why: "Sprint-16 enablers booking",
+  },
+  {
+    key: "RCON-1501",
+    summary: "[Enablers] Support — Dwitiya (S16)",
+    status: "New",
+    owner: "Dwitiya Halder",
+    why: "Sprint-16 enablers booking",
+  },
+  {
+    key: "RCON-1523",
+    summary: "create env for FiTax to test the integration and prep for the release",
+    status: "New",
+    owner: "Unassigned",
+    why: "High. FiTax needs a test environment before the next integration release",
+  },
+  {
+    key: "RCON-1526",
+    summary: "Enhancement - CountryRegime feedbackSchema (BE)",
+    status: "New",
+    owner: "Unassigned",
+    why: "First backend slice of the schema-driven feedback ADR",
+  },
+  {
+    key: "RCON-1527",
+    summary: "Enhancement - Schema-driven feedback write & storage (BE)",
+    status: "New",
+    owner: "Unassigned",
+    why: "Write path for the schema-driven feedback ADR; unassigned with RCON-1526",
   },
 ];
 
-/** Closed in RCON.S sprint 13 — the eight that actually reached Closed. */
+/** Closed in RCON.S sprint 15 — notable closures around the 7 Sep 2026 close. */
 export const previousSprintClosed: Ticket[] = [
   {
-    key: "RCON-1206",
-    summary: "Handling errors from database",
+    key: "RCON-1425",
+    summary: "Release activities (S15)",
     status: "Closed",
-    owner: "CE-Konstantin Artsiomenka",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1200",
-    summary: "Catch and serve correctly an error when user fetches feedback manually",
+    key: "RCON-1424",
+    summary: "Display feedback in the same view as submissions",
     status: "Closed",
-    owner: "Kamil Burek",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1189",
-    summary: "Sorting and filtering don't work together",
+    key: "RCON-1460",
+    summary: "[NiFi] Fix Hungary flow",
     status: "Closed",
-    owner: "Kamil Burek",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1176",
-    summary: "[Bug] Inaccurate timezone shown",
+    key: "RCON-1420",
+    summary: "[Enablers] Support — Alexandru (S15)",
     status: "Closed",
-    owner: "Kamil Burek",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1175",
-    summary: "[Bug] Multiplied toasts",
+    key: "RCON-1366",
+    summary: "[BE] Differentiate TEST/PROD submissions by parsing the FiTax file name",
     status: "Closed",
-    owner: "Kamil Burek",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1174",
-    summary: "[Bug] Sorting by CorrMessageRefId and Timestamp doesn't work",
+    key: "RCON-1381",
+    summary: "[Ni-FI] Differentiate TEST/PROD submissions by parsing the FiTax file name",
     status: "Closed",
-    owner: "Kamil Burek",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1158",
-    summary: "[BUG] Timestamp consistency across reports and Dashboard UI",
+    key: "RCON-1221",
+    summary: "Regression Test Suite",
     status: "Closed",
-    owner: "Kamil Burek",
+    owner: "Unassigned",
   },
   {
-    key: "RCON-1109",
-    summary: "Add validations for BE for each field",
+    key: "RCON-1306",
+    summary: "Improve validation errors display for records with multiple errors",
+    status: "Closed",
+    owner: "Unassigned",
+  },
+  {
+    key: "RCON-902",
+    summary: "[BE] [Error Handling NiFi] Add an information of error reason",
+    status: "Closed",
+    owner: "Unassigned",
+  },
+  {
+    key: "RCON-1336",
+    summary: "RTH - RCON Integration to add RCON as independent component",
     status: "Closed",
     owner: "Unassigned",
   },
 ];
 
 /**
- * Sprint 13 items sitting at Ready for integration. Jira treats these as
- * resolved, which is why the delivered count runs far ahead of Closed.
+ * Ready for integration — current sprint-16 pair plus leftover resolved
+ * work this project treats as delivered. Jira sets a resolution date here,
+ * which is why the delivered count runs far ahead of Closed.
  */
 export const readyForIntegration: Ticket[] = [
+  {
+    key: "RCON-1410",
+    summary: "Add an optional messaging-bus queue to the Helm stack",
+    status: "Ready for integration",
+    owner: "Konstantin Artsiomenka",
+    why: "Helm half of the messaging-bus pair; in sprint 16 and waiting on a release",
+  },
+  {
+    key: "RCON-1411",
+    summary: "Define the event/communication schema for the messaging-bus queue",
+    status: "Ready for integration",
+    owner: "Konstantin Artsiomenka",
+    why: "Schema half of the messaging-bus pair; lands with RCON-1410",
+  },
   {
     key: "RCON-1069",
     summary: "Following dynamic credentials, legacy credentials tables have to be removed",
@@ -401,8 +505,8 @@ export const consumers = [
   {
     name: "RTH — Regnology Tax Hub",
     key: "RCON-1336",
-    state: "In Implementation",
-    note: "First integrator to take Rconnect as an independent component instead of a subchart",
+    state: "Closed",
+    note: "First integrator to take Rconnect as an independent component instead of a subchart — Closed in Jira, confirm released",
   },
   {
     name: "RRH / Abacus 360",
@@ -426,7 +530,7 @@ export const consumers = [
     name: "PwC",
     key: "RCON-1405",
     state: "New",
-    note: "Client feedback drives the entity permission and TEST/PROD work in the current sprint",
+    note: "Client feedback drove the entity permission and TEST/PROD work; both Closed in Jira — confirm released",
   },
   {
     name: "Softserve S9",
@@ -625,7 +729,7 @@ export const implementation: {
   config: ConfigRow[];
 } = {
   intro:
-    "What is actually being built behind those decisions, ticket by ticket. Statuses are the Jira states in the 19 Aug 2026 snapshot. Note that this project sets a resolution date at Ready for integration, so a great deal of work reads as delivered while still sitting in front of a release.",
+    "What is actually being built behind those decisions, ticket by ticket. Statuses are the Jira states in the 11 Sep 2026 snapshot. Note that this project sets a resolution date at Ready for integration, so a great deal of work reads as delivered while still sitting in front of a release.",
   notes: [
     {
       area: "Collapse into one backend",
@@ -651,16 +755,16 @@ export const implementation: {
     {
       area: "TEST versus PROD routing",
       detail:
-        "Critical, and split across the backend and the flow. The TestProd segment of the FiTax exchange file name decides the environment; a missing or invalid value must fail the submission and hand an error back to FiTax rather than guess. The credentials endpoint grows an environment parameter to match.",
+        "Critical, and split across the backend and the flow. The TestProd segment of the FiTax exchange file name decides the environment; a missing or invalid value must fail the submission and hand an error back to FiTax rather than guess. The credentials endpoint grows an environment parameter to match. Both halves Closed in Jira on 7 Sep 2026 — confirm they are in a released build.",
       tickets: ["RCON-1366", "RCON-1381"],
-      state: "In Implementation",
+      state: "Closed",
     },
     {
       area: "Error reasons out of NiFi",
       detail:
-        "Backend and NiFi halves of the same requirement: carry why a submission failed, not just that it failed. The backend half is in implementation, the NiFi half is still New.",
+        "Backend and NiFi halves of the same requirement: carry why a submission failed, not just that it failed. The backend half is Closed; the NiFi half is in implementation.",
       tickets: ["RCON-902", "RCON-1382"],
-      state: "In Implementation · NiFi half New",
+      state: "Closed · NiFi half In Implementation",
     },
     {
       area: "Schema-driven feedback",
@@ -688,14 +792,14 @@ export const implementation: {
       detail:
         "Client-driven changes from PwC: who may create, edit and delete entities, and preventing deletion of a regime that is still referenced.",
       tickets: ["RCON-1126", "RCON-1231"],
-      state: "In Implementation",
+      state: "Closed",
     },
     {
       area: "Test safety net",
       detail:
-        "A regression suite and the pipeline to run it. Both are High and both are prerequisites for trusting the monolith merge, yet they are being built in the same sprint as the merge.",
+        "A regression suite and the pipeline to run it. The suite is Closed; the pipeline that would run it on every build is still in implementation.",
       tickets: ["RCON-1221", "RCON-1248"],
-      state: "In Implementation",
+      state: "Closed · pipeline In Implementation",
     },
     {
       area: "Platform integration with IAM",
@@ -983,8 +1087,8 @@ export const roadmap: RoadmapPhase[] = [
       {
         key: "RCON-1221",
         title: "Regression Test Suite",
-        status: "In Implementation",
-        note: "Prerequisite for trusting the merge",
+        status: "Closed",
+        note: "Closed in Jira; the pipeline (RCON-1248) is still in implementation",
       },
       {
         key: "RCON-928",
@@ -1001,8 +1105,8 @@ export const roadmap: RoadmapPhase[] = [
       {
         key: "RCON-1336",
         title: "RTH integration as an independent component",
-        status: "In Implementation",
-        note: "First standalone integrator",
+        status: "Closed",
+        note: "First standalone integrator — Closed in Jira, confirm released",
       },
     ],
     exit: [
@@ -1068,7 +1172,7 @@ export const backlogGantt: GanttItem[] = [
   { id: "merge", label: "Merge services", ticket: "RCON-931", start: "2026-04-01", end: "2026-10-31", status: "active", lane: "CORE refactor" },
   { id: "general", label: "Codebase generalization", ticket: "RCON-927", start: "2026-05-01", end: "2026-12-15", status: "active", lane: "CORE refactor" },
   { id: "regress", label: "Regression suite + pipeline", ticket: "RCON-1221", start: "2026-07-01", end: "2026-10-15", status: "active", lane: "CORE refactor" },
-  { id: "testprod", label: "TEST / PROD routing", ticket: "RCON-1366", start: "2026-08-05", end: "2026-08-29", status: "active", lane: "This sprint" },
+  { id: "testprod", label: "TEST / PROD routing", ticket: "RCON-1366", start: "2026-08-05", end: "2026-09-07", status: "done", lane: "This sprint" },
   { id: "errreason", label: "NiFi error reasons", ticket: "RCON-902", start: "2026-07-15", end: "2026-09-15", status: "active", lane: "This sprint" },
   { id: "flows", label: "Flow distribution (updater)", ticket: "RCON-1173", start: "2026-05-01", end: "2026-10-31", status: "blocked", lane: "CORE refactor" },
   { id: "iam", label: "IAM platform integration", ticket: "RCON-928", start: "2026-10-01", end: "2027-03-31", status: "planned", lane: "Platform" },
@@ -1126,7 +1230,7 @@ export const stakeholders = [
     org: "Rconnect (R&D)",
   },
   {
-    name: "CE-Alexandru Calinescu",
+    name: "Alexandru Calinescu",
     role: "NiFi specialist",
     interest: "Country flows, the registry updater, the TEST/PROD flow half",
     raci: "R",
@@ -1200,7 +1304,7 @@ export const rice = [
     impact: 3,
     confidence: 0.9,
     effort: 2,
-    why: "A test file reaching a live tax authority is a regulatory incident, not a bug. Critical, in flight, and split across two tickets that must land together.",
+    why: "A test file reaching a live tax authority is a regulatory incident, not a bug. Both halves Closed in Jira on 7 Sep 2026 — confirm they shipped in RCON.S 2.2.0.",
     bottleneck: true,
   },
   {
@@ -1210,7 +1314,7 @@ export const rice = [
     impact: 3,
     confidence: 0.8,
     effort: 3,
-    why: "Everything in the CORE refactor is riskier without it, and it is being built in parallel with the merge it should protect.",
+    why: "Everything in the CORE refactor is riskier without it. The suite is Closed; the pipeline (RCON-1248) that would run it on every build is still in implementation.",
     bottleneck: true,
   },
   {
@@ -1240,7 +1344,7 @@ export const rice = [
     impact: 2,
     confidence: 0.8,
     effort: 2,
-    why: "Fourteen of sprint 13's twenty-three items are resolved but unreleased. Value is booked and not banked.",
+    why: "A large Ready-for-integration tranche is still unreleased, including the messaging-bus pair from sprint 16. Value is booked and not banked.",
     bottleneck: true,
   },
   {
@@ -1301,13 +1405,13 @@ export const bottlenecks = [
     title: "Resolved but not released",
     ticket: "RCON-1210",
     detail:
-      "This project sets a resolution date at Ready for integration, so 806 items read as done against 67 open. Fourteen of sprint 13's twenty-three items sit there, all unassigned, including the legacy credential-table removal and the Sonar and CVE fixes.",
+      "This project sets a resolution date at Ready for integration, so 834 items read as done against 79 open. The leftover credential-table removal and Sonar and CVE fixes are still there, and sprint 16 has added the messaging-bus pair (RCON-1410 / RCON-1411).",
   },
   {
-    title: "Sprint 14 has nothing Closed with two days left",
+    title: "Validation-error display closed after a two-sprint stall",
     ticket: "RCON-1306",
     detail:
-      "Fifteen committed, none Closed: nine in implementation, two parked in Product Owner review, and four still New — including an unassigned bug and an unassigned dependency upgrade. The only carry-over from sprint 13, RCON-1306, has spent both sprints in review.",
+      "RCON-1306 sat in Product Owner review across sprints 13 and 14 and is now Closed. The stall that replaced it is the unassigned New pile in sprint 16 — resubmit, report frequency, regime filter, NiFi error display, FiTax test env, and schema-driven feedback.",
   },
   {
     title: "Manual upload does not check the entity",
@@ -1337,6 +1441,6 @@ export const bottlenecks = [
     title: "Release versioning does not separate the two products",
     ticket: "RCON-276",
     detail:
-      "RCON holds both Submission and Communicator. Jira's next version is RCON.C 1.2.0 on 26 Aug 2026 — a Communicator release — while Submission tracks RCON.S 2.0.0, 2.1.0 and 2.2.0 in epic titles. A project-level release date says nothing about this product.",
+      "RCON holds both Submission and Communicator. Submission last released RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is still RCON.C 1.2.0 on 2 Sep 2026 — Communicator's, and still unreleased. A project-level current-release date says nothing about this product.",
   },
 ];

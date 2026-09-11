@@ -30,32 +30,33 @@ function jira(key: string) {
 
 export const TICKET_RISKS: Record<string, Risk> = {
   "RCON-1366": {
-    level: "red",
+    level: "amber",
     reason:
-      "TEST and PROD submissions are told apart only by one segment of the FiTax exchange file name.",
+      "Closed in Jira. TEST and PROD submissions are told apart only by one segment of the FiTax exchange file name — confirm the backend half is in a released build.",
     mitigation:
-      "Land the backend and the NiFi half together (RCON-1381), and fail the submission when the segment is missing or invalid rather than defaulting.",
+      "Confirm RCON-1366 and RCON-1381 shipped together in RCON.S 2.2.0, and that a missing or invalid TestProd segment fails the submission rather than defaulting.",
     assessment:
-      "RICE 12.2 — the highest score on the board. A test file accepted by a live tax authority is a regulatory incident, and the credentials endpoint has to learn the environment parameter at the same time.",
+      "Was RICE 12.2 — the highest score on the board. A test file accepted by a live tax authority is a regulatory incident. Closed 7 Sep 2026; the residual risk is release confirmation, not implementation.",
     references: [
       { label: "RCON-1366", href: jira("RCON-1366") },
       { label: "RCON-1381 (NiFi half)", href: jira("RCON-1381") },
     ],
   },
   "RCON-1381": {
-    level: "red",
-    reason: "The flow half of TEST/PROD routing. If it ships apart from RCON-1366 the two disagree.",
-    mitigation: "Treat the pair as one deliverable; neither is done alone.",
+    level: "amber",
+    reason:
+      "Closed in Jira. The flow half of TEST/PROD routing — confirm it released with RCON-1366 so the two agree.",
+    mitigation: "Treat the pair as one released deliverable; neither is done alone.",
     references: [{ label: "RCON-1381", href: jira("RCON-1381") }],
   },
   "RCON-1221": {
     level: "amber",
     reason:
-      "The regression suite that should protect the monolith merge is being built in the same sprint as the merge.",
+      "Closed in Jira. The regression suite that should protect the monolith merge is written; confirm it is released and actually run.",
     mitigation:
-      "Finish the suite and the pipeline (RCON-1248) before declaring RCON-931 complete, not after.",
+      "Finish the pipeline (RCON-1248) and run the suite on every build before declaring RCON-931 complete, not after.",
     assessment:
-      "RICE 6.4. ADR-0001 lists broad regression, integration and performance testing as the main migration risk, and sets 80% coverage as a success criterion.",
+      "RICE 6.4. ADR-0001 lists broad regression, integration and performance testing as the main migration risk, and sets 80% coverage as a success criterion. The suite ticket is Closed; the pipeline is still in implementation.",
     references: [
       { label: "RCON-1221", href: jira("RCON-1221") },
       { label: "RCON-931 merge", href: jira("RCON-931") },
@@ -63,10 +64,11 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RCON-1306": {
     level: "amber",
-    reason: "The only carry-over from sprint 13, and it has spent both sprints in Product Owner review.",
+    reason:
+      "Closed in Jira after a two-sprint Product Owner review stall. Confirm the validation-error display is in a released build.",
     mitigation:
-      "Get a decision in this sprint. It is the visible half of the schema-driven feedback change.",
-    assessment: "Review is where this item stalls, not implementation.",
+      "Treat Closed as confirm-released, not banked. It is the visible half of the schema-driven feedback change.",
+    assessment: "Review was where this item stalled, not implementation. Closed after sprints 13 and 14.",
     references: [{ label: "RCON-1306", href: jira("RCON-1306") }],
   },
   "RCON-1173": {
@@ -94,15 +96,15 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RCON-1390": {
     level: "amber",
-    reason: "Unassigned dependency upgrade, still New two days before the sprint closes.",
-    mitigation: "Move it to the next sprint rather than carrying an unowned item.",
+    reason: "one-ui 6.0.1 upgrade is Implemented and still sitting in front of a release.",
+    mitigation: "Include it in the next Submission release rather than carrying Implemented work again.",
     references: [{ label: "RCON-1390", href: jira("RCON-1390") }],
   },
   "RCON-1382": {
     level: "amber",
     reason:
-      "The NiFi half of the error-reason work is still New while the backend half is in implementation.",
-    mitigation: "Sequence with RCON-902; a reason the flow never sends cannot be displayed.",
+      "The NiFi half of the error-reason work is still in implementation after the backend half Closed.",
+    mitigation: "Land it so a reason RCON-902 can store is actually sent by the flow.",
     references: [
       { label: "RCON-1382", href: jira("RCON-1382") },
       { label: "RCON-902", href: jira("RCON-902") },
@@ -110,8 +112,8 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RCON-902": {
     level: "amber",
-    reason: "Carry-over. Until it lands, every NiFi failure looks identical to a supervisor.",
-    mitigation: "Land with RCON-1382 so the reason exists end to end.",
+    reason: "Closed in Jira. Until the NiFi half lands, every NiFi failure still looks identical to a supervisor.",
+    mitigation: "Confirm the backend half is released, and land RCON-1382 so the reason exists end to end.",
     references: [{ label: "RCON-902", href: jira("RCON-902") }],
   },
   "RCON-1069": {
@@ -156,7 +158,7 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
   boardUrl: BOARD,
   snapshot: SNAPSHOT,
   sources:
-    "Jira: project = RCON, less the RCON-276 Communicator subtree and Xray test artefacts (806 resolved, 70 open, 45 epics) · board 3734, sprint RCON.S sprint 14. Confluence RCON space: Rconnect Submission product page (v2, Feb 2026), seven architecture decision records, the Rconnect and NiFi integration guides, Deploy as a component on PROD, and the security vulnerability triage (Aug 2026).",
+    "Jira: project = RCON, less the RCON-276 Communicator subtree and Xray test artefacts (834 resolved, 79 open, 51 epics) · board 3734, sprint RCON.S sprint 16. Confluence RCON space: Rconnect Submission product page (v2, Feb 2026), seven architecture decision records, the Rconnect and NiFi integration guides, Deploy as a component on PROD, and the security vulnerability triage (Aug 2026).",
   populated: true,
   sprint: {
     name: sprint.name,
@@ -166,28 +168,28 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, one of five concurrent team sprints there. Goal: ${sprint.goal}. Fifteen items committed. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, one of five concurrent team sprints there. Goal: ${sprint.goal}. Twenty-five items committed. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Nothing is Closed with two days to run: nine items in implementation, two parked in Product Owner review, and four still New — two of those unassigned. Critical TEST/PROD routing (RCON-1366 with RCON-1381) is the item that must not slip.",
+      "One Closed (Sweden CESOP feedback). A large New pile is still unassigned. The messaging-bus pair sits at Ready for integration. TEST/PROD routing (RCON-1366 / RCON-1381) is Closed in Jira — confirm released.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
-    name: "RCON.S sprint 13",
-    dates: "closed 10 Aug 2026",
+    name: "RCON.S sprint 15",
+    dates: "closed 7 Sep 2026",
     narrative:
-      "Twenty-three items. Eight reached Closed — all but one of them user-visible bug fixes in the dashboard and feedback views. Fourteen stopped at Ready for integration, which this project treats as resolved, and only one item, RCON-1306, was carried into sprint 14.",
+      "Sprint 15 sat between 14 and 16 and closed with RCON.S 2.2.0. Release activities, Hungary flow, feedback-in-the-same-view, and the Alexandru enablers booking reached Closed, as did the former red risks — TEST/PROD routing, the regression suite, and the two-sprint validation-error stall. A long spillover list moved into sprint 16.",
     cards: [
       {
-        title: "Closed in sprint 13",
-        body: "Eight fixes: database error handling, manual feedback fetch errors, combined sorting and filtering, timezone and timestamp consistency, duplicated toasts, and backend field validation.",
+        title: "Closed in sprint 15",
+        body: "Release activities (RCON-1425), display feedback with submissions (RCON-1424), Hungary flow (RCON-1460), and Alexandru enablers support (RCON-1420). TEST/PROD routing (RCON-1366 / RCON-1381), the regression suite (RCON-1221), and validation-error display (RCON-1306) also Closed.",
       },
       {
-        title: "Resolved but not released",
-        body: "Fourteen items at Ready for integration, all unassigned — including the legacy credential-table removal, the critical Sonar fixes, the CVE work, and the bucket-to-bucket flow copier.",
+        title: "RCON.S 2.2.0 shipped",
+        body: "Submission now has its own last release — RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is still Communicator's RCON.C 1.2.0 (2 Sep, unreleased).",
       },
       {
-        title: "Carried into sprint 14",
-        body: "Only RCON-1306, the multiple-validation-error display, and it is still in Product Owner review. Clean carry-over, but it hides how much work is parked one step short of a release.",
+        title: "Carried into sprint 16",
+        body: "NiFi registry updater (RCON-1173, RCON-1134), test-automation pipeline (RCON-1248), report-frequency spike (RCON-1236), resubmit bug (RCON-1355), pipeline tag override (RCON-1334), one-ui upgrade (RCON-1390), NiFi error reason (RCON-1382), and the messaging-bus pair (RCON-1410, RCON-1411).",
       },
     ],
     closed: previousSprintClosed,
@@ -197,7 +199,7 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     intro:
       "Rconnect Submission orchestrates the delivery of regulatory reports to supervisory authorities. Synthesized from Jira work packages RCON-269, RCON-270, RCON-271 and RCON-872, board 3734, and the Confluence RCON space: the product page, seven architecture decision records, the Rconnect and NiFi integration guides, the production deployment guide, and the security triage.",
     callout:
-      "An integrator changes no business logic to adopt Rconnect — it drops files in an agreed bucket location and Rconnect owns everything after that. Countries and integrators are live and the product is generating support tickets, so the 2026 question is not capability but cost of ownership: collapse the services, consolidate the database, generalize the code, and settle how NiFi flows are distributed. Amber because two open architecture decisions contradict each other, the regression suite is being built alongside the refactor it should protect, and a large tranche of resolved work has not been released.",
+      "An integrator changes no business logic to adopt Rconnect — it drops files in an agreed bucket location and Rconnect owns everything after that. Countries and integrators are live and the product is generating support tickets, so the 2026 question is not capability but cost of ownership: collapse the services, consolidate the database, generalize the code, and settle how NiFi flows are distributed. Amber because two open architecture decisions contradict each other, the NiFi registry updater is still in flight against an unsettled ADR, and a large tranche of resolved work has not been released.",
     vision: [
       "Take report delivery out of every product that files to a regulator. External applications drop files in predefined locations, Apache NiFi executes the delivery, and Rconnect tracks state so a supervisor can see where a report actually is.",
       "Adding a country should be configuration, not a release: a regime declares its credential schema and its feedback schema, and the country flow maps the authority's answer onto them. That is what the Phase II generalization and the schema-driven feedback work are for.",
@@ -250,11 +252,11 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     const extra: Record<string, Risk> = {
       "RCON-1210": {
         level: "amber",
-        reason: "Resolved is not released: 806 items read as done against 70 open.",
+        reason: "Resolved is not released: 834 items read as done against 79 open.",
         mitigation:
-          "Treat Ready for integration as work in progress in every report, and release the sprint-13 tranche before adding to it.",
+          "Treat Ready for integration as work in progress in every report, and release the leftover tranche plus the sprint-16 messaging-bus pair before adding to it.",
         assessment:
-          "Fourteen of sprint 13's twenty-three items sit there unassigned, including the credential-table removal and the CVE and Sonar fixes.",
+          "The credential-table removal and the CVE and Sonar fixes are still parked there, and RCON-1410 / RCON-1411 joined them from sprint 16.",
         references: [
           { label: "RCON-1210", href: jira("RCON-1210") },
           { label: "RCON-898", href: jira("RCON-898") },
@@ -286,60 +288,60 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
         level: "amber",
         reason: "One Jira project holds two products, and the version scheme mixes them.",
         mitigation:
-          "Read RCON.S versions for this product; treat any project-level release date as Communicator's unless the name says otherwise.",
+          "Read RCON.S versions for this product; treat any project-level currentRelease as Communicator's unless the name says otherwise.",
         assessment:
-          "Jira's next unreleased version is RCON.C 1.2.0 on 26 Aug 2026, which belongs to Communicator, while Submission tracks 2.0.0, 2.1.0 and 2.2.0 in epic titles only.",
+          "Submission last released RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is still RCON.C 1.2.0 on 2 Sep 2026 — Communicator's, and still unreleased.",
         references: [{ label: "RCON-276", href: jira("RCON-276") }],
       },
     };
     return { ...b, risk: ticketRisk ?? extra[b.ticket] };
   }),
   next90days:
-    "Land TEST/PROD routing as one deliverable, finish the regression suite before declaring the monolith merge done, and pick a single flow-distribution model so RCON-1173 stops being the decision by default. Then release the Ready for integration tranche — the legacy credential tables, the Sonar and CVE fixes — before starting the 2.2.0 train. Manual-upload entity enforcement should not wait for Phase 4: it is a cross-entity submission path that is open today.",
+    "TEST/PROD routing is Closed — confirm it shipped in RCON.S 2.2.0. Settle the flow-distribution decision so RCON-1173 / RCON-1134 stop being the answer by default, release the Ready for integration tranche (messaging-bus 1410/1411, legacy credential tables, Sonar and CVE fixes), and land Spring Boot 4 (RCON-1490). Manual-upload entity enforcement should not wait for Phase 4: it is a cross-entity submission path that is open today.",
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RCON/summary",
-    done: 806,
-    open: 70,
-    highPriorityOpen: 10,
-    unassignedOpen: 31,
-    epics: 45,
-    currentRelease: { name: "RCON.C 1.2.0", date: "26 Aug 2026", released: false },
-    lastRelease: { name: "RCON.C 1.1.0", date: "27 Jul 2026" },
+    done: 834,
+    open: 79,
+    highPriorityOpen: 12,
+    unassignedOpen: 40,
+    epics: 51,
+    currentRelease: { name: "RCON.C 1.2.0", date: "2 Sept 2026", released: false },
+    lastRelease: { name: "RCON.S 2.2.0", date: "7 Sept 2026" },
     narrative:
-      "Counts are Jira project RCON with the RCON-276 Communicator subtree and Xray test artefacts removed. Read the resolved figure carefully: this project sets a resolution date at Ready for integration, so 806 covers a great deal of work that has not yet been released. The next version Jira knows about is a Communicator release — Submission's own trains are named RCON.S 2.0.0, 2.1.0 and 2.2.0 in epic titles.",
+      "Counts are Jira project RCON with the RCON-276 Communicator subtree and Xray test artefacts removed. Read the resolved figure carefully: this project sets a resolution date at Ready for integration, so 834 covers a great deal of work that has not yet been released. Submission last released RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is still Communicator's RCON.C 1.2.0 (2 Sep, unreleased).",
   },
   pmFocus: {
     thisSprint: [
-      "Ship RCON-1366 and RCON-1381 together — a TEST file reaching a live authority is a regulatory incident, not a defect.",
-      "Get RCON-1306 out of Product Owner review; it has now spent two sprints there.",
-      "Assign or drop the two unassigned New items, RCON-1355 and RCON-1390, rather than carrying them.",
-      "Decide whether the NiFi error-reason half (RCON-1382) is in this sprint at all; the backend half cannot show a reason the flow never sends.",
-      "Say in writing which flow-distribution model RCON-1173 is building, ADR-0004 or ADR-0005.",
+      "Land RCON-1173 and RCON-1134 — the NiFi registry updater instance and the integration that makes it real.",
+      "Close the messaging-bus pair at Ready for integration, RCON-1410 and RCON-1411, into a release.",
+      "Assign the unassigned New pile: RCON-1355, RCON-1481, RCON-1236, RCON-1453, RCON-1486, RCON-1523, RCON-1526, RCON-1527.",
+      "Keep RCON-1490 moving — Spring Boot 4.1.1 on rconnect-backend.",
+      "Stand up the FiTax test environment (RCON-1523) so the next integration release has somewhere to land.",
     ],
     sequence: [
       {
         order: 1,
-        item: "TEST / PROD submission routing",
-        ticket: "RCON-1366",
-        why: "Critical and in flight. Wrong-environment submission is the highest-consequence failure this product has.",
+        item: "NiFi registry updater",
+        ticket: "RCON-1173",
+        why: "In implementation against an unsettled ADR. RCON-1134 has to land with it or the instance is unused.",
       },
       {
         order: 2,
-        item: "Regression suite and test pipeline",
-        ticket: "RCON-1221",
-        why: "ADR-0001 names regression risk as the main cost of the merge. The suite has to exist before the merge is called done.",
+        item: "Messaging-bus pair",
+        ticket: "RCON-1410",
+        why: "Both halves are Ready for integration. Close them into a release rather than carrying RFI another sprint.",
       },
       {
         order: 3,
-        item: "Flow distribution decision",
-        ticket: "RCON-1173",
-        why: "Two open ADRs contradict each other. Implementation is already choosing; make the choice explicit and cheap to reverse.",
+        item: "Assign the unassigned New pile",
+        ticket: "RCON-1355",
+        why: "Resubmit, report frequency, regime filter, NiFi error display, FiTax test env, and schema-driven feedback are committed and ownerless.",
       },
       {
         order: 4,
-        item: "Release the Ready for integration tranche",
-        ticket: "RCON-1069",
-        why: "Legacy credential tables, Sonar fixes and CVE work are resolved and unreleased. Two credential models in production is avoidable.",
+        item: "Spring Boot 4 on rconnect-backend",
+        ticket: "RCON-1490",
+        why: "Already in implementation. A platform upgrade in the same sprint as a large New pile needs an owner who is not also firefighting unassigned work.",
       },
       {
         order: 5,

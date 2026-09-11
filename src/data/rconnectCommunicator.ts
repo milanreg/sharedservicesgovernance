@@ -19,184 +19,261 @@ export const CONFLUENCE = {
   project: "https://confluence.regnology.net/display/RCON/Rconnect+Project",
 };
 
-export const SNAPSHOT = "21 Aug 2026";
+export const SNAPSHOT = "11 Sep 2026";
 
 export const sprint = {
-  name: "Yolo - Communicator Sprint 21",
-  id: 2986,
-  start: "12 Aug 2026",
-  end: "26 Aug 2026",
+  name: "Yolo - Communicator Sprint 23",
+  id: 2942,
+  start: "9 Sept 2026",
+  end: "23 Sept 2026",
   board: 3734,
-  goal: "Release RCON.C 1.2.0 on the sprint end date",
-  /** Communicator issues only; the board reports 23 including four DataCalc tickets. */
-  committed: 19,
-  done: 1,
-  inProgress: 4,
+  goal: "Land IAM chart simplification and assignee/history work — RCON.C 1.2.0 is still not Closed",
+  /** Board committed 29, including two ONADD DataCalc tickets. */
+  committed: 29,
+  done: 0,
+  inProgress: 7,
   blocked: 0,
 };
 
 export const sprintTickets: Ticket[] = [
   {
-    key: "RCON-1380",
-    summary: "Release RCON.C 1.2.0",
-    status: "In Implementation",
-    owner: "Ewa Grabowska",
-    why: "The release itself is a sprint item, and its date is the sprint end date — there is no slack between finishing and shipping",
-  },
-  {
-    key: "RCON-1357",
-    summary: "Auto-grant IAM permissions from module registration (getCommunicationDimensions)",
-    status: "In Implementation",
-    owner: "Ewa Grabowska",
-    why: "Removes manual IAM setup per module. A grant that fails must not leave registration in an ambiguous state",
-  },
-  {
-    key: "RCON-1352",
-    summary: "Use Valkey for shared cache of in-memory data (e.g. entities)",
+    key: "ONADD-10837",
+    summary: "DataCalc: upgrade libraries per BSI list (ETL 10.3.0)",
     status: "In Implementation",
     owner: "Mateusz Uzarek",
-    why: "Cacheable data still lives in process memory, which does not work across pods",
+    spillover: true,
+    why: "Another product's BSI library upgrade still sitting on the Communicator board",
   },
   {
-    key: "RCON-1213",
-    summary: "Persist Case and Thread Change History in Database",
+    key: "ONADD-10795",
+    summary: "[DataCalc] release 10.3.0",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "DataCalc 10.3.0 is unassigned and still committed here",
+  },
+  {
+    key: "RCON-1477",
+    summary: "Simplify Communicator IAM chart config (derive URLs, keep overrides)",
     status: "In Implementation",
-    owner: "Ewa Grabowska",
-    why: "Being built against a schema its own author marks provisional",
-  },
-  {
-    key: "RCON-1304",
-    summary: "Chart/wrapper: different modes of operation",
-    status: "In PO Review",
     owner: "Mateusz Uzarek",
-    why: "Wrapper chart has to enable or disable backend, internal UI and external UI independently",
+    why: "Derive IAM chart URLs so each environment stops carrying a full URL set",
   },
   {
-    key: "RCON-1312",
-    summary:
-      "[Bug] App instance can crash on startup when several instances launch together on a fresh environment",
-    status: "In PO Review",
-    owner: "Mateusz Uzarek",
-    why: "A restart clears it, but the ticket notes it could look like a real incident",
-  },
-  {
-    key: "RCON-1297",
-    summary:
-      "[Bug] Reporting entity dropdown can show wrong module's entities when creating a case",
-    status: "In PO Review",
-    owner: "Ewa Grabowska",
-    why: "Cross-module entity leakage at the point a case is created",
-  },
-  {
-    key: "RCON-1296",
-    summary: "[Bug] Thread list can show outdated unread counts when messages arrive close together",
-    status: "In PO Review",
-    owner: "Ewa Grabowska",
-  },
-  {
-    key: "RCON-1295",
-    summary: "[Bug] Navigating away from /cases quickly can bounce you back into a case",
-    status: "In PO Review",
-    owner: "Ewa Grabowska",
-  },
-  {
-    key: "RCON-1287",
-    summary: "Allow removing due date on cases and threads",
-    status: "In PO Review",
-    owner: "Ewa Grabowska",
-    spillover: true,
-    why: "Carried from sprint 20 with its UI refinement, RCON-1301",
-  },
-  {
-    key: "RCON-1400",
-    summary: "Communicator: Fix e2e tests after latest platform changes",
-    status: "In PO Review",
-    owner: "Ewa Grabowska",
-    spillover: true,
-    why: "The end-to-end suite is broken by platform changes and the fix has crossed two sprints",
-  },
-  {
-    key: "RCON-1299",
-    summary: "Clean up untagged images in Communicator dev Artifact Registry",
-    status: "In PO Review",
-    owner: "Ewa Grabowska",
-    spillover: true,
-  },
-  {
-    key: "RCON-1301",
-    summary: "Refine UI for removing due date",
-    status: "Done",
-    owner: "Igor Lesiv",
-    spillover: true,
-    why: "The only item Done in this sprint",
-  },
-  {
-    key: "RCON-1359",
-    summary: "Fix registration purpose for group membership endpoint (getEntityGroupMemberships)",
+    key: "RCON-1534",
+    summary: "Upgrade netty-handler to clear CVE-2026-75595",
     status: "Implemented",
-    owner: "Agent RND Rconnect C Dev",
+    owner: "Mateusz Uzarek",
+    why: "The CVE fix is Implemented — close it",
+  },
+  {
+    key: "RCON-1479",
+    summary: "Communicator: API to read case and thread history (dedicated history role)",
+    status: "New",
+    owner: "Unassigned",
     spillover: true,
-    why: "Delivered by an automated agent account under the RForge label, not by a named engineer",
+    why: "History API with a dedicated role, still New and unassigned",
   },
   {
-    key: "RCON-1373",
-    summary: "Communicator: Prepare example performance tests",
+    key: "RCON-1354",
+    summary: "Deploy buckets on RCloud",
     status: "New",
     owner: "Unassigned",
-    why: "No performance baseline exists ahead of the 1.2.0 release",
-  },
-  {
-    key: "RCON-1399",
-    summary: "Communicator: Design mockup for attachments UI",
-    status: "New",
-    owner: "Unassigned",
-  },
-  {
-    key: "RCON-1398",
-    summary: "Communicator: Design mockup for thread assignee UI",
-    status: "New",
-    owner: "Unassigned",
-  },
-  {
-    key: "RCON-1397",
-    summary: "Communicator: Design mockup for case and thread history UI",
-    status: "New",
-    owner: "Unassigned",
+    why: "RCloud buckets are not deployed yet",
   },
   {
     key: "RCON-972",
     summary: "Support for filtering/sorting/pagination on backend side for the Dashboard table",
+    status: "In Implementation",
+    owner: "Mateusz Uzarek",
+    spillover: true,
+    why: "Dashboard still filters and sorts in the browser; backend work is now in implementation",
+  },
+  {
+    key: "RCON-1391",
+    summary: "Communicator: Show error curtain when Keycloak token fetch fails",
+    status: "In Implementation",
+    owner: "Ewa Grabowska",
+    spillover: true,
+    why: "A failed token fetch currently fails silently instead of showing an error curtain",
+  },
+  {
+    key: "RCON-1436",
+    summary: "Communicator: Show case and thread history on case details",
+    status: "In Implementation",
+    owner: "Unassigned",
+    spillover: true,
+    why: "History persistence reached Ready for integration; the case-details UI is in implementation with no owner",
+  },
+  {
+    key: "RCON-1398",
+    summary: "Communicator: Design mockup for thread assignee UI",
+    status: "In Implementation",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Assignee UI mockup is in implementation with no assignee",
+  },
+  {
+    key: "RCON-1358",
+    summary: "Allow collaborators to create cases",
     status: "New",
     owner: "Unassigned",
-    why: "The dashboard table still filters and sorts client-side",
+    why: "Collaborators still cannot create cases",
+  },
+  {
+    key: "RCON-1461",
+    summary: "Auto-create a case from an external module link when none exists",
+    status: "New",
+    owner: "Unassigned",
+    why: "An external module link should open a case when none exists",
+  },
+  {
+    key: "RCON-1435",
+    summary: "Communicator: Add support for IAM entity groups",
+    status: "In Implementation",
+    owner: "Ewa Grabowska",
+    spillover: true,
+    why: "Native IAM entity groups, in implementation",
+  },
+  {
+    key: "RCON-1449",
+    summary: "TEST: Communicator: Filter by reference date range",
+    status: "Defined",
+    owner: "Unassigned",
+    why: "Test for the reference-date range filter, still Defined",
+  },
+  {
+    key: "RCON-1459",
+    summary: "Improve dashboard pagination UI",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Pagination UI to match the backend paging work",
+  },
+  {
+    key: "RCON-1503",
+    summary: "Upgrade One UI (@regnology/design-system) to 6.1.0",
+    status: "New",
+    owner: "Unassigned",
+    why: "One UI 6.1.0, New and unassigned",
+  },
+  {
+    key: "RCON-1478",
+    summary: "Verify flaky overnight e2e/API failures — env start vs cluster resources",
+    status: "New",
+    owner: "Unassigned",
+    why: "Overnight e2e/API flakes — environment start versus cluster resources, unowned",
+  },
+  {
+    key: "RCON-1468",
+    summary: "RELEASE pipeline should build and tag the developer chart (dev-tools)",
+    status: "New",
+    owner: "Unassigned",
+    why: "The RELEASE pipeline does not build the developer chart",
+  },
+  {
+    key: "RCON-1361",
+    summary: "Show per-side assignees on a thread",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Per-side thread assignees, New and unassigned",
+  },
+  {
+    key: "RCON-1362",
+    summary: "Assign myself or clear own-side assignee",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Self-assign or clear own-side assignee",
+  },
+  {
+    key: "RCON-1363",
+    summary: "Auto-assign thread creator",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Auto-assign the thread creator",
+  },
+  {
+    key: "RCON-1364",
+    summary: "Auto-follow when I become assignee (no self-notification)",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Auto-follow on becoming assignee, without notifying yourself",
+  },
+  {
+    key: "RCON-1368",
+    summary: "Filter dashboard by assigned to me",
+    status: "New",
+    owner: "Unassigned",
+    spillover: true,
+    why: "Dashboard filter for assigned to me",
+  },
+  {
+    key: "RCON-1462",
+    summary: "TEST: Communicator: Collaborators can create cases",
+    status: "Defined",
+    owner: "Unassigned",
+    why: "Test for collaborator case creation, still Defined",
+  },
+  {
+    key: "RCON-1463",
+    summary: "TEST: Communicator: Auto-create case from external module link",
+    status: "Defined",
+    owner: "Unassigned",
+    why: "Test for auto-create from a module link, still Defined",
+  },
+  {
+    key: "RCON-1448",
+    summary: "Allow choosing a date range when filtering by reference date",
+    status: "New",
+    owner: "Unassigned",
+    why: "Reference-date range filter, New and unassigned",
+  },
+  {
+    key: "RCON-1513",
+    summary: "Resizable list and sidebar column widths",
+    status: "New",
+    owner: "Unassigned",
+    why: "Resizable list and sidebar columns",
+  },
+  {
+    key: "RCON-1457",
+    summary: "Keep dashboard filters in the URL",
+    status: "New",
+    owner: "Unassigned",
+    why: "Persist dashboard filters in the URL",
+  },
+  {
+    key: "RCON-1480",
+    summary: "TEST: Communicator: History API requires dedicated history role",
+    status: "Defined",
+    owner: "Unassigned",
+    why: "Test that the history API requires the dedicated role, still Defined",
   },
 ];
 
-/** Sprint 20 — what actually reached a terminal state. */
+/** Sprint 22 — the two items that actually reached a terminal state. */
 export const previousSprintClosed: Ticket[] = [
   {
-    key: "RCON-1291",
-    summary: "Complete Rforge system onboarding for Communicator team",
-    status: "Closed",
+    key: "ONADD-10810",
+    summary: "Bump Java to 21 in Executor and onprem cluster lib",
+    status: "Done",
     owner: "Ewa Grabowska",
   },
   {
-    key: "RCON-1301",
-    summary: "Refine UI for removing due date",
-    status: "Done",
-    owner: "Igor Lesiv",
-  },
-  {
-    key: "RCON-1359",
-    summary: "Fix registration purpose for group membership endpoint (getEntityGroupMemberships)",
-    status: "Implemented",
+    key: "RCON-1360",
+    summary: "[Bug] Failed case item loading leaves Create Case permanently disabled",
+    status: "Closed",
     owner: "Agent RND Rconnect C Dev",
   },
 ];
 
 /**
- * Sprint 20's Ready for integration tail. Twenty of twenty-eight items, every
- * one unassigned, including the two that matter most for security.
+ * Ready for integration leftovers. Sprint 21/22 parked the 1.2.0 release and
+ * the security-relevant items here, every one still unassigned.
  */
 export const readyForIntegration: Ticket[] = [
   {
@@ -219,6 +296,13 @@ export const readyForIntegration: Ticket[] = [
     status: "Ready for integration",
     owner: "Unassigned",
     why: "Unnoticed because every configuration so far happened to use the same names for both",
+  },
+  {
+    key: "RCON-1380",
+    summary: "Release RCON.C 1.2.0",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Release ticket is not Closed; the date slipped from 26 Aug to 2 Sep and the version is still unreleased",
   },
   {
     key: "RCON-1351",
@@ -577,7 +661,7 @@ export const implementation: {
   config: ConfigRow[];
 } = {
   intro:
-    "Phase 1 and Phase 2 are functionally complete and sitting at Ready for integration; what remains in flight is almost entirely platform and identity integration. Statuses are the Jira states in the 20 Aug 2026 snapshot. As with Submission, Ready for integration carries a resolution date, so the resolved figure is not a shipped figure.",
+    "Phase 1 and Phase 2 are functionally complete and sitting at Ready for integration; what remains in flight is almost entirely platform and identity integration. Statuses are the Jira states in the 11 Sep 2026 snapshot. As with Submission, Ready for integration carries a resolution date, so the resolved figure is not a shipped figure.",
   notes: [
     {
       area: "Cases, threads and the dashboard",
@@ -652,7 +736,7 @@ export const implementation: {
     {
       area: "Test and release engineering",
       detail:
-        "The end-to-end suite is broken by platform changes, performance tests do not exist yet, and frontend coverage is not yet aligned with the quality gate. The 1.2.0 release is itself a sprint ticket due on the sprint end date.",
+        "The end-to-end suite fix is at Ready for integration, performance tests do not exist yet, and frontend coverage is not yet aligned with the quality gate. The 1.2.0 release ticket is Ready for integration, Unassigned — dated 2 Sep 2026 and still unreleased.",
       tickets: ["RCON-1400", "RCON-1373", "RCON-1374", "RCON-1380"],
       state: "In Implementation",
     },
@@ -755,7 +839,7 @@ export const deployment: {
       environment: "Production — regulator side",
       topology: "backend + internal UI",
       state: "Release 1.2.0 in flight",
-      note: "RCON.C 1.2.0 is due 26 Aug 2026, the same day the sprint ends.",
+      note: "RCON.C 1.2.0 is dated 2 Sep 2026 and still unreleased; the release ticket is Ready for integration and Unassigned.",
     },
     {
       environment: "Production — industry side",
@@ -880,7 +964,7 @@ export const backlogGantt: GanttItem[] = [
   { id: "reg", label: "Module registration + auto-grant", ticket: "RCON-1357", start: "2026-07-01", end: "2026-09-30", status: "active", lane: "Identity" },
   { id: "chart", label: "Chart modes + wrapper", ticket: "RCON-1304", start: "2026-06-01", end: "2026-10-31", status: "active", lane: "Platform" },
   { id: "valkey", label: "Valkey shared cache", ticket: "RCON-1352", start: "2026-07-15", end: "2026-10-15", status: "active", lane: "Platform" },
-  { id: "rel12", label: "Release RCON.C 1.2.0", ticket: "RCON-1380", start: "2026-08-12", end: "2026-08-26", status: "active", lane: "Release" },
+  { id: "rel12", label: "Release RCON.C 1.2.0", ticket: "RCON-1380", start: "2026-08-12", end: "2026-09-02", status: "active", lane: "Release" },
   { id: "secrets", label: "Secrets out of git", ticket: "RCON-1290", start: "2026-07-01", end: "2026-09-30", status: "blocked", lane: "Platform" },
   { id: "redirect", label: "External UI redirect defect", ticket: "RCON-1300", start: "2026-07-01", end: "2026-09-30", status: "blocked", lane: "Platform" },
   { id: "ai", label: "Agentic AI features", ticket: "RCON-1104", start: "2026-05-13", end: "2027-03-31", status: "active", lane: "AI" },
@@ -900,7 +984,7 @@ export const stakeholderGantt: GanttItem[] = [
   { id: "plat", label: "RSH platform upgrade past 26.2.0", ticket: "RCON-1344", start: "2026-08-01", end: "2026-11-30", status: "blocked", lane: "Shared platform" },
   { id: "rcloud", label: "Rcloud sizing templates and pricing", ticket: "RCON-1353", start: "2026-07-01", end: "2026-11-30", status: "active", lane: "Rcloud / Marley" },
   { id: "email", label: "Outbound email on staging", ticket: "RCON-1288", start: "2026-07-01", end: "2026-09-30", status: "blocked", lane: "Rcloud / Marley" },
-  { id: "rel", label: "RCON.C 1.2.0 to customers", ticket: "RCON-1380", start: "2026-08-12", end: "2026-08-26", status: "active", lane: "Release" },
+  { id: "rel", label: "RCON.C 1.2.0 to customers", ticket: "RCON-1380", start: "2026-08-12", end: "2026-09-02", status: "active", lane: "Release" },
   { id: "client", label: "Client testing feedback loop", ticket: "RCON-1000", start: "2026-09-01", end: "2027-02-28", status: "planned", lane: "Consuming modules" },
   { id: "industry2", label: "Industry-side product line", ticket: "RCON-1257", start: "2027-01-01", end: "2027-09-30", status: "later", lane: "Consuming modules" },
 ];
@@ -1060,7 +1144,7 @@ export const rice = [
     impact: 2,
     confidence: 0.8,
     effort: 2,
-    why: "A release is due on the sprint end date with the suite red and no performance baseline.",
+    why: "The e2e fix is at Ready for integration, unassigned, and 1.2.0 is still unreleased with no performance baseline.",
     bottleneck: true,
   },
   {
@@ -1128,10 +1212,10 @@ export const bottlenecks = [
       "Across the platform and identity work, most items carry priority Not defined and none is above Low — including the startup crash and the redirect failure. Nearly every ticket is labelled NoTestRequired, including the IAM and authentication changes, and the three IAM test issues under RCON-977 have sat at Defined without being executed.",
   },
   {
-    title: "A release is due the day the sprint ends",
+    title: "RCON.C 1.2.0 slipped and is still unreleased",
     ticket: "RCON-1380",
     detail:
-      "RCON.C 1.2.0 is dated 26 Aug 2026, the sprint end date, and the release is itself a sprint ticket. One item is Done, the end-to-end suite is broken by platform changes, and performance tests do not exist yet. There is no slack between finishing and shipping.",
+      "RCON.C 1.2.0 slipped from 26 Aug to 2 Sep 2026 and is still unreleased. The release ticket is Ready for integration and Unassigned. The end-to-end suite fix sits in the same pile, and performance tests do not exist yet.",
   },
   {
     title: "Twenty of twenty-eight sprint-20 items are resolved and unowned",
@@ -1143,7 +1227,7 @@ export const bottlenecks = [
     title: "The sprint carries another product's work",
     ticket: "RCON-276",
     detail:
-      "Four of the twenty-three items on the active Communicator sprint are ONADD DataCalc tickets — a Java upgrade, a CVE, a documentation theme, and a DataCalc release. The same people are committed to two products in one sprint, and the board's committed figure does not mean what it appears to.",
+      "Two of the twenty-nine items on the active Communicator sprint are ONADD DataCalc tickets — a BSI library upgrade and the DataCalc 10.3.0 release. The same people are committed to two products in one sprint, and the board's committed figure does not mean what it appears to.",
   },
   {
     title: "The domain model is not written down",
