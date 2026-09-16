@@ -181,6 +181,15 @@ export type ActivityWindow = {
  * What a Jira and Confluence sync can actually refresh. Everything else in
  * ProjectGovernance is hand-authored judgement and is never overwritten.
  */
+export type ClosedSprint = {
+  id: number;
+  name: string;
+  start: string;
+  end: string;
+  closed: Ticket[];
+  leftover: Ticket[];
+};
+
 export type LiveSnapshot = {
   slug: string;
   syncedAt: string;
@@ -203,6 +212,8 @@ export type LiveSnapshot = {
     blocked: number;
   };
   tickets: Ticket[];
+  /** Most recently closed sprints on the project's board, newest first. */
+  closedSprints?: ClosedSprint[];
   activity?: ActivityWindow;
   confluence: ConfluenceDoc[];
   warnings: string[];
@@ -249,6 +260,7 @@ export type ProjectGovernance = {
     closed: Ticket[];
     leftover: Ticket[];
   };
+  closedSprints?: ClosedSprint[];
   overview: {
     intro: string;
     callout: string;
@@ -349,6 +361,7 @@ export function emptyProject(
       closed: [],
       leftover: [],
     },
+    closedSprints: [],
     overview: {
       intro: "Product overview, Jira ticket map, and Confluence context will render in this tab.",
       callout: "",

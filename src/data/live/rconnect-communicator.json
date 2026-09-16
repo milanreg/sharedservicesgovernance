@@ -1,12 +1,12 @@
 {
   "slug": "rconnect-communicator",
-  "syncedAt": "2026-09-11T09:26:31.908Z",
+  "syncedAt": "2026-09-16T16:46:09.099Z",
   "projectSummary": {
-    "done": 279,
-    "open": 64,
+    "done": 282,
+    "open": 65,
     "highPriorityOpen": 1,
-    "unassignedOpen": 48,
-    "epics": 32,
+    "unassignedOpen": 45,
+    "epics": 33,
     "currentRelease": {
       "name": "RCON.C 1.2.0",
       "date": "2 Sept 2026",
@@ -23,23 +23,23 @@
     "end": "23 Sept 2026",
     "committed": 29,
     "done": 0,
-    "inProgress": 7,
+    "inProgress": 5,
     "blocked": 0
   },
   "tickets": [
     {
       "key": "ONADD-10837",
       "summary": "DataCalc: upgrade libraries per BSI list (ETL 10.3.0)",
-      "status": "In Implementation",
-      "owner": "Mateusz Uzarek",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": true
     },
     {
       "key": "ONADD-10795",
       "summary": "[DataCalc] release 10.3.0",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "Ready",
+      "owner": "Mateusz Uzarek",
       "blocked": false,
       "spillover": true
     },
@@ -54,16 +54,16 @@
     {
       "key": "RCON-1534",
       "summary": "Upgrade netty-handler to clear CVE-2026-75595",
-      "status": "Implemented",
-      "owner": "Mateusz Uzarek",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
       "key": "RCON-1479",
       "summary": "Communicator: API to read case and thread history (dedicated history role)",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "Implemented",
+      "owner": "Mateusz Uzarek",
       "blocked": false,
       "spillover": true
     },
@@ -78,10 +78,18 @@
     {
       "key": "RCON-972",
       "summary": "Support for filtering/sorting/pagination on backend side for the Dashboard table",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1358",
+      "summary": "Allow collaborators to create cases",
       "status": "In Implementation",
       "owner": "Mateusz Uzarek",
       "blocked": false,
-      "spillover": true
+      "spillover": false
     },
     {
       "key": "RCON-1391",
@@ -94,8 +102,8 @@
     {
       "key": "RCON-1436",
       "summary": "Communicator: Show case and thread history on case details",
-      "status": "In Implementation",
-      "owner": "Unassigned",
+      "status": "Ready",
+      "owner": "Igor Lesiv",
       "blocked": false,
       "spillover": true
     },
@@ -106,22 +114,6 @@
       "owner": "Unassigned",
       "blocked": false,
       "spillover": true
-    },
-    {
-      "key": "RCON-1358",
-      "summary": "Allow collaborators to create cases",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1461",
-      "summary": "Auto-create a case from an external module link when none exists",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1435",
@@ -140,6 +132,30 @@
       "spillover": false
     },
     {
+      "key": "RCON-1503",
+      "summary": "Upgrade One UI (@regnology/design-system) to 6.1.0",
+      "status": "New",
+      "owner": "Igor Lesiv",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1478",
+      "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
+      "status": "Ready",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1468",
+      "summary": "RELEASE pipeline should build and tag the developer chart (dev-tools)",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
       "key": "RCON-1459",
       "summary": "Improve dashboard pagination UI",
       "status": "New",
@@ -148,24 +164,8 @@
       "spillover": true
     },
     {
-      "key": "RCON-1503",
-      "summary": "Upgrade One UI (@regnology/design-system) to 6.1.0",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1478",
-      "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1468",
-      "summary": "RELEASE pipeline should build and tag the developer chart (dev-tools)",
+      "key": "RCON-1461",
+      "summary": "Auto-create a case from an external module link when none exists",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -174,8 +174,8 @@
     {
       "key": "RCON-1361",
       "summary": "Show per-side assignees on a thread",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "Ready",
+      "owner": "Mateusz Uzarek",
       "blocked": false,
       "spillover": true
     },
@@ -260,11 +260,36 @@
       "spillover": false
     }
   ],
+  "closedSprints": [],
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 32,
+      "total": 30,
       "items": [
+        {
+          "key": "RCON-972",
+          "summary": "Support for filtering/sorting/pagination on backend side for the Dashboard table",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-09-15",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1468",
+          "summary": "RELEASE pipeline should build and tag the developer chart (dev-tools)",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-09-15",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1534",
+          "summary": "Upgrade netty-handler to clear CVE-2026-75595",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Low"
+        },
         {
           "key": "RCON-1491",
           "summary": "Upgrade embedded Tomcat to 11.0.25+ (CVE-2026-65905, CVE-2026-68525, CVE-2026-65182)",
@@ -440,41 +465,49 @@
           "owner": "Unassigned",
           "date": "2026-08-24",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1400",
-          "summary": "Communicator: Fix e2e tests after latest platform changes",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-08-24",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1295",
-          "summary": "[Bug] navigating away from /cases quickly can bounce you back into a case",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-08-24",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1296",
-          "summary": "[Bug] thread list can show outdated unread counts when messages arrive close together",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-08-24",
-          "priority": "Low"
         }
       ]
     },
     "raised": {
-      "total": 34,
+      "total": 38,
       "items": [
+        {
+          "key": "RCON-1539",
+          "summary": "Check if communicator-ui can use a DHI hardened base image",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1538",
+          "summary": "Check if Helm securityContext can be applied for BE and UI",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1537",
+          "summary": "Check if communicator-be can use DHI Temurin base image",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1536",
+          "summary": "Check / adopt hardened container base images (DHI) for Communicator",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Low"
+        },
         {
           "key": "RCON-1534",
           "summary": "Upgrade netty-handler to clear CVE-2026-75595",
-          "status": "Implemented",
-          "owner": "Mateusz Uzarek",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "date": "2026-09-10",
           "priority": "Low"
         },
@@ -498,7 +531,7 @@
           "key": "RCON-1503",
           "summary": "Upgrade One UI (@regnology/design-system) to 6.1.0",
           "status": "New",
-          "owner": "Unassigned",
+          "owner": "Igor Lesiv",
           "date": "2026-09-07",
           "priority": "Low"
         },
@@ -561,16 +594,16 @@
         {
           "key": "RCON-1479",
           "summary": "Communicator: API to read case and thread history (dedicated history role)",
-          "status": "New",
-          "owner": "Unassigned",
+          "status": "Implemented",
+          "owner": "Mateusz Uzarek",
           "date": "2026-09-01",
           "priority": "Low"
         },
         {
           "key": "RCON-1478",
           "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
-          "status": "New",
-          "owner": "Unassigned",
+          "status": "Ready",
+          "owner": "Mateusz Uzarek",
           "date": "2026-09-01",
           "priority": "Not defined"
         },
@@ -617,7 +650,7 @@
         {
           "key": "RCON-1468",
           "summary": "RELEASE pipeline should build and tag the developer chart (dev-tools)",
-          "status": "New",
+          "status": "Ready for integration",
           "owner": "Unassigned",
           "date": "2026-08-31",
           "priority": "Low"
@@ -637,38 +670,6 @@
           "owner": "Unassigned",
           "date": "2026-08-26",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1458",
-          "summary": "Remember dashboard filters in this browser",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1457",
-          "summary": "Keep dashboard filters in the URL",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1456",
-          "summary": "Show a small image preview without downloading the full file",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1455",
-          "summary": "Attach files by drag and drop or paste",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Low"
         }
       ]
     },
@@ -677,7 +678,7 @@
       "items": []
     },
     "stalled": {
-      "total": 13,
+      "total": 16,
       "items": [
         {
           "key": "RCON-947",
@@ -782,13 +783,37 @@
           "owner": "Unassigned",
           "date": "2026-08-27",
           "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1469",
+          "summary": "Unknown user",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-08-31",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1161",
+          "summary": "Case and Thread History",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-01",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1482",
+          "summary": "CNPG Postgres image tags: decide rolling vs immutable and sync strategy for dev",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-02",
+          "priority": "Low"
         }
       ]
     },
     "releases": [
       {
-        "name": "RCON.C 1.2.1",
-        "date": "2026-09-11",
+        "name": "RCON.S 2.3.0",
+        "date": "2026-10-11",
         "released": false
       }
     ],
@@ -796,6 +821,11 @@
       {
         "name": "RCON.C 1.2.0",
         "date": "2026-09-02",
+        "released": false
+      },
+      {
+        "name": "RCON.C 1.2.1",
+        "date": "2026-09-11",
         "released": false
       }
     ]

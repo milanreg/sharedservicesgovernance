@@ -1,11 +1,11 @@
 {
   "slug": "iam",
-  "syncedAt": "2026-09-11T09:26:12.435Z",
+  "syncedAt": "2026-09-16T16:31:07.650Z",
   "projectSummary": {
-    "done": 391,
-    "open": 157,
-    "highPriorityOpen": 26,
-    "unassignedOpen": 127,
+    "done": 397,
+    "open": 154,
+    "highPriorityOpen": 20,
+    "unassignedOpen": 125,
     "epics": 45,
     "currentRelease": {
       "name": "R1.3.0.01_RSH_10.02.26",
@@ -21,16 +21,16 @@
     "name": "RSH PL 2618",
     "start": "10 Sept 2026",
     "end": "24 Sept 2026",
-    "committed": 11,
+    "committed": 10,
     "done": 0,
-    "inProgress": 4,
+    "inProgress": 7,
     "blocked": 1
   },
   "tickets": [
     {
       "key": "RSH-786",
       "summary": "[IAM] Add preferred language to user profile and tokens",
-      "status": "Ready",
+      "status": "In Implementation",
       "owner": "Celso Garcia",
       "blocked": false,
       "spillover": false
@@ -46,8 +46,8 @@
     {
       "key": "RSH-2451",
       "summary": "AppSec: Open ssl issue in IAM API",
-      "status": "Ready",
-      "owner": "Adam Ennis",
+      "status": "In PO Review",
+      "owner": "CE-Dominik Czerwiński",
       "blocked": false,
       "spillover": true
     },
@@ -84,17 +84,9 @@
       "spillover": true
     },
     {
-      "key": "RSH-6535",
-      "summary": "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
-      "status": "Ready",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RSH-6545",
       "summary": "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
-      "status": "In Implementation",
+      "status": "In Quality Review",
       "owner": "Shashank Prasad",
       "blocked": false,
       "spillover": false
@@ -110,17 +102,754 @@
     {
       "key": "RSH-6560",
       "summary": "[IAM] Spike: review SupTech modules' approaches to translations",
-      "status": "Ready",
+      "status": "In Implementation",
       "owner": "Celso Garcia",
       "blocked": false,
       "spillover": false
     }
   ],
+  "closedSprints": [
+    {
+      "id": 21351,
+      "name": "RSH PL 2617",
+      "start": "27 Aug 2026",
+      "end": "10 Sept 2026",
+      "closed": [
+        {
+          "key": "RSH-5925",
+          "summary": "Fix RSH Helm Chart SonarQube issues",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6511",
+          "summary": "[IAM] Upgrade Keycloak beyond 26.6.3 (vulnerability fix)",
+          "status": "PO Accepted",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
+      "leftover": [
+        {
+          "key": "RSH-5937",
+          "summary": "[Docs] Publish separate internal and external documentation site builds",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-5678",
+          "summary": "[IAM] Integration Tests Consolidation",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-5675",
+          "summary": "[IAM CI] Cancel superseded pipelines and ensure terminal state.",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4394",
+          "summary": "Fix SonarQube issues",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4215",
+          "summary": "[IAM] Add module permission manager as IAM role",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4214",
+          "summary": "[IAM] Allow unscoped module permissions",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3824",
+          "summary": "[IAM] [UI] Fix whitespaces in create group modal",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-5442",
+          "summary": "[IAM] DC Entity groups - \"All\" Group",
+          "status": "In PO Review",
+          "owner": "Shashank Prasad",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4784",
+          "summary": "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
+          "status": "Ready",
+          "owner": "Paweł Śnieżek",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4211",
+          "summary": "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
+          "status": "Ready",
+          "owner": "Paweł Śnieżek",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2169",
+          "summary": "[IAM] [Blocked] Entity group inheritance for entity access",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "blocked": true,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2453",
+          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
+          "status": "In Quality Review",
+          "owner": "Pawel Skrzypczynski",
+          "blocked": false,
+          "spillover": false
+        }
+      ]
+    },
+    {
+      "id": 9056,
+      "name": "RSH PL 2616",
+      "start": "13 Aug 2026",
+      "end": "27 Aug 2026",
+      "closed": [
+        {
+          "key": "RSH-5558",
+          "summary": "[IAM] Bug: IAM roles are filtered by available unscoped roles before selecting scope",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-5458",
+          "summary": "[IAM] Improved Xray Jira Reports",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-5451",
+          "summary": "Allow platform-api storage credentials from an existing Kubernetes Secret",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4908",
+          "summary": "[IAM] Bug: Entity ID displayed instead of name in \"Permissions Unassigned\" email",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4907",
+          "summary": "[IAM] Bug: Missing permission information in \"Permission assigned\" email",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4302",
+          "summary": "SonarQube: Rules update Fixes",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4261",
+          "summary": "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4260",
+          "summary": "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4251",
+          "summary": "IAM-Analyser integration issue",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4250",
+          "summary": "Testing 26.3.0.00_RSH-PL_27.08.26",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4249",
+          "summary": "Release Delivery 26.3.0.00_RSH-PL_27.08.26",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4246",
+          "summary": "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4244",
+          "summary": "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4238",
+          "summary": "Permission mirroring (source / mirrored lifecycle)",
+          "status": "Closed",
+          "owner": "Kartik Sharma",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4222",
+          "summary": "Frontend access controls & restrictions by effective permissions",
+          "status": "Closed",
+          "owner": "Kartik Sharma",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4220",
+          "summary": "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4096",
+          "summary": "AppSec: Evaluate and adopt a hardened Keycloak runtime image without curl",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4066",
+          "summary": "[IAM] Restart keycloak pod automatically in the pipeline when needed",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3763",
+          "summary": "[IAM] Provide join groups functionality with pagination and search",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3503",
+          "summary": "[IAM] Spike: Migrate existing IAM permissions to new version",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3496",
+          "summary": "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
+          "status": "Closed",
+          "owner": "Celso Garcia",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3481",
+          "summary": "[IAM] Remove direct group-id grant path entirely",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3239",
+          "summary": "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3042",
+          "summary": "[IAM] Spike: Migrate users and groups to entity scoping",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2452",
+          "summary": "AppSec: keycloak-config-cli dependency track issue",
+          "status": "Closed",
+          "owner": "Celso Garcia",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
+      "leftover": []
+    },
+    {
+      "id": 9111,
+      "name": "RSH PL 2615",
+      "start": "30 Jul 2026",
+      "end": "13 Aug 2026",
+      "closed": [
+        {
+          "key": "RSH-4243",
+          "summary": "platform-api: restrict copied application files to read-only in Dockerfile (Sonar hotspot docker:S6504)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4242",
+          "summary": "[IAM] Modules / Clients / Roles from ReachApi + final CleanUp",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-4096",
+          "summary": "AppSec: Evaluate and adopt a hardened Keycloak runtime image without curl",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3515",
+          "summary": "[IAM] Add RForge fixer scaffolding (.mem + AGENTS.md) to supervisory-hub/iam",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3503",
+          "summary": "[IAM] Spike: Migrate existing IAM permissions to new version",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3500",
+          "summary": "[IAM] Permissions view/manage: entity dimension on top of the module dimension",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3499",
+          "summary": "[IAM] Users view + manage reach from role context",
+          "status": "Closed",
+          "owner": "ce-Zuzanna Twardowska",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3498",
+          "summary": "[IAM] Groups view + manage + create-scope reach from role context",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3497",
+          "summary": "[IAM] Derive caller reach from role entity context (reach API + [*]-marker de-overload)",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3496",
+          "summary": "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
+          "status": "Closed",
+          "owner": "Celso Garcia",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3481",
+          "summary": "[IAM] Remove direct group-id grant path entirely",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3479",
+          "summary": "[IAM] User creation with an optional initial permission",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3455",
+          "summary": "[IAM] Constrain the permission-modal context selector to the group's scope label",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3238",
+          "summary": "[IAM] Bug: Mirrored permission role value and module name case getting changed based on permission mirroring config map",
+          "status": "Closed",
+          "owner": "Shashank Prasad",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3137",
+          "summary": "[IAM] Publish user-context ContextData routes in OpenAPI and migrate PrincipalPermissionDataService",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3042",
+          "summary": "[IAM] Spike: Migrate users and groups to entity scoping",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2452",
+          "summary": "AppSec: keycloak-config-cli dependency track issue",
+          "status": "Closed",
+          "owner": "Celso Garcia",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2450",
+          "summary": "AppSec: oauth2-proxy dependancy track",
+          "status": "Closed",
+          "owner": "Shashank Prasad",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2250",
+          "summary": "[IAM] Investigation: New user initialization ",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3478",
+          "summary": "[IAM] Restrict unscoped group visibility (and creation) to unscoped principal users",
+          "status": "PO Accepted",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
+      "leftover": [
+        {
+          "key": "RSH-2451",
+          "summary": "AppSec: Open ssl issue in IAM API",
+          "status": "In PO Review",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2453",
+          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
+          "status": "In Quality Review",
+          "owner": "Pawel Skrzypczynski",
+          "blocked": false,
+          "spillover": false
+        }
+      ]
+    },
+    {
+      "id": 9052,
+      "name": "RSH PL 2614",
+      "start": "16 Jul 2026",
+      "end": "30 Jul 2026",
+      "closed": [
+        {
+          "key": "RSH-3591",
+          "summary": "[IAM] Filter mirrored permission roles to module role catalog",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3477",
+          "summary": "[IAM] Investigate logout not working with double okta",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3476",
+          "summary": "[IAM] Support unscoped groups: allow scope-less creation and enforce scope-label immutability",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3455",
+          "summary": "[IAM] Constrain the permission-modal context selector to the group's scope label",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3385",
+          "summary": "[IAM] Restrict unscoped user visibility to unscoped principal users",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3308",
+          "summary": "[IAM] Persist module-context connection failures when the roles URL returns HTTP 404",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3307",
+          "summary": "[IAM] Improve mirrored-permission UX when the viewer lacks access to source or mirror modules",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3242",
+          "summary": "[IAM] Bug: Configuration constraints violation - Permission mirroring config map accepts duplicate sourceModule entries and duplicate targetModule entries within the same sourceModule",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3241",
+          "summary": "[IAM] Bug: Mirrored permission role value does not preserve source role case and spacing (for wildcard rule & specific rule having no target role value defined)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3240",
+          "summary": "[IAM] Bug: Mirrored permission created with blank role when role is omitted from defaultInTarget",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3238",
+          "summary": "[IAM] Bug: Mirrored permission role value and module name case getting changed based on permission mirroring config map",
+          "status": "Closed",
+          "owner": "Shashank Prasad",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-3137",
+          "summary": "[IAM] Publish user-context ContextData routes in OpenAPI and migrate PrincipalPermissionDataService",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2630",
+          "summary": "Document proposed solution for new client registration process",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2413",
+          "summary": "[IAM] Filter roles, entities and entity groups in permission modal by users permissions",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2399",
+          "summary": "[IAM] Review auth logic with manageAll",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2362",
+          "summary": "[IAM] Prefilter the join-groups selector to manageable groups",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2361",
+          "summary": "[IAM] Group scope constraints - member, permission, subgroup validation",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-2181",
+          "summary": "[IAM] Spike: Auto-update existing mirroring definitions on configuration change",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-1204",
+          "summary": "[IAM] Enable bulk import/export for permissions and users",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
+      "leftover": [
+        {
+          "key": "RSH-2453",
+          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
+          "status": "In Quality Review",
+          "owner": "Pawel Skrzypczynski",
+          "blocked": false,
+          "spillover": false
+        }
+      ]
+    }
+  ],
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 98,
+      "total": 91,
       "items": [
+        {
+          "key": "RSH-4945",
+          "summary": "[IAM] Bug: Ambiguous role type configuration causes inconsistent permission UI behavior",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-09-16",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-1245",
+          "summary": "RSH IAM -> Import/Export",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-1243",
+          "summary": "RSH IAM -> Settings",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-1242",
+          "summary": "RSH IAM -> Groups and Permissions",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-1241",
+          "summary": "RSH IAM -> User Accounts",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-1240",
+          "summary": "RSH IAM -> Navigation",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "High"
+        },
         {
           "key": "RSH-2566",
           "summary": "[IAM] [UI] Redesign Personal Information page with sectioned view/edit layout",
@@ -272,64 +1001,40 @@
           "owner": "Unassigned",
           "date": "2026-09-07",
           "priority": "Critical"
-        },
-        {
-          "key": "RSH-3307",
-          "summary": "[IAM] Improve mirrored-permission UX when the viewer lacks access to source or mirror modules",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-3242",
-          "summary": "[IAM] Bug: Configuration constraints violation - Permission mirroring config map accepts duplicate sourceModule entries and duplicate targetModule entries within the same sourceModule",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-3240",
-          "summary": "[IAM] Bug: Mirrored permission created with blank role when role is omitted from defaultInTarget",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-2622",
-          "summary": "[IAM] Bug: 403 on resolving group scope display name",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-2619",
-          "summary": "[IAM UI] Bug: Wrong error message in add group modal",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-2591",
-          "summary": "[IAM] [UI] Update mirrored permissions display",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "High"
         }
       ]
     },
     "raised": {
-      "total": 48,
+      "total": 40,
       "items": [
+        {
+          "key": "RSH-6579",
+          "summary": "RSH-6545 - IAM integration tests",
+          "status": "Draft",
+          "owner": "Unassigned",
+          "date": "2026-09-15",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-6572",
+          "summary": "RSH-2214 - IAM integration tests",
+          "status": "Draft",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-6566",
+          "summary": "[IAM] Investigate where to store client translation files",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-14",
+          "priority": "Medium"
+        },
         {
           "key": "RSH-6560",
           "summary": "[IAM] Spike: review SupTech modules' approaches to translations",
-          "status": "Ready",
+          "status": "In Implementation",
           "owner": "Celso Garcia",
           "date": "2026-09-10",
           "priority": "Medium"
@@ -337,7 +1042,7 @@
         {
           "key": "RSH-6545",
           "summary": "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
-          "status": "In Implementation",
+          "status": "In Quality Review",
           "owner": "Shashank Prasad",
           "date": "2026-09-10",
           "priority": "Medium"
@@ -354,7 +1059,7 @@
           "key": "RSH-6535",
           "summary": "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
           "status": "Ready",
-          "owner": "Shashank Prasad",
+          "owner": "Unassigned",
           "date": "2026-09-09",
           "priority": "High"
         },
@@ -501,30 +1206,6 @@
           "owner": "Unassigned",
           "date": "2026-08-26",
           "priority": "Not defined"
-        },
-        {
-          "key": "RSH-5467",
-          "summary": "RSH-4908 - IAM integration tests",
-          "status": "Draft",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RSH-5458",
-          "summary": "[IAM] Improved Xray Jira Reports",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Low"
-        },
-        {
-          "key": "RSH-5442",
-          "summary": "[IAM] DC Entity groups - \"All\" Group",
-          "status": "In PO Review",
-          "owner": "Shashank Prasad",
-          "date": "2026-08-26",
-          "priority": "Blocker"
         }
       ]
     },
@@ -533,7 +1214,7 @@
       "items": []
     },
     "stalled": {
-      "total": 106,
+      "total": 114,
       "items": [
         {
           "key": "RSH-323",

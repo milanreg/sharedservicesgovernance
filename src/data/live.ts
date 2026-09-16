@@ -53,6 +53,7 @@ export function applyLive(
     snapshot: formatSyncedAt(snapshot.syncedAt),
     tickets: tickets.length ? tickets : project.tickets,
     sprint: snapshot.sprint ? { ...project.sprint, ...snapshot.sprint } : project.sprint,
+    closedSprints: snapshot.closedSprints ?? project.closedSprints,
     projectSummary: { ...project.projectSummary, ...snapshot.projectSummary },
   };
 }

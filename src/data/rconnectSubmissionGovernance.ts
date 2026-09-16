@@ -168,9 +168,9 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, one of five concurrent team sprints there. Goal: ${sprint.goal}. Twenty-five items committed. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, one of five concurrent team sprints there. Goal: ${sprint.goal}. Twenty-six items committed. Snapshot ${SNAPSHOT}.`,
     headline:
-      "One Closed (Sweden CESOP feedback). A large New pile is still unassigned. The messaging-bus pair sits at Ready for integration. TEST/PROD routing (RCON-1366 / RCON-1381) is Closed in Jira — confirm released.",
+      "One Closed (Sweden CESOP feedback). ActiveMQ JMS on NiFi (RCON-1540) joined mid-sprint. A large New pile is still unassigned. The messaging-bus pair sits at Ready for integration.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {

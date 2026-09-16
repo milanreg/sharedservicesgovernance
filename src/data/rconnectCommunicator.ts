@@ -19,7 +19,7 @@ export const CONFLUENCE = {
   project: "https://confluence.regnology.net/display/RCON/Rconnect+Project",
 };
 
-export const SNAPSHOT = "11 Sep 2026";
+export const SNAPSHOT = "16 Sep 2026";
 
 export const sprint = {
   name: "Yolo - Communicator Sprint 23",
@@ -31,7 +31,7 @@ export const sprint = {
   /** Board committed 29, including two ONADD DataCalc tickets. */
   committed: 29,
   done: 0,
-  inProgress: 7,
+  inProgress: 5,
   blocked: 0,
 };
 

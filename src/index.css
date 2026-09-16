@@ -292,6 +292,34 @@ button,
   color: var(--white);
 }
 
+.sprints-dialog {
+  width: min(1040px, calc(100vw - 32px));
+}
+
+.sprints-dialog .review-stats {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.sprint-history {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+
+@media (max-width: 800px) {
+  .sprint-history {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sprint-history .review-list li {
+  grid-template-columns: 84px 1fr auto;
+}
+
+.sprint-history .review-item-meta {
+  display: none;
+}
+
 .review {
   width: min(880px, calc(100vw - 32px));
   max-height: calc(100vh - 64px);

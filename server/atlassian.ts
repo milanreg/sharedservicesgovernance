@@ -2,6 +2,7 @@ import type {
   ActivityItem,
   ActivityList,
   ActivityWindow,
+  ClosedSprint,
   ConfluenceDoc,
   LiveSnapshot,
   Ticket,
@@ -239,7 +240,6 @@ async function readSprint(
     `/rest/agile/1.0/sprint/${active.id}/issue?maxResults=200&fields=summary,status,assignee,closedSprints`,
   );
   const tickets = (issues.issues ?? []).map(toTicket);
-  const isDone = (t: Ticket) => /closed|done|accepted/i.test(t.status);
   const inFlight = (t: Ticket) => /implementation|review|progress/i.test(t.status);
 
   return {
@@ -254,6 +254,119 @@ async function readSprint(
     },
     tickets,
   };
+}
+
+function sprintSeries(name?: string): string {
+  if (!name) return "";
+  return name.replace(/\s+\d+\s*$/, "").trim().toLowerCase();
+}
+
+function sprintRecency(sprint: { id: number; completeDate?: string; endDate?: string }) {
+  const stamped = Date.parse(sprint.completeDate || sprint.endDate || "");
+  return Number.isFinite(stamped) ? stamped : sprint.id;
+}
+
+const CLOSED_SPRINTS = 4;
+const isDone = (t: Ticket) => /closed|done|accepted|resolved/i.test(t.status);
+
+async function listClosedSprints(
+  creds: Credentials,
+  boardId: number,
+): Promise<{ id: number; name: string; startDate?: string; endDate?: string; completeDate?: string }[]> {
+  type Sprint = {
+    id: number;
+    name: string;
+    startDate?: string;
+    endDate?: string;
+    completeDate?: string;
+  };
+  type Page = { values?: Sprint[]; isLast?: boolean };
+
+  const all: Sprint[] = [];
+  let startAt = 0;
+  for (let page = 0; page < 20; page += 1) {
+    const result = await jira<Page>(
+      creds,
+      `/rest/agile/1.0/board/${boardId}/sprint?state=closed&maxResults=50&startAt=${startAt}`,
+    );
+    const values = result.values ?? [];
+    all.push(...values);
+    if (result.isLast !== false && values.length < 50) break;
+    if (!values.length) break;
+    startAt += values.length;
+  }
+  return all;
+}
+
+async function readClosedSprints(
+  creds: Credentials,
+  boardId: number,
+  match: string | undefined,
+  warnings: string[],
+  activeName?: string,
+): Promise<ClosedSprint[]> {
+  let values;
+  try {
+    values = await listClosedSprints(creds, boardId);
+  } catch (error) {
+    warnings.push(`Closed sprints on board ${boardId} could not be read: ${(error as Error).message}`);
+    return [];
+  }
+
+  const all = values;
+  const needle = match?.toLowerCase();
+  const series = sprintSeries(activeName);
+  if (needle || series) {
+    const named = values.filter((sprint) => {
+      const n = sprint.name.toLowerCase();
+      if (series && n.includes(series)) return true;
+      if (needle && n.includes(needle)) return true;
+      return false;
+    });
+    const seriesHits = series ? named.filter((sprint) => sprint.name.toLowerCase().includes(series)) : [];
+    values = seriesHits.length ? seriesHits : named;
+    if (!values.length && all.length) {
+      const newest = [...all].sort((a, b) => sprintRecency(b) - sprintRecency(a)).slice(0, 8);
+      warnings.push(
+        `No closed sprints on board ${boardId} match “${match ?? activeName}”; latest closed: ${newest.map((sprint) => sprint.name).join(", ")}.`,
+      );
+    }
+  }
+
+  values.sort((a, b) => sprintRecency(b) - sprintRecency(a));
+
+  const horizon = Date.now() - 120 * 86_400_000;
+  values = values.filter((sprint) => {
+    const stamped = Date.parse(sprint.completeDate || sprint.endDate || "");
+    if (!Number.isFinite(stamped)) return true;
+    return stamped >= horizon;
+  });
+
+  const recent = values.slice(0, CLOSED_SPRINTS);
+  const records: ClosedSprint[] = [];
+
+  for (const sprint of recent) {
+    try {
+      const issues = await search(
+        creds,
+        `sprint = ${sprint.id} ORDER BY status ASC`,
+        200,
+      );
+      const tickets = issues.map(toTicket);
+      records.push({
+        id: sprint.id,
+        name: sprint.name,
+        start: formatDate(sprint.startDate),
+        end: formatDate(sprint.endDate),
+        closed: tickets.filter(isDone),
+        leftover: tickets.filter((ticket) => !isDone(ticket)),
+      });
+    } catch (error) {
+      warnings.push(`Closed sprint ${sprint.name} could not be read: ${(error as Error).message}`);
+    }
+  }
+
+  return records;
 }
 
 async function readReleases(creds: Credentials, projectKey: string) {
@@ -491,6 +604,16 @@ export async function buildSnapshot(
     sprintData.tickets = issues.map(toTicket);
   }
 
+  const closedSprints = config.boardId
+    ? await readClosedSprints(
+        creds,
+        config.boardId,
+        config.sprintNameContains,
+        warnings,
+        sprintData.sprint?.name,
+      )
+    : [];
+
   const activity = await readActivity(creds, scope, dueSoon, overdue, warnings);
   const confluence = await readConfluence(creds, config.confluencePageIds ?? [], warnings);
 
@@ -500,6 +623,7 @@ export async function buildSnapshot(
     projectSummary: { done, open, highPriorityOpen, unassignedOpen, epics, ...releases },
     sprint: sprintData.sprint,
     tickets: sprintData.tickets,
+    closedSprints,
     activity,
     confluence,
     warnings,

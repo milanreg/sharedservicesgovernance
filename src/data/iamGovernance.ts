@@ -55,16 +55,16 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-2451": {
     level: "amber",
-    reason: "OpenSSL AppSec sat Ready across three sprints and is finally on the 2618 board, still Ready.",
-    mitigation: "Close it this sprint under Adam Ennis — low effort, high visibility.",
-    assessment: "RICE 3.4. Being committed is not the same as being Closed.",
+    reason: "OpenSSL AppSec sat Ready across three sprints and is now In PO Review under Dominik Czerwiński.",
+    mitigation: "Keep it through PO Review this sprint — low effort, high visibility.",
+    assessment: "RICE 3.4. Being in PO Review is not the same as Closed.",
     references: [{ label: "RSH-2451", href: jira("RSH-2451") }],
   },
   "RSH-4251": {
     level: "amber",
-    reason: "Analytics 26.2 cannot complete without the Analyser IAM integration.",
-    mitigation: "Ready for integration but unassigned; do not claim Analytics live until Closed.",
-    assessment: "Consumer RSH-719 is In Implementation and blocked by this ticket.",
+    reason: "Analyser IAM integration is Closed in Jira (2616). Confirm Analytics 26.2 actually consumes it before calling the consumer live.",
+    mitigation: "Do not claim Analytics live until a customer build has the Closed fix.",
+    assessment: "Closed on the sprint record is not the same as verified in Analytics.",
     references: [
       { label: "RSH-4251", href: jira("RSH-4251") },
       { label: "RSH-719 Analytics", href: jira("RSH-719") },
@@ -72,16 +72,16 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-4244": {
     level: "amber",
-    reason: "Authorization leak: entity visibility without Permission:Manage. Still unassigned.",
-    mitigation: "Ready for integration. Treat as an authz defect, not UX, and name an owner for the integration itself.",
-    assessment: "An unowned authz fix riding into a release is a verification risk, not just a slip risk.",
+    reason: "Authorization leak (entity visibility without Permission:Manage) is Closed in Jira as of 2616. Confirm it is in a released build.",
+    mitigation: "Treat as an authz defect until a customer build has the fix.",
+    assessment: "Closed unassigned — verification still required.",
     references: [{ label: "RSH-4244", href: jira("RSH-4244") }],
   },
   "RSH-3763": {
     level: "amber",
-    reason: "Critical join-groups pagination reached Ready for integration unassigned; RSH-4260 closed as duplicate.",
-    mitigation: "Owner is still empty. Confirm it actually lands in 26.3.0.00 rather than carrying to 2617.",
-    assessment: "Closing the duplicate without landing pagination leaves the UX defect open.",
+    reason: "Join-groups pagination is Closed in Jira as of 2616. RSH-4260 was the closed duplicate.",
+    mitigation: "Confirm it actually landed in 26.3.0.00 rather than only Closing in Jira.",
+    assessment: "Closed on the 2616 record.",
     references: [
       { label: "RSH-3763", href: jira("RSH-3763") },
       { label: "RSH-4260 (closed duplicate)", href: jira("RSH-4260") },
@@ -113,8 +113,8 @@ export const TICKET_RISKS: Record<string, Risk> = {
   },
   "RSH-3481": {
     level: "amber",
-    reason: "Group-id OR-path spilled from 2615; scoped-group permission model is incomplete without it.",
-    mitigation: "Ready for integration and unassigned. Left 2616; confirm the grant-path removal actually ships rather than rotting in the integration queue.",
+    reason: "Group-id OR-path is Closed in Jira as of 2616. Confirm the grant-path removal actually shipped.",
+    mitigation: "Ready-for-integration rot is no longer the risk — released-build verification is.",
     references: [{ label: "RSH-3481", href: jira("RSH-3481") }],
   },
 };
@@ -131,7 +131,7 @@ export const iamGovernance: ProjectGovernance = {
   rag: "Amber",
   platform: "Regnology Supervision Hub (RSH) Platform",
   summary:
-    "Shared authentication and authorization for Regnology solutions. Privilege escalation, entity-scoping spikes, Principal User, and mirroring are Closed in Jira; whether products actually retire local user management still hangs on RSH-4255 Make Work and MDM inheritance.",
+    "Shared authentication and authorization for Regnology solutions. Privilege escalation, entity-scoping spikes, Principal User, and mirroring are Closed in Jira; whether products actually retire local user management still hangs on RSH-4255 Make Work and MDM inheritance. OSFI deployment parity (RSH-5909) is a new Must epic — still New and unassigned.",
   initiativeKey: "RSH-96",
   ticketBaseUrl: JIRA,
   boardUrl: BOARD,
@@ -149,33 +149,33 @@ export const iamGovernance: ProjectGovernance = {
     blocked: sprint.blocked,
     narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Eleven items on 2618. Privilege escalation, both entity-scoping spikes, Principal User and mirroring Closed since the last snapshot — this sprint is PAT, translations, Keycloak Helm, a pagination bug, and the same two chronic spill-overs: dev-cluster IAM still in Quality Review and RSH-2169 still blocked. Six of eleven items are already Ready.",
+      "Ten items on 2618. Translations and preferred language are in Implementation. Pagination and dev-cluster IAM are in Quality Review. OpenSSL has reached PO Review. PAT is still Ready. Keycloak Helm RSH-6535 left the sprint still Ready and unassigned. RSH-2169 remains blocked. OSFI readiness RSH-5909 is on the same board as a New Must epic, not in the sprint.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
     name: "Regnology Supervision Hub Platform 2617",
     dates: "27 Aug – 10 Sep 2026",
     narrative:
-      "2617 is the sprint where the 2616 integration queue actually closed: privilege escalation, both entity-scoping spikes, the Principal User epic and permission mirroring. Unscoped module permissions and the module permission manager role cleared development and were not pulled into 2618. Dev-cluster IAM, PAT and the blocked inheritance ticket carried forward.",
+      "Jira's 2617 sprint membership closed two items: Keycloak vulnerability upgrade (RSH-6511, PO Accepted) and Helm SonarQube (RSH-5925). Privilege escalation, both entity-scoping spikes, Principal User and mirroring Closed around the same window but are no longer on the 2617 sprint record. A long Ready-for-integration queue left 2617 without landing in 2618. Dev-cluster IAM, PAT and blocked inheritance carried forward.",
     cards: [
       {
         title: "Closed around 2617",
-        body: "Privilege escalation (RSH-4220), entity-scoping spikes (RSH-3042, RSH-3503), Principal User (RSH-1846) and permission mirroring (RSH-2150).",
+        body: "On the 2617 sprint itself: Keycloak upgrade (RSH-6511) and Helm SonarQube (RSH-5925). Around the same window in Jira: privilege escalation (RSH-4220), entity-scoping spikes (RSH-3042, RSH-3503), Principal User (RSH-1846) and permission mirroring (RSH-2150).",
       },
       {
         title: "Carried into 2618",
-        body: "Dev-cluster IAM still in Quality Review, entity-group inheritance still blocked, PAT (RSH-4784 / RSH-4211), OpenSSL finally on the board, and the MDM All-group spike now in PO review.",
+        body: "Dev-cluster IAM still in Quality Review, entity-group inheritance still blocked, PAT (RSH-4784 / RSH-4211), OpenSSL now in PO Review under Dominik Czerwiński, and the MDM All-group spike now in PO review.",
       },
       {
         title: "Left 2617 without landing in 2618",
-        body: "Unscoped module permissions (RSH-4214), the module permission manager role (RSH-4215), and the CI pipeline fix (RSH-5675) — all Ready for integration, all unassigned.",
+        body: "Unscoped module permissions (RSH-4214), the module permission manager role (RSH-4215), CI pipeline cancel (RSH-5675), integration-tests consolidation (RSH-5678), docs split (RSH-5937), SonarQube (RSH-4394), and create-group whitespace (RSH-3824) — all Ready for integration, all unassigned.",
       },
     ],
     closed: previousSprintClosed,
     leftover: leftoverFrom2617,
   },
   overview: {
-    intro: `Shared Identity and Access Management for Regnology solutions. Synthesized from Jira initiative RSH-96, Phase 2 RSH-903, Confluence IAM Integration v17, Vizor Authentication and Authorization v62, and What IAM Service Offers.`,
+    intro: `Shared Identity and Access Management for Regnology solutions. Synthesized from Jira initiative RSH-96, Phase 2 RSH-903, OSFI epic RSH-5909 on board 2936, Confluence IAM Integration v17, Vizor Authentication and Authorization v62, and What IAM Service Offers.`,
     callout:
       "IAM is the common authentication and authorization module for regulator and regulated users. If a Vizor application turns it on, it must be used for both Portal and Supervision Centre, and only in containers. Foundations shipped. Principal User, entity scoping, permission mirroring, and stabilization still decide whether products can retire local user management. Initiative RAG: Amber (Jan 2026) — scope creep vs original plan.",
     vision: [
@@ -197,7 +197,8 @@ export const iamGovernance: ProjectGovernance = {
         key: "RSH-903",
         state: "In Implementation · 3 closed / 4 in implementation / 3 ready / 7 new",
       },
-      { layer: "Stabilization", key: "RSH-4254", state: "New · High · Must · PL 26.3" },
+      { layer: "Stabilization", key: "RSH-4254", state: "New · High · Must · PL 26.4" },
+      { layer: "OSFI / deployment parity", key: "RSH-5909", state: "New · High · Must · OSFI" },
     ],
     consumers,
     epics: phase2,
@@ -211,7 +212,7 @@ export const iamGovernance: ProjectGovernance = {
       "Bars are derived from Phase 1 closed epics, Phase 2 children of RSH-903, current sprint spikes, and unscheduled New items. Dates are planning horizons, not Jira due dates (those fields are empty on these epics).",
     items: backlogGantt,
     caption:
-      "Source: RSH-96 / RSH-903 children · RSH board 2936 · snapshot 11 Sep 2026. Today sits in Q3 2026.",
+      "Source: RSH-96 / RSH-903 children · RSH board 2936 · snapshot 16 Sep 2026. Today sits in Q3 2026.",
   },
   stakeholderGantt: {
     intro:
@@ -281,13 +282,13 @@ export const iamGovernance: ProjectGovernance = {
     return { ...b, risk: ticketRisk ?? extra[b.ticket] };
   }),
   next90days:
-    "Privilege escalation, entity scoping, Principal User and mirroring are Closed. The next 90 days are verify-those-closures-in-a-release, close OpenSSL and dev-cluster IAM, convert the scoping spikes into a migration plan, and only then staff PAT and translations. Treat Principal User Make Work (RSH-4255) as the milestone that lets Vizor and Regulator 3 turn local user management off.",
+    "Privilege escalation, entity scoping, Principal User and mirroring are Closed. The next 90 days are verify-those-closures-in-a-release, close OpenSSL and dev-cluster IAM, convert the scoping spikes into a migration plan, and staff or defer OSFI readiness (RSH-5909). Treat Principal User Make Work (RSH-4255) as the milestone that lets Vizor and Regulator 3 turn local user management off.",
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RSH/summary",
-    done: 391,
-    open: 157,
-    highPriorityOpen: 26,
-    unassignedOpen: 127,
+    done: 397,
+    open: 154,
+    highPriorityOpen: 20,
+    unassignedOpen: 125,
     epics: 45,
     currentRelease: {
       name: "R1.3.0.01_RSH_10.02.26",
@@ -299,16 +300,17 @@ export const iamGovernance: ProjectGovernance = {
       date: "27 Aug 2026",
     },
     narrative:
-      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board. Phase 1 shipped. Initiative RSH-96 is Amber for scope creep. Platform release 26.3.0.00 is the last released train (27 Aug). Sprint 2618 is an eleven-item mixed commitment. Counts use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
+      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board 2936. Phase 1 shipped. Initiative RSH-96 is Amber for scope creep. Platform release 26.3.0.00 is the last released train (27 Aug). Sprint 2618 is a ten-item mixed commitment. OSFI epic RSH-5909 is New on the same board. Counts use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
   },
   pmFocus: {
     thisSprint: [
-      "Close OpenSSL RSH-2451 — it is finally on the board after three idle sprints.",
+      "Finish OpenSSL RSH-2451 through PO Review under Dominik Czerwiński — it is no longer sitting at Ready.",
       "Close dev-cluster IAM RSH-2453 from Quality Review. It has now spilled into a sixth platform sprint.",
       "Watch RSH-5442 (MDM All-group) in PO review — it is the only movement on the dependency that has RSH-2169 blocked.",
+      "Keycloak Helm RSH-6535 left 2618 still Ready and unassigned — name an owner or drop it from the current conversation.",
       "Confirm privilege escalation RSH-4220 and the two scoping spikes are in a released build, not only Closed in Jira.",
-      "Do not let PAT (RSH-4784 / RSH-4211) and translations (RSH-786 / RSH-6560) crowd out that verification. Phase 3 started while RSH-4255 is still New.",
-      "Unscoped module permissions and the permission-manager role left 2617 at Ready for integration, unassigned. Name an owner or stop calling them current.",
+      "Do not let PAT (RSH-4784 / RSH-4211) and translations (RSH-786 / RSH-6560, now in Implementation) crowd out that verification.",
+      "Staff or explicitly defer RSH-5909 OSFI readiness. Binder's 15 Sep comment made DC helm, Keycloak redirect URIs, and Gateway API part of the extended scope.",
     ],
     sequence: [
       {
@@ -321,7 +323,7 @@ export const iamGovernance: ProjectGovernance = {
         order: 2,
         item: "OpenSSL application security",
         ticket: "RSH-2451",
-        why: "On the 2618 board at Ready. Cheap to close this sprint.",
+        why: "On the 2618 board In PO Review under Dominik Czerwiński. Cheap to close this sprint.",
       },
       {
         order: 3,
@@ -346,7 +348,8 @@ export const iamGovernance: ProjectGovernance = {
       "Will Master Data Management (MDM) unblock entity-group membership in 26.4, or do we defer inheritance in writing?",
       "What is the acceptance criteria for Principal User Make Work so Vizor can turn Security.Login.Type = IAM?",
       "Is audience validation still a go-live gate for the next customer environment?",
-      "Should PAT and translations stay behind 26.4 stabilization, given they are already on the 2618 board?",
+      "Should PAT and translations stay behind 26.4 stabilization, given they are already in Implementation on the 2618 board?",
+      "Who owns RSH-5909 OSFI readiness (external secrets, Azure storage, Keycloak redirect URIs) so IAM is not waiting on unassigned platform work?",
     ],
   },
 };

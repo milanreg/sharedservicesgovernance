@@ -5,6 +5,7 @@ import { ChatWidget } from "../components/ChatWidget";
 import { Gantt } from "../components/Gantt";
 import { RiskInfo, RiskReason } from "../components/RiskInfo";
 import { StatusBadge } from "../components/StatusBadge";
+import { ClosedSprintsDialog } from "../components/ClosedSprintsDialog";
 import { SummaryDialog } from "../components/SummaryDialog";
 import { SyncButton } from "../components/SyncButton";
 import { Topbar } from "../components/Topbar";
@@ -228,7 +229,8 @@ function SpilloverTab({ project }: { project: ProjectGovernance }) {
     <section className="panel">
       <h2>Sprint spillovers</h2>
       <p className="muted">
-        {project.previousSprint.name} ({project.previousSprint.dates}). {project.previousSprint.narrative}
+        {project.previousSprint.name} ({project.previousSprint.dates}). {project.previousSprint.narrative}{" "}
+        Earlier closed sprints are under Closed sprints in the header.
       </p>
       {project.previousSprint.cards.length ? (
         <div className="grid-3" style={{ marginBottom: 20 }}>
@@ -277,6 +279,7 @@ const GLOSSARY: [string, string][] = [
   ["CBBB", "Central Bank of Barbados"],
   ["RACI", "Responsible, Accountable, Consulted, Informed"],
   ["RICE", "Reach, Impact, Confidence, Effort"],
+  ["OSFI", "Office of the Superintendent of Financial Institutions (Canada) — deployment-parity epic RSH-5909"],
   ["Principal User", "Delegated entity-scoped user administrator"],
   ["Reach", "What a caller may see or manage, derived from role entity context"],
 ];
@@ -909,6 +912,7 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
   // The catalog already folded in the bundled snapshot; this holds a fresh sync.
   const [live, setLive] = useState<LiveSnapshot | undefined>();
   const [reviewOpen, setReviewOpen] = useState(false);
+  const [sprintsOpen, setSprintsOpen] = useState(false);
   const project = live ? applyLive(authored, live, getTicketRisks(authored.slug)) : authored;
   const [params, setParams] = useSearchParams();
   const requested = params.get("tab");
@@ -958,11 +962,15 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
             <button type="button" className="review-btn" onClick={() => setReviewOpen(true)}>
               Summary
             </button>
+            <button type="button" className="review-btn" onClick={() => setSprintsOpen(true)}>
+              Closed sprints
+            </button>
             <SyncButton slug={project.slug} lastSynced={project.lastSynced} onSynced={setLive} />
           </div>
         </div>
 
         <SummaryDialog project={project} open={reviewOpen} onClose={() => setReviewOpen(false)} />
+        <ClosedSprintsDialog project={project} open={sprintsOpen} onClose={() => setSprintsOpen(false)} />
 
         <div className="status-legend" aria-label="Status colours">
           <span>

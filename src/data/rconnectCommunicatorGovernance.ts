@@ -219,7 +219,7 @@ export const rconnectCommunicatorGovernance: ProjectGovernance = {
     blocked: sprint.blocked,
     narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, alongside the Submission team's sprints. Goal: ${sprint.goal}. The board reports 29 committed items, two of them ONADD DataCalc — a BSI library upgrade and the DataCalc 10.3.0 release. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Twenty-nine items, none Done, seven in flight, and a huge unassigned New pile. RCON.C 1.2.0 is still not released, and two DataCalc tickets remain on the board.",
+      "Twenty-nine items, none Done, five in flight, and a huge unassigned New pile. RCON.C 1.2.0 is still not released, and two DataCalc tickets remain on the board.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {

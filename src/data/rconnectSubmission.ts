@@ -30,7 +30,7 @@ export const CONFLUENCE = {
     "https://confluence.regnology.net/spaces/RCON/pages/274799332/Deploy+as+a+component+on+PROD",
 };
 
-export const SNAPSHOT = "11 Sep 2026";
+export const SNAPSHOT = "16 Sep 2026";
 
 export const sprint = {
   name: "RCON.S sprint 16",
@@ -39,18 +39,18 @@ export const sprint = {
   end: "18 Sep 2026",
   board: 3734,
   goal: "Enablers support · messaging-bus integration · Spring Boot 4 · NiFi registry updater",
-  committed: 25,
+  committed: 26,
   done: 1,
-  inProgress: 7,
+  inProgress: 8,
   blocked: 0,
 };
 
-/** RCON.S sprint 16 as at 11 Sep 2026 — mid-sprint, one Closed. */
+/** RCON.S sprint 16 as at 16 Sep 2026 — mid-sprint, one Closed. */
 export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1426",
     summary: "[Spike] Investigate on-prem / private cloud support",
-    status: "New",
+    status: "In Implementation",
     owner: "Konstantin Artsiomenka",
     why: "On-prem variant is still only sketched in ADR-0005; this spike is the first ticketed look",
   },
@@ -200,14 +200,14 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1500",
     summary: "[Enablers] Support — Konstantin (S16)",
-    status: "New",
+    status: "Ready",
     owner: "Konstantin Artsiomenka",
     why: "Sprint-16 enablers booking",
   },
   {
     key: "RCON-1501",
     summary: "[Enablers] Support — Dwitiya (S16)",
-    status: "New",
+    status: "Ready",
     owner: "Dwitiya Halder",
     why: "Sprint-16 enablers booking",
   },
@@ -231,6 +231,13 @@ export const sprintTickets: Ticket[] = [
     status: "New",
     owner: "Unassigned",
     why: "Write path for the schema-driven feedback ADR; unassigned with RCON-1526",
+  },
+  {
+    key: "RCON-1540",
+    summary: "Install ActiveMQ JMS client libraries on NiFi (RRH-dev)",
+    status: "In Implementation",
+    owner: "Benjamin Garaude",
+    why: "Messaging-bus proving ground on RRH-dev; High, added mid-sprint 16",
   },
 ];
 

@@ -367,7 +367,8 @@ const INTENTS: Intent[] = [
   },
   {
     id: "spillover",
-    test: (q) => has(q, "spillover", "spilled", "carry over", "carried over", "last sprint", "previous sprint"),
+    test: (q) =>
+      has(q, "spillover", "spilled", "carry over", "carried over", "last sprint", "previous sprint", "closed sprint"),
     run: ({ project }) => {
       const previous = project.previousSprint;
       const blocks: AnswerBlock[] = [
@@ -376,6 +377,19 @@ const INTENTS: Intent[] = [
       if (previous.leftover.length) {
         blocks.push(text("Carried into the current sprint:"));
         blocks.push(list(previous.leftover.map((t) => ticketItem(project, t))));
+      }
+      const history = project.closedSprints ?? [];
+      if (history.length) {
+        blocks.push(
+          text(
+            `Last ${history.length} closed sprints on the board: ${history
+              .map(
+                (sprint) =>
+                  `${sprint.name} (${sprint.closed.length} closed, ${sprint.leftover.length} leftover)`,
+              )
+              .join("; ")}.`,
+          ),
+        );
       }
       return { blocks, sources: [{ label: "Sprint spillovers", tab: "spillover" }] };
     },

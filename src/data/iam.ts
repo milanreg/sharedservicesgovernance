@@ -23,7 +23,7 @@ export const CONFLUENCE = {
   strategy: "https://confluence.regnology.net/pages/viewpage.action?pageId=194395208",
 };
 
-export const SNAPSHOT = "11 Sep 2026";
+export const SNAPSHOT = "16 Sep 2026";
 
 export const sprint = {
   name: "RSH PL 2618",
@@ -31,10 +31,10 @@ export const sprint = {
   start: "10 Sep 2026",
   end: "24 Sep 2026",
   board: 2936,
-  committed: 11,
+  committed: 10,
   done: 0,
-  inProgress: 4,
-  ready: 6,
+  inProgress: 7,
+  ready: 3,
   new: 0,
   blocked: 1,
   spillover: 6,
@@ -46,7 +46,7 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RSH-6545",
     summary: "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
-    status: "In Implementation",
+    status: "In Quality Review",
     owner: "Shashank Prasad",
     why: "Search leaving the user on page 3 of an empty result is a real admin-UX defect",
   },
@@ -76,23 +76,16 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RSH-786",
     summary: "[IAM] Add preferred language to user profile and tokens",
-    status: "Ready",
+    status: "In Implementation",
     owner: "Celso Garcia",
     why: "Companion to the translations spike — language has to travel with the token",
   },
   {
     key: "RSH-6560",
     summary: "[IAM] Spike: review SupTech modules' approaches to translations",
-    status: "Ready",
+    status: "In Implementation",
     owner: "Celso Garcia",
     why: "Phase 3 translations work starting while 26.4 stabilization is still New",
-  },
-  {
-    key: "RSH-6535",
-    summary: "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
-    status: "Ready",
-    owner: "Shashank Prasad",
-    why: "Moves Keycloak off the in-cluster database toward a production-shaped topology",
   },
   {
     key: "RSH-4211",
@@ -113,9 +106,9 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RSH-2451",
     summary: "AppSec: OpenSSL issue in IAM API",
-    status: "Ready",
-    owner: "Adam Ennis",
-    why: "Security debt now on the board after three sprints at Ready",
+    status: "In PO Review",
+    owner: "Dominik Czerwiński",
+    why: "Security debt that sat Ready across three sprints is now In PO Review",
     spillover: true,
   },
   {
@@ -131,35 +124,16 @@ export const sprintTickets: Ticket[] = [
 
 export const previousSprintClosed: Ticket[] = [
   {
-    key: "RSH-4220",
-    summary:
-      "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
-    status: "Closed",
-    owner: "Unassigned",
+    key: "RSH-6511",
+    summary: "[IAM] Upgrade Keycloak beyond 26.6.3 (vulnerability fix)",
+    status: "PO Accepted",
+    owner: "Dominik Czerwiński",
   },
   {
-    key: "RSH-3042",
-    summary: "[IAM] Spike: Migrate users and groups to entity scoping",
+    key: "RSH-5925",
+    summary: "Fix RSH Helm Chart SonarQube issues",
     status: "Closed",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-3503",
-    summary: "[IAM] Spike: Migrate existing IAM permissions to new version",
-    status: "Closed",
-    owner: "Unassigned",
-  },
-  {
-    key: "RSH-1846",
-    summary: "[IAM] Principal User (User Manager)",
-    status: "Closed",
-    owner: "Adam Ennis",
-  },
-  {
-    key: "RSH-2150",
-    summary: "[IAM] Permission Mirroring",
-    status: "Closed",
-    owner: "Adam Ennis",
+    owner: "Dominik Czerwiński",
   },
 ];
 
@@ -184,6 +158,33 @@ export const leftoverFrom2617: Ticket[] = [
     summary: "[IAM CI] Cancel superseded pipelines and ensure terminal state",
     status: "Ready for integration",
     owner: "Unassigned",
+    why: "Cleared 2617 and was not pulled into 2618",
+  },
+  {
+    key: "RSH-5678",
+    summary: "[IAM] Integration Tests Consolidation",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Still on 2617 as Ready for integration; not committed to 2618",
+  },
+  {
+    key: "RSH-5937",
+    summary: "[Docs] Publish separate internal and external documentation site builds",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Docs split left 2617 at Ready for integration",
+  },
+  {
+    key: "RSH-4394",
+    summary: "Fix SonarQube issues",
+    status: "Ready for integration",
+    owner: "Unassigned",
+  },
+  {
+    key: "RSH-3824",
+    summary: "[IAM] [UI] Fix whitespaces in create group modal",
+    status: "Ready for integration",
+    owner: "Unassigned",
   },
 ];
 
@@ -194,7 +195,7 @@ export const phase2 = [
   { key: "RSH-1846", title: "Principal User (User Manager)", status: "Closed", owner: "Adam Ennis" },
   { key: "RSH-2150", title: "Permission Mirroring", status: "Closed", owner: "Adam Ennis" },
   { key: "RSH-793", title: "User Profile Management", status: "In Implementation", owner: "Adam Ennis" },
-  { key: "RSH-4221", title: "IAM User Guide", status: "In Implementation", owner: "Kartik Sharma" },
+  { key: "RSH-4221", title: "IAM User Guide", status: "Closed", owner: "Kartik Sharma" },
   { key: "RSH-429", title: "Defects and Tech Debt — Backlog", status: "Ready", owner: "Adam Ennis" },
   { key: "RSH-794", title: "Translations", status: "Ready", owner: "Unassigned" },
   { key: "RSH-795", title: "Multi-Core Identity Provider (IDP)", status: "Ready", owner: "Unassigned" },
@@ -205,6 +206,7 @@ export const phase2 = [
   { key: "RSH-4263", title: "Support for Third-Party Modules", status: "New", owner: "Unassigned" },
   { key: "RSH-321", title: "Support for Non-Standard Identity Providers (IDPs)", status: "New", owner: "Unassigned" },
   { key: "RSH-1314", title: "Support for Windows Server Deployments", status: "New", owner: "Unassigned" },
+  { key: "RSH-5909", title: "Make RSH PL & IAM OSFI Ready", status: "New", owner: "Unassigned" },
 ];
 
 export const architecture: {
@@ -398,16 +400,23 @@ export const implementation: {
     {
       area: "Application security",
       detail:
-        "OpenSSL issue in the IAM API has been Ready across three sprints and was not committed to 2617. Cheap to close and highly visible as security debt.",
+        "OpenSSL issue in the IAM API is In PO Review under Dominik Czerwiński after sitting Ready across three earlier sprints.",
       tickets: ["RSH-2451"],
-      state: "Ready (not in 2617)",
+      state: "In PO Review",
     },
     {
       area: "Consumer integration",
       detail:
-        "Analyser integration still sits Ready for integration and still blocks the Analytics consumer. Dev-cluster IAM (RSH-2453) has reached Quality Review in 2617. RForge scaffolding and ContextData OpenAPI have not moved.",
+        "Analyser integration still sits Ready for integration and still blocks the Analytics consumer. Dev-cluster IAM (RSH-2453) remains in Quality Review in 2618. RForge scaffolding and ContextData OpenAPI have not moved.",
       tickets: ["RSH-4251", "RSH-2453", "RSH-3515", "RSH-3137"],
       state: "Ready for integration / In Quality Review",
+    },
+    {
+      area: "OSFI / deployment parity",
+      detail:
+        "RSH-5909 (Must, OSFI) is New and unassigned under RSH-2537. Confirmed scope: external secrets operator and Azure storage. Robert Binder asked on 15 Sep 2026 to treat linked DC stories as extended scope: helm chart improvements (REG-55365, In Implementation), Keycloak wildcard redirect URIs (REG-58237, New — product path for IAM, not 26.4), and Kubernetes Gateway API (REG-58249, New). Child RSH-2180 Secret management is still New.",
+      tickets: ["RSH-5909", "RSH-2180", "REG-58237", "REG-55365"],
+      state: "New / unassigned",
     },
   ],
   config: [
@@ -479,6 +488,12 @@ export const deployment: {
       note: "Documented in Vizor Authentication and Authorization v62. Treat the fix-up as part of the deployment runbook until it is automated.",
     },
     {
+      environment: "OSFI / DC deployment parity",
+      topology: "External secrets operator, Azure storage, explicit Keycloak redirect URIs (no wildcards)",
+      state: "New",
+      note: "RSH-5909 (Must, OSFI) under RSH-2537. Binder's 15 Sep comment points at linked DC stories for extended scope: REG-55365 helm charts (In Implementation), REG-58237 Keycloak redirect URIs (New — IAM product path, not 26.4), REG-58249 Gateway API (New). Child RSH-2180 Secret management is still New and unassigned.",
+    },
+    {
       environment: "Windows Server",
       topology: "Not supported",
       state: "New",
@@ -491,6 +506,7 @@ export const deployment: {
     "Point each module at IAM and the platform in the dev cluster and prove the integration there first (RSH-2453).",
     "Set Security.Login.Type = IAM on the consuming application, then set the internal and external audience values.",
     "Apply the issuer SQL fix-up where P5.8.1 auto-population did not run, then re-verify token issuer and audience.",
+    "For OSFI / DC parity, move secrets out of Helm and GitLab variables (RSH-2180 / external secrets operator), use Azure storage, and register explicit Keycloak redirect URIs instead of wildcards (REG-58237).",
     "Sync users and permissions, apply the mirroring config map for consumers that need their own vocabulary, and verify reach in the IAM UI.",
   ],
 };
@@ -526,7 +542,7 @@ export const roadmap: RoadmapPhase[] = [
       { key: "RSH-1846", title: "Principal User (user manager)", status: "Closed", note: "Epic Closed; Make Work clone RSH-4255 is still New — Closed is not in-market" },
       { key: "RSH-2150", title: "Permission mirroring", status: "Closed", note: "Epic Closed — confirm Barbados / Rconnect is actually consuming mirrored grants" },
       { key: "RSH-793", title: "User profile management", status: "In Implementation", note: "Improvements tracked separately as RSH-4258" },
-      { key: "RSH-4221", title: "IAM user guide", status: "In Implementation", note: "Kartik Sharma" },
+      { key: "RSH-4221", title: "IAM user guide", status: "Closed", note: "Kartik Sharma — Closed 7 Sep 2026" },
       { key: "RSH-3042", title: "Entity scoping migration", status: "Closed", note: "Spike Closed with RSH-3503; migration plan is the remaining work" },
       { key: "RSH-429", title: "Defects and tech debt backlog", status: "Ready", note: "Standing quality budget" },
       { key: "RSH-2169", title: "Entity group inheritance", status: "Blocked", note: "Blocked on Master Data Management membership expansion" },
@@ -547,9 +563,10 @@ export const roadmap: RoadmapPhase[] = [
     items: [
       { key: "RSH-4254", title: "Stabilization epic", status: "New", note: "Retitled Stabilization Release — 26.4" },
       { key: "RSH-4255", title: "Principal User — make work", status: "New", note: "Now assigned to Dominik Czerwiński; the real go-live path" },
-      { key: "RSH-2451", title: "OpenSSL application security", status: "Ready", note: "Ready across three sprints; not in 2617" },
-      { key: "RSH-2453", title: "All modules on IAM in the dev cluster", status: "In Quality Review", note: "Integration proving ground" },
-      { key: "RSH-4251", title: "IAM–Analyser integration", status: "Ready for integration", note: "Blocks the Analytics consumer (RSH-719); left 2616 unassigned" },
+      { key: "RSH-2451", title: "OpenSSL application security", status: "In PO Review", note: "Moved from Adam Ennis to Dominik Czerwiński; now In PO Review" },
+      { key: "RSH-2453", title: "All modules on IAM in the dev cluster", status: "In Quality Review", note: "Integration proving ground; still spilling" },
+      { key: "RSH-4251", title: "IAM–Analyser integration", status: "Closed", note: "Closed on the 2616 record. Confirm Analytics actually consumes it." },
+      { key: "RSH-5909", title: "Make RSH PL & IAM OSFI ready", status: "New", note: "Must / OSFI. External secrets, Azure storage, Keycloak redirect URIs. Unassigned." },
     ],
     exit: [
       "Audience validation is switched on and the issuer fix-up is automated.",
@@ -584,7 +601,7 @@ export const consumers = [
   { name: "R3 Data Collection", key: "RSH-718", state: "Closed", note: "Required endpoints shipped (RSH-1488)" },
   { name: "Vizor Licensing & Automatic Exchange of Information (AEOI)", key: "REG-49745", state: "In Implementation", note: "IAM Integration doc v17 · Authentication and Authorization v62" },
   { name: "R3 × RSH Shared IAM", key: "REG-48802", state: "In Implementation", note: "Work package still open" },
-  { name: "RSH Analytics", key: "RSH-719", state: "In Implementation", note: "Target 26.2 · blocked by RSH-4251" },
+  { name: "RSH Analytics", key: "RSH-719", state: "In Implementation", note: "Target 26.2 · RSH-4251 Closed in 2616 — confirm the consumer actually takes it" },
   { name: "Rconnect / Central Bank of Barbados (CBBB)", key: "RSH-2150", state: "Closed", note: "Mirroring epic Closed — confirm Barbados is consuming mirrored grants" },
   { name: "RFS", key: "RFS-1688", state: "New", note: "Not scheduled" },
 ];
@@ -599,6 +616,7 @@ export const backlogGantt: GanttItem[] = [
   { id: "stab", label: "Stabilization / make-work", ticket: "RSH-4254", start: "2026-08-14", end: "2026-11-30", status: "planned", lane: "PL 26.3" },
   { id: "pu2", label: "Principal User — Make Work", ticket: "RSH-4255", start: "2026-09-01", end: "2026-12-18", status: "planned", lane: "PL 26.3" },
   { id: "inherit", label: "Entity-group inheritance", ticket: "RSH-2169", start: "2026-08-01", end: "2026-12-31", status: "blocked", lane: "Blocked" },
+  { id: "osfi", label: "OSFI / IAM deployment parity", ticket: "RSH-5909", start: "2026-09-07", end: "2026-12-18", status: "planned", lane: "OSFI" },
   { id: "pat", label: "Personal access tokens", ticket: "RSH-4262", start: "2027-01-08", end: "2027-03-31", status: "later", lane: "Later" },
   { id: "wcag", label: "Web Content Accessibility Guidelines 2.2 AA", ticket: "RSH-4256", start: "2027-01-15", end: "2027-04-30", status: "later", lane: "Later" },
   { id: "multicore", label: "Multi-Core Identity Provider", ticket: "RSH-795", start: "2027-02-01", end: "2027-06-30", status: "later", lane: "Later" },
@@ -712,7 +730,7 @@ export const rice = [
     impact: 2,
     confidence: 0.85,
     effort: 2,
-    why: "On the 2618 board at Ready after three idle sprints. Cheap to close this sprint.",
+    why: "On the 2618 board In PO Review after three idle sprints. Cheap to close this sprint.",
     bottleneck: false,
   },
   {
@@ -761,5 +779,11 @@ export const bottlenecks = [
     ticket: "RSH-4254",
     detail:
       "RSH-96 is the strategy initiative (Amber, Jan 2026). RSH-4254 (14 Aug) is a maintenance epic whose stated goal is to get IAM actually working.",
+  },
+  {
+    title: "OSFI deployment parity is unowned",
+    ticket: "RSH-5909",
+    detail:
+      "Make RSH PL & IAM OSFI Ready is New, High, Must, and unassigned. Confirmed scope is external secrets and Azure storage. The IAM-relevant DC link is REG-58237 (remove wildcard Keycloak redirect URIs) — product path, not 26.4. Secret management RSH-2180 is also New and unassigned.",
   },
 ];

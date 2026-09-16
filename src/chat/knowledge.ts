@@ -130,6 +130,22 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
     tab: "spillover",
   });
 
+  for (const sprint of project.closedSprints ?? []) {
+    add({
+      id: `closed-sprint-${sprint.id}`,
+      topic: "Closed sprints",
+      title: `Closed sprint ${sprint.name}`,
+      body: join([
+        `${sprint.name} ran ${sprint.start} – ${sprint.end}.`,
+        sprint.closed.length &&
+          `Closed: ${sprint.closed.map((ticket) => `${ticket.key} (${ticket.status})`).join(", ")}.`,
+        sprint.leftover.length &&
+          `Leftover: ${sprint.leftover.map((ticket) => `${ticket.key} (${ticket.status})`).join(", ")}.`,
+      ]),
+      keywords: ["closed sprint", "previous sprints", "sprint history", sprint.name],
+    });
+  }
+
   for (const [index, card] of project.previousSprint.cards.entries()) {
     add({
       id: `spillover-${index}`,
