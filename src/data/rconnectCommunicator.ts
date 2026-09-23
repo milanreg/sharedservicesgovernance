@@ -19,7 +19,7 @@ export const CONFLUENCE = {
   project: "https://confluence.regnology.net/display/RCON/Rconnect+Project",
 };
 
-export const SNAPSHOT = "16 Sep 2026";
+export const SNAPSHOT = "23 Sep 2026";
 
 export const sprint = {
   name: "Yolo - Communicator Sprint 23",
@@ -27,11 +27,11 @@ export const sprint = {
   start: "9 Sept 2026",
   end: "23 Sept 2026",
   board: 3734,
-  goal: "Land IAM chart simplification and assignee/history work — RCON.C 1.2.0 is still not Closed",
-  /** Board committed 29, including two ONADD DataCalc tickets. */
-  committed: 29,
+  goal: "Land IAM chart simplification and assignee/history work — RCON.C 1.2.1 is the current unreleased train",
+  /** Board committed 35, including two ONADD DataCalc tickets. */
+  committed: 35,
   done: 0,
-  inProgress: 5,
+  inProgress: 9,
   blocked: 0,
 };
 
@@ -47,8 +47,8 @@ export const sprintTickets: Ticket[] = [
   {
     key: "ONADD-10795",
     summary: "[DataCalc] release 10.3.0",
-    status: "New",
-    owner: "Unassigned",
+    status: "In Implementation",
+    owner: "Mateusz Uzarek",
     spillover: true,
     why: "DataCalc 10.3.0 is unassigned and still committed here",
   },
@@ -62,9 +62,9 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1534",
     summary: "Upgrade netty-handler to clear CVE-2026-75595",
-    status: "Implemented",
-    owner: "Mateusz Uzarek",
-    why: "The CVE fix is Implemented — close it",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "The CVE fix is Ready for integration — get it into 1.2.1",
   },
   {
     key: "RCON-1479",

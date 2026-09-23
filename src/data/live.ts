@@ -34,15 +34,19 @@ export function applyLive(
 ): ProjectGovernance {
   const authored = new Map(project.tickets.map((t) => [t.key, t]));
 
-  const tickets: Ticket[] = snapshot.tickets.map((live) => {
+  const overlay = (live: Ticket): Ticket => {
     const previous = authored.get(live.key);
     return {
       ...live,
       why: previous?.why,
       spillover: live.spillover ?? previous?.spillover,
       risk: risks[live.key],
+      comment: live.comment ?? previous?.comment,
     };
-  });
+  };
+
+  const tickets: Ticket[] = snapshot.tickets.map(overlay);
+  const backlogTickets = (snapshot.backlogTickets ?? project.backlogTickets ?? []).map(overlay);
 
   return {
     ...project,
@@ -52,6 +56,7 @@ export function applyLive(
     activity: snapshot.activity ?? project.activity,
     snapshot: formatSyncedAt(snapshot.syncedAt),
     tickets: tickets.length ? tickets : project.tickets,
+    backlogTickets,
     sprint: snapshot.sprint ? { ...project.sprint, ...snapshot.sprint } : project.sprint,
     closedSprints: snapshot.closedSprints ?? project.closedSprints,
     projectSummary: { ...project.projectSummary, ...snapshot.projectSummary },

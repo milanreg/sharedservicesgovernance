@@ -6,6 +6,7 @@ import type {
   ConfluenceDoc,
   LiveSnapshot,
   Ticket,
+  TicketComment,
 } from "../src/template/types";
 import type { ProjectSyncConfig } from "./syncConfig";
 
@@ -152,6 +153,12 @@ async function count(creds: Credentials, jql: string): Promise<number> {
   }
 }
 
+type JiraComment = {
+  created?: string;
+  author?: { displayName?: string };
+  body?: unknown;
+};
+
 type JiraIssue = {
   key: string;
   fields: {
@@ -164,8 +171,31 @@ type JiraIssue = {
     created?: string;
     updated?: string;
     duedate?: string | null;
+    comment?: { comments?: JiraComment[] };
   };
 };
+
+function adfText(node: unknown): string {
+  if (!node) return "";
+  if (typeof node === "string") return node;
+  if (Array.isArray(node)) return node.map(adfText).join(" ");
+  if (typeof node !== "object") return "";
+  const value = node as { text?: string; content?: unknown[] };
+  return [value.text ?? "", ...(value.content ?? []).map(adfText)].filter(Boolean).join(" ");
+}
+
+function lastComment(issue: JiraIssue): TicketComment | undefined {
+  const comments = issue.fields.comment?.comments ?? [];
+  const latest = comments.at(-1);
+  if (!latest) return undefined;
+  const body = adfText(latest.body).replace(/\s+/g, " ").trim();
+  if (!body) return undefined;
+  return {
+    author: latest.author?.displayName ?? "Unknown",
+    date: formatDate(latest.created),
+    body: body.length > 280 ? `${body.slice(0, 277)}…` : body,
+  };
+}
 
 async function search(
   creds: Credentials,
@@ -198,6 +228,7 @@ function toTicket(issue: JiraIssue): Ticket {
     owner: issue.fields.assignee?.displayName ?? "Unassigned",
     blocked: /blocked/i.test(status) || /\[blocked\]/i.test(summary),
     spillover: (issue.fields.closedSprints?.length ?? 0) > 0,
+    comment: lastComment(issue),
   };
 }
 
@@ -237,7 +268,7 @@ async function readSprint(
 
   const issues = await jira<{ issues: JiraIssue[] }>(
     creds,
-    `/rest/agile/1.0/sprint/${active.id}/issue?maxResults=200&fields=summary,status,assignee,closedSprints`,
+    `/rest/agile/1.0/sprint/${active.id}/issue?maxResults=200&fields=summary,status,assignee,closedSprints,comment`,
   );
   const tickets = (issues.issues ?? []).map(toTicket);
   const inFlight = (t: Ticket) => /implementation|review|progress/i.test(t.status);
@@ -600,8 +631,22 @@ export async function buildSnapshot(
     : { sprint: undefined, tickets: [] as Ticket[] };
 
   if (!sprintData.tickets.length && !config.boardId) {
-    const issues = await search(creds, `${openScope} ORDER BY updated DESC`, 50);
+    const issues = await search(creds, `${openScope} ORDER BY updated DESC`, 50, [
+      "comment",
+      "closedSprints",
+    ]);
     sprintData.tickets = issues.map(toTicket);
+  }
+
+  let backlogTickets: Ticket[] = [];
+  try {
+    const issues = await search(creds, `${openScope} ORDER BY updated DESC`, 80, [
+      "comment",
+      "closedSprints",
+    ]);
+    backlogTickets = issues.map(toTicket);
+  } catch (error) {
+    warnings.push(`Backlog list could not be read: ${(error as Error).message}`);
   }
 
   const closedSprints = config.boardId
@@ -623,6 +668,7 @@ export async function buildSnapshot(
     projectSummary: { done, open, highPriorityOpen, unassignedOpen, epics, ...releases },
     sprint: sprintData.sprint,
     tickets: sprintData.tickets,
+    backlogTickets,
     closedSprints,
     activity,
     confluence,

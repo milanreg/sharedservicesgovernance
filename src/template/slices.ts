@@ -1,4 +1,4 @@
-import type { Ticket } from "./types";
+import type { ProjectGovernance, Ticket, TicketCardId } from "./types";
 import { workflowTone } from "./status";
 
 export type SprintSlice = "committed" | "done" | "wip" | "integration" | "attention";
@@ -39,4 +39,40 @@ export function sprintSlices(tickets: Ticket[]) {
       !awaitingIntegration(t.status),
   );
   return { committed: tickets, done, wip, integration, attention, waiting };
+}
+
+function byKey(tickets: Ticket[]) {
+  const seen = new Map<string, Ticket>();
+  for (const ticket of tickets) seen.set(ticket.key, ticket);
+  return [...seen.values()];
+}
+
+/** Counts and lists behind the four stakeholder cards on every project board. */
+export function stakeholderCards(project: ProjectGovernance): Record<
+  TicketCardId,
+  { total: number; tickets: Ticket[] }
+> {
+  const sprint = project.tickets;
+  const backlog = (project.backlogTickets?.length
+    ? project.backlogTickets
+    : sprint.filter((ticket) => workflowTone(ticket.status) !== "green"));
+  const spillover = sprint.filter((ticket) => ticket.spillover);
+  const attention = byKey([
+    ...sprint.filter(
+      (ticket) => ticket.blocked || workflowTone(ticket.status, { blocked: ticket.blocked }) === "red",
+    ),
+    ...backlog.filter(
+      (ticket) => ticket.blocked || workflowTone(ticket.status, { blocked: ticket.blocked }) === "red",
+    ),
+  ]);
+
+  return {
+    backlog: {
+      total: project.projectSummary.open || backlog.length,
+      tickets: backlog,
+    },
+    sprint: { total: sprint.length, tickets: sprint },
+    spillover: { total: spillover.length, tickets: spillover },
+    attention: { total: attention.length, tickets: attention },
+  };
 }

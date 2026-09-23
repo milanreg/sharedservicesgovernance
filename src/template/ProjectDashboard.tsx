@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ChatWidget } from "../components/ChatWidget";
 import { Gantt } from "../components/Gantt";
@@ -8,18 +8,20 @@ import { StatusBadge } from "../components/StatusBadge";
 import { ClosedSprintsDialog } from "../components/ClosedSprintsDialog";
 import { SummaryDialog } from "../components/SummaryDialog";
 import { SyncButton } from "../components/SyncButton";
+import { TicketListDialog } from "../components/TicketListDialog";
 import { Topbar } from "../components/Topbar";
 import { getTicketRisks } from "../data/catalog";
 import { applyLive } from "../data/live";
 import { ragTone, workflowTone } from "../template/status";
-import { isSprintSlice, sprintSlices, type SprintSlice } from "../template/slices";
-import { DEFAULT_TAB, GOVERNANCE_TABS, isTabId, type TabId } from "../template/tabs";
+import { isSprintSlice, sprintSlices, stakeholderCards, type SprintSlice } from "../template/slices";
+import { GOVERNANCE_TABS, isTabId, type TabId } from "../template/tabs";
 import {
   riceScore,
   ticketHref,
   type LiveSnapshot,
   type ProjectGovernance,
   type Ticket,
+  type TicketCardId,
 } from "../template/types";
 
 function TicketTable({
@@ -82,7 +84,6 @@ function EmptyTab({ title, body }: { title: string; body: string }) {
 
 function SprintTab({
   project,
-  slice,
 }: {
   project: ProjectGovernance;
   slice?: SprintSlice;
@@ -92,15 +93,14 @@ function SprintTab({
   }
 
   const groups = sprintSlices(project.tickets);
-  const focus = (id: SprintSlice) => (slice === id ? "section-focus" : "");
-  const pm = project.pmFocus;
-  const unassigned = project.tickets.filter((t) => t.owner === "Unassigned" && t.status !== "Closed");
-  const red = project.tickets.filter((t) => t.risk?.level === "red");
 
   return (
     <section className="panel">
       <h2>Sprint {project.sprint.name}</h2>
       <p className="muted">
+        {project.sprint.start && project.sprint.end
+          ? `${project.sprint.start} – ${project.sprint.end}. `
+          : null}
         {project.sprint.narrative}{" "}
         {project.boardUrl ? (
           <a href={project.boardUrl} target="_blank" rel="noreferrer">
@@ -110,110 +110,8 @@ function SprintTab({
       </p>
       {project.sprint.headline ? <div className="callout">{project.sprint.headline}</div> : null}
 
-      {pm.thisSprint.length ? (
-        <>
-          <h3>Product manager focus — do this sprint</h3>
-          <ol className="pm-list">
-            {pm.thisSprint.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
-        </>
-      ) : null}
-
-      {pm.sequence.length ? (
-        <>
-          <h3>Delivery sequence (highest return first)</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Item</th>
-                <th>Ticket</th>
-                <th>Why it is next</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pm.sequence.map((row) => (
-                <tr key={row.ticket}>
-                  <td>{row.order}</td>
-                  <td>{row.item}</td>
-                  <td>
-                    <a href={ticketHref(project.ticketBaseUrl, row.ticket)} target="_blank" rel="noreferrer">
-                      {row.ticket}
-                    </a>
-                  </td>
-                  <td>{row.why}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </>
-      ) : null}
-
-      {slice === "committed" ? (
-        <div className="section-focus" id="slice-committed">
-          <h3>All tickets in this sprint commitment</h3>
-          <TicketTable rows={groups.committed} baseUrl={project.ticketBaseUrl} />
-        </div>
-      ) : (
-        <div id="slice-committed" />
-      )}
-
-      <div className={`completed-block ${focus("done")}`} id="slice-done">
-        <header className="completed-head">
-          <h3>Completed this sprint</h3>
-          <StatusBadge status="Closed" />
-          <span className="completed-count">{groups.done.length} done</span>
-        </header>
-        <TicketTable rows={groups.done} baseUrl={project.ticketBaseUrl} />
-      </div>
-
-      <div className={focus("attention")} id="slice-attention">
-        <h3>Blocked</h3>
-        <TicketTable rows={groups.attention} baseUrl={project.ticketBaseUrl} />
-      </div>
-
-      <div className={focus("wip")} id="slice-wip">
-        <h3>In progress (Implementation + Quality Review)</h3>
-        <TicketTable rows={groups.wip} baseUrl={project.ticketBaseUrl} />
-      </div>
-
-      <div className={focus("integration")} id="slice-integration">
-        <h3>Ready for integration</h3>
-        <p className="muted">
-          Development is finished and the change is queued for a release. It is not delivered
-          until the ticket closes.
-        </p>
-        <TicketTable rows={groups.integration} baseUrl={project.ticketBaseUrl} />
-      </div>
-
-      <div id="slice-waiting">
-        <h3>Ready / not started</h3>
-        <TicketTable rows={groups.waiting} baseUrl={project.ticketBaseUrl} />
-      </div>
-
-      <div className="grid-2">
-        <div>
-          <h3>Red risks still open</h3>
-          <TicketTable rows={red} baseUrl={project.ticketBaseUrl} />
-        </div>
-        <div>
-          <h3>Unassigned in this sprint</h3>
-          <TicketTable rows={unassigned} baseUrl={project.ticketBaseUrl} />
-        </div>
-      </div>
-
-      {pm.questions.length ? (
-        <>
-          <h3>Open questions</h3>
-          <ul className="pm-list">
-            {pm.questions.map((q) => (
-              <li key={q}>{q}</li>
-            ))}
-          </ul>
-        </>
-      ) : null}
+      <h3>Current sprint tickets</h3>
+      <TicketTable rows={groups.committed} baseUrl={project.ticketBaseUrl} />
     </section>
   );
 }
@@ -913,23 +811,16 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
   const [live, setLive] = useState<LiveSnapshot | undefined>();
   const [reviewOpen, setReviewOpen] = useState(false);
   const [sprintsOpen, setSprintsOpen] = useState(false);
+  const [openCard, setOpenCard] = useState<TicketCardId | undefined>();
   const project = live ? applyLive(authored, live, getTicketRisks(authored.slug)) : authored;
   const [params, setParams] = useSearchParams();
   const requested = params.get("tab");
-  const tab: TabId = isTabId(requested) ? requested : DEFAULT_TAB;
+  const tab: TabId | undefined = isTabId(requested) ? requested : undefined;
   const requestedSlice = params.get("slice");
   const slice = isSprintSlice(requestedSlice) ? requestedSlice : undefined;
-  const Panel = PANELS[tab];
-  const groups = sprintSlices(project.tickets);
-
-  useEffect(() => {
-    if (tab !== "sprint" || !slice) return;
-    document.getElementById(`slice-${slice}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [tab, slice]);
-
-  const openSlice = (next: SprintSlice) => {
-    setParams({ tab: "sprint", slice: next });
-  };
+  const Panel = tab ? PANELS[tab] : undefined;
+  const cards = stakeholderCards(project);
+  const cardTickets = openCard ? cards[openCard] : undefined;
 
   return (
     <div className="shell">
@@ -971,6 +862,16 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
 
         <SummaryDialog project={project} open={reviewOpen} onClose={() => setReviewOpen(false)} />
         <ClosedSprintsDialog project={project} open={sprintsOpen} onClose={() => setSprintsOpen(false)} />
+        {openCard && cardTickets ? (
+          <TicketListDialog
+            project={project}
+            card={openCard}
+            tickets={cardTickets.tickets}
+            total={cardTickets.total}
+            open
+            onClose={() => setOpenCard(undefined)}
+          />
+        ) : null}
 
         <div className="status-legend" aria-label="Status colours">
           <span>
@@ -994,51 +895,42 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
         <div className="stats">
           <button
             type="button"
-            className={`stat ${slice === "committed" ? "stat-active" : ""}`}
-            onClick={() => openSlice("committed")}
+            className={`stat ${openCard === "backlog" ? "stat-active" : ""}`}
+            onClick={() => setOpenCard("backlog")}
           >
-            <b>{groups.committed.length}</b>
-            <span>Committed in {project.sprint.name}</span>
-            <TicketKeys tickets={groups.committed} baseUrl={project.ticketBaseUrl} />
+            <b>{cards.backlog.total}</b>
+            <span>Total tickets in backlog</span>
+            <TicketKeys tickets={cards.backlog.tickets} baseUrl={project.ticketBaseUrl} />
           </button>
           <button
             type="button"
-            className={`stat stat-done ${slice === "done" ? "stat-active" : ""}`}
-            onClick={() => openSlice("done")}
+            className={`stat ${openCard === "sprint" ? "stat-active" : ""}`}
+            onClick={() => setOpenCard("sprint")}
           >
-            <b>{groups.done.length}</b>
-            <span>Completed this sprint</span>
-            <TicketKeys tickets={groups.done} baseUrl={project.ticketBaseUrl} />
+            <b>{cards.sprint.total}</b>
+            <span>Total tickets in current sprint</span>
+            <TicketKeys tickets={cards.sprint.tickets} baseUrl={project.ticketBaseUrl} />
           </button>
           <button
             type="button"
-            className={`stat ${slice === "wip" ? "stat-active" : ""}`}
-            onClick={() => openSlice("wip")}
+            className={`stat ${openCard === "spillover" ? "stat-active" : ""}`}
+            onClick={() => setOpenCard("spillover")}
           >
-            <b>{groups.wip.length}</b>
-            <span>In progress (Implementation + Quality Review)</span>
-            <TicketKeys tickets={groups.wip} baseUrl={project.ticketBaseUrl} />
+            <b>{cards.spillover.total}</b>
+            <span>Spillover from last sprint</span>
+            <TicketKeys tickets={cards.spillover.tickets} baseUrl={project.ticketBaseUrl} />
           </button>
           <button
             type="button"
-            className={`stat ${slice === "integration" ? "stat-active" : ""}`}
-            onClick={() => openSlice("integration")}
+            className={`stat stat-alert ${openCard === "attention" ? "stat-active" : ""}`}
+            onClick={() => setOpenCard("attention")}
           >
-            <b>{groups.integration.length}</b>
-            <span>Ready for integration</span>
-            <TicketKeys tickets={groups.integration} baseUrl={project.ticketBaseUrl} />
-          </button>
-          <button
-            type="button"
-            className={`stat stat-alert ${slice === "attention" ? "stat-active" : ""}`}
-            onClick={() => openSlice("attention")}
-          >
-            <b>{groups.attention.length}</b>
-            <span>Needs attention</span>
-            <TicketKeys tickets={groups.attention} baseUrl={project.ticketBaseUrl} />
+            <b>{cards.attention.total}</b>
+            <span>Needs attention / blockers</span>
+            <TicketKeys tickets={cards.attention.tickets} baseUrl={project.ticketBaseUrl} />
           </button>
         </div>
-        <p className="muted stat-hint">Click a number to open the matching tickets on Sprint details.</p>
+        <p className="muted stat-hint">Click a card to see the tickets behind the number.</p>
 
         <nav className="tabs" aria-label="Governance views">
           {GOVERNANCE_TABS.map((t) => (
@@ -1049,7 +941,7 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
               aria-current={tab === t.id ? "page" : undefined}
               onClick={(e) => {
                 e.preventDefault();
-                setParams({ tab: t.id });
+                setParams(tab === t.id ? {} : { tab: t.id });
               }}
             >
               {t.label}
@@ -1057,7 +949,11 @@ export function ProjectDashboard({ project: authored }: { project: ProjectGovern
           ))}
         </nav>
 
-        <Panel project={project} slice={slice} />
+        {Panel ? (
+          <Panel project={project} slice={slice} />
+        ) : (
+          <p className="muted stat-hint">Open a view above for product overview, the current sprint, or a Gantt.</p>
+        )}
 
         <div className="sources">
           {project.sources}

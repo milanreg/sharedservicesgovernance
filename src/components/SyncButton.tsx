@@ -39,11 +39,13 @@ function relativeAge(iso: string, now: number): string {
  */
 function summarize(snapshot: LiveSnapshot): string {
   const { warnings, tickets, confluence } = snapshot;
+  const commented = [...tickets, ...(snapshot.backlogTickets ?? [])].filter((ticket) => ticket.comment).length;
   const closed = snapshot.closedSprints?.length
     ? `, ${snapshot.closedSprints.length} closed sprint${snapshot.closedSprints.length === 1 ? "" : "s"}`
     : "";
+  const comments = commented ? `, ${commented} with a recent comment` : "";
   if (!warnings.length) {
-    return `Synced ${tickets.length} sprint items${closed} and ${confluence.length} Confluence pages.`;
+    return `Synced ${tickets.length} sprint items${closed}${comments} and ${confluence.length} Confluence pages.`;
   }
 
   const groups = new Map<string, number>();

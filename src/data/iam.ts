@@ -23,7 +23,7 @@ export const CONFLUENCE = {
   strategy: "https://confluence.regnology.net/pages/viewpage.action?pageId=194395208",
 };
 
-export const SNAPSHOT = "16 Sep 2026";
+export const SNAPSHOT = "23 Sep 2026";
 
 export const sprint = {
   name: "RSH PL 2618",
@@ -31,11 +31,11 @@ export const sprint = {
   start: "10 Sep 2026",
   end: "24 Sep 2026",
   board: 2936,
-  committed: 10,
-  done: 0,
-  inProgress: 7,
-  ready: 3,
-  new: 0,
+  committed: 16,
+  done: 1,
+  inProgress: 12,
+  ready: 2,
+  new: 1,
   blocked: 1,
   spillover: 6,
 };
@@ -46,7 +46,7 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RSH-6545",
     summary: "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
-    status: "In Quality Review",
+    status: "In PO Review",
     owner: "Shashank Prasad",
     why: "Search leaving the user on page 3 of an empty result is a real admin-UX defect",
   },
@@ -76,16 +76,16 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RSH-786",
     summary: "[IAM] Add preferred language to user profile and tokens",
-    status: "In Implementation",
+    status: "In PO Review",
     owner: "Celso Garcia",
     why: "Companion to the translations spike — language has to travel with the token",
   },
   {
     key: "RSH-6560",
     summary: "[IAM] Spike: review SupTech modules' approaches to translations",
-    status: "In Implementation",
+    status: "In PO Review",
     owner: "Celso Garcia",
-    why: "Phase 3 translations work starting while 26.4 stabilization is still New",
+    why: "Celso posted the recommended translations approach on 17 Sep; the spike is now In PO Review",
   },
   {
     key: "RSH-4211",
@@ -98,9 +98,9 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RSH-4784",
     summary: "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
-    status: "Ready",
+    status: "Closed",
     owner: "Paweł Śnieżek",
-    why: "Phase 3 PAT spike",
+    why: "PAT spike Closed this sprint — production PAT RSH-4211 is still Ready",
     spillover: true,
   },
   {
@@ -119,6 +119,48 @@ export const sprintTickets: Ticket[] = [
     why: "Vizor API Service (VAS) entityGroups contract cannot expand members — blocked on Master Data Management (MDM)",
     blocked: true,
     spillover: true,
+  },
+  {
+    key: "RSH-427",
+    summary: "[IAM] Implement Multi-Language Support Across IAM Module",
+    status: "In Implementation",
+    owner: "Celso Garcia",
+    why: "The product translations story that the RSH-6560 spike is meant to steer",
+  },
+  {
+    key: "RSH-6620",
+    summary: "[IAM] Add Keycloak table to track module and audience",
+    status: "In PO Review",
+    owner: "Dominik Czerwiński",
+    why: "Keycloak bookkeeping pulled into 2618 and already in PO Review",
+  },
+  {
+    key: "RSH-6651",
+    summary: "[IAM] Add Unscoped option to Add group Scope label",
+    status: "In Quality Review",
+    owner: "Shashank Prasad",
+    why: "Group-scope UX that sits next to the still-blocked inheritance work",
+  },
+  {
+    key: "RSH-6652",
+    summary: "[IAM] Filter roles by scope in Add Permission and when assigning to user groups",
+    status: "New",
+    owner: "Dominik Czerwiński",
+    why: "Dominik posted scoped-role examples on 22 Sep; the ticket is still New",
+  },
+  {
+    key: "RSH-6661",
+    summary: "[IAM] Allow group scope label change",
+    status: "In Quality Review",
+    owner: "Dominik Czerwiński",
+    why: "Scope-label edit path now in Quality Review on the last days of 2618",
+  },
+  {
+    key: "RSH-6667",
+    summary: "[IAM] IAM API OpenSSL failures on FIPS-enabled nodes",
+    status: "In Quality Review",
+    owner: "Dominik Czerwiński",
+    why: "Follow-on to the OpenSSL AppSec ticket — FIPS nodes are still failing",
   },
 ];
 

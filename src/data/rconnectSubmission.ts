@@ -30,27 +30,26 @@ export const CONFLUENCE = {
     "https://confluence.regnology.net/spaces/RCON/pages/274799332/Deploy+as+a+component+on+PROD",
 };
 
-export const SNAPSHOT = "16 Sep 2026";
+export const SNAPSHOT = "23 Sep 2026";
 
 export const sprint = {
-  name: "RCON.S sprint 16",
-  id: 2947,
-  start: "7 Sep 2026",
-  end: "18 Sep 2026",
+  name: "RCON.S sprint 17",
+  start: "21 Sep 2026",
+  end: "2 Oct 2026",
   board: 3734,
   goal: "Enablers support · messaging-bus integration · Spring Boot 4 · NiFi registry updater",
-  committed: 26,
+  committed: 29,
   done: 1,
   inProgress: 8,
   blocked: 0,
 };
 
-/** RCON.S sprint 16 as at 16 Sep 2026 — mid-sprint, one Closed. */
+/** RCON.S sprint 17 as at 23 Sep 2026 — day three, one Closed. */
 export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1426",
     summary: "[Spike] Investigate on-prem / private cloud support",
-    status: "In Implementation",
+    status: "Implemented",
     owner: "Konstantin Artsiomenka",
     why: "On-prem variant is still only sketched in ADR-0005; this spike is the first ticketed look",
   },
@@ -118,7 +117,7 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1343",
     summary: "Rconnect-backend: fix in memory sorting",
-    status: "In Implementation",
+    status: "In Quality Review",
     owner: "Konstantin Artsiomenka",
     why: "Backend sort correctness; sits under the monolith-merge work",
   },
@@ -221,23 +220,51 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1526",
     summary: "Enhancement - CountryRegime feedbackSchema (BE)",
-    status: "New",
-    owner: "Unassigned",
-    why: "First backend slice of the schema-driven feedback ADR",
+    status: "Implemented",
+    owner: "Benjamin Garaude",
+    why: "First backend slice of the schema-driven feedback ADR — Implemented this sprint",
   },
   {
     key: "RCON-1527",
     summary: "Enhancement - Schema-driven feedback write & storage (BE)",
-    status: "New",
-    owner: "Unassigned",
-    why: "Write path for the schema-driven feedback ADR; unassigned with RCON-1526",
+    status: "Implemented",
+    owner: "Benjamin Garaude",
+    why: "Write path for the schema-driven feedback ADR — Implemented this sprint",
   },
   {
     key: "RCON-1540",
     summary: "Install ActiveMQ JMS client libraries on NiFi (RRH-dev)",
+    status: "Ready for integration",
+    owner: "Unassigned",
+    why: "Messaging-bus proving ground on RRH-dev; now Ready for integration and unassigned",
+  },
+  {
+    key: "RCON-1542",
+    summary: "[NiFi] Drop mandatory .xml from DestinationFilename format check (FiTax)",
+    status: "Closed",
+    owner: "Unassigned",
+    why: "The only Closed item in sprint 17; Anca flagged on 22 Sep that dropping the check can break Finland",
+  },
+  {
+    key: "RCON-1550",
+    summary: "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
+    status: "Ready",
+    owner: "Kamil Burek",
+    why: "Process scorecard pulled into sprint 17 and already Ready",
+  },
+  {
+    key: "RCON-1565",
+    summary: "XRay Adoption",
     status: "In Implementation",
-    owner: "Benjamin Garaude",
-    why: "Messaging-bus proving ground on RRH-dev; High, added mid-sprint 16",
+    owner: "Rafał Bator",
+    why: "Xray rollout is now in Implementation on the Submission board",
+  },
+  {
+    key: "RCON-1572",
+    summary: "[On-prem] create RConnect Helm charts without CNPG",
+    status: "In Implementation",
+    owner: "Konstantin Artsiomenka",
+    why: "On-prem follow-on to the RCON-1426 spike — Helm without CloudNativePG",
   },
 ];
 

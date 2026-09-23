@@ -167,7 +167,7 @@ const INTENTS: Intent[] = [
           ),
         );
       }
-      return { blocks, sources: [{ label: "Sprint details", tab: "sprint" }, { label: "RACI & RICE", tab: "rice" }] };
+      return { blocks, sources: [{ label: "Sprint details", tab: "sprint" }] };
     },
   },
   {
@@ -227,7 +227,7 @@ const INTENTS: Intent[] = [
         blocks.push(text("This sprint the board calls out:"));
         blocks.push(list(project.pmFocus.thisSprint.map((line) => ({ title: line }))));
       }
-      return { blocks, sources: [{ label: "RACI & RICE", tab: "rice" }] };
+      return { blocks, sources: [{ label: "Product overview", tab: "overview" }] };
     },
   },
   {
@@ -391,7 +391,7 @@ const INTENTS: Intent[] = [
           ),
         );
       }
-      return { blocks, sources: [{ label: "Sprint spillovers", tab: "spillover" }] };
+      return { blocks, sources: [{ label: "Sprint details", tab: "sprint" }] };
     },
   },
   {

@@ -158,7 +158,7 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
   boardUrl: BOARD,
   snapshot: SNAPSHOT,
   sources:
-    "Jira: project = RCON, less the RCON-276 Communicator subtree and Xray test artefacts (834 resolved, 79 open, 51 epics) · board 3734, sprint RCON.S sprint 16. Confluence RCON space: Rconnect Submission product page (v2, Feb 2026), seven architecture decision records, the Rconnect and NiFi integration guides, Deploy as a component on PROD, and the security vulnerability triage (Aug 2026).",
+    "Jira: project = RCON, less the RCON-276 Communicator subtree and Xray test artefacts (840 resolved, 87 open, 52 epics) · board 3734, sprint RCON.S sprint 17. Confluence RCON space: Rconnect Submission product page (v2, Feb 2026), seven architecture decision records, the Rconnect and NiFi integration guides, Deploy as a component on PROD, and the security vulnerability triage (Aug 2026).",
   populated: true,
   sprint: {
     name: sprint.name,
@@ -168,28 +168,28 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, one of five concurrent team sprints there. Goal: ${sprint.goal}. Twenty-six items committed. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, one of five concurrent team sprints there. Goal: ${sprint.goal}. Twenty-nine items committed. Snapshot ${SNAPSHOT}.`,
     headline:
-      "One Closed (Sweden CESOP feedback). ActiveMQ JMS on NiFi (RCON-1540) joined mid-sprint. A large New pile is still unassigned. The messaging-bus pair sits at Ready for integration.",
+      "Sprint 17, day three. One Closed — FiTax DestinationFilename xml check (RCON-1542); Anca flagged on 22 Sep that dropping the validation can break Finland. Green Belt scorecard (RCON-1550) is Ready under Kamil. On-prem Helm without CNPG (RCON-1572) and XRay adoption (RCON-1565) are in Implementation. ActiveMQ JMS (RCON-1540) and the schema-driven feedback front ends are Ready for integration. A large New pile is still unassigned.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
-    name: "RCON.S sprint 15",
-    dates: "closed 7 Sep 2026",
+    name: "RCON.S sprint 16",
+    dates: "7 Sep – 18 Sep 2026",
     narrative:
-      "Sprint 15 sat between 14 and 16 and closed with RCON.S 2.2.0. Release activities, Hungary flow, feedback-in-the-same-view, and the Alexandru enablers booking reached Closed, as did the former red risks — TEST/PROD routing, the regression suite, and the two-sprint validation-error stall. A long spillover list moved into sprint 16.",
+      "Sprint 16 ran 7–18 Sep between the 2.2.0 ship in sprint 15 and this sprint. Sweden CESOP feedback Closed. The NiFi registry updater, test-automation pipeline, Spring Boot 4, schema-driven feedback, and a long unassigned New pile carried into sprint 17.",
     cards: [
       {
-        title: "Closed in sprint 15",
-        body: "Release activities (RCON-1425), display feedback with submissions (RCON-1424), Hungary flow (RCON-1460), and Alexandru enablers support (RCON-1420). TEST/PROD routing (RCON-1366 / RCON-1381), the regression suite (RCON-1221), and validation-error display (RCON-1306) also Closed.",
+        title: "Closed in sprint 16",
+        body: "Sweden CESOP feedback (RCON-1342) Closed during sprint 16. The rest of the commitment spilled or stayed in flight.",
       },
       {
-        title: "RCON.S 2.2.0 shipped",
-        body: "Submission now has its own last release — RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is still Communicator's RCON.C 1.2.0 (2 Sep, unreleased).",
+        title: "RCON.S 2.2.0 still the last Submission release",
+        body: "Submission last released RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is now Communicator's RCON.C 1.2.1 (24 Sep, unreleased).",
       },
       {
-        title: "Carried into sprint 16",
-        body: "NiFi registry updater (RCON-1173, RCON-1134), test-automation pipeline (RCON-1248), report-frequency spike (RCON-1236), resubmit bug (RCON-1355), pipeline tag override (RCON-1334), one-ui upgrade (RCON-1390), NiFi error reason (RCON-1382), and the messaging-bus pair (RCON-1410, RCON-1411).",
+        title: "Carried into sprint 17",
+        body: "NiFi registry updater (RCON-1173, RCON-1134), test-automation pipeline (RCON-1248), report-frequency spike (RCON-1236), resubmit (RCON-1355), one-ui upgrade (RCON-1390), NiFi error reason (RCON-1382), ActiveMQ JMS (RCON-1540), and Spring Boot 4 (RCON-1490).",
       },
     ],
     closed: previousSprintClosed,
@@ -300,15 +300,15 @@ export const rconnectSubmissionGovernance: ProjectGovernance = {
     "TEST/PROD routing is Closed — confirm it shipped in RCON.S 2.2.0. Settle the flow-distribution decision so RCON-1173 / RCON-1134 stop being the answer by default, release the Ready for integration tranche (messaging-bus 1410/1411, legacy credential tables, Sonar and CVE fixes), and land Spring Boot 4 (RCON-1490). Manual-upload entity enforcement should not wait for Phase 4: it is a cross-entity submission path that is open today.",
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RCON/summary",
-    done: 834,
-    open: 79,
-    highPriorityOpen: 12,
-    unassignedOpen: 40,
-    epics: 51,
-    currentRelease: { name: "RCON.C 1.2.0", date: "2 Sept 2026", released: false },
+    done: 840,
+    open: 87,
+    highPriorityOpen: 14,
+    unassignedOpen: 46,
+    epics: 52,
+    currentRelease: { name: "RCON.C 1.2.1", date: "24 Sept 2026", released: false },
     lastRelease: { name: "RCON.S 2.2.0", date: "7 Sept 2026" },
     narrative:
-      "Counts are Jira project RCON with the RCON-276 Communicator subtree and Xray test artefacts removed. Read the resolved figure carefully: this project sets a resolution date at Ready for integration, so 834 covers a great deal of work that has not yet been released. Submission last released RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is still Communicator's RCON.C 1.2.0 (2 Sep, unreleased).",
+      "Counts are Jira project RCON with the RCON-276 Communicator subtree and Xray test artefacts removed. Read the resolved figure carefully: this project sets a resolution date at Ready for integration, so 840 covers a great deal of work that has not yet been released. Submission last released RCON.S 2.2.0 on 7 Sep 2026. Jira's currentRelease is Communicator's RCON.C 1.2.1 (24 Sep, unreleased).",
   },
   pmFocus: {
     thisSprint: [

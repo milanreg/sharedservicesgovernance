@@ -149,7 +149,7 @@ export const iamGovernance: ProjectGovernance = {
     blocked: sprint.blocked,
     narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Ten items on 2618. Translations and preferred language are in Implementation. Pagination and dev-cluster IAM are in Quality Review. OpenSSL has reached PO Review. PAT is still Ready. Keycloak Helm RSH-6535 left the sprint still Ready and unassigned. RSH-2169 remains blocked. OSFI readiness RSH-5909 is on the same board as a New Must epic, not in the sprint.",
+      "Sixteen items on 2618, last day tomorrow. The PAT spike (RSH-4784) is Closed; production PAT RSH-4211 is still Ready. Preferred language, the translations spike, pagination, OpenSSL, MDM All-group, and the Keycloak module/audience table are in PO Review. Multi-language is in Implementation. Dev-cluster IAM, unscoped group option, group scope-label change, and FIPS OpenSSL failures are in Quality Review. RSH-2169 remains blocked. OSFI readiness RSH-5909 is still a New Must epic, not in the sprint.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
@@ -286,9 +286,9 @@ export const iamGovernance: ProjectGovernance = {
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RSH/summary",
     done: 397,
-    open: 154,
-    highPriorityOpen: 20,
-    unassignedOpen: 125,
+    open: 165,
+    highPriorityOpen: 26,
+    unassignedOpen: 131,
     epics: 45,
     currentRelease: {
       name: "R1.3.0.01_RSH_10.02.26",
@@ -300,7 +300,7 @@ export const iamGovernance: ProjectGovernance = {
       date: "27 Aug 2026",
     },
     narrative:
-      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board 2936. Phase 1 shipped. Initiative RSH-96 is Amber for scope creep. Platform release 26.3.0.00 is the last released train (27 Aug). Sprint 2618 is a ten-item mixed commitment. OSFI epic RSH-5909 is New on the same board. Counts use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
+      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board 2936. Phase 1 shipped. Initiative RSH-96 is Amber for scope creep. Platform release 26.3.0.00 is the last released train (27 Aug). Sprint 2618 is a sixteen-item mixed commitment; the PAT spike Closed this sprint. OSFI epic RSH-5909 is New on the same board. Counts use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
   },
   pmFocus: {
     thisSprint: [
@@ -309,7 +309,7 @@ export const iamGovernance: ProjectGovernance = {
       "Watch RSH-5442 (MDM All-group) in PO review — it is the only movement on the dependency that has RSH-2169 blocked.",
       "Keycloak Helm RSH-6535 left 2618 still Ready and unassigned — name an owner or drop it from the current conversation.",
       "Confirm privilege escalation RSH-4220 and the two scoping spikes are in a released build, not only Closed in Jira.",
-      "Do not let PAT (RSH-4784 / RSH-4211) and translations (RSH-786 / RSH-6560, now in Implementation) crowd out that verification.",
+      "Do not let production PAT (RSH-4211, still Ready) and the translations stack now in PO Review crowd out that verification.",
       "Staff or explicitly defer RSH-5909 OSFI readiness. Binder's 15 Sep comment made DC helm, Keycloak redirect URIs, and Gateway API part of the extended scope.",
     ],
     sequence: [

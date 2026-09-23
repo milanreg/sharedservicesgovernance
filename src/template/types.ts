@@ -19,6 +19,14 @@ export type Risk = {
   references?: RiskReference[];
 };
 
+export type TicketCardId = "backlog" | "sprint" | "spillover" | "attention";
+
+export type TicketComment = {
+  author: string;
+  date: string;
+  body: string;
+};
+
 export type Ticket = {
   key: string;
   summary: string;
@@ -28,6 +36,8 @@ export type Ticket = {
   blocked?: boolean;
   spillover?: boolean;
   risk?: Risk;
+  /** Most recent Jira comment, filled by sync. */
+  comment?: TicketComment;
 };
 
 export type GanttItem = {
@@ -212,6 +222,8 @@ export type LiveSnapshot = {
     blocked: number;
   };
   tickets: Ticket[];
+  /** Open project-scope tickets, newest first. Used by the backlog card. */
+  backlogTickets?: Ticket[];
   /** Most recently closed sprints on the project's board, newest first. */
   closedSprints?: ClosedSprint[];
   activity?: ActivityWindow;
@@ -252,6 +264,7 @@ export type ProjectGovernance = {
     headline?: string;
   };
   tickets: Ticket[];
+  backlogTickets?: Ticket[];
   previousSprint: {
     name: string;
     dates: string;
@@ -353,6 +366,7 @@ export function emptyProject(
       narrative: "Sprint data will appear here once this project is connected to Jira.",
     },
     tickets: [],
+    backlogTickets: [],
     previousSprint: {
       name: "—",
       dates: "",

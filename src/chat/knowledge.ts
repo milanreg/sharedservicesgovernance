@@ -127,7 +127,7 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
         `Closed in that sprint: ${project.previousSprint.closed.map((t) => t.key).join(", ")}.`,
     ]),
     keywords: ["last sprint", "carry over", "carried", "spilled", "previous"],
-    tab: "spillover",
+    tab: "sprint",
   });
 
   for (const sprint of project.closedSprints ?? []) {
@@ -152,7 +152,7 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
       topic: "Spillover",
       title: card.title,
       body: `${card.title}. ${card.body}`,
-      tab: "spillover",
+      tab: "sprint",
     });
   }
 
@@ -403,7 +403,7 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
       title: row[0],
       body: `For ${row[0]}, ${detail}.`,
       keywords: ["raci", "accountable", "responsible", "consulted", "informed", "who decides", ...row],
-      tab: "rice",
+      tab: "overview",
     });
   }
 
@@ -417,7 +417,7 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
         .map((row, index) => `${index + 1}. ${row.item} (${row.ticket}, ${riceScore(row).toFixed(1)})`)
         .join("; ")}.`,
       keywords: ["priority", "prioritise", "prioritize", "most important", "rice", "ranking", "first"],
-      tab: "rice",
+      tab: "overview",
     });
   }
 
@@ -433,7 +433,7 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
       ]),
       keywords: [row.ticket, "rice", "score", "value", "effort"],
       href: link(row.ticket),
-      tab: "rice",
+      tab: "overview",
     });
   }
 
@@ -448,7 +448,7 @@ export function buildPassages(project: ProjectGovernance): Passage[] {
       ]),
       keywords: [bottleneck.ticket, "bottleneck", "blocker", "stuck", "slow", "constraint", "risk"],
       href: link(bottleneck.ticket),
-      tab: "rice",
+      tab: "overview",
     });
   }
 
