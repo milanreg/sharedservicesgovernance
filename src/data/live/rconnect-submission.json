@@ -1,29 +1,29 @@
 {
   "slug": "rconnect-submission",
-  "syncedAt": "2026-09-23T09:04:51.345Z",
+  "syncedAt": "2026-10-01T10:43:22.040Z",
   "projectSummary": {
-    "done": 840,
-    "open": 87,
-    "highPriorityOpen": 14,
-    "unassignedOpen": 46,
+    "done": 841,
+    "open": 91,
+    "highPriorityOpen": 15,
+    "unassignedOpen": 45,
     "epics": 52,
     "currentRelease": {
-      "name": "RCON.C 1.2.1",
-      "date": "24 Sept 2026",
+      "name": "RCON.S 2.3.0",
+      "date": "11 Oct 2026",
       "released": false
     },
     "lastRelease": {
-      "name": "RCON.S 2.2.0",
-      "date": "7 Sept 2026"
+      "name": "RCON.C 1.2.1",
+      "date": "25 Sept 2026"
     }
   },
   "sprint": {
     "name": "RCON.S sprint 17",
     "start": "21 Sept 2026",
     "end": "2 Oct 2026",
-    "committed": 29,
+    "committed": 31,
     "done": 1,
-    "inProgress": 8,
+    "inProgress": 12,
     "blocked": 0
   },
   "tickets": [
@@ -38,7 +38,7 @@
     {
       "key": "RCON-1550",
       "summary": "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
-      "status": "Ready",
+      "status": "Implemented",
       "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
@@ -46,16 +46,21 @@
     {
       "key": "RCON-1417",
       "summary": "[RRH][SPIKE ] Multiple regulators per country",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
-      "spillover": false
+      "spillover": false,
+      "comment": {
+        "author": "CE-Konstantin Artsiomenka",
+        "date": "30 Sept 2026",
+        "body": "Recommendation: no change needed. An explicit Regulator attribute is redundant. Reasoning (confirmed by PO): * Submission -> regulator is 1:1: one submission is never processed by several regulators. * Regime -> regulator is 1:1: each regime is handled by exactly one regulator…"
+      }
     },
     {
       "key": "RCON-1236",
       "summary": "[SPIKE] Handle report frequency from RCON",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "Kamil Burek",
       "blocked": false,
       "spillover": true,
       "comment": {
@@ -75,8 +80,8 @@
     {
       "key": "RCON-1355",
       "summary": "Remove Resubmission Button/feature",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "Benjamin Garaude",
       "blocked": false,
       "spillover": true
     },
@@ -92,13 +97,13 @@
       "key": "RCON-1248",
       "summary": "Test Automation pipeline creation",
       "status": "In Implementation",
-      "owner": "Kamil Burek",
+      "owner": "CE-Gokul Sundaramoorthi",
       "blocked": false,
       "spillover": true,
       "comment": {
-        "author": "Anca Dobrea",
-        "date": "10 Aug 2026",
-        "body": "New RConnect submission environment on GKE cluster Hi Team, I have configured a new test environment (namespace) on our cluster ([gke-rct-i053-vhax-27at|https://console.cloud.google.com/kubernetes/clusters/details/europe-west1/gke-rct-i053-vhax-27at?authuser=0&project=rct-i053…"
+        "author": "CE-Gokul Sundaramoorthi",
+        "date": "29 Sept 2026",
+        "body": "Hi Team, I’m taking up this task and have discussed the requirements with Kamil and Rafal, including the current automation workflow. My understanding is that the testing team currently executes this process from their local machines. I’ll be working on automating and migratin…"
       }
     },
     {
@@ -173,7 +178,7 @@
     {
       "key": "RCON-1490",
       "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
-      "status": "In Quality Review",
+      "status": "Quality Reviewed",
       "owner": "Benjamin Garaude",
       "blocked": false,
       "spillover": true
@@ -181,6 +186,14 @@
     {
       "key": "RCON-1134",
       "summary": "Integrate Ni-Fi registry updater",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1586",
+      "summary": "Add state of country regime action made from UI",
       "status": "In Implementation",
       "owner": "CE-Alexandru Calinescu",
       "blocked": false,
@@ -278,9 +291,139 @@
       "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
       "spillover": false
+    },
+    {
+      "key": "RCON-1588",
+      "summary": "[SPIKE] Review German regulator integration documentation",
+      "status": "New",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": false
     }
   ],
   "backlogTickets": [
+    {
+      "key": "RCON-1602",
+      "summary": "New Feature: Description...",
+      "status": "New",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1416",
+      "summary": "[RRH][Manual Submission] No Validations for file name and extension.",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1417",
+      "summary": "[RRH][SPIKE ] Multiple regulators per country",
+      "status": "In Implementation",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "CE-Konstantin Artsiomenka",
+        "date": "30 Sept 2026",
+        "body": "Recommendation: no change needed. An explicit Regulator attribute is redundant. Reasoning (confirmed by PO): Submission -> regulator is 1:1: one submission is never processed by several regulators. Regime -> regulator is 1:1: each regime is handled by exactly one regulator. Rc…"
+      }
+    },
+    {
+      "key": "RCON-1588",
+      "summary": "[SPIKE] Review German regulator integration documentation",
+      "status": "New",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1596",
+      "summary": "[On-prem] create a separate Jenkins job for Helm chart generation.",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1572",
+      "summary": "[On-prem] create RConnect Helm charts without CNPG.",
+      "status": "In Implementation",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1589",
+      "summary": "Enhancement - Soft Delete Country Regimes (BE)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1248",
+      "summary": "Test Automation pipeline creation",
+      "status": "In Implementation",
+      "owner": "CE-Gokul Sundaramoorthi",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "CE-Gokul Sundaramoorthi",
+        "date": "29 Sept 2026",
+        "body": "Hi Team, I’m taking up this task and have discussed the requirements with Kamil and Rafal, including the current automation workflow. My understanding is that the testing team currently executes this process from their local machines. I’ll be working on automating and migratin…"
+      }
+    },
+    {
+      "key": "RCON-1586",
+      "summary": "Add state of country regime action made from UI",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1134",
+      "summary": "Integrate Ni-Fi registry updater",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1355",
+      "summary": "Remove Resubmission Button/feature",
+      "status": "In Implementation",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1490",
+      "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
+      "status": "Quality Reviewed",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1236",
+      "summary": "[SPIKE] Handle report frequency from RCON",
+      "status": "In Implementation",
+      "owner": "Kamil Burek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1550",
+      "summary": "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
+      "status": "Implemented",
+      "owner": "Kamil Burek",
+      "blocked": false,
+      "spillover": false
+    },
     {
       "key": "RCON-1548",
       "summary": "[Ni-Fi] Update the Ni-Fi flows following the generic feedback functionality",
@@ -338,41 +481,9 @@
       "spillover": false
     },
     {
-      "key": "RCON-1572",
-      "summary": "[On-prem] create RConnect Helm charts without CNPG.",
-      "status": "In Implementation",
-      "owner": "CE-Konstantin Artsiomenka",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1417",
-      "summary": "[RRH][SPIKE ] Multiple regulators per country",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1416",
-      "summary": "[RRH][Manual Submission] No Validations for file name and extension.",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1173",
       "summary": "Create instance to integrate Nifi-registry updater",
       "status": "Implemented",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1550",
-      "summary": "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
-      "status": "Ready",
       "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
@@ -404,14 +515,6 @@
     {
       "key": "RCON-1573",
       "summary": "[On-prem] move rconnect-backend to on-prem. ",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1236",
-      "summary": "[SPIKE] Handle report frequency from RCON",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -450,14 +553,6 @@
       "spillover": false
     },
     {
-      "key": "RCON-1355",
-      "summary": "Remove Resubmission Button/feature",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1481",
       "summary": "Suspend on Idle - continue investigating the options to evaluate cost",
       "status": "New",
@@ -469,14 +564,6 @@
         "date": "7 Sept 2026",
         "body": "the only option at the moment is to not use Rcloud at all.."
       }
-    },
-    {
-      "key": "RCON-1490",
-      "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
-      "status": "In Quality Review",
-      "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1343",
@@ -524,19 +611,6 @@
       "spillover": false
     },
     {
-      "key": "RCON-1248",
-      "summary": "Test Automation pipeline creation",
-      "status": "In Implementation",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "10 Aug 2026",
-        "body": "New RConnect submission environment on GKE cluster Hi Team, I have configured a new test environment (namespace) on our cluster ( gke-rct-i053-vhax-27at ), this is not part of marley but this will be used by our test team to perform e2e playwright test. So i configured (deploy…"
-      }
-    },
-    {
       "key": "RCON-1476",
       "summary": "Enhance Copy RConnect dependencies Jenkins Job",
       "status": "In Implementation",
@@ -549,14 +623,6 @@
       "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
       "status": "Implemented",
       "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1134",
-      "summary": "Integrate Ni-Fi registry updater",
-      "status": "In Implementation",
-      "owner": "CE-Alexandru Calinescu",
       "blocked": false,
       "spillover": false
     },
@@ -846,14 +912,6 @@
       "spillover": false
     },
     {
-      "key": "RCON-1465",
-      "summary": "[e2e] Cover overview filters, employee permissions, and negative submission cases",
-      "status": "New",
-      "owner": "Rafał Bator",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1427",
       "summary": "Replace Case Status Overview with a case-level submissions dashboard",
       "status": "New",
@@ -904,38 +962,6 @@
     {
       "key": "RCON-1406",
       "summary": "Application Security",
-      "status": "New",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1108",
-      "summary": "Maintenance and Improvements",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1130",
-      "summary": "Rcloud Readiness",
-      "status": "New",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-271",
-      "summary": "[Enablers] Support FiTax, RTH, RRH, tON",
-      "status": "In Progress",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1377",
-      "summary": "[2.2.0] Maintenance & Improvements",
       "status": "New",
       "owner": "Anca Dobrea",
       "blocked": false,
@@ -1032,14 +1058,6 @@
       ],
       "leftover": [
         {
-          "key": "RCON-1355",
-          "summary": "Remove Resubmission Button/feature",
-          "status": "New",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
           "key": "RCON-1382",
           "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
           "status": "In Implementation",
@@ -1048,10 +1066,18 @@
           "spillover": false
         },
         {
+          "key": "RCON-1355",
+          "summary": "Remove Resubmission Button/feature",
+          "status": "In Implementation",
+          "owner": "Benjamin Garaude",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1248",
           "summary": "Test Automation pipeline creation",
           "status": "In Implementation",
-          "owner": "Kamil Burek",
+          "owner": "CE-Gokul Sundaramoorthi",
           "blocked": false,
           "spillover": false
         },
@@ -1430,7 +1456,7 @@
           "key": "RCON-1248",
           "summary": "Test Automation pipeline creation",
           "status": "In Implementation",
-          "owner": "Kamil Burek",
+          "owner": "CE-Gokul Sundaramoorthi",
           "blocked": false,
           "spillover": false
         },
@@ -1581,6 +1607,14 @@
           "spillover": false
         },
         {
+          "key": "RCON-1586",
+          "summary": "Add state of country regime action made from UI",
+          "status": "In Implementation",
+          "owner": "CE-Alexandru Calinescu",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1382",
           "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
           "status": "In Implementation",
@@ -1592,7 +1626,7 @@
           "key": "RCON-1248",
           "summary": "Test Automation pipeline creation",
           "status": "In Implementation",
-          "owner": "Kamil Burek",
+          "owner": "CE-Gokul Sundaramoorthi",
           "blocked": false,
           "spillover": false
         },
@@ -1626,7 +1660,7 @@
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 41,
+      "total": 37,
       "items": [
         {
           "key": "RCON-1542",
@@ -1831,8 +1865,48 @@
       ]
     },
     "raised": {
-      "total": 50,
+      "total": 42,
       "items": [
+        {
+          "key": "RCON-1602",
+          "summary": "New Feature: Description...",
+          "status": "New",
+          "owner": "CE-Dwitiya Halder",
+          "date": "2026-10-01",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1596",
+          "summary": "[On-prem] create a separate Jenkins job for Helm chart generation.",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-30",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1589",
+          "summary": "Enhancement - Soft Delete Country Regimes (BE)",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-09-29",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1588",
+          "summary": "[SPIKE] Review German regulator integration documentation",
+          "status": "New",
+          "owner": "CE-Dwitiya Halder",
+          "date": "2026-09-29",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1586",
+          "summary": "Add state of country regime action made from UI",
+          "status": "In Implementation",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-09-28",
+          "priority": "Not defined"
+        },
         {
           "key": "RCON-1577",
           "summary": "[on-prem] adjust NiFi workflow to work with Kubernetes file system.",
@@ -1892,7 +1966,7 @@
         {
           "key": "RCON-1550",
           "summary": "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
-          "status": "Ready",
+          "status": "Implemented",
           "owner": "Kamil Burek",
           "date": "2026-09-18",
           "priority": "Medium"
@@ -1992,46 +2066,6 @@
           "owner": "Unassigned",
           "date": "2026-09-09",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1530",
-          "summary": "Enhancement - Schema-driven feedback grid (FE)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-09-09",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1529",
-          "summary": "Enhancement - Remove legacy feedback columns & old API (BE)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-09-09",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1528",
-          "summary": "Enhancement - Schema-driven feedback read API (BE)",
-          "status": "Implemented",
-          "owner": "Benjamin Garaude",
-          "date": "2026-09-09",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1527",
-          "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
-          "status": "Implemented",
-          "owner": "Benjamin Garaude",
-          "date": "2026-09-09",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1526",
-          "summary": "Enhancement - CountryRegime feedbackSchema (BE)",
-          "status": "Implemented",
-          "owner": "Benjamin Garaude",
-          "date": "2026-09-09",
-          "priority": "Low"
         }
       ]
     },
@@ -2040,7 +2074,7 @@
       "items": []
     },
     "stalled": {
-      "total": 26,
+      "total": 51,
       "items": [
         {
           "key": "RCON-269",
@@ -2187,14 +2221,6 @@
           "priority": "Low"
         },
         {
-          "key": "RCON-1465",
-          "summary": "[e2e] Cover overview filters, employee permissions, and negative submission cases",
-          "status": "New",
-          "owner": "Rafał Bator",
-          "date": "2026-08-28",
-          "priority": "Low"
-        },
-        {
           "key": "RCON-1467",
           "summary": "[2.3.0] Maintenance & Improvements",
           "status": "New",
@@ -2241,15 +2267,18 @@
           "owner": "Unassigned",
           "date": "2026-09-07",
           "priority": "Medium"
+        },
+        {
+          "key": "RCON-1516",
+          "summary": "Add Messaging queue into submission chart",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-09-08",
+          "priority": "Medium"
         }
       ]
     },
     "releases": [
-      {
-        "name": "RCON.C 1.2.1",
-        "date": "2026-09-24",
-        "released": false
-      },
       {
         "name": "RCON.S 2.3.0",
         "date": "2026-10-11",

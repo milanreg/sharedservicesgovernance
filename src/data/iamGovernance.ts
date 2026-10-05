@@ -9,7 +9,7 @@ import {
   consumers,
   deployment,
   implementation,
-  leftoverFrom2617,
+  leftoverFrom2618,
   phase2,
   previousSprintClosed,
   raciHeaders,
@@ -137,10 +137,10 @@ export const iamGovernance: ProjectGovernance = {
   boardUrl: BOARD,
   snapshot: SNAPSHOT,
   sources:
-    'Jira: project = RSH AND summary ~ "[IAM]", excluding Xray Test and Test Execution issues · sprint in openSprints() on board 2936. Counts come from the sync, not from this line. Confluence: IAM Integration (v17), Vizor Authentication and Authorization (v62), What IAM Service Offers (v6).',
+    'Jira: project = RSH AND summary ~ "[IAM]", excluding Xray Test and Test Execution issues · sprint in openSprints() on board 2936. Counts come from the sync, not from this line. Confluence: IAM Integration (v17), Vizor Authentication and Authorization (v62), What IAM Service Offers (v6) — versions not refreshed on 1 Oct; confluence.regnology.net timed out.',
   populated: true,
   sprint: {
-    name: "Regnology Supervision Hub Platform 2618",
+    name: "Regnology Supervision Hub Platform 2619",
     start: sprint.start,
     end: sprint.end,
     committed: sprint.committed,
@@ -149,30 +149,30 @@ export const iamGovernance: ProjectGovernance = {
     blocked: sprint.blocked,
     narrative: `Active ${sprint.start} – ${sprint.end} on Regnology Supervision Hub board 2936. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Sixteen items on 2618, last day tomorrow. The PAT spike (RSH-4784) is Closed; production PAT RSH-4211 is still Ready. Preferred language, the translations spike, pagination, OpenSSL, MDM All-group, and the Keycloak module/audience table are in PO Review. Multi-language is in Implementation. Dev-cluster IAM, unscoped group option, group scope-label change, and FIPS OpenSSL failures are in Quality Review. RSH-2169 remains blocked. OSFI readiness RSH-5909 is still a New Must epic, not in the sprint.",
+      "Twelve items on 2619, none Closed. OSFI work is finally on the board: External Secrets (RSH-2180) and Gateway API (RSH-6665) are in Quality Review; Keycloak redirect URIs (RSH-6664) are in Implementation; Helm secrets (RSH-6713) is still Ready and unassigned. Production PAT (RSH-4211) is in Quality Review after Milan's 29 Sep offline-PAT note. Multi-language is in PO Review. Dev-cluster IAM reached Quality Reviewed and ScriptRunner bounced it. Inheritance (RSH-2169) left the sprint still blocked.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
-    name: "Regnology Supervision Hub Platform 2617",
-    dates: "27 Aug – 10 Sep 2026",
+    name: "Regnology Supervision Hub Platform 2618",
+    dates: "10 Sep – 24 Sep 2026",
     narrative:
-      "Jira's 2617 sprint membership closed two items: Keycloak vulnerability upgrade (RSH-6511, PO Accepted) and Helm SonarQube (RSH-5925). Privilege escalation, both entity-scoping spikes, Principal User and mirroring Closed around the same window but are no longer on the 2617 sprint record. A long Ready-for-integration queue left 2617 without landing in 2618. Dev-cluster IAM, PAT and blocked inheritance carried forward.",
+      "2618 closed nine items: OpenSSL AppSec, FIPS OpenSSL failures, the PAT spike, MDM All-group, preferred language (PO Accepted), the RDM spike, and the three group-scope tickets. Dev-cluster IAM, production PAT and multi-language carried into 2619. Inheritance stayed blocked and did not come with them. Pagination, the translations spike, and the Keycloak module/audience table left as Ready for integration.",
     cards: [
       {
-        title: "Closed around 2617",
-        body: "On the 2617 sprint itself: Keycloak upgrade (RSH-6511) and Helm SonarQube (RSH-5925). Around the same window in Jira: privilege escalation (RSH-4220), entity-scoping spikes (RSH-3042, RSH-3503), Principal User (RSH-1846) and permission mirroring (RSH-2150).",
+        title: "Closed in 2618",
+        body: "OpenSSL AppSec (RSH-2451), FIPS OpenSSL (RSH-6667), PAT spike (RSH-4784), MDM All-group (RSH-5442), preferred language (RSH-786, PO Accepted), RDM spike (RSH-6559), and group-scope work (RSH-6651, RSH-6652, RSH-6661).",
       },
       {
-        title: "Carried into 2618",
-        body: "Dev-cluster IAM still in Quality Review, entity-group inheritance still blocked, PAT (RSH-4784 / RSH-4211), OpenSSL now in PO Review under Dominik Czerwiński, and the MDM All-group spike now in PO review.",
+        title: "Carried into 2619",
+        body: "Dev-cluster IAM (RSH-2453, Quality Reviewed then bounced), production PAT (RSH-4211, now In Quality Review), and multi-language (RSH-427, In PO Review).",
       },
       {
-        title: "Left 2617 without landing in 2618",
-        body: "Unscoped module permissions (RSH-4214), the module permission manager role (RSH-4215), CI pipeline cancel (RSH-5675), integration-tests consolidation (RSH-5678), docs split (RSH-5937), SonarQube (RSH-4394), and create-group whitespace (RSH-3824) — all Ready for integration, all unassigned.",
+        title: "Left 2618 without landing in 2619",
+        body: "Entity-group inheritance still blocked (RSH-2169), pagination (RSH-6545), the translations spike (RSH-6560), and the Keycloak module/audience table (RSH-6620) — the last three Ready for integration and unassigned.",
       },
     ],
     closed: previousSprintClosed,
-    leftover: leftoverFrom2617,
+    leftover: leftoverFrom2618,
   },
   overview: {
     intro: `Shared Identity and Access Management for Regnology solutions. Synthesized from Jira initiative RSH-96, Phase 2 RSH-903, OSFI epic RSH-5909 on board 2936, Confluence IAM Integration v17, Vizor Authentication and Authorization v62, and What IAM Service Offers.`,
@@ -285,10 +285,10 @@ export const iamGovernance: ProjectGovernance = {
     "Privilege escalation, entity scoping, Principal User and mirroring are Closed. The next 90 days are verify-those-closures-in-a-release, close OpenSSL and dev-cluster IAM, convert the scoping spikes into a migration plan, and staff or defer OSFI readiness (RSH-5909). Treat Principal User Make Work (RSH-4255) as the milestone that lets Vizor and Regulator 3 turn local user management off.",
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RSH/summary",
-    done: 397,
-    open: 165,
-    highPriorityOpen: 26,
-    unassignedOpen: 131,
+    done: 410,
+    open: 160,
+    highPriorityOpen: 24,
+    unassignedOpen: 134,
     epics: 45,
     currentRelease: {
       name: "R1.3.0.01_RSH_10.02.26",
@@ -300,17 +300,16 @@ export const iamGovernance: ProjectGovernance = {
       date: "27 Aug 2026",
     },
     narrative:
-      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board 2936. Phase 1 shipped. Initiative RSH-96 is Amber for scope creep. Platform release 26.3.0.00 is the last released train (27 Aug). Sprint 2618 is a sixteen-item mixed commitment; the PAT spike Closed this sprint. OSFI epic RSH-5909 is New on the same board. Counts use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
+      "Identity and Access Management sits on the Regnology Supervision Hub (RSH) board 2936. Phase 1 shipped. Initiative RSH-96 is Amber for scope creep. Platform release 26.3.0.00 is the last released train (27 Aug). Sprint 2619 is a twelve-item commitment with OSFI tickets finally on the board. Counts use Jira JQL project = RSH AND summary ~ \"[IAM]\", excluding Xray Test and Test Execution issues.",
   },
   pmFocus: {
     thisSprint: [
-      "Finish OpenSSL RSH-2451 through PO Review under Dominik Czerwiński — it is no longer sitting at Ready.",
-      "Close dev-cluster IAM RSH-2453 from Quality Review. It has now spilled into a sixth platform sprint.",
-      "Watch RSH-5442 (MDM All-group) in PO review — it is the only movement on the dependency that has RSH-2169 blocked.",
-      "Keycloak Helm RSH-6535 left 2618 still Ready and unassigned — name an owner or drop it from the current conversation.",
-      "Confirm privilege escalation RSH-4220 and the two scoping spikes are in a released build, not only Closed in Jira.",
-      "Do not let production PAT (RSH-4211, still Ready) and the translations stack now in PO Review crowd out that verification.",
-      "Staff or explicitly defer RSH-5909 OSFI readiness. Binder's 15 Sep comment made DC helm, Keycloak redirect URIs, and Gateway API part of the extended scope.",
+      "Land the OSFI set now on the board: External Secrets (RSH-2180), Gateway API (RSH-6665), Keycloak redirect URIs (RSH-6664), and Helm secrets (RSH-6713 — still unassigned).",
+      "Close production PAT RSH-4211 through Quality Review. Milan's 29 Sep comment set offline PAT, configurable per client.",
+      "Unstick dev-cluster IAM RSH-2453 — Quality Reviewed, then ScriptRunner bounced it on failed or unexecuted tests.",
+      "Finish multi-language RSH-427 through PO Review; the import/export UI (RSH-6512) is still only Ready.",
+      "Assign RSH-6690 (batch audiences) and RSH-6722 (delete-group bug) or cut them.",
+      "Do not treat RSH-2169 as gone. MDM All-group Closed in 2618; inheritance itself is still blocked and not in this sprint.",
     ],
     sequence: [
       {

@@ -207,7 +207,7 @@ export const rconnectCommunicatorGovernance: ProjectGovernance = {
   boardUrl: BOARD,
   snapshot: SNAPSHOT,
   sources:
-    "Jira: the RCON-276 subtree of project RCON, less Xray test artefacts (291 resolved, 66 open, 34 epics) · board 3734, sprint Yolo - Communicator Sprint 23, and sprint 22 for spillover. Epic and story descriptions carry the detail: RCON-920 for the notification contract, RCON-922 for the internal-thread status decision, RCON-1303 and RCON-1304 for the chart modes, RCON-1357 and RCON-1351 for module registration. This product has no confluencePageIds; no Confluence warnings at snapshot time.",
+    "Jira: the RCON-276 subtree of project RCON, less Xray test artefacts (301 resolved, 72 open, 36 epics) · board 3734, sprint Yolo - Communicator Sprint 24, and sprint 23 for spillover. Epic and story descriptions carry the detail: RCON-920 for the notification contract, RCON-922 for the internal-thread status decision, RCON-1303 and RCON-1304 for the chart modes, RCON-1357 and RCON-1351 for module registration. This product has no confluencePageIds.",
   populated: true,
   sprint: {
     name: sprint.name,
@@ -217,28 +217,28 @@ export const rconnectCommunicatorGovernance: ProjectGovernance = {
     done: sprint.done,
     inProgress: sprint.inProgress,
     blocked: sprint.blocked,
-    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, alongside the Submission team's sprints. Goal: ${sprint.goal}. The board reports 35 committed items, two of them ONADD DataCalc — a BSI library upgrade and the DataCalc 10.3.0 release. Snapshot ${SNAPSHOT}.`,
+    narrative: `Active ${sprint.start} – ${sprint.end} on Rconnect board 3734, alongside the Submission team's sprints. Goal: ${sprint.goal}. The board reports 35 committed items. Snapshot ${SNAPSHOT}.`,
     headline:
-      "Last day of sprint 23. Thirty-five items, none Done, nine in flight. Collaborators-create-cases, Keycloak token curtain, IAM entity groups, and auto-grant IAM permissions moved to Ready for integration today. History API and case-details UI bounced back from Quality Reviewed on ScriptRunner validation. RCON.C 1.2.1 (24 Sep) is the current unreleased train. Two DataCalc tickets remain on the board.",
+      "Sprint 24. Two Closed — DataCalc 10.3.0 (ONADD-10795, released 23 Sep) and remember-filters-in-browser (RCON-1458). RCON.C 1.2.1 shipped 25 Sep. Image-hardening and IAM-boundary work is in Implementation under Ewa. Attachment URL expiry, CNPG tag policy, and the platform-registration placeholder sit Ready for integration. Assignee work is still in flight.",
   },
   tickets: sprintTickets.map(withRisk),
   previousSprint: {
-    name: "Yolo - Communicator Sprint 22",
-    dates: "closed 9 Sep 2026",
+    name: "Yolo - Communicator Sprint 23",
+    dates: "9 Sep – 23 Sep 2026",
     narrative:
-      "Sprints 21 and 22 left RCON.C 1.2.0 and the secrets, industry-redirect and Keycloak-client pile at Ready for integration, still unassigned. Sprint 23 picked up IAM chart simplification and assignee/history work. Only two items from sprint 22 reached a terminal state.",
+      "Sprint 23 closed one item and left thirty-seven leftover. RCON.C 1.2.1 then shipped on 25 Sep, two days after the sprint ended. A large Ready-for-integration pile and the assignee/history cluster carried into sprint 24.",
     cards: [
       {
-        title: "Actually finished",
-        body: "Two items: the DataCalc Java 21 bump, and a Create Case disabled bug delivered by an automated agent account.",
+        title: "Shipped just after the sprint",
+        body: "RCON.C 1.2.1 released 25 Sep. DataCalc 10.3.0 released 23 Sep and Closed in sprint 24.",
       },
       {
         title: "Left at Ready for integration",
-        body: "The 1.2.0 release, secrets out of git, the industry-side redirect defect, and the Keycloak client-name bug — still unassigned after two sprints.",
+        body: "History API and case-details UI, IAM entity groups, auto-grant permissions, Keycloak token curtain, and collaborators-create-cases — most still unassigned.",
       },
       {
-        title: "Picked up in sprint 23",
-        body: "IAM chart URL simplification, dashboard backend paging, and the assignee/history cluster. DataCalc work is still on the board.",
+        title: "Picked up in sprint 24",
+        body: "DHI/Temurin and Helm securityContext hardening, IAM-boundary config from registration, RCloud buckets, and assignee filters.",
       },
     ],
     closed: previousSprintClosed,
@@ -379,19 +379,19 @@ export const rconnectCommunicatorGovernance: ProjectGovernance = {
     "Get the credentials out of git and rotate them, then root-cause the industry-side redirect failure and fix the external Keycloak client names — those three are cheap, unassigned, and the ones that would embarrass a release. Configure staging email so half the notification design stops being untested. Close 1.2.0 — the date is already 2 Sep and the ticket is still open. Give the AI thread summary an owner for its architecture review and raise the standards alignment above Low, because the feature is already in front of users. Then move entity caching to Valkey and take the platform upgrade past 26.2.0 before the gap grows. Phase 3 should not start while any of this is open, and the unassigned assignee/history pile in the current sprint is the tell that it is starting anyway.",
   projectSummary: {
     jiraUrl: "https://regnology-cloud.atlassian.net/jira/software/c/projects/RCON/summary",
-    done: 291,
-    open: 66,
+    done: 301,
+    open: 72,
     highPriorityOpen: 1,
-    unassignedOpen: 46,
-    epics: 34,
-    currentRelease: { name: "RCON.C 1.2.1", date: "24 Sept 2026", released: false },
-    lastRelease: { name: "RCON.S 2.2.0", date: "7 Sept 2026" },
+    unassignedOpen: 45,
+    epics: 36,
+    currentRelease: { name: "RCON.S 2.3.0", date: "11 Oct 2026", released: false },
+    lastRelease: { name: "RCON.C 1.2.1", date: "25 Sept 2026" },
     narrative:
-      "Counts are the RCON-276 subtree of project RCON with Xray test artefacts removed — the mirror image of the Submission scope, since one Jira project holds both products. Read the resolved figure the same way: Ready for integration sets a resolution date here too, so 291 includes a large tranche that has not been released, including RCON.C 1.2.1 (24 Sep, unreleased). The project-level lastRelease is RCON.S 2.2.0 on 7 Sept — Submission's version; Jira versions mix both products. Two figures deserve attention. Forty-six of the sixty-six open items are unassigned, and only one is marked high priority — which says more about priority hygiene than about risk.",
+      "Counts are the RCON-276 subtree of project RCON with Xray test artefacts removed — the mirror image of the Submission scope, since one Jira project holds both products. Read the resolved figure the same way: Ready for integration sets a resolution date here too, so 301 includes a large tranche that has not been released. Communicator shipped RCON.C 1.2.1 on 25 Sep. Jira's currentRelease is now Submission's RCON.S 2.3.0 (11 Oct, unreleased). Forty-five of the seventy-two open items are unassigned, and only one is marked high priority — which says more about priority hygiene than about risk.",
   },
   pmFocus: {
     thisSprint: [
-      "RCON.C 1.2.1 (24 Sep) is the current unreleased train. Close it or say plainly that 1.2.0 slipped.",
+      "RCON.C 1.2.1 shipped 25 Sep. Keep hardening and assignee work moving so 1.3.0 is not another slip.",
       "RCON-1290 secrets and RCON-1300 industry redirect are still unassigned at Ready for integration. Assign them today.",
       "Land RCON-1477, the IAM chart URL simplification, while it is in implementation.",
       "RCON-972 dashboard backend filter/sort/page is now In Implementation under Mateusz Uzarek — keep it moving.",

@@ -19,19 +19,17 @@ export const CONFLUENCE = {
   project: "https://confluence.regnology.net/display/RCON/Rconnect+Project",
 };
 
-export const SNAPSHOT = "23 Sep 2026";
+export const SNAPSHOT = "1 Oct 2026";
 
 export const sprint = {
-  name: "Yolo - Communicator Sprint 23",
-  id: 2942,
-  start: "9 Sept 2026",
-  end: "23 Sept 2026",
+  name: "Yolo - Communicator Sprint 24",
+  start: "23 Sept 2026",
+  end: "7 Oct 2026",
   board: 3734,
-  goal: "Land IAM chart simplification and assignee/history work — RCON.C 1.2.1 is the current unreleased train",
-  /** Board committed 35, including two ONADD DataCalc tickets. */
+  goal: "Harden images and IAM boundary — RCON.C 1.2.1 shipped 25 Sep",
   committed: 35,
-  done: 0,
-  inProgress: 9,
+  done: 2,
+  inProgress: 10,
   blocked: 0,
 };
 
@@ -47,10 +45,10 @@ export const sprintTickets: Ticket[] = [
   {
     key: "ONADD-10795",
     summary: "[DataCalc] release 10.3.0",
-    status: "In Implementation",
+    status: "Closed",
     owner: "Mateusz Uzarek",
     spillover: true,
-    why: "DataCalc 10.3.0 is unassigned and still committed here",
+    why: "DataCalc 10.3.0 released 23 Sep — Closed in sprint 24",
   },
   {
     key: "RCON-1477",
@@ -73,13 +71,6 @@ export const sprintTickets: Ticket[] = [
     owner: "Unassigned",
     spillover: true,
     why: "History API with a dedicated role, still New and unassigned",
-  },
-  {
-    key: "RCON-1354",
-    summary: "Deploy buckets on RCloud",
-    status: "New",
-    owner: "Unassigned",
-    why: "RCloud buckets are not deployed yet",
   },
   {
     key: "RCON-972",
@@ -242,9 +233,52 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1457",
     summary: "Keep dashboard filters in the URL",
-    status: "New",
+    status: "Ready for integration",
     owner: "Unassigned",
-    why: "Persist dashboard filters in the URL",
+    why: "URL filters passed the 1.2.1 test execution — Ready for integration",
+  },
+  {
+    key: "RCON-1354",
+    summary: "Deploy buckets on RCloud",
+    status: "In Implementation",
+    owner: "Mateusz Uzarek",
+    spillover: true,
+    why: "RCloud buckets now in Implementation under Mateusz",
+  },
+  {
+    key: "RCON-1537",
+    summary: "Check if communicator-be can use DHI Temurin base image",
+    status: "In Implementation",
+    owner: "Ewa Grabowska",
+    why: "Image hardening for the backend",
+  },
+  {
+    key: "RCON-1538",
+    summary: "Check if Helm securityContext can be applied for BE and UI",
+    status: "In Implementation",
+    owner: "Ewa Grabowska",
+    why: "Helm securityContext hardening",
+  },
+  {
+    key: "RCON-1539",
+    summary: "Check if communicator-ui can use a DHI hardened base image",
+    status: "In Implementation",
+    owner: "Ewa Grabowska",
+    why: "Image hardening for the UI",
+  },
+  {
+    key: "RCON-1578",
+    summary: "Simplify Communicator oauth2/IAM boundary config from IAM registration response",
+    status: "In Implementation",
+    owner: "Ewa Grabowska",
+    why: "IAM-boundary config should come from registration, not copied URLs",
+  },
+  {
+    key: "RCON-1458",
+    summary: "Remember dashboard filters in this browser",
+    status: "Closed",
+    owner: "Ewa Grabowska",
+    why: "Local filter memory Closed this sprint; URL filters (RCON-1457) are the lasting path",
   },
   {
     key: "RCON-1480",

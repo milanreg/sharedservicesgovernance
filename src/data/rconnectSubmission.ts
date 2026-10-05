@@ -30,7 +30,7 @@ export const CONFLUENCE = {
     "https://confluence.regnology.net/spaces/RCON/pages/274799332/Deploy+as+a+component+on+PROD",
 };
 
-export const SNAPSHOT = "23 Sep 2026";
+export const SNAPSHOT = "1 Oct 2026";
 
 export const sprint = {
   name: "RCON.S sprint 17",
@@ -38,9 +38,9 @@ export const sprint = {
   end: "2 Oct 2026",
   board: 3734,
   goal: "Enablers support · messaging-bus integration · Spring Boot 4 · NiFi registry updater",
-  committed: 29,
+  committed: 31,
   done: 1,
-  inProgress: 8,
+  inProgress: 12,
   blocked: 0,
 };
 
@@ -63,10 +63,10 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1236",
     summary: "[SPIKE] Handle report frequency from RCON",
-    status: "New",
-    owner: "Unassigned",
+    status: "In Implementation",
+    owner: "Kamil Burek",
     spillover: true,
-    why: "Spillover spike, still New and unassigned",
+    why: "Spillover spike now in Implementation under Kamil",
   },
   {
     key: "RCON-1453",
@@ -77,17 +77,17 @@ export const sprintTickets: Ticket[] = [
   },
   {
     key: "RCON-1355",
-    summary: "[BUG] Resubmit report is not working correctly",
-    status: "New",
-    owner: "Unassigned",
+    summary: "Remove Resubmission Button/feature",
+    status: "In Implementation",
+    owner: "Benjamin Garaude",
     spillover: true,
-    why: "Unassigned bug on the retry path; shares a messageRefId problem with the manual-upload work",
+    why: "Resubmit path now being removed under Benjamin — no longer ownerless",
   },
   {
     key: "RCON-1173",
     summary: "Create instance to integrate Nifi-registry updater",
-    status: "In Implementation",
-    owner: "Vinodh Soundararajan",
+    status: "Implemented",
+    owner: "Kamil Burek",
     spillover: true,
     why: "Proving ground for the ADR-0005 updater; also the point where ADR-0004 and ADR-0005 disagree",
   },
@@ -248,9 +248,9 @@ export const sprintTickets: Ticket[] = [
   {
     key: "RCON-1550",
     summary: "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
-    status: "Ready",
+    status: "Implemented",
     owner: "Kamil Burek",
-    why: "Process scorecard pulled into sprint 17 and already Ready",
+    why: "Process scorecard Implemented this sprint",
   },
   {
     key: "RCON-1565",
@@ -265,6 +265,27 @@ export const sprintTickets: Ticket[] = [
     status: "In Implementation",
     owner: "Konstantin Artsiomenka",
     why: "On-prem follow-on to the RCON-1426 spike — Helm without CloudNativePG",
+  },
+  {
+    key: "RCON-1417",
+    summary: "[RRH][SPIKE ] Multiple regulators per country",
+    status: "In Implementation",
+    owner: "Konstantin Artsiomenka",
+    why: "Konstantin's 30 Sep note: no change needed — submission and regime are already 1:1 with a regulator",
+  },
+  {
+    key: "RCON-1586",
+    summary: "Add state of country regime action made from UI",
+    status: "In Implementation",
+    owner: "Alexandru Calinescu",
+    why: "Country-regime UI state, in Implementation with the registry-updater work",
+  },
+  {
+    key: "RCON-1588",
+    summary: "[SPIKE] Review German regulator integration documentation",
+    status: "New",
+    owner: "Dwitiya Halder",
+    why: "Germany integration spike, New on the last day of the sprint",
   },
 ];
 
