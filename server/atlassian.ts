@@ -242,7 +242,7 @@ function formatDate(value?: string): string {
 async function readSprint(
   creds: Credentials,
   boardId: number,
-  match: string | undefined,
+  match: string | string[] | undefined,
   warnings: string[],
 ) {
   type Sprint = { id: number; name: string; startDate?: string; endDate?: string };
@@ -251,13 +251,23 @@ async function readSprint(
     `/rest/agile/1.0/board/${boardId}/sprint?state=active`,
   );
   const open = sprints.values ?? [];
-  const needle = match?.toLowerCase();
-  const named = needle ? open.filter((s) => s.name.toLowerCase().includes(needle)) : open;
+  const needles = (Array.isArray(match) ? match : match ? [match] : []).map((m) => m.toLowerCase());
+  const named = needles.length
+    ? open.filter((s) => needles.some((n) => s.name.toLowerCase().includes(n)))
+    : open;
 
-  if (needle && !named.length && open.length) {
+  /**
+   * Never fall through to another team's sprint. Shared boards carry several
+   * teams, so substituting the first open sprint reports a different product's
+   * work as this one's — which is worse than reporting none at all.
+   */
+  if (needles.length && !named.length) {
     warnings.push(
-      `No active sprint on board ${boardId} matches “${match}”; used ${open[0].name} instead.`,
+      open.length
+        ? `No active sprint on board ${boardId} matches ${needles.map((n) => `“${n}”`).join(" or ")}. Open sprints belong to other teams (${open.map((s) => s.name).join(", ")}), so the last recorded sprint was kept rather than substituting one of theirs.`
+        : `No active sprint on board ${boardId}.`,
     );
+    return { sprint: undefined, tickets: [] as Ticket[] };
   }
 
   const active = named[0] ?? open[0];
@@ -332,7 +342,7 @@ async function listClosedSprints(
 async function readClosedSprints(
   creds: Credentials,
   boardId: number,
-  match: string | undefined,
+  match: string | string[] | undefined,
   warnings: string[],
   activeName?: string,
 ): Promise<ClosedSprint[]> {
@@ -345,13 +355,13 @@ async function readClosedSprints(
   }
 
   const all = values;
-  const needle = match?.toLowerCase();
+  const needles = (Array.isArray(match) ? match : match ? [match] : []).map((m) => m.toLowerCase());
   const series = sprintSeries(activeName);
-  if (needle || series) {
+  if (needles.length || series) {
     const named = values.filter((sprint) => {
       const n = sprint.name.toLowerCase();
       if (series && n.includes(series)) return true;
-      if (needle && n.includes(needle)) return true;
+      if (needles.some((needle) => n.includes(needle))) return true;
       return false;
     });
     const seriesHits = series ? named.filter((sprint) => sprint.name.toLowerCase().includes(series)) : [];
@@ -359,7 +369,7 @@ async function readClosedSprints(
     if (!values.length && all.length) {
       const newest = [...all].sort((a, b) => sprintRecency(b) - sprintRecency(a)).slice(0, 8);
       warnings.push(
-        `No closed sprints on board ${boardId} match “${match ?? activeName}”; latest closed: ${newest.map((sprint) => sprint.name).join(", ")}.`,
+        `No closed sprints on board ${boardId} match “${needles.join("” or “") || activeName}”; latest closed: ${newest.map((sprint) => sprint.name).join(", ")}.`,
       );
     }
   }
@@ -400,10 +410,18 @@ async function readClosedSprints(
   return records;
 }
 
-async function readReleases(creds: Credentials, projectKey: string) {
+async function readReleases(creds: Credentials, projectKey: string, prefix?: string) {
   type Version = { name: string; releaseDate?: string; released: boolean; archived: boolean };
   const versions = await jira<Version[]>(creds, `/rest/api/3/project/${projectKey}/versions`);
-  const dated = versions.filter((v) => !v.archived && v.releaseDate);
+  /**
+   * Versions are per Jira project, but one project can hold two products.
+   * Without this filter Communicator reports Submission's next release as its
+   * own, purely because that version happens to be dated sooner.
+   */
+  const mine = prefix
+    ? versions.filter((v) => v.name.toLowerCase().startsWith(prefix.toLowerCase()))
+    : versions;
+  const dated = mine.filter((v) => !v.archived && v.releaseDate);
   const byDate = (a: Version, b: Version) =>
     new Date(a.releaseDate as string).getTime() - new Date(b.releaseDate as string).getTime();
 
@@ -619,14 +637,16 @@ export async function buildSnapshot(
     }
   }
 
-  const { dueSoon, overdue, ...releases } = await readReleases(creds, config.jiraProjectKey).catch(
-    (error: Error) => {
-      warnings.push(`Releases could not be read: ${error.message}`);
-      return { currentRelease: undefined, lastRelease: undefined, dueSoon: [], overdue: [] };
-    },
-  );
+  const { dueSoon, overdue, ...releases } = await readReleases(
+    creds,
+    config.jiraProjectKey,
+    config.releaseNamePrefix,
+  ).catch((error: Error) => {
+    warnings.push(`Releases could not be read: ${error.message}`);
+    return { currentRelease: undefined, lastRelease: undefined, dueSoon: [], overdue: [] };
+  });
 
-  const sprintData = config.boardId
+  const sprintData: { sprint: LiveSnapshot["sprint"]; tickets: Ticket[] } = config.boardId
     ? await readSprint(creds, config.boardId, config.sprintNameContains, warnings)
     : { sprint: undefined, tickets: [] as Ticket[] };
 
@@ -658,6 +678,30 @@ export async function buildSnapshot(
         sprintData.sprint?.name,
       )
     : [];
+
+  /**
+   * A team between sprints would otherwise leave the dashboard showing whatever
+   * sprint was hand-authored months ago. Falling back to this team's own most
+   * recent closed sprint keeps the board truthful — the heading carries its real
+   * name and end date, so a reader can see it has finished.
+   */
+  if (!sprintData.sprint && closedSprints.length) {
+    const last = closedSprints[0];
+    const tickets = [...last.closed, ...last.leftover];
+    sprintData.sprint = {
+      name: last.name,
+      start: last.start,
+      end: last.end,
+      committed: tickets.length,
+      done: last.closed.length,
+      inProgress: tickets.filter((t) => /implementation|review|progress/i.test(t.status)).length,
+      blocked: tickets.filter((t) => t.blocked).length,
+    };
+    sprintData.tickets = tickets;
+    warnings.push(
+      `No sprint is running. Showing ${last.name}, which ended ${last.end} with ${last.closed.length} of ${tickets.length} items closed.`,
+    );
+  }
 
   const activity = await readActivity(creds, scope, dueSoon, overdue, warnings);
   const confluence = await readConfluence(creds, config.confluencePageIds ?? [], warnings);
