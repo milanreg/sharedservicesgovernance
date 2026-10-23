@@ -1,11 +1,11 @@
 {
   "slug": "rconnect-communicator",
-  "syncedAt": "2026-10-21T14:07:56.544Z",
+  "syncedAt": "2026-10-23T04:31:56.342Z",
   "projectSummary": {
-    "done": 334,
+    "done": 335,
     "open": 67,
     "highPriorityOpen": 1,
-    "unassignedOpen": 47,
+    "unassignedOpen": 44,
     "epics": 37,
     "lastRelease": {
       "name": "RCON.C 1.2.1",
@@ -16,16 +16,16 @@
     "name": "RCON.C Sprint 26",
     "start": "21 Oct 2026",
     "end": "4 Nov 2026",
-    "committed": 25,
+    "committed": 26,
     "done": 0,
-    "inProgress": 6,
+    "inProgress": 5,
     "blocked": 0
   },
   "tickets": [
     {
       "key": "RCON-1537",
       "summary": "Check if communicator-be can use DHI Temurin base image",
-      "status": "In Implementation",
+      "status": "Implemented",
       "owner": "Ewa Grabowska",
       "blocked": false,
       "spillover": true
@@ -33,7 +33,7 @@
     {
       "key": "RCON-1538",
       "summary": "Check if Helm securityContext can be applied for BE and UI",
-      "status": "In Implementation",
+      "status": "Implemented",
       "owner": "Ewa Grabowska",
       "blocked": false,
       "spillover": true
@@ -41,7 +41,7 @@
     {
       "key": "RCON-1539",
       "summary": "Check if communicator-ui can use a DHI hardened base image",
-      "status": "In Implementation",
+      "status": "Implemented",
       "owner": "Ewa Grabowska",
       "blocked": false,
       "spillover": true
@@ -89,8 +89,8 @@
     {
       "key": "RCON-1882",
       "summary": "Environment update guide: version-to-version env/Helm prop changes",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
       "blocked": false,
       "spillover": false
     },
@@ -114,17 +114,22 @@
       "key": "RCON-1900",
       "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
       "status": "New",
-      "owner": "Unassigned",
+      "owner": "Mateusz Uzarek",
       "blocked": false,
       "spillover": false
     },
     {
       "key": "RCON-1492",
       "summary": "Redesign Communicator AI features approach for Regnology AI standards compliance",
-      "status": "New",
+      "status": "Ready for integration",
       "owner": "Unassigned",
       "blocked": false,
-      "spillover": false
+      "spillover": false,
+      "comment": {
+        "author": "Kamil Matuszewski",
+        "date": "22 Oct 2026",
+        "body": "NoTestRequired — closing to Ready for integration."
+      }
     },
     {
       "key": "RCON-1612",
@@ -137,8 +142,8 @@
     {
       "key": "RCON-1606",
       "summary": "Agree architecture for entity announcements before implementation",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
       "blocked": false,
       "spillover": true
     },
@@ -201,23 +206,10 @@
     {
       "key": "ONADD-10919",
       "summary": "[DataCalc] Log client errors (4xx / gRPC NOT_FOUND) as one line without stack trace",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "Implemented",
+      "owner": "Mateusz Uzarek",
       "blocked": false,
       "spillover": false
-    },
-    {
-      "key": "ONADD-10930",
-      "summary": "Publish Lucy SBOM for DataCalc",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Marek Rębalski",
-        "date": "19 Oct 2026",
-        "body": "Stable links to the AppSec pages cited in the description: [https://confluence.regnology.net/pages/viewpage.action?pageId=178282937|https://confluence.regnology.net/pages/viewpage.action?pageId=178282937] [https://confluence.regnology.net/pages/viewpage.action?pageId=299225431…"
-      }
     },
     {
       "key": "RCON-1860",
@@ -226,9 +218,115 @@
       "owner": "Unassigned",
       "blocked": false,
       "spillover": true
+    },
+    {
+      "key": "ONADD-10937",
+      "summary": "[DataCalc] Fix failing tests",
+      "status": "Ready",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "ONADD-10930",
+      "summary": "Publish Lucy SBOM for DataCalc",
+      "status": "New",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Marek Rębalski",
+        "date": "19 Oct 2026",
+        "body": "Stable links to the AppSec pages cited in the description: [https://confluence.regnology.net/pages/viewpage.action?pageId=178282937|https://confluence.regnology.net/pages/viewpage.action?pageId=178282937] [https://confluence.regnology.net/pages/viewpage.action?pageId=299225431…"
+      }
     }
   ],
   "backlogTickets": [
+    {
+      "key": "RCON-1900",
+      "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
+      "status": "New",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1606",
+      "summary": "Agree architecture for entity announcements before implementation",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1882",
+      "summary": "Environment update guide: version-to-version env/Helm prop changes",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1159",
+      "summary": "Communicator Phase 3 (Additional Features)",
+      "status": "New",
+      "owner": "Kamil Matuszewski",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1538",
+      "summary": "Check if Helm securityContext can be applied for BE and UI",
+      "status": "Implemented",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1539",
+      "summary": "Check if communicator-ui can use a DHI hardened base image",
+      "status": "Implemented",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1537",
+      "summary": "Check if communicator-be can use DHI Temurin base image",
+      "status": "Implemented",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1911",
+      "summary": "Implement: optional strategies to match legacy cases when External Id policy changes",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1624",
+      "summary": "Implement: module opt-in External Id (ADR Proposal A) including UI",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Kamil Matuszewski",
+        "date": "7 Oct 2026",
+        "body": "Placeholder implementation story. Blocked by architecture decision in RCON-1552. AC / estimate / Xray Test to be filled in after architecture is agreed."
+      }
+    },
+    {
+      "key": "RCON-1160",
+      "summary": "Dynamic Context",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
     {
       "key": "RCON-1447",
       "summary": "Communicator Phase 3: UI/UX Improvements",
@@ -294,19 +392,6 @@
       "spillover": false
     },
     {
-      "key": "RCON-1624",
-      "summary": "Implement: external modules connect cases by ID (context as display-only)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Kamil Matuszewski",
-        "date": "7 Oct 2026",
-        "body": "Placeholder implementation story. Blocked by architecture decision in RCON-1552. AC / estimate / Xray Test to be filled in after architecture is agreed."
-      }
-    },
-    {
       "key": "RCON-1620",
       "summary": "Simplify Communicator UI when the user has only one entity",
       "status": "New",
@@ -339,14 +424,6 @@
       "spillover": false
     },
     {
-      "key": "RCON-1900",
-      "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1579",
       "summary": "Refine UI for range filters",
       "status": "To Do",
@@ -371,34 +448,10 @@
       "spillover": false
     },
     {
-      "key": "RCON-1882",
-      "summary": "Environment update guide: version-to-version env/Helm prop changes",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1492",
-      "summary": "Redesign Communicator AI features approach for Regnology AI standards compliance",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1478",
       "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
       "status": "Ready",
       "owner": "Mateusz Uzarek",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1606",
-      "summary": "Agree architecture for entity announcements before implementation",
-      "status": "New",
-      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
@@ -413,30 +466,6 @@
     {
       "key": "RCON-1592",
       "summary": "platform-integrator: IAM / platform registration and persist credentials",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1539",
-      "summary": "Check if communicator-ui can use a DHI hardened base image",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1538",
-      "summary": "Check if Helm securityContext can be applied for BE and UI",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1537",
-      "summary": "Check if communicator-be can use DHI Temurin base image",
       "status": "In Implementation",
       "owner": "Ewa Grabowska",
       "blocked": false,
@@ -560,14 +589,6 @@
       }
     },
     {
-      "key": "RCON-1160",
-      "summary": "Dynamic Context",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1371",
       "summary": "[MVP] Production-ready AI Thread Summary",
       "status": "New",
@@ -636,14 +657,6 @@
       "summary": "Link and unlink cases from a case",
       "status": "New",
       "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1159",
-      "summary": "Communicator Phase 3 (Additional Features)",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
       "blocked": false,
       "spillover": false
     },
@@ -806,30 +819,6 @@
           "summary": "Refine UI for range filters",
           "status": "To Do",
           "owner": "Igor Lesiv",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1539",
-          "summary": "Check if communicator-ui can use a DHI hardened base image",
-          "status": "In Implementation",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1538",
-          "summary": "Check if Helm securityContext can be applied for BE and UI",
-          "status": "In Implementation",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1537",
-          "summary": "Check if communicator-be can use DHI Temurin base image",
-          "status": "In Implementation",
-          "owner": "Ewa Grabowska",
           "blocked": false,
           "spillover": false
         },
@@ -1022,6 +1011,30 @@
           "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
           "status": "Ready",
           "owner": "Mateusz Uzarek",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1539",
+          "summary": "Check if communicator-ui can use a DHI hardened base image",
+          "status": "Implemented",
+          "owner": "Ewa Grabowska",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1538",
+          "summary": "Check if Helm securityContext can be applied for BE and UI",
+          "status": "Implemented",
+          "owner": "Ewa Grabowska",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1537",
+          "summary": "Check if communicator-be can use DHI Temurin base image",
+          "status": "Implemented",
+          "owner": "Ewa Grabowska",
           "blocked": false,
           "spillover": false
         },
@@ -2040,6 +2053,14 @@
       "total": 49,
       "items": [
         {
+          "key": "RCON-1492",
+          "summary": "Redesign Communicator AI features approach for Regnology AI standards compliance",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-22",
+          "priority": "Low"
+        },
+        {
           "key": "RCON-1456",
           "summary": "Show a small image preview without downloading the full file",
           "status": "Ready for integration",
@@ -2230,20 +2251,20 @@
           "owner": "Unassigned",
           "date": "2026-10-14",
           "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1853",
-          "summary": "Sub-Test Execution for RCON-1363",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
         }
       ]
     },
     "raised": {
-      "total": 47,
+      "total": 46,
       "items": [
+        {
+          "key": "RCON-1911",
+          "summary": "Implement: optional strategies to match legacy cases when External Id policy changes",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-21",
+          "priority": "Low"
+        },
         {
           "key": "RCON-1909",
           "summary": "Refactor case details UI placement",
@@ -2280,7 +2301,7 @@
           "key": "RCON-1900",
           "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
           "status": "New",
-          "owner": "Unassigned",
+          "owner": "Mateusz Uzarek",
           "date": "2026-10-20",
           "priority": "Low"
         },
@@ -2319,8 +2340,8 @@
         {
           "key": "RCON-1882",
           "summary": "Environment update guide: version-to-version env/Helm prop changes",
-          "status": "New",
-          "owner": "Unassigned",
+          "status": "In Implementation",
+          "owner": "Ewa Grabowska",
           "date": "2026-10-20",
           "priority": "Low"
         },
@@ -2414,7 +2435,7 @@
         },
         {
           "key": "RCON-1624",
-          "summary": "Implement: external modules connect cases by ID (context as display-only)",
+          "summary": "Implement: module opt-in External Id (ADR Proposal A) including UI",
           "status": "New",
           "owner": "Unassigned",
           "date": "2026-10-07",
@@ -2435,14 +2456,6 @@
           "owner": "Kamil Matuszewski",
           "date": "2026-10-07",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1620",
-          "summary": "Simplify Communicator UI when the user has only one entity",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-06",
-          "priority": "Low"
         }
       ]
     },
@@ -2451,7 +2464,7 @@
       "items": []
     },
     "stalled": {
-      "total": 27,
+      "total": 25,
       "items": [
         {
           "key": "RCON-919",
@@ -2582,14 +2595,6 @@
           "priority": "Not defined"
         },
         {
-          "key": "RCON-1159",
-          "summary": "Communicator Phase 3 (Additional Features)",
-          "status": "New",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-06",
-          "priority": "Low"
-        },
-        {
           "key": "RCON-1598",
           "summary": "Link and unlink cases from a case",
           "status": "New",
@@ -2652,6 +2657,14 @@
           "owner": "Unassigned",
           "date": "2026-10-06",
           "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1371",
+          "summary": "[MVP] Production-ready AI Thread Summary",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-10-07",
+          "priority": "Low"
         }
       ]
     },

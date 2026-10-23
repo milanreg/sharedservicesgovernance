@@ -1,11 +1,11 @@
 {
   "slug": "rconnect-submission",
-  "syncedAt": "2026-10-21T14:07:37.911Z",
+  "syncedAt": "2026-10-23T04:31:34.768Z",
   "projectSummary": {
-    "done": 890,
-    "open": 109,
+    "done": 891,
+    "open": 108,
     "highPriorityOpen": 15,
-    "unassignedOpen": 58,
+    "unassignedOpen": 57,
     "epics": 55,
     "currentRelease": {
       "name": "RCON.S 2.3.0",
@@ -114,7 +114,7 @@
     {
       "key": "RCON-1614",
       "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
-      "status": "New",
+      "status": "Implemented",
       "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
@@ -210,7 +210,7 @@
       "key": "RCON-1872",
       "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
       "status": "New",
-      "owner": "Unassigned",
+      "owner": "Benjamin Garaude",
       "blocked": false,
       "spillover": false
     },
@@ -285,23 +285,28 @@
     {
       "key": "RCON-1883",
       "summary": "All-in-one build: add \"recreate tags\" checkbox",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "CE-Gokul Sundaramoorthi",
+        "date": "22 Oct 2026",
+        "body": "It was validated by kamil and got approved. I raised a PR and it got merged with the master branch."
+      }
+    },
+    {
+      "key": "RCON-1884",
+      "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
       "status": "In Implementation",
       "owner": "CE-Gokul Sundaramoorthi",
       "blocked": false,
       "spillover": false,
       "comment": {
         "author": "CE-Gokul Sundaramoorthi",
-        "date": "21 Oct 2026",
-        "body": "!image-20261021-092825.png|width=626,alt=\"image-20261021-092825.png\"! Testing flow"
+        "date": "22 Oct 2026",
+        "body": "Gathered more info from Kamil about this task, * *Build the JAR from the* {{rconnect-nifi-updater}} *repository* ** Create a Jenkins build stage that checks out and builds the JAR from: {{rconnect-nifi-updater}} ** The JAR should be generated during the pipeline execution. * *…"
       }
-    },
-    {
-      "key": "RCON-1884",
-      "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
-      "status": "New",
-      "owner": "CE-Gokul Sundaramoorthi",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1885",
@@ -327,10 +332,87 @@
   ],
   "backlogTickets": [
     {
+      "key": "RCON-1611",
+      "summary": "[Placeholder] RRH Poland integration",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1872",
+      "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
+      "status": "New",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1614",
+      "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
+      "status": "Implemented",
+      "owner": "Kamil Burek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1884",
+      "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
+      "status": "In Implementation",
+      "owner": "CE-Gokul Sundaramoorthi",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "CE-Gokul Sundaramoorthi",
+        "date": "22 Oct 2026",
+        "body": "Gathered more info from Kamil about this task, Build the JAR from the rconnect-nifi-updater repository Create a Jenkins build stage that checks out and builds the JAR from: rconnect-nifi-updater The JAR should be generated during the pipeline execution. Integrate this build in…"
+      }
+    },
+    {
       "key": "RCON-1612",
       "summary": "[Architecture] RRH Poland — propose architecture and workload",
       "status": "New",
       "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1423",
+      "summary": "[Enablers] Support — sprint booking",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1506",
+      "summary": "[2.3.0] App Sec",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1525",
+      "summary": "Schema-Driven Feedback Storage (ADR-0006)",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1603",
+      "summary": "On-prem / private cloud support",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1467",
+      "summary": "[2.3.0] Maintenance & Improvements",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
       "blocked": false,
       "spillover": false
     },
@@ -414,31 +496,10 @@
       }
     },
     {
-      "key": "RCON-1883",
-      "summary": "All-in-one build: add \"recreate tags\" checkbox",
-      "status": "In Implementation",
-      "owner": "CE-Gokul Sundaramoorthi",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Gokul Sundaramoorthi",
-        "date": "21 Oct 2026",
-        "body": "Testing flow"
-      }
-    },
-    {
       "key": "RCON-1547",
       "summary": "Performance Testing",
       "status": "New",
       "owner": "Rafał Bator",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1884",
-      "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
-      "status": "New",
-      "owner": "CE-Gokul Sundaramoorthi",
       "blocked": false,
       "spillover": false
     },
@@ -495,54 +556,6 @@
     {
       "key": "RCON-1861",
       "summary": "RRH Ascend submit through Rconnect [SCOPE GENERATED]",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1603",
-      "summary": "On-prem / private cloud support",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1525",
-      "summary": "Schema-Driven Feedback Storage (ADR-0006)",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1506",
-      "summary": "App Sec 2.3.0",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1467",
-      "summary": "[2.3.0] Maintenance & Improvements",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1423",
-      "summary": "[Enablers] Support — sprint booking",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1872",
-      "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -691,14 +704,6 @@
       "summary": "Release activities (2.3.0)",
       "status": "New",
       "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1614",
-      "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
-      "status": "New",
-      "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
     },
@@ -933,14 +938,6 @@
       "spillover": false
     },
     {
-      "key": "RCON-1611",
-      "summary": "[Placeholder] RRH Poland integration",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1604",
       "summary": "On-prem / private cloud support",
       "status": "New",
@@ -1041,6 +1038,14 @@
     {
       "key": "RCON-1172",
       "summary": "Insuficient CPU when creating new instances",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1278",
+      "summary": "Remove rconnect-um-users DB from helm charts and gcp",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -1715,8 +1720,16 @@
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 53,
+      "total": 50,
       "items": [
+        {
+          "key": "RCON-1883",
+          "summary": "All-in-one build: add \"recreate tags\" checkbox",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-22",
+          "priority": "Medium"
+        },
         {
           "key": "RCON-1334",
           "summary": "Create force override of tag on pipelines",
@@ -1908,19 +1921,11 @@
           "owner": "Unassigned",
           "date": "2026-10-08",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1759",
-          "summary": "Background for: RCON-1757,RCON-1756,RCON-1755,RCON-1754",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
         }
       ]
     },
     "raised": {
-      "total": 74,
+      "total": 72,
       "items": [
         {
           "key": "RCON-1907",
@@ -1981,7 +1986,7 @@
         {
           "key": "RCON-1884",
           "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
-          "status": "New",
+          "status": "In Implementation",
           "owner": "CE-Gokul Sundaramoorthi",
           "date": "2026-10-20",
           "priority": "Medium"
@@ -1989,8 +1994,8 @@
         {
           "key": "RCON-1883",
           "summary": "All-in-one build: add \"recreate tags\" checkbox",
-          "status": "In Implementation",
-          "owner": "CE-Gokul Sundaramoorthi",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "date": "2026-10-20",
           "priority": "Medium"
         },
@@ -2062,7 +2067,7 @@
           "key": "RCON-1872",
           "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
           "status": "New",
-          "owner": "Unassigned",
+          "owner": "Benjamin Garaude",
           "date": "2026-10-19",
           "priority": "Critical"
         },

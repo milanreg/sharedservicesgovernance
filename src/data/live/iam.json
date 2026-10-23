@@ -1,11 +1,11 @@
 {
   "slug": "iam",
-  "syncedAt": "2026-10-21T14:07:16.123Z",
+  "syncedAt": "2026-10-23T04:31:13.103Z",
   "projectSummary": {
     "done": 489,
-    "open": 88,
-    "highPriorityOpen": 24,
-    "unassignedOpen": 58,
+    "open": 92,
+    "highPriorityOpen": 25,
+    "unassignedOpen": 59,
     "epics": 46,
     "currentRelease": {
       "name": "R1.3.0.01_RSH_10.02.26",
@@ -23,14 +23,14 @@
     "end": "22 Oct 2026",
     "committed": 13,
     "done": 1,
-    "inProgress": 11,
+    "inProgress": 12,
     "blocked": 0
   },
   "tickets": [
     {
       "key": "RSH-426",
       "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
-      "status": "Ready",
+      "status": "In Implementation",
       "owner": "Celso Garcia",
       "blocked": false,
       "spillover": false
@@ -47,6 +47,14 @@
         "date": "21 Oct 2026",
         "body": "[~accountid:712020:89146cd5-630a-43fa-a435-ba064e0f5fe3] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - Cannot transition – there are failed or unexecuted tests for one or mor…"
       }
+    },
+    {
+      "key": "RSH-815",
+      "summary": "[IAM] Use preferred language in emails",
+      "status": "In PO Review",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": false
     },
     {
       "key": "RSH-2180",
@@ -141,14 +149,6 @@
       "spillover": true
     },
     {
-      "key": "RSH-815",
-      "summary": "[IAM] Use preferred language in emails",
-      "status": "In Implementation",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RSH-7663",
       "summary": "[IAM] Investigate backend pod OOMs on large entity and entity-group catalogs",
       "status": "Closed",
@@ -163,6 +163,38 @@
     }
   ],
   "backlogTickets": [
+    {
+      "key": "RSH-8372",
+      "summary": "[IAM] Backend gives up startup initialization while the Keycloak realm import is still running",
+      "status": "In Implementation",
+      "owner": "Paweł Śnieżek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-8401",
+      "summary": "[IAM] Translate Keycloak Login/Reset Password page",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-426",
+      "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
+      "status": "In Implementation",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-8479",
+      "summary": "eregulatory-app: re-register with IAM after an upgrade that restores the database",
+      "status": "New",
+      "owner": "Romain Chassat",
+      "blocked": false,
+      "spillover": false
+    },
     {
       "key": "RSH-900",
       "summary": "[Test Coverage]: RSH IAM -> Notifications",
@@ -202,6 +234,27 @@
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
+    },
+    {
+      "key": "RSH-815",
+      "summary": "[IAM] Use preferred language in emails",
+      "status": "In PO Review",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-8091",
+      "summary": "[IAM] Move language administration to Settings",
+      "status": "Quality Reviewed",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "ScriptRunner for Jira",
+        "date": "22 Oct 2026",
+        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: No Xray Tests are linked to this Story. Please link Tests and ensure they have passed Test Executions for all Fix Versions (26.4.0…"
+      }
     },
     {
       "key": "RSH-6726",
@@ -259,30 +312,6 @@
       }
     },
     {
-      "key": "RSH-7066",
-      "summary": "Deploy IAM as a module of its own after the team split",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-7065",
-      "summary": "Cover IAM's integration with tests",
-      "status": "In Quality Review",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-7060",
-      "summary": "Wire Licensing to IAM on OpenShift",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RSH-1631",
       "summary": "[Test Coverage]: RSH IAM -> Clients",
       "status": "New",
@@ -293,6 +322,148 @@
     {
       "key": "RSH-1201",
       "summary": "[Test Coverage]: RSH IAM -> Registration process",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-7065",
+      "summary": "Cover IAM's integration with tests",
+      "status": "Quality Reviewed",
+      "owner": "Shashank Prasad",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "ScriptRunner for Jira",
+        "date": "22 Oct 2026",
+        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: Cannot transition – there are failed or unexecuted tests for one or more Fix Versions: Fix Version 26.4.0.00_RSH-PL_25.11.26: has …"
+      }
+    },
+    {
+      "key": "RSH-2963",
+      "summary": "IAM module not starting ",
+      "status": "New",
+      "owner": "Pawel Skrzypczynski",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Pawel Skrzypczynski",
+        "date": "14 Jul 2026",
+        "body": "MR: Platfor api: https://gitlab.regulator.regnology.io/supervisory-hub/platform-api/-/merge_requests/63 IAM: https://gitlab.regulator.regnology.io/supervisory-hub/iam/-/merge_requests/477 Quick status on the platform-api base image migration: What we did * Initially planned to…"
+      }
+    },
+    {
+      "key": "RSH-6727",
+      "summary": "[IAM UI] Mark Personal Access Token modules the user can no longer access",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-370",
+      "summary": "[IAM] Create in app documentation for IAM",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Adam Ennis",
+        "date": "13 Aug 2025",
+        "body": "More refinement needed."
+      }
+    },
+    {
+      "key": "RSH-775",
+      "summary": "[IAM UI] Adjust Column Widths for Better Fit",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-412",
+      "summary": "[IAM] Rename \"Supervision Hub\" to \"Supervisory Hub\" across codebase and project assets",
+      "status": "Ready",
+      "owner": "Adam Ennis",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Thomas Lechner",
+        "date": "5 Aug 2025",
+        "body": "sounds good to me"
+      }
+    },
+    {
+      "key": "RSH-8094",
+      "summary": "[IAM] Show preferred language read-only in user details",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-8093",
+      "summary": "[IAM] Detect drift in runtime translation overrides",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-8092",
+      "summary": "[IAM] Store translation catalogs outside the Keycloak realm",
+      "status": "In Implementation",
+      "owner": "Paweł Śnieżek",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Celso Garcia",
+        "date": "19 Oct 2026",
+        "body": "Candidate for durable translation storage (from / MR !618 review): Keycloak realm localizations (REALM_LOCALIZATIONS), with IAM keys prefixed with iam. . When evaluating this candidate, please verify: config-cli behavior (unmanaged keys preserved across Helm / config-cli impor…"
+      }
+    },
+    {
+      "key": "RSH-8373",
+      "summary": "[IAM] Move language administration to Settings",
+      "status": "New",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-7591",
+      "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
+      "status": "Quality Reviewed",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "ScriptRunner for Jira",
+        "date": "20 Oct 2026",
+        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: No Xray Tests are linked to this Story. Please link Tests and ensure they have passed Test Executions for all Fix Versions (26.3.2…"
+      }
+    },
+    {
+      "key": "RSH-1547",
+      "summary": "[IAM] CAPTCHA & MFA Implementation",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-7066",
+      "summary": "Deploy IAM as a module of its own after the team split",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-7060",
+      "summary": "Wire Licensing to IAM on OpenShift",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -315,14 +486,6 @@
       "spillover": false
     },
     {
-      "key": "RSH-8091",
-      "summary": "[IAM] Move language administration to Settings",
-      "status": "Ready",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RSH-6864",
       "summary": "[IAM] Automate ESO secret rotation: config-cli re-import before consumer restart",
       "status": "Quality Reviewed",
@@ -331,67 +494,12 @@
       "spillover": false
     },
     {
-      "key": "RSH-7591",
-      "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "20 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: No Xray Tests are linked to this Story. Please link Tests and ensure they have passed Test Executions for all Fix Versions (26.3.2…"
-      }
-    },
-    {
-      "key": "RSH-8094",
-      "summary": "[IAM] Show preferred language read-only in user details",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-8093",
-      "summary": "[IAM] Detect drift in runtime translation overrides",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-8092",
-      "summary": "[IAM] Store translation catalogs outside the Keycloak realm",
-      "status": "New",
-      "owner": "Paweł Śnieżek",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Celso Garcia",
-        "date": "19 Oct 2026",
-        "body": "Candidate for durable translation storage (from / MR !618 review): Keycloak realm localizations (REALM_LOCALIZATIONS), with IAM keys prefixed with iam. . When evaluating this candidate, please verify: config-cli behavior (unmanaged keys preserved across Helm / config-cli impor…"
-      }
-    },
-    {
       "key": "RSH-4258",
       "summary": "[IAM] User Profile Management - Improvements",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
-    },
-    {
-      "key": "RSH-412",
-      "summary": "[IAM] Rename \"Supervision Hub\" to \"Supervisory Hub\" across codebase and project assets",
-      "status": "Ready",
-      "owner": "Adam Ennis",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Thomas Lechner",
-        "date": "5 Aug 2025",
-        "body": "sounds good to me"
-      }
     },
     {
       "key": "RSH-4255",
@@ -406,14 +514,6 @@
       "summary": "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
       "status": "Ready",
       "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-815",
-      "summary": "[IAM] Use preferred language in emails",
-      "status": "In Implementation",
-      "owner": "Celso Garcia",
       "blocked": false,
       "spillover": false
     },
@@ -489,14 +589,6 @@
       }
     },
     {
-      "key": "RSH-426",
-      "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
-      "status": "Ready",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RSH-6721",
       "summary": "[IAM] Implement RFleet RSH PL Review Agent",
       "status": "In Implementation",
@@ -510,14 +602,6 @@
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": true,
-      "spillover": false
-    },
-    {
-      "key": "RSH-1547",
-      "summary": "[IAM] CAPTCHA & MFA Implementation",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
       "spillover": false
     },
     {
@@ -540,14 +624,6 @@
         "date": "23 Oct 2025",
         "body": "could you pls sync with on the one ui change/bugfix requests?"
       }
-    },
-    {
-      "key": "RSH-6727",
-      "summary": "[IAM UI] Mark Personal Access Token modules the user can no longer access",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RSH-6566",
@@ -645,19 +721,6 @@
       "spillover": false
     },
     {
-      "key": "RSH-370",
-      "summary": "[IAM] Create in app documentation for IAM",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Adam Ennis",
-        "date": "13 Aug 2025",
-        "body": "More refinement needed."
-      }
-    },
-    {
       "key": "RSH-5936",
       "summary": "[IAM] Investigate and remove the \"Direct Access Grants\" client setting",
       "status": "New",
@@ -743,19 +806,6 @@
       "owner": "Sebastian Wolf",
       "blocked": false,
       "spillover": false
-    },
-    {
-      "key": "RSH-2963",
-      "summary": "IAM module not starting ",
-      "status": "New",
-      "owner": "Pawel Skrzypczynski",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Pawel Skrzypczynski",
-        "date": "14 Jul 2026",
-        "body": "MR: Platfor api: https://gitlab.regulator.regnology.io/supervisory-hub/platform-api/-/merge_requests/63 IAM: https://gitlab.regulator.regnology.io/supervisory-hub/iam/-/merge_requests/477 Quick status on the platform-api base image migration: What we did * Initially planned to…"
-      }
     },
     {
       "key": "RSH-1540",
@@ -855,51 +905,6 @@
       "summary": "RSH IAM - Module Integration Support",
       "status": "In Implementation",
       "owner": "Robert Binder",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-1200",
-      "summary": "[Test Coverage]: RSH IAM -> Import/Export",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-420",
-      "summary": "[Blocked by UX] IAM API/UI - Foundational Admin Interface for Managing Custom Permissions",
-      "status": "Ready",
-      "owner": "Adam Ennis",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Thomas Lechner",
-        "date": "13 Oct 2025",
-        "body": "The output of the story was a wireframe pdf from design which can be now used to create followup stories"
-      }
-    },
-    {
-      "key": "RSH-775",
-      "summary": "[IAM UI] Adjust Column Widths for Better Fit",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-772",
-      "summary": "[IAM UI] Add Loading Indicators for Better User Experience",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-768",
-      "summary": "[IAM UI] Validate role selection on save in permission dialog",
-      "status": "Ready",
-      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     }
@@ -1704,12 +1709,44 @@
       ]
     },
     "raised": {
-      "total": 24,
+      "total": 23,
       "items": [
+        {
+          "key": "RSH-8479",
+          "summary": "eregulatory-app: re-register with IAM after an upgrade that restores the database",
+          "status": "New",
+          "owner": "Romain Chassat",
+          "date": "2026-10-22",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-8401",
+          "summary": "[IAM] Translate Keycloak Login/Reset Password page",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-10-22",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-8373",
+          "summary": "[IAM] Move language administration to Settings",
+          "status": "New",
+          "owner": "CE-Dominik Czerwiński",
+          "date": "2026-10-22",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-8372",
+          "summary": "[IAM] Backend gives up startup initialization while the Keycloak realm import is still running",
+          "status": "In Implementation",
+          "owner": "Paweł Śnieżek",
+          "date": "2026-10-22",
+          "priority": "Not defined"
+        },
         {
           "key": "RSH-8094",
           "summary": "[IAM] Show preferred language read-only in user details",
-          "status": "New",
+          "status": "Ready",
           "owner": "Unassigned",
           "date": "2026-10-19",
           "priority": "Medium"
@@ -1717,7 +1754,7 @@
         {
           "key": "RSH-8093",
           "summary": "[IAM] Detect drift in runtime translation overrides",
-          "status": "New",
+          "status": "Ready",
           "owner": "Unassigned",
           "date": "2026-10-19",
           "priority": "Medium"
@@ -1725,7 +1762,7 @@
         {
           "key": "RSH-8092",
           "summary": "[IAM] Store translation catalogs outside the Keycloak realm",
-          "status": "New",
+          "status": "In Implementation",
           "owner": "Paweł Śnieżek",
           "date": "2026-10-19",
           "priority": "Medium"
@@ -1733,7 +1770,7 @@
         {
           "key": "RSH-8091",
           "summary": "[IAM] Move language administration to Settings",
-          "status": "Ready",
+          "status": "Quality Reviewed",
           "owner": "CE-Dominik Czerwiński",
           "date": "2026-10-19",
           "priority": "Medium"
@@ -1765,7 +1802,7 @@
         {
           "key": "RSH-7065",
           "summary": "Cover IAM's integration with tests",
-          "status": "In Quality Review",
+          "status": "Quality Reviewed",
           "owner": "Shashank Prasad",
           "date": "2026-10-09",
           "priority": "Medium"
@@ -1857,46 +1894,6 @@
           "owner": "Unassigned",
           "date": "2026-09-23",
           "priority": "Critical"
-        },
-        {
-          "key": "RSH-6665",
-          "summary": "[IAM] OSFI: Introduce Kubernetes Gateway API as successor of Ingress for auth-gateway",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-09-22",
-          "priority": "Critical"
-        },
-        {
-          "key": "RSH-6664",
-          "summary": "[IAM] OSFI: Remove wildcard Keycloak redirect URIs and make client URLs configurable",
-          "status": "Quality Reviewed",
-          "owner": "Shashank Prasad",
-          "date": "2026-09-22",
-          "priority": "Critical"
-        },
-        {
-          "key": "RSH-6661",
-          "summary": "[IAM] Allow group scope label change",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-22",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-6652",
-          "summary": "[IAM] Filter roles by scope in Add Permission and when assigning to user groups",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-09-21",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-6651",
-          "summary": "[IAM] Add Unscoped option to Add group Scope label",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-09-21",
-          "priority": "High"
         }
       ]
     },
@@ -1905,7 +1902,7 @@
       "items": []
     },
     "stalled": {
-      "total": 46,
+      "total": 45,
       "items": [
         {
           "key": "RSH-323",
@@ -1982,14 +1979,6 @@
         {
           "key": "RSH-772",
           "summary": "[IAM UI] Add Loading Indicators for Better User Experience",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2025-11-10",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RSH-775",
-          "summary": "[IAM UI] Adjust Column Widths for Better Fit",
           "status": "New",
           "owner": "Unassigned",
           "date": "2025-11-10",
@@ -2106,6 +2095,14 @@
           "owner": "Unassigned",
           "date": "2026-08-27",
           "priority": "High"
+        },
+        {
+          "key": "RSH-839",
+          "summary": "Configure DC to use the IAM Keyclock",
+          "status": "Ready",
+          "owner": "Sebastian Wolf",
+          "date": "2026-08-27",
+          "priority": "Medium"
         }
       ]
     },
