@@ -1,65 +1,49 @@
 {
   "slug": "rconnect-submission",
-  "syncedAt": "2026-10-23T04:31:34.768Z",
+  "syncedAt": "2026-11-12T11:15:49.856Z",
   "projectSummary": {
-    "done": 891,
-    "open": 108,
+    "done": 921,
+    "open": 125,
     "highPriorityOpen": 15,
-    "unassignedOpen": 57,
-    "epics": 55,
+    "unassignedOpen": 64,
+    "epics": 60,
     "currentRelease": {
-      "name": "RCON.S 2.3.0",
-      "date": "3 Nov 2026",
+      "name": "RCON.S 2.4.0",
+      "date": "1 Dec 2026",
       "released": false
     },
     "lastRelease": {
-      "name": "RCON.S 2.2.0",
-      "date": "7 Sept 2026"
+      "name": "RCON.S 2.3.0",
+      "date": "3 Nov 2026"
     }
   },
   "sprint": {
-    "name": "RCON.S sprint 19",
-    "start": "19 Oct 2026",
-    "end": "30 Oct 2026",
-    "committed": 29,
-    "done": 0,
-    "inProgress": 5,
+    "name": "RCON.S sprint 20",
+    "start": "2 Nov 2026",
+    "end": "13 Nov 2026",
+    "committed": 25,
+    "done": 2,
+    "inProgress": 11,
     "blocked": 0
   },
   "tickets": [
     {
-      "key": "RCON-1365",
-      "summary": "Improve existing UI unit test coverage",
-      "status": "Implemented",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1486",
-      "summary": "[FE] Display Ni-Fi errors in user friendly manner",
-      "status": "In Implementation",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": true
-    },
-    {
       "key": "RCON-1535",
-      "summary": "[Bug] filetype .asc for Francenot accepted",
-      "status": "New",
-      "owner": "Unassigned",
+      "summary": "[Bug] filetype .asc for France not accepted",
+      "status": "Closed",
+      "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
       "spillover": false,
       "comment": {
         "author": "Anca Dobrea",
-        "date": "6 Oct 2026",
-        "body": "to be checked if the FE changes that were blocking this are done/ if it’s fixed."
+        "date": "4 Nov 2026",
+        "body": "problem still present, it will be solved when we implement the Manual Submission generic feature"
       }
     },
     {
       "key": "RCON-1547",
       "summary": "Performance Testing",
-      "status": "New",
+      "status": "In Implementation",
       "owner": "Rafał Bator",
       "blocked": false,
       "spillover": false
@@ -67,7 +51,7 @@
     {
       "key": "RCON-1548",
       "summary": "[Ni-Fi] Update the Ni-Fi flows following the generic feedback functionality",
-      "status": "Ready",
+      "status": "In Implementation",
       "owner": "CE-Dwitiya Halder",
       "blocked": false,
       "spillover": false,
@@ -80,49 +64,20 @@
     {
       "key": "RCON-1572",
       "summary": "[On-prem] create RConnect Helm charts without CNPG.",
-      "status": "In Implementation",
+      "status": "In PO Review",
       "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
       "spillover": false,
       "comment": {
-        "author": "Anca Dobrea",
-        "date": "6 Oct 2026",
-        "body": "on hold - depends on a task for updater that will modify the helmcharts - we need to wait for that story."
+        "author": "CE-Konstantin Artsiomenka",
+        "date": "10 Nov 2026",
+        "body": "Ticket completed, see this Jenkins job and it’s results: [https://jenkins.regnology.net/job/Rconnect/job/Submission-flow/job/rconnect-on-prem/job/BUILD-on-prem-image-and-push/|https://jenkins.regnology.net/job/Rconnect/job/Submission-flow/job/rconnect-on-prem/job/BUILD-on-prem…"
       }
-    },
-    {
-      "key": "RCON-1589",
-      "summary": "Enhancement - Soft Delete Country Regimes (BE)",
-      "status": "New",
-      "owner": "Rafał Bator",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1605",
-      "summary": "Create a new rcloud namespace in EM RCONNECT INTEGRATIONS for RRH/RTH (and other non-RConnect teams), then move their instances there so they stop using our instance quota.",
-      "status": "Ready",
-      "owner": "CE-Dwitiya Halder",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "8 Oct 2026",
-        "body": "cost constraints are limiting this implementation so it was decided to not create it (1 namespace is a separate kubernetes instance)"
-      }
-    },
-    {
-      "key": "RCON-1614",
-      "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
-      "status": "Implemented",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1615",
       "summary": "[Ni-Fi] Update existing flows to support report frequency",
-      "status": "New",
+      "status": "Implemented",
       "owner": "CE-Dwitiya Halder",
       "blocked": false,
       "spillover": false
@@ -146,7 +101,7 @@
     {
       "key": "RCON-1840",
       "summary": "[RRH DE ] Connector NExt API 4.2",
-      "status": "Ready",
+      "status": "In Implementation",
       "owner": "CE-Alexandru Calinescu",
       "blocked": false,
       "spillover": false
@@ -154,165 +109,42 @@
     {
       "key": "RCON-1843",
       "summary": "Copy ni-fi flows from non-prod to prod dedicated bucket",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
       "blocked": false,
       "spillover": false,
       "comment": {
         "author": "Anca Dobrea",
-        "date": "19 Oct 2026",
-        "body": "Rcloud team needs to provide us access. Dependency on them."
+        "date": "2 Nov 2026",
+        "body": "For now until dependency fix is released we will be moving them manually."
       }
-    },
-    {
-      "key": "RCON-1845",
-      "summary": "Add country regime once again to the overview page",
-      "status": "Implemented",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1847",
       "summary": "[Bug] It is possible to create a submission case for the same date",
-      "status": "New",
+      "status": "In Implementation",
       "owner": "Kamil Burek",
       "blocked": false,
-      "spillover": false,
+      "spillover": true,
       "comment": {
-        "author": "Anca Dobrea",
-        "date": "19 Oct 2026",
-        "body": "let’s check after we implement the frequency fully"
+        "author": "Łukasz Pisiewicz",
+        "date": "29 Oct 2026",
+        "body": "Problem still exist !image-20261029-111345.png|width=725,alt=\"image-20261029-111345.png\"!"
       }
     },
     {
-      "key": "RCON-1852",
-      "summary": "Create and configure Jenkins jobs for Dependency track tool",
-      "status": "In Implementation",
-      "owner": "CE-Konstantin Artsiomenka",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1871",
-      "summary": "Enhancement - Sync CountryRegime feedbackSchema from flows bucket (nifi-updater + nifi-adaptor)",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "20 Oct 2026",
-        "body": "[~accountid:712020:0a2457b5-6061-4aa9-9eb1-e6e2e27e3a6c] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - No Xray Tests are linked to this Story. Please link Tests and ensure th…"
-      }
-    },
-    {
-      "key": "RCON-1872",
-      "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
-      "status": "New",
-      "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1873",
-      "summary": "TEST - Make a build which will move flows from Bitbucket to the rcf non-prod",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "19 Oct 2026",
-        "body": "testing not possible because the service account does not have specific rights."
-      }
-    },
-    {
-      "key": "RCON-1874",
-      "summary": "[BE] South Africa - Support several credentials / entity / user",
-      "status": "In Implementation",
-      "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Alexandru Calinescu",
-        "date": "19 Oct 2026",
-        "body": "changes proposed can be found here: [https://confluence.regnology.net/spaces/RCON/pages/323552568/ADR-009+Per-User+Credentials+for+Country-Regimes|https://confluence.regnology.net/spaces/RCON/pages/323552568/ADR-009+Per-User+Credentials+for+Country-Regimes]"
-      }
-    },
-    {
-      "key": "RCON-1875",
-      "summary": "[FE] South Africa - Support several credentials / entity / user",
-      "status": "New",
-      "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Alexandru Calinescu",
-        "date": "19 Oct 2026",
-        "body": "changes proposed can be found here: [https://confluence.regnology.net/spaces/RCON/pages/323552568/ADR-009+Per-User+Credentials+for+Country-Regimes|https://confluence.regnology.net/spaces/RCON/pages/323552568/ADR-009+Per-User+Credentials+for+Country-Regimes]"
-      }
-    },
-    {
-      "key": "RCON-1876",
-      "summary": "Update the E2E tests following the self-service adoption",
+      "key": "RCON-1877",
+      "summary": "[SPIKE] Investigate possibilities to connect to apps on the Rcloud securely",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1879",
-      "summary": "Documentation Rcloud Onboarding",
-      "status": "New",
+      "key": "RCON-1880",
+      "summary": "Release activities (2.3.0)",
+      "status": "Closed",
       "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "20 Oct 2026",
-        "body": "Added Confluence reference pack from the RCloud onboarding documentation planning thread: * *Governing:* AR session requirements + CS/MS SaaS onboarding template + SaaS Task Library * *Examples:* eReg/ESEF (Timotei RACI pattern), RRisk Sessions 1–3 (+ 2.1/2.2), RFS Overview / …"
-      }
-    },
-    {
-      "key": "RCON-1881",
-      "summary": "[Enablers] Support Integrators 3x3",
-      "status": "Ready",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1883",
-      "summary": "All-in-one build: add \"recreate tags\" checkbox",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Gokul Sundaramoorthi",
-        "date": "22 Oct 2026",
-        "body": "It was validated by kamil and got approved. I raised a PR and it got merged with the master branch."
-      }
-    },
-    {
-      "key": "RCON-1884",
-      "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
-      "status": "In Implementation",
-      "owner": "CE-Gokul Sundaramoorthi",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Gokul Sundaramoorthi",
-        "date": "22 Oct 2026",
-        "body": "Gathered more info from Kamil about this task, * *Build the JAR from the* {{rconnect-nifi-updater}} *repository* ** Create a Jenkins build stage that checks out and builds the JAR from: {{rconnect-nifi-updater}} ** The JAR should be generated during the pipeline execution. * *…"
-      }
-    },
-    {
-      "key": "RCON-1885",
-      "summary": "[On-prem] Jenkins build: GCP VM with internal Kubernetes mimicking on-prem",
-      "status": "New",
-      "owner": "CE-Gokul Sundaramoorthi",
       "blocked": false,
       "spillover": false
     },
@@ -328,101 +160,6 @@
         "date": "20 Oct 2026",
         "body": "A prerequisite for this story is this message from Frank Beismann: [https://teams.microsoft.com/l/message/19:meeting_NmU3OWY1MDAtZTdiMC00YzIyLWEzZTEtYjYzYzhhZGViODUz@thread.v2/1791973920086?context=%7B%22contextType%22%3A%22chat%22%7D|https://teams.microsoft.com/l/message/19:m…"
       }
-    }
-  ],
-  "backlogTickets": [
-    {
-      "key": "RCON-1611",
-      "summary": "[Placeholder] RRH Poland integration",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1872",
-      "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
-      "status": "New",
-      "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1614",
-      "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
-      "status": "Implemented",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1884",
-      "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
-      "status": "In Implementation",
-      "owner": "CE-Gokul Sundaramoorthi",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Gokul Sundaramoorthi",
-        "date": "22 Oct 2026",
-        "body": "Gathered more info from Kamil about this task, Build the JAR from the rconnect-nifi-updater repository Create a Jenkins build stage that checks out and builds the JAR from: rconnect-nifi-updater The JAR should be generated during the pipeline execution. Integrate this build in…"
-      }
-    },
-    {
-      "key": "RCON-1612",
-      "summary": "[Architecture] RRH Poland — propose architecture and workload",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1423",
-      "summary": "[Enablers] Support — sprint booking",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1506",
-      "summary": "[2.3.0] App Sec",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1525",
-      "summary": "Schema-Driven Feedback Storage (ADR-0006)",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1603",
-      "summary": "On-prem / private cloud support",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1467",
-      "summary": "[2.3.0] Maintenance & Improvements",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1860",
-      "summary": "Germany CESOP edit dialog does not prefill saved API URL and Client ID",
-      "status": "Analysis Awaited",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1905",
@@ -433,183 +170,163 @@
       "spillover": false
     },
     {
-      "key": "RCON-1486",
-      "summary": "[FE] Display Ni-Fi errors in user friendly manner",
-      "status": "In Implementation",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1365",
-      "summary": "Improve existing UI unit test coverage",
-      "status": "Implemented",
-      "owner": "Kamil Burek",
+      "key": "RCON-1906",
+      "summary": "Rconnect on AWS with S3",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
       "spillover": false
     },
     {
       "key": "RCON-1907",
       "summary": "Get access to S3 account to test Rconnect on AWS",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
       "spillover": false,
       "comment": {
-        "author": "Anca Dobrea",
-        "date": "21 Oct 2026",
-        "body": "S3 account access is required before Rconnect can be tested on that AWS cloud."
+        "author": "CE-Konstantin Artsiomenka",
+        "date": "10 Nov 2026",
+        "body": "Requested access here: [https://customer.support.regnology.net/helpcenter/internal/portal/1504/SERVICEDESK-50636?created=true|https://customer.support.regnology.net/helpcenter/internal/portal/1504/SERVICEDESK-50636?created=true]"
       }
     },
     {
-      "key": "RCON-1906",
-      "summary": "Rconnect on AWS with S3",
+      "key": "RCON-1936",
+      "summary": "[SPIKE] Retry feedback fetch from the submission row",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1548",
-      "summary": "[Ni-Fi] Update the Ni-Fi flows following the generic feedback functionality",
-      "status": "Ready",
-      "owner": "CE-Dwitiya Halder",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "6 Oct 2026",
-        "body": "the flows that are implemented should work without these changes for now."
-      }
-    },
-    {
-      "key": "RCON-1904",
-      "summary": "[SPIKE] Provide regulator reference ID to RRH for display and offline authority communication",
+      "key": "RCON-1943",
+      "summary": "[Bug] Feedback for Poland is not displayed",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false,
       "comment": {
         "author": "Anca Dobrea",
-        "date": "21 Oct 2026",
-        "body": "Code findings (local clones, not refreshed) rconnect-backend master @ 9e12e5d rconnect-nifi-registry master @ c2154ab What RRH can use today messageRefId (best interim): required unique business key on submission. Comes from the caller / CESOP file MessageRefId (NiFi extract),…"
+        "date": "2 Nov 2026",
+        "body": "changes will be implemented at the same time with changes on the Ni-Fi flows to support the feedback schema."
       }
     },
     {
-      "key": "RCON-1547",
-      "summary": "Performance Testing",
+      "key": "RCON-1947",
+      "summary": "Refactor Country Regime to Authority across RConnect (single authority field) [BE + FE]",
       "status": "New",
-      "owner": "Rafał Bator",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1881",
-      "summary": "[Enablers] Support Integrators 3x3",
-      "status": "Ready",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1845",
-      "summary": "Add country regime once again to the overview page",
-      "status": "Implemented",
       "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1852",
-      "summary": "Create and configure Jenkins jobs for Dependency track tool",
-      "status": "In Implementation",
+      "key": "RCON-1965",
+      "summary": "Set up a mechanism to delete a version from Delivery Artifact repository and Marley",
+      "status": "In PO Review",
+      "owner": "CE-Gokul Sundaramoorthi",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "CE-Gokul Sundaramoorthi",
+        "date": "11 Nov 2026",
+        "body": "Waiting for the review from Kamil"
+      }
+    },
+    {
+      "key": "RCON-1885",
+      "summary": "[On-prem] Jenkins build: GCP VM with internal Kubernetes mimicking on-prem",
+      "status": "In PO Review",
+      "owner": "CE-Gokul Sundaramoorthi",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "CE-Gokul Sundaramoorthi",
+        "date": "11 Nov 2026",
+        "body": "Fixed the issues from the firewall and the application is live in the onprem [http://onprem.rconnect.regnology.io/|http://onprem.rconnect.regnology.io/]"
+      }
+    },
+    {
+      "key": "RCON-1966",
+      "summary": "Fix SonarQube vulnerabilities",
+      "status": "Ready for integration",
+      "owner": "Kamil Burek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1972",
+      "summary": "Improve RConnect CI pipeline ",
+      "status": "In PO Review",
       "owner": "CE-Konstantin Artsiomenka",
       "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1879",
-      "summary": "Documentation Rcloud Onboarding",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
       "spillover": false,
       "comment": {
-        "author": "Anca Dobrea",
-        "date": "20 Oct 2026",
-        "body": "Added Confluence reference pack from the RCloud onboarding documentation planning thread: Governing: AR session requirements + CS/MS SaaS onboarding template + SaaS Task Library Examples: eReg/ESEF (Timotei RACI pattern), RRisk Sessions 1–3 (+ 2.1/2.2), RFS Overview / Hands-on…"
+        "author": "ScriptRunner for Jira",
+        "date": "10 Nov 2026",
+        "body": "[~accountid:712020:f0d87a86-e98b-4a8a-99bf-4790e88b1acb] Validation failed after transition. The issue was moved back automatically. Previous status: In Implementation Current status: In PO Review Reason: - No Xray Tests are linked to this Story. Please link Tests and ensure t…"
       }
     },
     {
-      "key": "RCON-1899",
-      "summary": "Migrate Submission Flow third-party images to RConnect ",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Konstantin Artsiomenka",
-        "date": "20 Oct 2026",
-        "body": "A prerequisite for this story is this message from Frank Beismann: Just in case attaching screenshot:"
-      }
-    },
-    {
-      "key": "RCON-1861",
-      "summary": "RRH Ascend submit through Rconnect [SCOPE GENERATED]",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1877",
-      "summary": "[SPIKE] Investigate possibilities to connect to apps on the Rcloud securely",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1874",
-      "summary": "[BE] South Africa - Support several credentials / entity / user",
-      "status": "In Implementation",
-      "owner": "Benjamin Garaude",
+      "key": "RCON-1973",
+      "summary": "[SPIKE] Make Manual Submission generic and product-agnostic (overview-level, TEST/PROD)",
+      "status": "In PO Review",
+      "owner": "CE-Alexandru Calinescu",
       "blocked": false,
       "spillover": false,
       "comment": {
         "author": "CE-Alexandru Calinescu",
-        "date": "19 Oct 2026",
-        "body": "changes proposed can be found here: https://confluence.regnology.net/spaces/RCON/pages/323552568/ADR-009+Per-User+Credentials+for+Country-Regimes"
+        "date": "9 Nov 2026",
+        "body": "Proposal 1 is the most appropiate one based on: Once the \"manual submission is asynchronous\" and \"keep as much existing functionality as possible\" rules are applied, proposals 3 and 5 lose their rationale (both were justified by synchronous accept/reject). Proposal 2 brings a …"
       }
     },
     {
-      "key": "RCON-1840",
-      "summary": "[RRH DE ] Connector NExt API 4.2",
-      "status": "Ready",
-      "owner": "CE-Alexandru Calinescu",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1415",
-      "summary": "RRH Integration",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1377",
-      "summary": "[2.2.0] Maintenance & Improvements",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1502",
-      "summary": "Add filter for env test/prod",
+      "key": "RCON-1979",
+      "summary": "Monitoring and Alerts for Rcloud Managed Services",
       "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    }
+  ],
+  "backlogTickets": [
+    {
+      "key": "RCON-1481",
+      "summary": "Suspend on Idle - continue investigating the options to evaluate cost",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": true,
+      "comment": {
+        "author": "Anca Dobrea",
+        "date": "7 Sept 2026",
+        "body": "the only option at the moment is to not use Rcloud at all.."
+      }
+    },
+    {
+      "key": "RCON-1143",
+      "summary": "Support Suspend on Idle Feature",
+      "status": "Ready",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": true,
+      "comment": {
+        "author": "CE-Milan Kumar Nayak",
+        "date": "30 May 2026",
+        "body": "Reference Link :- [https://confluence.regnology.net/spaces/RP/pages/279826398/Rcloud+Skynet+Knowledge+Transfer+Sessions] https://confluence.regnology.net/spaces/RP/pages/279826398/Rcloud+Skynet+Knowledge+Transfer+Sessions"
+      }
+    },
+    {
+      "key": "RCON-901",
+      "summary": "Log the current state of the nifi process",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1002",
+      "summary": "Remove Updater Service from the Architecture",
+      "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
@@ -623,355 +340,16 @@
       "spillover": false
     },
     {
-      "key": "RCON-1617",
-      "summary": "Pricing exercise for Rcloud Onboarding",
-      "status": "New",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1140",
-      "summary": "Rcloud Readiness",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1124",
-      "summary": "[PwC] User Feedback",
-      "status": "In Implementation",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1885",
-      "summary": "[On-prem] Jenkins build: GCP VM with internal Kubernetes mimicking on-prem",
-      "status": "New",
-      "owner": "CE-Gokul Sundaramoorthi",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1384",
-      "summary": "Update nifi image to 2.11",
+      "key": "RCON-1278",
+      "summary": "Remove rconnect-um-users DB from helm charts and gcp",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1780",
-      "summary": "[BUG] Create Submission Case dialog keeps data from the previous submission",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1589",
-      "summary": "Enhancement - Soft Delete Country Regimes (BE)",
-      "status": "New",
-      "owner": "Rafał Bator",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1605",
-      "summary": "Create a new rcloud namespace in EM RCONNECT INTEGRATIONS for RRH/RTH (and other non-RConnect teams), then move their instances there so they stop using our instance quota.",
-      "status": "Ready",
-      "owner": "CE-Dwitiya Halder",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "8 Oct 2026",
-        "body": "cost constraints are limiting this implementation so it was decided to not create it (1 namespace is a separate kubernetes instance)"
-      }
-    },
-    {
-      "key": "RCON-1886",
-      "summary": "Cases overview: default sort by Period date for the same report type",
-      "status": "Analysis Awaited",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1880",
-      "summary": "Release activities (2.3.0)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1847",
-      "summary": "[Bug] It is possible to create a submission case for the same date",
-      "status": "New",
-      "owner": "Kamil Burek",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "19 Oct 2026",
-        "body": "let’s check after we implement the frequency fully"
-      }
-    },
-    {
-      "key": "RCON-1875",
-      "summary": "[FE] South Africa - Support several credentials / entity / user",
-      "status": "New",
-      "owner": "Benjamin Garaude",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Alexandru Calinescu",
-        "date": "19 Oct 2026",
-        "body": "changes proposed can be found here: https://confluence.regnology.net/spaces/RCON/pages/323552568/ADR-009+Per-User+Credentials+for+Country-Regimes"
-      }
-    },
-    {
-      "key": "RCON-1615",
-      "summary": "[Ni-Fi] Update existing flows to support report frequency",
-      "status": "New",
-      "owner": "CE-Dwitiya Halder",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1873",
-      "summary": "TEST - Make a build which will move flows from Bitbucket to the rcf non-prod",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "19 Oct 2026",
-        "body": "testing not possible because the service account does not have specific rights."
-      }
-    },
-    {
-      "key": "RCON-1541",
-      "summary": "Enable a dev SFTP endpoint for the France CESOP NiFi flow.",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1535",
-      "summary": "[Bug] filetype .asc for Francenot accepted",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "6 Oct 2026",
-        "body": "to be checked if the FE changes that were blocking this are done/ if it’s fixed."
-      }
-    },
-    {
-      "key": "RCON-1876",
-      "summary": "Update the E2E tests following the self-service adoption",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1864",
-      "summary": "Support per-user credentials for banking destinations",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1843",
-      "summary": "Copy ni-fi flows from non-prod to prod dedicated bucket",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "19 Oct 2026",
-        "body": "Rcloud team needs to provide us access. Dependency on them."
-      }
-    },
-    {
-      "key": "RCON-1866",
-      "summary": "Store a reporting period that is not a quarter or a year",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1865",
-      "summary": "Filename rules for an automated Abacus banking file",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1863",
-      "summary": "Send the case to the regulator named by Abacus",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1862",
-      "summary": "Accept an Abacus submit and create the Submission Flow case",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1616",
-      "summary": "Remove deprecated code after report frequency is supported",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1409",
-      "summary": "Manual report upload must reject a file that does not belong to this case's entity and show why it failed",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1516",
-      "summary": "Add Messaging queue into submission chart",
-      "status": "New",
-      "owner": "CE-Konstantin Artsiomenka",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1577",
-      "summary": "[on-prem] adjust NiFi workflow to work with Kubernetes file system.",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1844",
-      "summary": "Implement pagination on overview page (BE+FE)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1781",
-      "summary": "Test Plan - Communicator E2E",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1439",
-      "summary": "[BUG] Alert covers everything underneath it",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1778",
-      "summary": "rconnect-playwright-tests submission-flow e2e",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1466",
-      "summary": "[BUG] Submission overview loses Search, Entity and Regime filters after returning from case details",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-901",
-      "summary": "Log the current state of the nifi process",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1572",
-      "summary": "[On-prem] create RConnect Helm charts without CNPG.",
-      "status": "In Implementation",
-      "owner": "CE-Konstantin Artsiomenka",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "6 Oct 2026",
-        "body": "on hold - depends on a task for updater that will modify the helmcharts - we need to wait for that story."
-      }
-    },
-    {
-      "key": "RCON-1613",
-      "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
-      "status": "New",
-      "owner": "CE-Dwitiya Halder",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1604",
-      "summary": "On-prem / private cloud support",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1533",
-      "summary": "[NiFi] Add on prem-cloud support for Nifi-updater tool",
-      "status": "In Implementation",
-      "owner": "CE-Alexandru Calinescu",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1596",
-      "summary": "[On-prem] create a separate Jenkins job for Helm chart generation.",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1574",
-      "summary": "[on-prem] Create on-prem deployment documentation",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1485",
-      "summary": "Move Manual Upload to the overview page and change the handling of permissions to support that",
+      "key": "RCON-1172",
+      "summary": "Insuficient CPU when creating new instances",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -986,84 +364,504 @@
       "spillover": false
     },
     {
-      "key": "RCON-1575",
-      "summary": "RC RCON.C 1.2.1",
+      "key": "RCON-1379",
+      "summary": "Enablers] Support RTH Integration",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1445",
-      "summary": "Test Set - RCON.C 1.2.0 Communicator (implemented, unchanged behaviour)",
-      "status": "Draft",
-      "owner": "Kamil Matuszewski",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1481",
-      "summary": "Suspend on Idle - continue investigating the options to evaluate cost",
+      "key": "RCON-1384",
+      "summary": "Update nifi image to 2.11",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Anca Dobrea",
-        "date": "7 Sept 2026",
-        "body": "the only option at the moment is to not use Rcloud at all.."
-      }
+      "spillover": false
     },
     {
-      "key": "RCON-1002",
-      "summary": "Remove Updater Service from the Architecture",
-      "status": "Ready",
+      "key": "RCON-1385",
+      "summary": "Remove zookeeper image from chart",
+      "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1143",
-      "summary": "Support Suspend on Idle Feature",
-      "status": "Ready",
+      "key": "RCON-1386",
+      "summary": "Enhancement - Delete Entity - Alert Styling",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1403",
+      "summary": "Organize the entity list alphabetically",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1409",
+      "summary": "Manual report upload must reject a file that does not belong to this case's entity and show why it failed",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1412",
+      "summary": "Document NiFi error handling",
+      "status": "New",
       "owner": "CE-Dwitiya Halder",
       "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Milan Kumar Nayak",
-        "date": "30 May 2026",
-        "body": "Reference Link :- https://confluence.regnology.net/spaces/RP/pages/279826398/Rcloud+Skynet+Knowledge+Transfer+Sessions https://confluence.regnology.net/spaces/RP/pages/279826398/Rcloud+Skynet+Knowledge+Transfer+Sessions"
-      }
+      "spillover": false
     },
     {
-      "key": "RCON-1172",
-      "summary": "Insuficient CPU when creating new instances",
+      "key": "RCON-1440",
+      "summary": "[UX] Replace the native delete entity popup with an in-app dialog",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1278",
-      "summary": "Remove rconnect-um-users DB from helm charts and gcp",
+      "key": "RCON-1466",
+      "summary": "[BUG] Submission overview loses Search, Entity and Regime filters after returning from case details",
       "status": "New",
       "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1484",
+      "summary": "Allow ADMINs to delete cases ",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1485",
+      "summary": "Move Manual Upload to the overview page and change the handling of permissions to support that",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1516",
+      "summary": "Add Messaging queue into submission chart",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1529",
+      "summary": "Enhancement - Remove legacy feedback columns & old API (BE)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1533",
+      "summary": "[NiFi] Add on prem-cloud support for Nifi-updater tool",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1546",
+      "summary": "Pentesting",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1541",
+      "summary": "Enable a dev SFTP endpoint for the France CESOP NiFi flow.",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1574",
+      "summary": "[on-prem] Create on-prem deployment documentation",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1577",
+      "summary": "[on-prem] adjust NiFi workflow to work with Kubernetes file system.",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1616",
+      "summary": "Remove deprecated code after report frequency is supported",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1844",
+      "summary": "Implement pagination on overview page (BE+FE)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1862",
+      "summary": "Accept an Abacus submit and create the Submission Flow case",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1863",
+      "summary": "Send the case to the regulator named by Abacus",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1864",
+      "summary": "Support per-user credentials for banking destinations",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1865",
+      "summary": "Filename rules for an automated Abacus banking file",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1866",
+      "summary": "Store a reporting period that is not a quarter or a year",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1922",
+      "summary": "Deliver Polish UI labels in SubmissionFlow",
+      "status": "New",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1925",
+      "summary": "[Bug] Settings master/detail panels are unreachable below 1200px",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1937",
+      "summary": "[TBD] Show how long feedback fetch can take",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1938",
+      "summary": "Download all feedback files from the case",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1952",
+      "summary": "Docu Test",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Daniil Teplov",
+        "date": "30 Oct 2026",
+        "body": "*Test draft — {{fc17c58}}* No documentation files changed in this push. Nothing published to the test instance."
+      }
+    },
+    {
+      "key": "RCON-1967",
+      "summary": "Fix vulnerabilities in PostgreSQL image 17.11",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1968",
+      "summary": "Fix vulnerabilities in nifi_2.12.0-no-hazelcast-jms image ",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1969",
+      "summary": "Fix vulnerabilities in registry_2.12.0-no-hazelcast-updater image",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1970",
+      "summary": "Fix tomcat-embed-core vulnerability",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1992",
+      "summary": "add overwrite tag checkbox for copy-dependencies (including prod)",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1993",
+      "summary": "Remove the central bucket parameter and derive it automatically in the helm-charts wrapper build",
+      "status": "New",
+      "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
     }
   ],
   "closedSprints": [
     {
+      "id": 60013,
+      "name": "RCON.S sprint 19",
+      "start": "19 Oct 2026",
+      "end": "30 Oct 2026",
+      "closed": [
+        {
+          "key": "RCON-1941",
+          "summary": "[Bug] Error when changing authority to enabled",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1934",
+          "summary": "Jenkins job for service test coverage and raise low coverage",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1933",
+          "summary": "Keep RConnect RabbitMQ password stable across restarts",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1929",
+          "summary": "Refine E2E build pipeline: remove Process Group JSON and rcon-dev dependencies",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1924",
+          "summary": "[Bug] Entity credentials schema lookup uses a default country DE",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1884",
+          "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1883",
+          "summary": "All-in-one build: add \"recreate tags\" checkbox",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1881",
+          "summary": "[Enablers] Support Integrators 3x3",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1879",
+          "summary": "Documentation Rcloud Onboarding",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1876",
+          "summary": "Update the E2E tests following the self-service adoption",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1875",
+          "summary": "[FE] South Africa - Support several credentials / entity / user",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1874",
+          "summary": "[BE] South Africa - Support several credentials / entity / user",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1873",
+          "summary": "TEST - Make a build which will move flows from Bitbucket to the rcf non-prod",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1872",
+          "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1871",
+          "summary": "Enhancement - Sync CountryRegime feedbackSchema from flows bucket (nifi-updater + nifi-adaptor)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1852",
+          "summary": "Create and configure Jenkins jobs for Dependency track tool",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1845",
+          "summary": "Add country regime once again to the overview page",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1614",
+          "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1605",
+          "summary": "Create a new rcloud namespace in EM RCONNECT INTEGRATIONS for RRH/RTH (and other non-RConnect teams), then move their instances there so they stop using our instance quota.",
+          "status": "Closed",
+          "owner": "CE-Dwitiya Halder",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1589",
+          "summary": "Enhancement - Soft Delete Country Regimes (BE)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1486",
+          "summary": "[FE] Display Ni-Fi errors in user friendly manner",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1365",
+          "summary": "Improve existing UI unit test coverage",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
+      "leftover": [
+        {
+          "key": "RCON-1847",
+          "summary": "[Bug] It is possible to create a submission case for the same date",
+          "status": "In Implementation",
+          "owner": "Kamil Burek",
+          "blocked": false,
+          "spillover": false
+        }
+      ]
+    },
+    {
       "id": 60012,
       "name": "RCON.S sprint 18",
       "start": "6 Oct 2026",
       "end": "16 Oct 2026",
-      "closed": [],
-      "leftover": [
+      "closed": [
         {
           "key": "RCON-1859",
           "summary": "Configure Rconnect GCS bucket for shared access across Rcloud app instances",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1071,7 +869,7 @@
         {
           "key": "RCON-1842",
           "summary": "Make a build which will move flows from Bitbucket to the rcf non-prod",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1079,7 +877,7 @@
         {
           "key": "RCON-1841",
           "summary": "Add Ni-fi updater to the ni-fi registry pod and start it as a scheduler",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1087,7 +885,7 @@
         {
           "key": "RCON-1588",
           "summary": "[SPIKE] Review German regulator integration documentation",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1095,7 +893,7 @@
         {
           "key": "RCON-1586",
           "summary": "Add state of country regime action made from UI",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1103,7 +901,7 @@
         {
           "key": "RCON-1573",
           "summary": "[On-prem] move rconnect-backend to on-prem. ",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1111,7 +909,7 @@
         {
           "key": "RCON-1565",
           "summary": "XRay Adoption ",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1119,7 +917,7 @@
         {
           "key": "RCON-1549",
           "summary": "Create MCP-server for NiFi workflow",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "CE-Konstantin Artsiomenka",
           "blocked": false,
           "spillover": false
@@ -1127,7 +925,7 @@
         {
           "key": "RCON-1527",
           "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1135,7 +933,7 @@
         {
           "key": "RCON-1526",
           "summary": "Enhancement - CountryRegime feedbackSchema (BE)",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1143,7 +941,7 @@
         {
           "key": "RCON-1490",
           "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Benjamin Garaude",
           "blocked": false,
           "spillover": false
@@ -1151,7 +949,7 @@
         {
           "key": "RCON-1483",
           "summary": "[SPIKE] South Africa - Support several credentials / entity / user",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1159,7 +957,7 @@
         {
           "key": "RCON-1476",
           "summary": "Enhance Copy RConnect dependencies Jenkins Job",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1167,7 +965,7 @@
         {
           "key": "RCON-1382",
           "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1175,7 +973,7 @@
         {
           "key": "RCON-1355",
           "summary": "Remove Resubmission Button/feature",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1183,7 +981,7 @@
         {
           "key": "RCON-1248",
           "summary": "Test Automation pipeline creation",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1191,7 +989,7 @@
         {
           "key": "RCON-1236",
           "summary": "Handle report frequency from RCON",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1199,12 +997,13 @@
         {
           "key": "RCON-1134",
           "summary": "Integrate Ni-Fi registry updater",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         }
-      ]
+      ],
+      "leftover": []
     },
     {
       "id": 21620,
@@ -1213,8 +1012,40 @@
       "end": "2 Oct 2026",
       "closed": [
         {
+          "key": "RCON-1550",
+          "summary": "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1542",
           "summary": "[NiFi] Drop mandatory .xml from DestinationFilename format check (FiTax)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1540",
+          "summary": "Install ActiveMQ JMS client libraries on NiFi (RRH-dev)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1532",
+          "summary": "Enhancement - CountryRegime feedbackSchema in settings (FE)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1530",
+          "summary": "Enhancement - Schema-driven feedback grid (FE)",
           "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
@@ -1231,6 +1062,22 @@
         {
           "key": "RCON-1453",
           "summary": "Add regime_report_type attribute so that users can filter by report type",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1426",
+          "summary": "[Spike] Investigate on-prem / private cloud support",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1417",
+          "summary": "[RRH][SPIKE ] Multiple regulators per country",
           "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
@@ -1243,61 +1090,11 @@
           "owner": "CE-Konstantin Artsiomenka",
           "blocked": false,
           "spillover": false
-        }
-      ],
-      "leftover": [
-        {
-          "key": "RCON-1550",
-          "summary": "Green Belt team-adoption: RCON.S baseline scorecard + evidence",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1540",
-          "summary": "Install ActiveMQ JMS client libraries on NiFi (RRH-dev)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1532",
-          "summary": "Enhancement - CountryRegime feedbackSchema in settings (FE)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1530",
-          "summary": "Enhancement - Schema-driven feedback grid (FE)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1426",
-          "summary": "[Spike] Investigate on-prem / private cloud support",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1417",
-          "summary": "[RRH][SPIKE ] Multiple regulators per country",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
         },
         {
           "key": "RCON-1390",
           "summary": "upgrading one ui version to 6.0.1",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1305,7 +1102,7 @@
         {
           "key": "RCON-1343",
           "summary": "Rconnect-backend: fix in memory sorting",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
@@ -1313,12 +1110,13 @@
         {
           "key": "RCON-1173",
           "summary": "Create instance to integrate Nifi-registry updater",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         }
-      ]
+      ],
+      "leftover": []
     },
     {
       "id": 21619,
@@ -1326,6 +1124,38 @@
       "start": "7 Sept 2026",
       "end": "18 Sept 2026",
       "closed": [
+        {
+          "key": "RCON-1586",
+          "summary": "Add state of country regime action made from UI",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1540",
+          "summary": "Install ActiveMQ JMS client libraries on NiFi (RRH-dev)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1527",
+          "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1526",
+          "summary": "Enhancement - CountryRegime feedbackSchema (BE)",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
         {
           "key": "RCON-1523",
           "summary": "create env for FiTax to test the integration and prep for the release",
@@ -1335,8 +1165,88 @@
           "spillover": false
         },
         {
+          "key": "RCON-1490",
+          "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
+          "status": "Closed",
+          "owner": "Benjamin Garaude",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1486",
+          "summary": "[FE] Display Ni-Fi errors in user friendly manner",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1476",
+          "summary": "Enhance Copy RConnect dependencies Jenkins Job",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1453",
           "summary": "Add regime_report_type attribute so that users can filter by report type",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1426",
+          "summary": "[Spike] Investigate on-prem / private cloud support",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1411",
+          "summary": "Define the event/communication schema for the messaging-bus queue",
+          "status": "Closed",
+          "owner": "CE-Konstantin Artsiomenka",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1390",
+          "summary": "upgrading one ui version to 6.0.1",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1382",
+          "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1365",
+          "summary": "Improve existing UI unit test coverage",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1355",
+          "summary": "Remove Resubmission Button/feature",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1343",
+          "summary": "Rconnect-backend: fix in memory sorting",
           "status": "Closed",
           "owner": "Unassigned",
           "blocked": false,
@@ -1357,6 +1267,38 @@
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
+        },
+        {
+          "key": "RCON-1248",
+          "summary": "Test Automation pipeline creation",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1236",
+          "summary": "Handle report frequency from RCON",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1173",
+          "summary": "Create instance to integrate Nifi-registry updater",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1134",
+          "summary": "Integrate Ni-Fi registry updater",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
         }
       ],
       "leftover": [
@@ -1369,348 +1311,10 @@
           "spillover": false
         },
         {
-          "key": "RCON-1486",
-          "summary": "[FE] Display Ni-Fi errors in user friendly manner",
-          "status": "In Implementation",
-          "owner": "Kamil Burek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1586",
-          "summary": "Add state of country regime action made from UI",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1540",
-          "summary": "Install ActiveMQ JMS client libraries on NiFi (RRH-dev)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1527",
-          "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1526",
-          "summary": "Enhancement - CountryRegime feedbackSchema (BE)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1490",
-          "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
-          "status": "Ready for integration",
-          "owner": "Benjamin Garaude",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1476",
-          "summary": "Enhance Copy RConnect dependencies Jenkins Job",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1426",
-          "summary": "[Spike] Investigate on-prem / private cloud support",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1411",
-          "summary": "Define the event/communication schema for the messaging-bus queue",
-          "status": "Ready for integration",
-          "owner": "CE-Konstantin Artsiomenka",
-          "blocked": false,
-          "spillover": false
-        },
-        {
           "key": "RCON-1410",
           "summary": "Add an optional messaging-bus queue to the Helm stack",
           "status": "Ready for integration",
           "owner": "CE-Konstantin Artsiomenka",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1390",
-          "summary": "upgrading one ui version to 6.0.1",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1382",
-          "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1355",
-          "summary": "Remove Resubmission Button/feature",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1343",
-          "summary": "Rconnect-backend: fix in memory sorting",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1248",
-          "summary": "Test Automation pipeline creation",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1236",
-          "summary": "Handle report frequency from RCON",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1173",
-          "summary": "Create instance to integrate Nifi-registry updater",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1134",
-          "summary": "Integrate Ni-Fi registry updater",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1365",
-          "summary": "Improve existing UI unit test coverage",
-          "status": "Implemented",
-          "owner": "Kamil Burek",
-          "blocked": false,
-          "spillover": false
-        }
-      ]
-    },
-    {
-      "id": 21618,
-      "name": "RCON.S sprint 15",
-      "start": "24 Aug 2026",
-      "end": "4 Sept 2026",
-      "closed": [
-        {
-          "key": "RCON-1464",
-          "summary": "Fix security vulnerabilities",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1460",
-          "summary": "[NiFi] Fix Hungary flow",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1425",
-          "summary": "Release activities (S15)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1424",
-          "summary": "Display feedback in the same view as submissions",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1422",
-          "summary": "[Enablers] Support — Dwitiya (S15)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1421",
-          "summary": "[Enablers] Support — Konstantin (S15)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1420",
-          "summary": "[Enablers] Support — Alexandru (S15)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1381",
-          "summary": "[Ni-FI] Differentiate TEST/PROD submissions by parsing the FiTax file name",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1367",
-          "summary": "[PwC] Check files name is parsed correctly for countries already implemented",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1366",
-          "summary": "[BE] Differentiate TEST/PROD submissions by parsing the FiTax file name",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1336",
-          "summary": "RTH - RCON Integration to add RCON as independent component",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1335",
-          "summary": "Design - UX Enahncement ",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1313",
-          "summary": "Validate UI auto refresh on rconnect platform",
-          "status": "Closed",
-          "owner": "Rafał Bator",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1231",
-          "summary": "Enhancement - Delete Entity (BE)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1221",
-          "summary": "Regression Test Suite ",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1126",
-          "summary": "[PwC] Allow Super Admin, Admin, and Employee with Edit rights to create, edit, and delete entities",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-902",
-          "summary": "[BE] [Error Handling NiFi] Add an information of error reason",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        }
-      ],
-      "leftover": [
-        {
-          "key": "RCON-1340",
-          "summary": "cesop Poland - missing feedback (also for HU, LV, SE, FI)",
-          "status": "New",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1411",
-          "summary": "Define the event/communication schema for the messaging-bus queue",
-          "status": "Ready for integration",
-          "owner": "CE-Konstantin Artsiomenka",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1410",
-          "summary": "Add an optional messaging-bus queue to the Helm stack",
-          "status": "Ready for integration",
-          "owner": "CE-Konstantin Artsiomenka",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1390",
-          "summary": "upgrading one ui version to 6.0.1",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1236",
-          "summary": "Handle report frequency from RCON",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1465",
-          "summary": "[e2e] Cover overview filters, employee permissions, and negative submission cases",
-          "status": "Defined",
-          "owner": "Rafał Bator",
           "blocked": false,
           "spillover": false
         }
@@ -1720,412 +1324,412 @@
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 50,
+      "total": 60,
       "items": [
         {
-          "key": "RCON-1883",
-          "summary": "All-in-one build: add \"recreate tags\" checkbox",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-22",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1334",
-          "summary": "Create force override of tag on pipelines",
+          "key": "RCON-1880",
+          "summary": "Release activities (2.3.0)",
           "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1871",
-          "summary": "Enhancement - Sync CountryRegime feedbackSchema from flows bucket (nifi-updater + nifi-adaptor)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1573",
-          "summary": "[On-prem] move rconnect-backend to on-prem. ",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
+          "date": "2026-11-04",
           "priority": "High"
         },
         {
-          "key": "RCON-1248",
-          "summary": "Test Automation pipeline creation",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1565",
-          "summary": "XRay Adoption ",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
+          "key": "RCON-1535",
+          "summary": "[Bug] filetype .asc for France not accepted",
+          "status": "Closed",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-04",
           "priority": "Low"
         },
         {
-          "key": "RCON-1236",
-          "summary": "Handle report frequency from RCON",
-          "status": "Ready for integration",
+          "key": "RCON-1596",
+          "summary": "[On-prem] create a separate Jenkins job for Helm chart generation.",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Major"
-        },
-        {
-          "key": "RCON-1841",
-          "summary": "Add Ni-fi updater to the ni-fi registry pod and start it as a scheduler",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-04",
           "priority": "Medium"
         },
         {
-          "key": "RCON-1476",
-          "summary": "Enhance Copy RConnect dependencies Jenkins Job",
+          "key": "RCON-1966",
+          "summary": "Fix SonarQube vulnerabilities",
           "status": "Ready for integration",
+          "owner": "Kamil Burek",
+          "date": "2026-11-03",
+          "priority": "Critical"
+        },
+        {
+          "key": "RCON-1467",
+          "summary": "[2.3.0] Maintenance & Improvements",
+          "status": "Closed",
+          "owner": "Anca Dobrea",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1929",
+          "summary": "Refine E2E build pipeline: remove Process Group JSON and rcon-dev dependencies",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1879",
+          "summary": "Documentation Rcloud Onboarding",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1874",
+          "summary": "[BE] South Africa - Support several credentials / entity / user",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1490",
+          "summary": "Enhancement - Upgrade rconnect-backend to Spring Boot 4.1.1 (BE)",
+          "status": "Closed",
+          "owner": "Benjamin Garaude",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1588",
+          "summary": "[SPIKE] Review German regulator integration documentation",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
           "priority": "Low"
         },
         {
           "key": "RCON-1859",
           "summary": "Configure Rconnect GCS bucket for shared access across Rcloud app instances",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
           "priority": "Medium"
         },
         {
-          "key": "RCON-1382",
-          "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
-          "status": "Ready for integration",
+          "key": "RCON-1527",
+          "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Major"
-        },
-        {
-          "key": "RCON-1588",
-          "summary": "[SPIKE] Review German regulator integration documentation",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1134",
-          "summary": "Integrate Ni-Fi registry updater",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Major"
-        },
-        {
-          "key": "RCON-1483",
-          "summary": "[SPIKE] South Africa - Support several credentials / entity / user",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1586",
-          "summary": "Add state of country regime action made from UI",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
           "priority": "Low"
         },
         {
           "key": "RCON-1842",
           "summary": "Make a build which will move flows from Bitbucket to the rcf non-prod",
-          "status": "Ready for integration",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
           "priority": "Low"
         },
         {
-          "key": "RCON-1355",
-          "summary": "Remove Resubmission Button/feature",
-          "status": "Ready for integration",
+          "key": "RCON-1841",
+          "summary": "Add Ni-fi updater to the ni-fi registry pod and start it as a scheduler",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
           "priority": "Medium"
         },
         {
-          "key": "RCON-1526",
-          "summary": "Enhancement - CountryRegime feedbackSchema (BE)",
-          "status": "Ready for integration",
+          "key": "RCON-1871",
+          "summary": "Enhancement - Sync CountryRegime feedbackSchema from flows bucket (nifi-updater + nifi-adaptor)",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1527",
-          "summary": "Enhancement - Schema-driven feedback write & storage (BE)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1777",
-          "summary": "Background for: RCON-1776",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1775",
-          "summary": "Background for: RCON-1773",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1774",
-          "summary": "Background for: RCON-1772",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1771",
-          "summary": "Background for: RCON-1769,RCON-1768,RCON-1767",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1770",
-          "summary": "Background for: RCON-1765,RCON-1764,RCON-1763",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1766",
-          "summary": "Background for: RCON-1762",
-          "status": "Defined",
-          "owner": "Unassigned",
-          "date": "2026-10-08",
-          "priority": "Low"
-        }
-      ]
-    },
-    "raised": {
-      "total": 72,
-      "items": [
-        {
-          "key": "RCON-1907",
-          "summary": "Get access to S3 account to test Rconnect on AWS",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1906",
-          "summary": "Rconnect on AWS with S3",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1905",
-          "summary": "Import entities and users with their relationships (Poland tON / RRH deployment enabler)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "High"
-        },
-        {
-          "key": "RCON-1904",
-          "summary": "[SPIKE] Provide regulator reference ID to RRH for display and offline authority communication",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1899",
-          "summary": "Migrate Submission Flow third-party images to RConnect ",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1886",
-          "summary": "Cases overview: default sort by Period date for the same report type",
-          "status": "Analysis Awaited",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1885",
-          "summary": "[On-prem] Jenkins build: GCP VM with internal Kubernetes mimicking on-prem",
-          "status": "New",
-          "owner": "CE-Gokul Sundaramoorthi",
-          "date": "2026-10-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1884",
-          "summary": "Add nifi-updater Jenkins build and include it in the all-in-one job",
-          "status": "In Implementation",
-          "owner": "CE-Gokul Sundaramoorthi",
-          "date": "2026-10-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1883",
-          "summary": "All-in-one build: add \"recreate tags\" checkbox",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1881",
-          "summary": "[Enablers] Support Integrators 3x3",
-          "status": "Ready",
-          "owner": "Anca Dobrea",
-          "date": "2026-10-20",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1880",
-          "summary": "Release activities (2.3.0)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "High"
-        },
-        {
-          "key": "RCON-1879",
-          "summary": "Documentation Rcloud Onboarding",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "High"
-        },
-        {
-          "key": "RCON-1877",
-          "summary": "[SPIKE] Investigate possibilities to connect to apps on the Rcloud securely",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1876",
-          "summary": "Update the E2E tests following the self-service adoption",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-19",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1875",
-          "summary": "[FE] South Africa - Support several credentials / entity / user",
-          "status": "New",
-          "owner": "Benjamin Garaude",
-          "date": "2026-10-19",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1874",
-          "summary": "[BE] South Africa - Support several credentials / entity / user",
-          "status": "In Implementation",
-          "owner": "Benjamin Garaude",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
           "priority": "Medium"
         },
         {
           "key": "RCON-1873",
           "summary": "TEST - Make a build which will move flows from Bitbucket to the rcf non-prod",
-          "status": "New",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-03",
           "priority": "Low"
         },
         {
-          "key": "RCON-1872",
-          "summary": "[Security] Fix critical vulnerabilities in Submission Flow (Dependency-Track 2026-10-19)",
-          "status": "New",
-          "owner": "Benjamin Garaude",
-          "date": "2026-10-19",
-          "priority": "Critical"
+          "key": "RCON-1382",
+          "summary": "[Ni-FI] [Error Handling NiFi] Add an information of error reason",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Major"
         },
         {
-          "key": "RCON-1871",
-          "summary": "Enhancement - Sync CountryRegime feedbackSchema from flows bucket (nifi-updater + nifi-adaptor)",
-          "status": "Ready for integration",
+          "key": "RCON-1876",
+          "summary": "Update the E2E tests following the self-service adoption",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-16",
+          "date": "2026-11-03",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1875",
+          "summary": "[FE] South Africa - Support several credentials / entity / user",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
           "priority": "Medium"
         },
         {
-          "key": "RCON-1866",
-          "summary": "Store a reporting period that is not a quarter or a year",
-          "status": "New",
+          "key": "RCON-1934",
+          "summary": "Jenkins job for service test coverage and raise low coverage",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1614",
+          "summary": "Rename Country Name to Authority so it can hold the regulator name [ FE + BE]",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1417",
+          "summary": "[RRH][SPIKE ] Multiple regulators per country",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
           "priority": "Low"
         },
         {
-          "key": "RCON-1865",
-          "summary": "Filename rules for an automated Abacus banking file",
+          "key": "RCON-1486",
+          "summary": "[FE] Display Ni-Fi errors in user friendly manner",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1483",
+          "summary": "[SPIKE] South Africa - Support several credentials / entity / user",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1852",
+          "summary": "Create and configure Jenkins jobs for Dependency track tool",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        }
+      ]
+    },
+    "raised": {
+      "total": 76,
+      "items": [
+        {
+          "key": "RCON-2010",
+          "summary": "Stand up test_rrh_poland with smoke and RRH Poland tests",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1864",
-          "summary": "Support per-user credentials for banking destinations",
+          "key": "RCON-2009",
+          "summary": "Check notification recipients with AuthService entitlement",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1863",
-          "summary": "Send the case to the regulator named by Abacus",
+          "key": "RCON-2008",
+          "summary": "Package Rconnect RRH Poland wrapper chart for Rcloud",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1862",
-          "summary": "Accept an Abacus submit and create the Submission Flow case",
+          "key": "RCON-2007",
+          "summary": "Stand up dev_rrh_poland environment",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1861",
-          "summary": "RRH Ascend submit through Rconnect [SCOPE GENERATED]",
+          "key": "RCON-2006",
+          "summary": "Seed AuthService realms, clients, permissions and users",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-11-10",
           "priority": "Low"
+        },
+        {
+          "key": "RCON-2005",
+          "summary": "Send notification e-mail and texts in the deployment language",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-2004",
+          "summary": "Select Polish or English UI by deployment",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-2003",
+          "summary": "Deploy AuthService on dev from assist-deployments charts",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-2002",
+          "summary": "Deploy Communicator Helm chart in rsh or rrh_poland mode",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-2001",
+          "summary": "Build RRH Poland Integrator for entities, modules and config",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-2000",
+          "summary": "Log in with AuthService and resolve access from permission codes",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1999",
+          "summary": "Split core from platform services for dual-mode startup",
+          "status": "In Implementation",
+          "owner": "Ewa Grabowska",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1993",
+          "summary": "Remove the central bucket parameter and derive it automatically in the helm-charts wrapper build",
+          "status": "New",
+          "owner": "Kamil Burek",
+          "date": "2026-11-09",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1992",
+          "summary": "add overwrite tag checkbox for copy-dependencies (including prod)",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-09",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1991",
+          "summary": "Test Plan - RCON.C 1.3.0 Communicator release (manual)",
+          "status": "New",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1990",
+          "summary": "Test Set - RCON.C 1.3.0 Communicator (regression)",
+          "status": "Draft",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1989",
+          "summary": "Test Set - RCON.C 1.3.0 Communicator (delta / new features)",
+          "status": "Draft",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1979",
+          "summary": "Monitoring and Alerts for Rcloud Managed Services",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1978",
+          "summary": "[2.4.0] App Sec",
+          "status": "New",
+          "owner": "Anca Dobrea",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1973",
+          "summary": "[SPIKE] Make Manual Submission generic and product-agnostic (overview-level, TEST/PROD)",
+          "status": "In PO Review",
+          "owner": "CE-Alexandru Calinescu",
+          "date": "2026-11-04",
+          "priority": "Major"
+        },
+        {
+          "key": "RCON-1972",
+          "summary": "Improve RConnect CI pipeline ",
+          "status": "In PO Review",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-04",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1970",
+          "summary": "Fix tomcat-embed-core vulnerability",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1969",
+          "summary": "Fix vulnerabilities in registry_2.12.0-no-hazelcast-updater image",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1968",
+          "summary": "Fix vulnerabilities in nifi_2.12.0-no-hazelcast-jms image ",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RCON-1967",
+          "summary": "Fix vulnerabilities in PostgreSQL image 17.11",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-11-03",
+          "priority": "High"
         }
       ]
     },
@@ -2134,7 +1738,7 @@
       "items": []
     },
     "stalled": {
-      "total": 46,
+      "total": 35,
       "items": [
         {
           "key": "RCON-269",
@@ -2257,46 +1861,6 @@
           "priority": "Low"
         },
         {
-          "key": "RCON-1385",
-          "summary": "Remove zookeeper image from chart",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-09-07",
-          "priority": "Medium"
-        },
-        {
-          "key": "RCON-1402",
-          "summary": "[Bug] Entities page: Edit Configuration sporadically opens with empty values",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-09-11",
-          "priority": "Major"
-        },
-        {
-          "key": "RCON-1340",
-          "summary": "cesop Poland - missing feedback (also for HU, LV, SE, FI)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-09-11",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1403",
-          "summary": "Organize the entity list alphabetically",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-09-16",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1412",
-          "summary": "Document NiFi error handling",
-          "status": "New",
-          "owner": "CE-Dwitiya Halder",
-          "date": "2026-09-16",
-          "priority": "Major"
-        },
-        {
           "key": "RCON-1546",
           "summary": "Pentesting",
           "status": "New",
@@ -2313,35 +1877,75 @@
           "priority": "Low"
         },
         {
-          "key": "RCON-1529",
-          "summary": "Enhancement - Remove legacy feedback columns & old API (BE)",
+          "key": "RCON-1574",
+          "summary": "[on-prem] Create on-prem deployment documentation",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-09-16",
+          "date": "2026-10-02",
           "priority": "Low"
         },
         {
-          "key": "RCON-1528",
-          "summary": "Enhancement - Schema-driven feedback read API (BE)",
-          "status": "Implemented",
-          "owner": "Benjamin Garaude",
-          "date": "2026-09-16",
+          "key": "RCON-1604",
+          "summary": "On-prem / private cloud support",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-02",
           "priority": "Low"
         },
         {
-          "key": "RCON-1440",
-          "summary": "[UX] Replace the native delete entity popup with an in-app dialog",
+          "key": "RCON-1781",
+          "summary": "Test Plan - Communicator E2E",
           "status": "New",
           "owner": "Unassigned",
-          "date": "2026-09-16",
+          "date": "2026-10-09",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1577",
+          "summary": "[on-prem] adjust NiFi workflow to work with Kubernetes file system.",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-12",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1516",
+          "summary": "Add Messaging queue into submission chart",
+          "status": "New",
+          "owner": "CE-Konstantin Artsiomenka",
+          "date": "2026-10-15",
+          "priority": "Medium"
+        },
+        {
+          "key": "RCON-1616",
+          "summary": "Remove deprecated code after report frequency is supported",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-15",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1862",
+          "summary": "Accept an Abacus submit and create the Submission Flow case",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-15",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1863",
+          "summary": "Send the case to the regulator named by Abacus",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-15",
           "priority": "Low"
         }
       ]
     },
     "releases": [
       {
-        "name": "RCON.S 2.3.0",
-        "date": "2026-11-03",
+        "name": "RCON.S 2.4.0",
+        "date": "2026-12-01",
         "released": false
       }
     ],

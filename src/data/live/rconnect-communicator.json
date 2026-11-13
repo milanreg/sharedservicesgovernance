@@ -1,11 +1,11 @@
 {
   "slug": "rconnect-communicator",
-  "syncedAt": "2026-10-23T04:31:56.342Z",
+  "syncedAt": "2026-11-12T11:14:10.357Z",
   "projectSummary": {
-    "done": 335,
-    "open": 67,
+    "done": 361,
+    "open": 63,
     "highPriorityOpen": 1,
-    "unassignedOpen": 44,
+    "unassignedOpen": 43,
     "epics": 37,
     "lastRelease": {
       "name": "RCON.C 1.2.1",
@@ -13,86 +13,30 @@
     }
   },
   "sprint": {
-    "name": "RCON.C Sprint 26",
-    "start": "21 Oct 2026",
-    "end": "4 Nov 2026",
-    "committed": 26,
+    "name": "RCON.C Sprint 27",
+    "start": "4 Nov 2026",
+    "end": "18 Nov 2026",
+    "committed": 23,
     "done": 0,
-    "inProgress": 5,
+    "inProgress": 7,
     "blocked": 0
   },
   "tickets": [
     {
-      "key": "RCON-1537",
-      "summary": "Check if communicator-be can use DHI Temurin base image",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
+      "key": "RCON-1945",
+      "summary": "Show thread status in thread details for internal threads",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": true
     },
     {
-      "key": "RCON-1538",
-      "summary": "Check if Helm securityContext can be applied for BE and UI",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
+      "key": "RCON-1986",
+      "summary": "Sub-Test Execution for RCON-1945",
+      "status": "Executed",
+      "owner": "Kamil Matuszewski",
       "blocked": false,
       "spillover": true
-    },
-    {
-      "key": "RCON-1539",
-      "summary": "Check if communicator-ui can use a DHI hardened base image",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1592",
-      "summary": "platform-integrator: IAM / platform registration and persist credentials",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1593",
-      "summary": "platform-integrator: module registration, refresh, and Valkey notify",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1373",
-      "summary": "Communicator: Prepare example performance tests",
-      "status": "In Implementation",
-      "owner": "Mateusz Uzarek",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1448",
-      "summary": "Allow choosing a date range when filtering by reference date",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1579",
-      "summary": "Refine UI for range filters",
-      "status": "To Do",
-      "owner": "Igor Lesiv",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RCON-1882",
-      "summary": "Environment update guide: version-to-version env/Helm prop changes",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RCON-1908",
@@ -100,84 +44,76 @@
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1779",
-      "summary": "Communicator: Publish E2E test results to Xray",
-      "status": "New",
-      "owner": "Łukasz Wycisk",
-      "blocked": false,
       "spillover": true
     },
     {
       "key": "RCON-1900",
       "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
-      "status": "New",
+      "status": "In Implementation",
       "owner": "Mateusz Uzarek",
       "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1492",
-      "summary": "Redesign Communicator AI features approach for Regnology AI standards compliance",
-      "status": "Ready for integration",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Kamil Matuszewski",
-        "date": "22 Oct 2026",
-        "body": "NoTestRequired — closing to Ready for integration."
-      }
+      "spillover": true
     },
     {
       "key": "RCON-1612",
       "summary": "[Architecture] RRH Poland — propose architecture and workload",
       "status": "New",
-      "owner": "Unassigned",
+      "owner": "Łukasz Wycisk",
       "blocked": false,
-      "spillover": false
+      "spillover": true
     },
     {
-      "key": "RCON-1606",
-      "summary": "Agree architecture for entity announcements before implementation",
+      "key": "RCON-1999",
+      "summary": "Split core from platform services for dual-mode startup",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Kamil Matuszewski",
+        "date": "10 Nov 2026",
+        "body": "Title renamed to match ADR estimate block 1 (Platform foundation — split core from platform-specific services, 5 pd): _Split core from platform services for dual-mode startup_."
+      }
+    },
+    {
+      "key": "RCON-1555",
+      "summary": "Publish an announcement with audience and files",
       "status": "In Implementation",
       "owner": "Ewa Grabowska",
       "blocked": false,
       "spillover": true
     },
     {
-      "key": "RCON-1478",
-      "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
-      "status": "Ready",
-      "owner": "Mateusz Uzarek",
+      "key": "RCON-1958",
+      "summary": "Announcement composer UI: editor with attachments and audience picker",
+      "status": "To Do",
+      "owner": "Igor Lesiv",
       "blocked": false,
       "spillover": true
     },
     {
-      "key": "RCON-1555",
-      "summary": "Publish an announcement with audience and files",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
       "key": "RCON-1556",
       "summary": "Show announcements on a dashboard historical list",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
       "blocked": false,
-      "spillover": false
+      "spillover": true
+    },
+    {
+      "key": "RCON-1974",
+      "summary": "Frontend: display announcements to the user",
+      "status": "To Do",
+      "owner": "Igor Lesiv",
+      "blocked": false,
+      "spillover": true
     },
     {
       "key": "RCON-1557",
       "summary": "Mark an announcement as read",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
       "blocked": false,
-      "spillover": false
+      "spillover": true
     },
     {
       "key": "RCON-1620",
@@ -185,582 +121,238 @@
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
-      "spillover": false
+      "spillover": true
     },
     {
       "key": "RCON-1455",
       "summary": "Attach files by drag and drop or paste",
-      "status": "New",
-      "owner": "Unassigned",
+      "status": "Ready",
+      "owner": "Igor Lesiv",
       "blocked": false,
-      "spillover": false
+      "spillover": true
     },
     {
       "key": "RCON-1607",
       "summary": "[Architecture] Communicator onPrem — propose architecture and workload",
-      "status": "New",
+      "status": "In Implementation",
+      "owner": "Mateusz Uzarek",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1935",
+      "summary": "Spike: tools that auto-find dependency bumps (BE+FE) and open PRs",
+      "status": "Ready for integration",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "ONADD-10919",
-      "summary": "[DataCalc] Log client errors (4xx / gRPC NOT_FOUND) as one line without stack trace",
-      "status": "Implemented",
-      "owner": "Mateusz Uzarek",
+      "key": "RCON-1942",
+      "summary": "Update user guide for 1.3.0 and add update-user-guide skill",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
       "blocked": false,
-      "spillover": false
+      "spillover": true,
+      "comment": {
+        "author": "Kamil Matuszewski",
+        "date": "4 Nov 2026",
+        "body": "NoTestRequired — closing to Ready for integration"
+      }
     },
     {
-      "key": "RCON-1860",
-      "summary": "Germany CESOP edit dialog does not prefill saved API URL and Client ID",
-      "status": "Analysis Awaited",
+      "key": "RCON-1961",
+      "summary": "Helm truststore init container uses the wrong JAVA_HOME",
+      "status": "Ready for integration",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": true
     },
     {
-      "key": "ONADD-10937",
-      "summary": "[DataCalc] Fix failing tests",
-      "status": "Ready",
-      "owner": "Mateusz Uzarek",
+      "key": "RCON-1975",
+      "summary": "Bump OneUI version",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "ONADD-10930",
-      "summary": "Publish Lucy SBOM for DataCalc",
-      "status": "New",
-      "owner": "Mateusz Uzarek",
+      "key": "RCON-1976",
+      "summary": "Test env START-STOP: external IAM bootstrap fails on ANNOUNCER permissions",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
       "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Marek Rębalski",
-        "date": "19 Oct 2026",
-        "body": "Stable links to the AppSec pages cited in the description: [https://confluence.regnology.net/pages/viewpage.action?pageId=178282937|https://confluence.regnology.net/pages/viewpage.action?pageId=178282937] [https://confluence.regnology.net/pages/viewpage.action?pageId=299225431…"
-      }
+      "spillover": false
+    },
+    {
+      "key": "RCON-1977",
+      "summary": "IAM role dependencies for all Communicator permissions",
+      "status": "New",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1980",
+      "summary": "Audit Communicator test suite",
+      "status": "In Implementation",
+      "owner": "Ewa Grabowska",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1949",
+      "summary": "Run integration tests automatically in CI",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1981",
+      "summary": "Allow manual deploy to test Regnology Knowledge Hub from non-master branches",
+      "status": "Ready for integration",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
     }
   ],
   "backlogTickets": [
     {
-      "key": "RCON-1900",
-      "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
-      "status": "New",
-      "owner": "Mateusz Uzarek",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1606",
-      "summary": "Agree architecture for entity announcements before implementation",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1882",
-      "summary": "Environment update guide: version-to-version env/Helm prop changes",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1159",
-      "summary": "Communicator Phase 3 (Additional Features)",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1538",
-      "summary": "Check if Helm securityContext can be applied for BE and UI",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1539",
-      "summary": "Check if communicator-ui can use a DHI hardened base image",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1537",
-      "summary": "Check if communicator-be can use DHI Temurin base image",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1911",
-      "summary": "Implement: optional strategies to match legacy cases when External Id policy changes",
+      "key": "RCON-1481",
+      "summary": "Suspend on Idle - continue investigating the options to evaluate cost",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1624",
-      "summary": "Implement: module opt-in External Id (ADR Proposal A) including UI",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
+      "spillover": true,
       "comment": {
-        "author": "Kamil Matuszewski",
-        "date": "7 Oct 2026",
-        "body": "Placeholder implementation story. Blocked by architecture decision in RCON-1552. AC / estimate / Xray Test to be filled in after architecture is agreed."
+        "author": "Anca Dobrea",
+        "date": "7 Sept 2026",
+        "body": "the only option at the moment is to not use Rcloud at all.."
       }
     },
     {
-      "key": "RCON-1160",
-      "summary": "Dynamic Context",
-      "status": "New",
-      "owner": "Unassigned",
+      "key": "RCON-269",
+      "summary": "Rconnect",
+      "status": "In Progress",
+      "owner": "Alexander Becht",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1447",
-      "summary": "Communicator Phase 3: UI/UX Improvements",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
+      "key": "RCON-270",
+      "summary": "Rconnect Submission Flow",
+      "status": "In Progress",
+      "owner": "Alexander Becht",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1909",
-      "summary": "Refactor case details UI placement",
-      "status": "New",
-      "owner": "Unassigned",
+      "key": "RCON-872",
+      "summary": "Rconnect CORE",
+      "status": "In Progress",
+      "owner": "Anca Dobrea",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1870",
-      "summary": "Automatic soft-remove by business last update",
-      "status": "New",
-      "owner": "Unassigned",
+      "key": "RCON-271",
+      "summary": "[Enablers] Support FiTax, RTH, RRH, tON",
+      "status": "In Progress",
+      "owner": "Anca Dobrea",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1869",
-      "summary": "Hard-delete after grace and audit evidence",
-      "status": "New",
-      "owner": "Unassigned",
+      "key": "RCON-276",
+      "summary": "Rconnect for RSH",
+      "status": "In Progress",
+      "owner": "Alexander Becht",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1868",
-      "summary": "Soft-remove, soft-removed UI, and restore (context-scoped remove)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1892",
-      "summary": "Open related case or thread from an activity row",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1891",
-      "summary": "Filter or search the system-wide activity table",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1890",
-      "summary": "Show system-wide read-only activity table for super-admin",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1620",
-      "summary": "Simplify Communicator UI when the user has only one entity",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1557",
-      "summary": "Mark an announcement as read",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1908",
-      "summary": "Release RCON.C 1.3.0",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1779",
-      "summary": "Communicator: Publish E2E test results to Xray",
-      "status": "New",
-      "owner": "Łukasz Wycisk",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1579",
-      "summary": "Refine UI for range filters",
-      "status": "To Do",
-      "owner": "Igor Lesiv",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1448",
-      "summary": "Allow choosing a date range when filtering by reference date",
-      "status": "Implemented",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1373",
-      "summary": "Communicator: Prepare example performance tests",
+      "key": "RCON-272",
+      "summary": "[Enablers] Support Integrators",
       "status": "In Implementation",
-      "owner": "Mateusz Uzarek",
+      "owner": "Anca Dobrea",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1478",
-      "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
+      "key": "RCON-1143",
+      "summary": "Support Suspend on Idle Feature",
       "status": "Ready",
-      "owner": "Mateusz Uzarek",
+      "owner": "CE-Dwitiya Halder",
       "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1593",
-      "summary": "platform-integrator: module registration, refresh, and Valkey notify",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1592",
-      "summary": "platform-integrator: IAM / platform registration and persist credentials",
-      "status": "In Implementation",
-      "owner": "Ewa Grabowska",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1000",
-      "summary": "Client Testing Feedback",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-947",
-      "summary": "[Phase 3] Enhancements to be considered",
-      "status": "New",
-      "owner": "Anca Dobrea",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1867",
-      "summary": "Case lifecycle removal and retention (DLM B+C)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1889",
-      "summary": "System-wide runtime activity space",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1608",
-      "summary": "Agree architecture for case linking before implementation",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1607",
-      "summary": "[Architecture] Communicator onPrem — propose architecture and workload",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1455",
-      "summary": "Attach files by drag and drop or paste",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1556",
-      "summary": "Show announcements on a dashboard historical list",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1555",
-      "summary": "Publish an announcement with audience and files",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1494",
-      "summary": "Assign or reassign a thread to another same-side person",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1454",
-      "summary": "Notify when someone else assigns or unassigns me",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1372",
-      "summary": "Live updates for cases, threads, and conversations (no page refresh)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1270",
-      "summary": "Mass data export API",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1116",
-      "summary": "Production API Key and Key Rotation",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
+      "spillover": true,
       "comment": {
-        "author": "Kamil Matuszewski",
-        "date": "29 Jul 2026",
-        "body": "Flag removed Rotation mechanism is documented by Regnology (no longer blocked waiting for a platform mechanism). See updated description + How-to Gemini API keys : Cloud Run job rotates GSM-stored keys every 30 days Consume versions/latest (or use SA/Vertex in prod) — static H…"
+        "author": "CE-Milan Kumar Nayak",
+        "date": "30 May 2026",
+        "body": "Reference Link :- [https://confluence.regnology.net/spaces/RP/pages/279826398/Rcloud+Skynet+Knowledge+Transfer+Sessions] https://confluence.regnology.net/spaces/RP/pages/279826398/Rcloud+Skynet+Knowledge+Transfer+Sessions"
       }
     },
     {
-      "key": "RCON-1371",
-      "summary": "[MVP] Production-ready AI Thread Summary",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1165",
-      "summary": "Thread-side assignee",
+      "key": "RCON-901",
+      "summary": "Log the current state of the nifi process",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1609",
-      "summary": "[Placeholder] Communicator for Industry — cut first delivery stories",
-      "status": "New",
-      "owner": "Unassigned",
+      "key": "RCON-919",
+      "summary": "Communicator Phase 2 (Extended Functionality)",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1599",
-      "summary": "Suggest and confirm related cases on an external case",
-      "status": "New",
-      "owner": "Unassigned",
+      "key": "RCON-926",
+      "summary": "[Refactoring Phase I] Transition to Monolithic Architecture",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-1271",
-      "summary": "Support Suspend-on-Idle on Rcloud",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1268",
-      "summary": "Define localization mechanism for Communicator",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1559",
-      "summary": "Surface announcements in the notification panel",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1558",
-      "summary": "Offer announcement templates when composing",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1598",
-      "summary": "Link and unlink cases from a case",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1469",
-      "summary": "Unknown user",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1597",
-      "summary": "Case linking",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1590",
-      "summary": "platform-integrator — IAM registration, module registry, and data refresh",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1243",
-      "summary": "Attachments",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1161",
-      "summary": "Case and Thread History",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1554",
-      "summary": "Entity announcements",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1536",
-      "summary": "Check / adopt hardened container base images (DHI) for Communicator",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1507",
-      "summary": "Case creation",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1266",
-      "summary": "Post Go-Live Features",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1257",
-      "summary": "Communicator for Industry",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1444",
-      "summary": "Communicator Phase 3: Technical Tasks and Maitanance",
-      "status": "New",
-      "owner": "Kamil Matuszewski",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-1392",
-      "summary": "Internal thread status and case-status warning",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RCON-925",
-      "summary": "Communicator Extended Functionality",
+      "key": "RCON-1405",
+      "summary": "[PwC] User Feedback '26",
       "status": "New",
       "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1108",
+      "summary": "Maintenance and Improvements",
+      "status": "In Implementation",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1406",
+      "summary": "Application Security",
+      "status": "New",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1130",
+      "summary": "Rcloud Readiness",
+      "status": "New",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1002",
+      "summary": "Remove Updater Service from the Architecture",
+      "status": "Ready",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
@@ -773,18 +365,423 @@
       "spillover": false
     },
     {
-      "key": "RCON-1267",
-      "summary": "Communicator onPrem",
+      "key": "RCON-1159",
+      "summary": "Communicator Phase 3 (Additional Features)",
+      "status": "New",
+      "owner": "Kamil Matuszewski",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-925",
+      "summary": "Communicator Extended Functionality",
+      "status": "New",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1262",
+      "summary": "NiFi optimization for memory usage",
+      "status": "New",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1278",
+      "summary": "Remove rconnect-um-users DB from helm charts and gcp",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RCON-919",
-      "summary": "Communicator Phase 2 (Extended Functionality)",
-      "status": "In Implementation",
+      "key": "RCON-1172",
+      "summary": "Insuficient CPU when creating new instances",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1337",
+      "summary": "POC - add monitoring services to prod instance",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1340",
+      "summary": "cesop Poland - missing feedback (also for HU, LV, SE, FI)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RCON-1379",
+      "summary": "Enablers] Support RTH Integration",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1384",
+      "summary": "Update nifi image to 2.11",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1385",
+      "summary": "Remove zookeeper image from chart",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1386",
+      "summary": "Enhancement - Delete Entity - Alert Styling",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1402",
+      "summary": "[Bug] Entities page: Edit Configuration sporadically opens with empty values",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1403",
+      "summary": "Organize the entity list alphabetically",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-928",
+      "summary": "IAM  Platform Integration",
+      "status": "New",
       "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1407",
+      "summary": "Rconnect Communicator",
+      "status": "To Do",
+      "owner": "Alexander Becht",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1409",
+      "summary": "Manual report upload must reject a file that does not belong to this case's entity and show why it failed",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1412",
+      "summary": "Document NiFi error handling",
+      "status": "New",
+      "owner": "CE-Dwitiya Halder",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1413",
+      "summary": "RRH Integration",
+      "status": "New",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1439",
+      "summary": "[BUG] Alert covers everything underneath it",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1440",
+      "summary": "[UX] Replace the native delete entity popup with an in-app dialog",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1466",
+      "summary": "[BUG] Submission overview loses Search, Entity and Regime filters after returning from case details",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1484",
+      "summary": "Allow ADMINs to delete cases ",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1485",
+      "summary": "Move Manual Upload to the overview page and change the handling of permissions to support that",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1516",
+      "summary": "Add Messaging queue into submission chart",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1528",
+      "summary": "Enhancement - Schema-driven feedback read API (BE)",
+      "status": "Implemented",
+      "owner": "Benjamin Garaude",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1529",
+      "summary": "Enhancement - Remove legacy feedback columns & old API (BE)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1533",
+      "summary": "[NiFi] Add on prem-cloud support for Nifi-updater tool",
+      "status": "In Implementation",
+      "owner": "CE-Alexandru Calinescu",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1546",
+      "summary": "Pentesting",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1541",
+      "summary": "Enable a dev SFTP endpoint for the France CESOP NiFi flow.",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1574",
+      "summary": "[on-prem] Create on-prem deployment documentation",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1575",
+      "summary": "RC RCON.C 1.2.1",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1577",
+      "summary": "[on-prem] adjust NiFi workflow to work with Kubernetes file system.",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1604",
+      "summary": "On-prem / private cloud support",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1616",
+      "summary": "Remove deprecated code after report frequency is supported",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1844",
+      "summary": "Implement pagination on overview page (BE+FE)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1862",
+      "summary": "Accept an Abacus submit and create the Submission Flow case",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1863",
+      "summary": "Send the case to the regulator named by Abacus",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1864",
+      "summary": "Support per-user credentials for banking destinations",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1865",
+      "summary": "Filename rules for an automated Abacus banking file",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1866",
+      "summary": "Store a reporting period that is not a quarter or a year",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1922",
+      "summary": "Deliver Polish UI labels in SubmissionFlow",
+      "status": "New",
+      "owner": "Anca Dobrea",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1925",
+      "summary": "[Bug] Settings master/detail panels are unreachable below 1200px",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1926",
+      "summary": "Authority auto-created with no credential fields should count as configured",
+      "status": "New",
+      "owner": "Rafał Bator",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1937",
+      "summary": "[TBD] Show how long feedback fetch can take",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1938",
+      "summary": "Download all feedback files from the case",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1952",
+      "summary": "Docu Test",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Daniil Teplov",
+        "date": "30 Oct 2026",
+        "body": "*Test draft — {{fc17c58}}* No documentation files changed in this push. Nothing published to the test instance."
+      }
+    },
+    {
+      "key": "RCON-1967",
+      "summary": "Fix vulnerabilities in PostgreSQL image 17.11",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1968",
+      "summary": "Fix vulnerabilities in nifi_2.12.0-no-hazelcast-jms image ",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1969",
+      "summary": "Fix vulnerabilities in registry_2.12.0-no-hazelcast-updater image",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1970",
+      "summary": "Fix tomcat-embed-core vulnerability",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1992",
+      "summary": "add overwrite tag checkbox for copy-dependencies (including prod)",
+      "status": "New",
+      "owner": "CE-Konstantin Artsiomenka",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RCON-1993",
+      "summary": "Remove the central bucket parameter and derive it automatically in the helm-charts wrapper build",
+      "status": "New",
+      "owner": "Kamil Burek",
       "blocked": false,
       "spillover": false
     }
@@ -811,25 +808,17 @@
           "owner": "Mateusz Uzarek",
           "blocked": false,
           "spillover": false
-        }
-      ],
-      "leftover": [
+        },
         {
           "key": "RCON-1579",
           "summary": "Refine UI for range filters",
-          "status": "To Do",
+          "status": "Done",
           "owner": "Igor Lesiv",
           "blocked": false,
           "spillover": false
-        },
-        {
-          "key": "RCON-1373",
-          "summary": "Communicator: Prepare example performance tests",
-          "status": "In Implementation",
-          "owner": "Mateusz Uzarek",
-          "blocked": false,
-          "spillover": false
-        },
+        }
+      ],
+      "leftover": [
         {
           "key": "RCON-1587",
           "summary": "Remove axion-release Gradle plugin",
@@ -879,6 +868,30 @@
           "spillover": false
         },
         {
+          "key": "RCON-1539",
+          "summary": "Check if communicator-ui can use a DHI hardened base image",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1538",
+          "summary": "Check if Helm securityContext can be applied for BE and UI",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1537",
+          "summary": "Check if communicator-be can use DHI Temurin base image",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1513",
           "summary": "Resizable list and sidebar column widths",
           "status": "Ready for integration",
@@ -897,6 +910,14 @@
         {
           "key": "RCON-1482",
           "summary": "CNPG Postgres image tags: decide rolling vs immutable and sync strategy for dev",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1478",
+          "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
@@ -943,8 +964,24 @@
           "spillover": false
         },
         {
+          "key": "RCON-1448",
+          "summary": "Allow choosing a date range when filtering by reference date",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1398",
           "summary": "Communicator: Design mockup for thread assignee UI",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1373",
+          "summary": "Communicator: Prepare example performance tests",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
@@ -1007,46 +1044,6 @@
           "spillover": false
         },
         {
-          "key": "RCON-1478",
-          "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
-          "status": "Ready",
-          "owner": "Mateusz Uzarek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1539",
-          "summary": "Check if communicator-ui can use a DHI hardened base image",
-          "status": "Implemented",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1538",
-          "summary": "Check if Helm securityContext can be applied for BE and UI",
-          "status": "Implemented",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1537",
-          "summary": "Check if communicator-be can use DHI Temurin base image",
-          "status": "Implemented",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1448",
-          "summary": "Allow choosing a date range when filtering by reference date",
-          "status": "Implemented",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
           "key": "RCON-1564",
           "summary": "TEST: Communicator: Offer announcement templates when composing",
           "status": "Defined",
@@ -1059,6 +1056,14 @@
           "summary": "TEST: Communicator: Surface announcements in the notification panel",
           "status": "Defined",
           "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1940",
+          "summary": "Sub-Test Execution for RCON-1448",
+          "status": "Executed",
+          "owner": "Kamil Matuszewski",
           "blocked": false,
           "spillover": false
         },
@@ -1157,17 +1162,17 @@
           "owner": "Mateusz Uzarek",
           "blocked": false,
           "spillover": false
-        }
-      ],
-      "leftover": [
+        },
         {
           "key": "RCON-1579",
           "summary": "Refine UI for range filters",
-          "status": "To Do",
+          "status": "Done",
           "owner": "Igor Lesiv",
           "blocked": false,
           "spillover": false
-        },
+        }
+      ],
+      "leftover": [
         {
           "key": "RCON-1551",
           "summary": "Auto-grant IAM permissions from all used registration endpoints",
@@ -1209,6 +1214,14 @@
           "spillover": false
         },
         {
+          "key": "RCON-1478",
+          "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
           "key": "RCON-1477",
           "summary": "Simplify Communicator IAM chart config (derive URLs, keep overrides)",
           "status": "Ready for integration",
@@ -1243,6 +1256,14 @@
         {
           "key": "RCON-1457",
           "summary": "Keep dashboard filters in the URL",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1448",
+          "summary": "Allow choosing a date range when filtering by reference date",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
@@ -1353,22 +1374,6 @@
           "spillover": false
         },
         {
-          "key": "RCON-1478",
-          "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
-          "status": "Ready",
-          "owner": "Mateusz Uzarek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RCON-1448",
-          "summary": "Allow choosing a date range when filtering by reference date",
-          "status": "Implemented",
-          "owner": "Ewa Grabowska",
-          "blocked": false,
-          "spillover": false
-        },
-        {
           "key": "RCON-1562",
           "summary": "TEST: Communicator: Mark an announcement as read",
           "status": "Defined",
@@ -1413,6 +1418,14 @@
           "summary": "TEST: Communicator: Filter by reference date range",
           "status": "Defined",
           "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1940",
+          "summary": "Sub-Test Execution for RCON-1448",
+          "status": "Executed",
+          "owner": "Kamil Matuszewski",
           "blocked": false,
           "spillover": false
         },
@@ -1555,14 +1568,6 @@
           "spillover": false
         },
         {
-          "key": "RCON-1373",
-          "summary": "Communicator: Prepare example performance tests",
-          "status": "In Implementation",
-          "owner": "Mateusz Uzarek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
           "key": "RCON-1491",
           "summary": "Upgrade embedded Tomcat to 11.0.25+ (CVE-2026-65905, CVE-2026-68525, CVE-2026-65182)",
           "status": "Ready for integration",
@@ -1653,6 +1658,14 @@
         {
           "key": "RCON-1380",
           "summary": "Release RCON.C 1.2.0",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1373",
+          "summary": "Communicator: Prepare example performance tests",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
@@ -1869,14 +1882,6 @@
       ],
       "leftover": [
         {
-          "key": "RCON-1373",
-          "summary": "Communicator: Prepare example performance tests",
-          "status": "In Implementation",
-          "owner": "Mateusz Uzarek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
           "key": "RCON-1435",
           "summary": "Communicator: Add support for IAM entity groups",
           "status": "Ready for integration",
@@ -1927,6 +1932,14 @@
         {
           "key": "RCON-1380",
           "summary": "Release RCON.C 1.2.0",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RCON-1373",
+          "summary": "Communicator: Prepare example performance tests",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
@@ -2050,213 +2063,389 @@
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 49,
+      "total": 54,
       "items": [
         {
-          "key": "RCON-1492",
-          "summary": "Redesign Communicator AI features approach for Regnology AI standards compliance",
+          "key": "RCON-1981",
+          "summary": "Allow manual deploy to test Regnology Knowledge Hub from non-master branches",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-22",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1456",
-          "summary": "Show a small image preview without downloading the full file",
+          "key": "RCON-1976",
+          "summary": "Test env START-STOP: external IAM bootstrap fails on ANNOUNCER permissions",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-21",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1513",
-          "summary": "Resizable list and sidebar column widths",
+          "key": "RCON-1975",
+          "summary": "Bump OneUI version",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-21",
+          "date": "2026-11-10",
           "priority": "Low"
         },
         {
-          "key": "RCON-1903",
-          "summary": "Sub-Test Execution for RCON-1456",
+          "key": "RCON-1935",
+          "summary": "Spike: tools that auto-find dependency bumps (BE+FE) and open PRs",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1945",
+          "summary": "Show thread status in thread details for internal threads",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1986",
+          "summary": "Sub-Test Execution for RCON-1945",
           "status": "Executed",
           "owner": "Kamil Matuszewski",
-          "date": "2026-10-21",
+          "date": "2026-11-06",
           "priority": "Low"
         },
         {
-          "key": "RCON-1902",
-          "summary": "Sub-Test Execution for RCON-1513",
+          "key": "RCON-1949",
+          "summary": "Run integration tests automatically in CI",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1961",
+          "summary": "Helm truststore init container uses the wrong JAVA_HOME",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1942",
+          "summary": "Update user guide for 1.3.0 and add update-user-guide skill",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1962",
+          "summary": "Single-instance Postgres PDB blocks node drains",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1931",
+          "summary": "Notification fan-outs are silently dropped when the shared async executor is saturated",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1930",
+          "summary": "Exempt flagged test IAM users from anonymisation on non-prod",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1606",
+          "summary": "Agree architecture for entity announcements before implementation",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1448",
+          "summary": "Allow choosing a date range when filtering by reference date",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-28",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1940",
+          "summary": "Sub-Test Execution for RCON-1448",
           "status": "Executed",
           "owner": "Kamil Matuszewski",
-          "date": "2026-10-21",
+          "date": "2026-10-28",
           "priority": "Low"
         },
         {
-          "key": "RCON-1459",
-          "summary": "Make UI use backend for pagination, sorting and filtering",
+          "key": "RCON-1932",
+          "summary": "Concurrent notification fan-outs deadlock while anonymizing departed users",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-21",
+          "date": "2026-10-28",
           "priority": "Low"
         },
         {
-          "key": "RCON-1585",
-          "summary": "Pipeline BUILD: allow custom tag for published artifacts",
+          "key": "RCON-1478",
+          "summary": "Verify flaky overnight e2e/API failures — env start vs cluster resources",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1552",
-          "summary": "Architecture: external modules connect cases by ID (context as display-only)",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1269",
-          "summary": "Automatic message retention and removal (configurable age)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-16",
+          "date": "2026-10-28",
           "priority": "Not defined"
         },
         {
-          "key": "RCON-1171",
-          "summary": "Run e2e periodically and push resuts to xray",
-          "status": "Closed",
-          "owner": "Łukasz Wycisk",
-          "date": "2026-10-15",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1587",
-          "summary": "Remove axion-release Gradle plugin",
+          "key": "RCON-1373",
+          "summary": "Communicator: Prepare example performance tests",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-15",
+          "date": "2026-10-28",
           "priority": "Low"
         },
         {
-          "key": "RCON-1591",
-          "summary": "platform-integrator: app skeleton, pipelines, and k8s readiness gating",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-15",
+          "key": "RCON-1579",
+          "summary": "Refine UI for range filters",
+          "status": "Done",
+          "owner": "Igor Lesiv",
+          "date": "2026-10-26",
           "priority": "Low"
         },
         {
-          "key": "RCON-1354",
-          "summary": "Deploy buckets on RCloud",
+          "key": "RCON-1538",
+          "summary": "Check if Helm securityContext can be applied for BE and UI",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-15",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1362",
-          "summary": "Assign myself or clear own-side assignee",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1368",
-          "summary": "Filter dashboard by assigned to me",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1618",
-          "summary": "Communicator: disable thread assignees per deployment",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-14",
+          "date": "2026-10-23",
           "priority": "Low"
         },
         {
-          "key": "RCON-1361",
-          "summary": "Show per-side assignees on a thread",
+          "key": "RCON-1593",
+          "summary": "platform-integrator: module registration, refresh, and Valkey notify",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1398",
-          "summary": "Communicator: Design mockup for thread assignee UI",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1858",
-          "summary": "Sub-Test Execution for RCON-1618",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
+          "date": "2026-10-23",
           "priority": "Low"
         },
         {
-          "key": "RCON-1857",
-          "summary": "Sub-Test Execution for RCON-1368",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
+          "key": "RCON-1537",
+          "summary": "Check if communicator-be can use DHI Temurin base image",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
           "priority": "Low"
         },
         {
-          "key": "RCON-1856",
-          "summary": "Sub-Test Execution for RCON-1362",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
+          "key": "RCON-1539",
+          "summary": "Check if communicator-ui can use a DHI hardened base image",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
           "priority": "Low"
         },
         {
-          "key": "RCON-1855",
-          "summary": "Sub-Test Execution for RCON-1361",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
+          "key": "RCON-1882",
+          "summary": "Environment update guide: version-to-version env/Helm prop changes",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
           "priority": "Low"
         },
         {
-          "key": "RCON-1364",
-          "summary": "Auto-follow when I become assignee (no self-notification)",
+          "key": "RCON-1592",
+          "summary": "platform-integrator: IAM / platform registration and persist credentials",
           "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1363",
-          "summary": "Auto-assign thread creator",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RCON-1472",
-          "summary": "Strip departed IAM users when sending notifications",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-14",
-          "priority": "Not defined"
+          "date": "2026-10-23",
+          "priority": "Low"
         }
       ]
     },
     "raised": {
-      "total": 46,
+      "total": 43,
       "items": [
+        {
+          "key": "RCON-1998",
+          "summary": "Analyse NExt API fit for Communicator for Industry",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-10",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1988",
+          "summary": "Perf: capacity runs and downsize probes per sizing tier (S/M/L)",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1987",
+          "summary": "Tier L misses p95 limits at peak (L × l) — fix permission predicate and related bottlenecks",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1986",
+          "summary": "Sub-Test Execution for RCON-1945",
+          "status": "Executed",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1985",
+          "summary": "Evaluate mutation testing for Communicator",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1981",
+          "summary": "Allow manual deploy to test Regnology Knowledge Hub from non-master branches",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-05",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1980",
+          "summary": "Audit Communicator test suite",
+          "status": "In Implementation",
+          "owner": "Ewa Grabowska",
+          "date": "2026-11-05",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1977",
+          "summary": "IAM role dependencies for all Communicator permissions",
+          "status": "New",
+          "owner": "Ewa Grabowska",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1976",
+          "summary": "Test env START-STOP: external IAM bootstrap fails on ANNOUNCER permissions",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1975",
+          "summary": "Bump OneUI version",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1974",
+          "summary": "Frontend: display announcements to the user",
+          "status": "To Do",
+          "owner": "Igor Lesiv",
+          "date": "2026-11-04",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1962",
+          "summary": "Single-instance Postgres PDB blocks node drains",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-02",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1961",
+          "summary": "Helm truststore init container uses the wrong JAVA_HOME",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-02",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1958",
+          "summary": "Announcement composer UI: editor with attachments and audience picker",
+          "status": "To Do",
+          "owner": "Igor Lesiv",
+          "date": "2026-10-30",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1949",
+          "summary": "Run integration tests automatically in CI",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-29",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1945",
+          "summary": "Show thread status in thread details for internal threads",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-29",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1942",
+          "summary": "Update user guide for 1.3.0 and add update-user-guide skill",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-28",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1940",
+          "summary": "Sub-Test Execution for RCON-1448",
+          "status": "Executed",
+          "owner": "Kamil Matuszewski",
+          "date": "2026-10-28",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1935",
+          "summary": "Spike: tools that auto-find dependency bumps (BE+FE) and open PRs",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-28",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1932",
+          "summary": "Concurrent notification fan-outs deadlock while anonymizing departed users",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-27",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1931",
+          "summary": "Notification fan-outs are silently dropped when the shared async executor is saturated",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-27",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1930",
+          "summary": "Exempt flagged test IAM users from anonymisation on non-prod",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-27",
+          "priority": "Low"
+        },
         {
           "key": "RCON-1911",
           "summary": "Implement: optional strategies to match legacy cases when External Id policy changes",
@@ -2280,182 +2469,6 @@
           "owner": "Unassigned",
           "date": "2026-10-21",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1903",
-          "summary": "Sub-Test Execution for RCON-1456",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1902",
-          "summary": "Sub-Test Execution for RCON-1513",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-21",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1900",
-          "summary": "Perf: datasets & load per sizing tier (S/M/L) + verify hardware recs",
-          "status": "New",
-          "owner": "Mateusz Uzarek",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1892",
-          "summary": "Open related case or thread from an activity row",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1891",
-          "summary": "Filter or search the system-wide activity table",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1890",
-          "summary": "Show system-wide read-only activity table for super-admin",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1889",
-          "summary": "System-wide runtime activity space",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1882",
-          "summary": "Environment update guide: version-to-version env/Helm prop changes",
-          "status": "In Implementation",
-          "owner": "Ewa Grabowska",
-          "date": "2026-10-20",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1870",
-          "summary": "Automatic soft-remove by business last update",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-16",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1869",
-          "summary": "Hard-delete after grace and audit evidence",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-16",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1868",
-          "summary": "Soft-remove, soft-removed UI, and restore (context-scoped remove)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-16",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1867",
-          "summary": "Case lifecycle removal and retention (DLM B+C)",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-16",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1858",
-          "summary": "Sub-Test Execution for RCON-1618",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1857",
-          "summary": "Sub-Test Execution for RCON-1368",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1856",
-          "summary": "Sub-Test Execution for RCON-1362",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1855",
-          "summary": "Sub-Test Execution for RCON-1361",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1854",
-          "summary": "Sub-Test Execution for RCON-1364",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1853",
-          "summary": "Sub-Test Execution for RCON-1363",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-14",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1779",
-          "summary": "Communicator: Publish E2E test results to Xray",
-          "status": "New",
-          "owner": "Łukasz Wycisk",
-          "date": "2026-10-09",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1624",
-          "summary": "Implement: module opt-in External Id (ADR Proposal A) including UI",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-07",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1623",
-          "summary": "Sub-Test Execution for RCON-1472",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-07",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1622",
-          "summary": "Sub-Test Execution for RCON-1470",
-          "status": "Executed",
-          "owner": "Kamil Matuszewski",
-          "date": "2026-10-07",
-          "priority": "Low"
         }
       ]
     },
@@ -2464,7 +2477,7 @@
       "items": []
     },
     "stalled": {
-      "total": 25,
+      "total": 32,
       "items": [
         {
           "key": "RCON-919",
@@ -2499,28 +2512,12 @@
           "priority": "Low"
         },
         {
-          "key": "RCON-1392",
-          "summary": "Internal thread status and case-status warning",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-25",
-          "priority": "Not defined"
-        },
-        {
           "key": "RCON-1444",
           "summary": "Communicator Phase 3: Technical Tasks and Maitanance",
           "status": "New",
           "owner": "Kamil Matuszewski",
           "date": "2026-08-26",
           "priority": "Low"
-        },
-        {
-          "key": "RCON-1257",
-          "summary": "Communicator for Industry",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-08-26",
-          "priority": "Not defined"
         },
         {
           "key": "RCON-1266",
@@ -2603,30 +2600,6 @@
           "priority": "Low"
         },
         {
-          "key": "RCON-1558",
-          "summary": "Offer announcement templates when composing",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-06",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1559",
-          "summary": "Surface announcements in the notification panel",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-06",
-          "priority": "Low"
-        },
-        {
-          "key": "RCON-1268",
-          "summary": "Define localization mechanism for Communicator",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-06",
-          "priority": "Not defined"
-        },
-        {
           "key": "RCON-1271",
           "summary": "Support Suspend-on-Idle on Rcloud",
           "status": "New",
@@ -2664,6 +2637,46 @@
           "status": "New",
           "owner": "Kamil Matuszewski",
           "date": "2026-10-07",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1270",
+          "summary": "Mass data export API",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-15",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1372",
+          "summary": "Live updates for cases, threads, and conversations (no page refresh)",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-20",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RCON-1454",
+          "summary": "Notify when someone else assigns or unassigns me",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-20",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1494",
+          "summary": "Assign or reassign a thread to another same-side person",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-20",
+          "priority": "Low"
+        },
+        {
+          "key": "RCON-1889",
+          "summary": "System-wide runtime activity space",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-10-20",
           "priority": "Low"
         }
       ]

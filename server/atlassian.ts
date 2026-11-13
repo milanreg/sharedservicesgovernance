@@ -159,6 +159,9 @@ type JiraComment = {
   body?: unknown;
 };
 
+/** Xray test artefacts: tracked in Jira, but not delivery scope. */
+const XRAY_TYPES = /^(Test|Test Execution|Test Set|Test Plan|Precondition)$/i;
+
 type JiraIssue = {
   key: string;
   fields: {
@@ -166,6 +169,7 @@ type JiraIssue = {
     status?: { name: string };
     assignee?: { displayName: string } | null;
     priority?: { name: string } | null;
+    issuetype?: { name: string };
     closedSprints?: { id: number }[];
     resolutiondate?: string | null;
     created?: string;
@@ -408,6 +412,40 @@ async function readClosedSprints(
   }
 
   return records;
+}
+
+/**
+ * The board's own backlog, in the rank order a reader sees in Jira — items on
+ * the board that are not in an active or future sprint. A JQL list sorted by
+ * update date is a different thing: it mixes in sprint work and loses the
+ * ordering the team actually plans against.
+ *
+ * Takes the bare project scope, not the resolved one: the Agile API rejects an
+ * issue type the board's projects do not define, where search only ignores it.
+ * So Xray artefacts are dropped here instead of in the query.
+ */
+async function readBoardBacklog(
+  creds: Credentials,
+  boardId: number,
+  scopeJql: string,
+  warnings: string[],
+): Promise<Ticket[]> {
+  const fields = "summary,status,assignee,issuetype,closedSprints,comment";
+  const query = `maxResults=100&fields=${fields}&jql=${encodeURIComponent(scopeJql)}`;
+  try {
+    const result = await jira<{ issues: JiraIssue[] }>(
+      creds,
+      `/rest/agile/1.0/board/${boardId}/backlog?${query}`,
+    );
+    return (result.issues ?? [])
+      .filter((issue) => !XRAY_TYPES.test(issue.fields.issuetype?.name ?? ""))
+      .map(toTicket);
+  } catch (error) {
+    warnings.push(
+      `Board ${boardId} backlog could not be read (${(error as Error).message}); listed open scope by last update instead.`,
+    );
+    return [];
+  }
 }
 
 async function readReleases(creds: Credentials, projectKey: string, prefix?: string) {
@@ -658,15 +696,20 @@ export async function buildSnapshot(
     sprintData.tickets = issues.map(toTicket);
   }
 
-  let backlogTickets: Ticket[] = [];
-  try {
-    const issues = await search(creds, `${openScope} ORDER BY updated DESC`, 80, [
-      "comment",
-      "closedSprints",
-    ]);
-    backlogTickets = issues.map(toTicket);
-  } catch (error) {
-    warnings.push(`Backlog list could not be read: ${(error as Error).message}`);
+  let backlogTickets: Ticket[] = config.boardId
+    ? await readBoardBacklog(creds, config.boardId, config.scopeJql, warnings)
+    : [];
+
+  if (!backlogTickets.length) {
+    try {
+      const issues = await search(creds, `${openScope} ORDER BY updated DESC`, 80, [
+        "comment",
+        "closedSprints",
+      ]);
+      backlogTickets = issues.map(toTicket);
+    } catch (error) {
+      warnings.push(`Backlog list could not be read: ${(error as Error).message}`);
+    }
   }
 
   const closedSprints = config.boardId

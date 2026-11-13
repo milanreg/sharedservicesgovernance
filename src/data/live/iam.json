@@ -1,12 +1,12 @@
 {
   "slug": "iam",
-  "syncedAt": "2026-10-23T04:31:13.103Z",
+  "syncedAt": "2026-11-12T11:10:48.337Z",
   "projectSummary": {
-    "done": 489,
+    "done": 517,
     "open": 92,
-    "highPriorityOpen": 25,
-    "unassignedOpen": 59,
-    "epics": 46,
+    "highPriorityOpen": 22,
+    "unassignedOpen": 63,
+    "epics": 47,
     "currentRelease": {
       "name": "R1.3.0.01_RSH_10.02.26",
       "date": "10 Feb 2026",
@@ -18,344 +18,230 @@
     }
   },
   "sprint": {
-    "name": "RSH IAM 2620",
-    "start": "9 Oct 2026",
-    "end": "22 Oct 2026",
-    "committed": 13,
-    "done": 1,
-    "inProgress": 12,
+    "name": "RSH IAM 2622",
+    "start": "6 Nov 2026",
+    "end": "19 Nov 2026",
+    "committed": 17,
+    "done": 0,
+    "inProgress": 8,
     "blocked": 0
   },
   "tickets": [
     {
-      "key": "RSH-426",
-      "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
+      "key": "RSH-9506",
+      "summary": "Fix RSH Container Vulnerabilities (Dependency-Track, Critical/High) — 2026-11-02",
+      "status": "In PO Review",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-9986",
+      "summary": "[IAM] Bug: module client registration grants any requested IAM role (incl. super_admin) without a policy check",
+      "status": "New",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-775",
+      "summary": "[IAM UI] Adjust Column Widths for Better Fit",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": true
+    },
+    {
+      "key": "RSH-9195",
+      "summary": "[IAM] Bug: Fix the integration tests that fail repeatedly in CI",
+      "status": "In PO Review",
+      "owner": "Celso Garcia",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "ScriptRunner for Jira",
+        "date": "11 Nov 2026",
+        "body": "[~accountid:712020:89146cd5-630a-43fa-a435-ba064e0f5fe3] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - No Xray Tests are linked to this Story. Please link Tests and ensure th…"
+      }
+    },
+    {
+      "key": "RSH-9689",
+      "summary": "[IAM] POC - Implementing IAM support for RRH Poland",
+      "status": "Ready",
+      "owner": "Paweł Śnieżek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-9690",
+      "summary": "[IAM] BPMN flow for IAM - documentation",
+      "status": "New",
+      "owner": "CE-Milan Kumar Nayak",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-9194",
+      "summary": "[IAM] Bug: dependency rule with an empty then.item id list (item: []) is silently dropped instead of blocking the target type",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-6535",
+      "summary": "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
+      "status": "Ready",
+      "owner": "CE-Milan Kumar Nayak",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-5936",
+      "summary": "[IAM] Investigate and remove the \"Direct Access Grants\" client setting",
+      "status": "Ready",
+      "owner": "Paweł Śnieżek",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-9594",
+      "summary": "[IAM] Replace the current Keycloak login theme with a minimal customizable theme (logo, CSS, footer)",
+      "status": "Quality Reviewed",
+      "owner": "Paweł Śnieżek",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "ScriptRunner for Jira",
+        "date": "12 Nov 2026",
+        "body": "[~accountid:712020:2ba225d1-7271-4044-9ce0-81d247a397ee] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - No Xray Tests are linked to this Story. Please link Tests and ensure th…"
+      }
+    },
+    {
+      "key": "RSH-9385",
+      "summary": "[IAM] Enhance POST /User/filterByPermissions Endpoint to Support Dynamic AND/OR Search Conditions",
+      "status": "In Implementation",
+      "owner": "CE-Dominik Czerwiński",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-9291",
+      "summary": "[IAM] Refactor the module list to CRUD on CUSTOM_MODULE and align Deregister module",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-6765",
+      "summary": "[IAM] Migrate to angular zoneless change detection",
       "status": "In Implementation",
       "owner": "Celso Garcia",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-6512",
-      "summary": "[IAM] Import/Export UI for language translation JSON files",
-      "status": "Quality Reviewed",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": true,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "21 Oct 2026",
-        "body": "[~accountid:712020:89146cd5-630a-43fa-a435-ba064e0f5fe3] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - Cannot transition – there are failed or unexecuted tests for one or mor…"
-      }
-    },
-    {
-      "key": "RSH-815",
-      "summary": "[IAM] Use preferred language in emails",
+      "key": "RSH-9874",
+      "summary": "[IAM] Set Argo CD IgnoreExtraneous and Prune=false on secret-init and ESO Secret templates",
       "status": "In PO Review",
-      "owner": "Celso Garcia",
+      "owner": "CE-Dominik Czerwiński",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-2180",
-      "summary": "[PL/IAM] OSFI: Secret management via External Secrets Operator",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": true,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "13 Oct 2026",
-        "body": "[~accountid:712020:3fa6f8c3-4e49-4fc5-a9ab-fa2edf3a43f3] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - No Xray Tests are linked to this Story. Please link Tests and ensure th…"
-      }
-    },
-    {
-      "key": "RSH-6864",
-      "summary": "[IAM] Automate ESO secret rotation: config-cli re-import before consumer restart",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-7591",
-      "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "20 Oct 2026",
-        "body": "[~accountid:712020:95c2b901-5fa4-4997-859e-076171fdf19c] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - No Xray Tests are linked to this Story. Please link Tests and ensure th…"
-      }
-    },
-    {
-      "key": "RSH-6722",
-      "summary": "[IAM] Bug: Delete group must unassign all permissions then delete in one action",
-      "status": "Quality Reviewed",
-      "owner": "Adam Ennis",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-6664",
-      "summary": "[IAM] OSFI: Remove wildcard Keycloak redirect URIs and make client URLs configurable",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-6713",
-      "summary": "[PL/IAM] OSFI: Technical Helm chart improvements (secrets + workload identity)",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": true,
-      "comment": {
-        "author": "CE-Dominik Czerwiński",
-        "date": "5 Oct 2026",
-        "body": "h1. Verification result: ||Nr||Scope||Changes required||Comment|| |1|Audit sensitive IAM and platform-api values and support {{existingSecret}}|Verification only|IAM secrets are covered by [RSH-2180|https://gitlab.regulator.regnology.io/supervisory-hub/iam/-/merge_requests/606…"
-      }
-    },
-    {
-      "key": "RSH-6663",
-      "summary": "[PL] OSFI: Support Azure storage for Platform API",
-      "status": "Quality Reviewed",
+      "key": "RSH-9592",
+      "summary": "[IAM] Fix SonarQube issues",
+      "status": "In PO Review",
       "owner": "CE-Dominik Czerwiński",
       "blocked": false,
       "spillover": true
     },
     {
-      "key": "RSH-6690",
-      "summary": "[IAM] Add endpoints for batch adding module audiences to clients",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": true,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "14 Oct 2026",
-        "body": "[~accountid:712020:95c2b901-5fa4-4997-859e-076171fdf19c] Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: - Cannot transition – there are failed or unexecuted tests for one or mor…"
-      }
-    },
-    {
-      "key": "RSH-6665",
-      "summary": "[IAM] OSFI: Introduce Kubernetes Gateway API as successor of Ingress for auth-gateway",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": true
-    },
-    {
-      "key": "RSH-7663",
-      "summary": "[IAM] Investigate backend pod OOMs on large entity and entity-group catalogs",
-      "status": "Closed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Dominik Czerwiński",
-        "date": "21 Oct 2026",
-        "body": "Changes on DC side, no changes required in IAM."
-      }
-    }
-  ],
-  "backlogTickets": [
-    {
-      "key": "RSH-8372",
-      "summary": "[IAM] Backend gives up startup initialization while the Keycloak realm import is still running",
+      "key": "RSH-9875",
+      "summary": "[IAM] Keycloak provider: in-transaction permission and mirror operations",
       "status": "In Implementation",
       "owner": "Paweł Śnieżek",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-8401",
-      "summary": "[IAM] Translate Keycloak Login/Reset Password page",
+      "key": "RSH-9884",
+      "summary": "[IAM] Bug: Deleting an assigned permission removes its mirrors before returning 409",
+      "status": "Ready",
+      "owner": "Paweł Śnieżek",
+      "blocked": false,
+      "spillover": false
+    }
+  ],
+  "backlogTickets": [
+    {
+      "key": "RSH-9876",
+      "summary": "[IAM] Permission create, update, delete, assign and unassign with mirrors in one Keycloak transaction",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-426",
-      "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
-      "status": "In Implementation",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-8479",
-      "summary": "eregulatory-app: re-register with IAM after an upgrade that restores the database",
-      "status": "New",
-      "owner": "Romain Chassat",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-900",
-      "summary": "[Test Coverage]: RSH IAM -> Notifications",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-899",
-      "summary": "[Test Coverage]: RSH IAM -> Settings",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-898",
-      "summary": "[Test Coverage]: RSH IAM -> Groups and Permissions",
+      "key": "RSH-9877",
+      "summary": "[IAM] User delete in one Keycloak transaction",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-897",
-      "summary": "[Test Coverage]: RSH IAM -> User Accounts",
+      "key": "RSH-9878",
+      "summary": "[IAM] Legacy group split repair and group updates in one Keycloak transaction",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-896",
-      "summary": "[Test Coverage]: RSH IAM -> Navigation",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-815",
-      "summary": "[IAM] Use preferred language in emails",
-      "status": "In PO Review",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-8091",
-      "summary": "[IAM] Move language administration to Settings",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "22 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: No Xray Tests are linked to this Story. Please link Tests and ensure they have passed Test Executions for all Fix Versions (26.4.0…"
-      }
-    },
-    {
-      "key": "RSH-6726",
-      "summary": "[IAM] Execute selected IAM API operations as a single Keycloak transaction",
+      "key": "RSH-9879",
+      "summary": "[IAM] Client create, rename and delete with module binding in one Keycloak transaction",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Adam Ennis",
-        "date": "14 Oct 2026",
-        "body": "Operations in scope Selected: group delete ( DELETE /Group/{groupId} ), delivered in MR !607 together with RSH-6722. IAM API now makes one call to DELETE custom-permissions/groups/{group-id}/with-permissions . In a single Keycloak transaction it unassigns permissions across th…"
-      }
-    },
-    {
-      "key": "RSH-6722",
-      "summary": "[IAM] Bug: Delete group must unassign all permissions then delete in one action",
-      "status": "Quality Reviewed",
-      "owner": "Adam Ennis",
-      "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-6690",
-      "summary": "[IAM] Add endpoints for batch adding module audiences to clients",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "14 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: Cannot transition – there are failed or unexecuted tests for one or more Fix Versions: Fix Version 26.3.2.00_RSH-PL-15.10.26: has …"
-      }
-    },
-    {
-      "key": "RSH-6664",
-      "summary": "[IAM] OSFI: Remove wildcard Keycloak redirect URIs and make client URLs configurable",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-6512",
-      "summary": "[IAM] Import/Export UI for language translation JSON files",
-      "status": "Quality Reviewed",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "21 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: Cannot transition – there are failed or unexecuted tests for one or more Fix Versions: Fix Version 26.4.0.00_RSH-IAM_25.11.26: has…"
-      }
-    },
-    {
-      "key": "RSH-1631",
-      "summary": "[Test Coverage]: RSH IAM -> Clients",
-      "status": "New",
+      "key": "RSH-9880",
+      "summary": "[IAM] Module registry changes and PAT module scopes in one Keycloak transaction",
+      "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-1201",
-      "summary": "[Test Coverage]: RSH IAM -> Registration process",
-      "status": "New",
+      "key": "RSH-9881",
+      "summary": "[IAM] Module and global context changes with self-permissions in one Keycloak transaction",
+      "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-7065",
-      "summary": "Cover IAM's integration with tests",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
+      "key": "RSH-9882",
+      "summary": "[IAM] Bulk user import: user, permissions and mirrors in one transaction per chunk",
+      "status": "Ready",
+      "owner": "Unassigned",
       "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "22 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: Cannot transition – there are failed or unexecuted tests for one or more Fix Versions: Fix Version 26.4.0.00_RSH-PL_25.11.26: has …"
-      }
+      "spillover": false
     },
     {
-      "key": "RSH-2963",
-      "summary": "IAM module not starting ",
-      "status": "New",
-      "owner": "Pawel Skrzypczynski",
+      "key": "RSH-9883",
+      "summary": "[IAM] Realm supported locales and language picker labels in one Keycloak transaction",
+      "status": "Ready",
+      "owner": "Unassigned",
       "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Pawel Skrzypczynski",
-        "date": "14 Jul 2026",
-        "body": "MR: Platfor api: https://gitlab.regulator.regnology.io/supervisory-hub/platform-api/-/merge_requests/63 IAM: https://gitlab.regulator.regnology.io/supervisory-hub/iam/-/merge_requests/477 Quick status on the platform-api base image migration: What we did * Initially planned to…"
-      }
+      "spillover": false
     },
     {
-      "key": "RSH-6727",
-      "summary": "[IAM UI] Mark Personal Access Token modules the user can no longer access",
+      "key": "RSH-9886",
+      "summary": "[IAM] Bug: Updating a user or profile may overwrite cached entity attributes",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
@@ -369,80 +255,9 @@
       "blocked": false,
       "spillover": false,
       "comment": {
-        "author": "Adam Ennis",
-        "date": "13 Aug 2025",
-        "body": "More refinement needed."
-      }
-    },
-    {
-      "key": "RSH-775",
-      "summary": "[IAM UI] Adjust Column Widths for Better Fit",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-412",
-      "summary": "[IAM] Rename \"Supervision Hub\" to \"Supervisory Hub\" across codebase and project assets",
-      "status": "Ready",
-      "owner": "Adam Ennis",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Thomas Lechner",
-        "date": "5 Aug 2025",
-        "body": "sounds good to me"
-      }
-    },
-    {
-      "key": "RSH-8094",
-      "summary": "[IAM] Show preferred language read-only in user details",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-8093",
-      "summary": "[IAM] Detect drift in runtime translation overrides",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-8092",
-      "summary": "[IAM] Store translation catalogs outside the Keycloak realm",
-      "status": "In Implementation",
-      "owner": "Paweł Śnieżek",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Celso Garcia",
-        "date": "19 Oct 2026",
-        "body": "Candidate for durable translation storage (from / MR !618 review): Keycloak realm localizations (REALM_LOCALIZATIONS), with IAM keys prefixed with iam. . When evaluating this candidate, please verify: config-cli behavior (unmanaged keys preserved across Helm / config-cli impor…"
-      }
-    },
-    {
-      "key": "RSH-8373",
-      "summary": "[IAM] Move language administration to Settings",
-      "status": "New",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-7591",
-      "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "20 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: No Xray Tests are linked to this Story. Please link Tests and ensure they have passed Test Executions for all Fix Versions (26.3.2…"
+        "author": "CE-Milan Kumar Nayak",
+        "date": "23 Oct 2026",
+        "body": "reference !image-20261023-094703.png|width=550,alt=\"image-20261023-094703.png\"!"
       }
     },
     {
@@ -454,24 +269,16 @@
       "spillover": false
     },
     {
-      "key": "RSH-7066",
-      "summary": "Deploy IAM as a module of its own after the team split",
-      "status": "New",
+      "key": "RSH-2169",
+      "summary": "[IAM] [Blocked] Entity group inheritance for entity access",
+      "status": "Ready",
       "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
+      "blocked": true,
+      "spillover": true
     },
     {
-      "key": "RSH-7060",
-      "summary": "Wire Licensing to IAM on OpenShift",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-7036",
-      "summary": "Common RSH Dev Cluster - IAM",
+      "key": "RSH-3852",
+      "summary": "[IAM] Performance: Replace in-memory filtering with sql queries in Keycloak User Repository",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -483,87 +290,21 @@
       "status": "Ready",
       "owner": "Adam Ennis",
       "blocked": false,
-      "spillover": false
+      "spillover": true
     },
     {
-      "key": "RSH-6864",
-      "summary": "[IAM] Automate ESO secret rotation: config-cli re-import before consumer restart",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
+      "key": "RSH-1366",
+      "summary": "[IAM] Clients management - Investigate iam-managed attribute as alternative to blacklist",
+      "status": "Ready",
+      "owner": "Robert Binder",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-4258",
-      "summary": "[IAM] User Profile Management - Improvements",
+      "key": "RSH-1173",
+      "summary": "[IAM API] Validate new permission model",
       "status": "Ready",
       "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4255",
-      "summary": "[IAM] Principal User (User Manager) - Make Work",
-      "status": "In Implementation",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-6535",
-      "summary": "[IAM] Keycloak Helm: external database with password and Workload Identity auth",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-6713",
-      "summary": "[PL/IAM] OSFI: Technical Helm chart improvements (secrets + workload identity)",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "CE-Dominik Czerwiński",
-        "date": "5 Oct 2026",
-        "body": "Verification result: Nr Scope Changes required Comment 1 Audit sensitive IAM and platform-api values and support existingSecret Verification only IAM secrets are covered by RSH-2180 . Platform API storage credentials already support api.storage.existingSecret . Confirm the OSF…"
-      }
-    },
-    {
-      "key": "RSH-2180",
-      "summary": "[PL/IAM] OSFI: Secret management via External Secrets Operator",
-      "status": "Quality Reviewed",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "ScriptRunner for Jira",
-        "date": "13 Oct 2026",
-        "body": "Validation failed after transition. The issue was moved back automatically. Previous status: Quality Reviewed Current status: In PO Review Reason: No Xray Tests are linked to this Story. Please link Tests and ensure they have passed Test Executions for all Fix Versions (26.4.0…"
-      }
-    },
-    {
-      "key": "RSH-6765",
-      "summary": "[IAM] Migrate to angular zoneless change detection",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-607",
-      "summary": "Investigate Configuration option",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-6665",
-      "summary": "[IAM] OSFI: Introduce Kubernetes Gateway API as successor of Ingress for auth-gateway",
-      "status": "Quality Reviewed",
-      "owner": "CE-Dominik Czerwiński",
       "blocked": false,
       "spillover": false
     },
@@ -576,96 +317,28 @@
       "spillover": false
     },
     {
-      "key": "RSH-138",
-      "summary": "Onboard Rconnect (incl. IAM & Rcloud)",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Robert Binder",
-        "date": "5 Feb 2026",
-        "body": "Moved to release 26.2 due to timeline shifts on Rconnect side."
-      }
-    },
-    {
-      "key": "RSH-6721",
-      "summary": "[IAM] Implement RFleet RSH PL Review Agent",
-      "status": "In Implementation",
-      "owner": "Celso Garcia",
+      "key": "RSH-839",
+      "summary": "Configure DC to use the IAM Keyclock",
+      "status": "Ready",
+      "owner": "Sebastian Wolf",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-2169",
-      "summary": "[IAM] [Blocked] Entity group inheritance for entity access",
+      "key": "RSH-1032",
+      "summary": "[IAM] Enable Keycloak configuration backup and diff generation during upgrades",
       "status": "Ready",
       "owner": "Unassigned",
-      "blocked": true,
+      "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-4254",
-      "summary": "[IAM] Stabilization Release - 26.4",
+      "key": "RSH-314",
+      "summary": "[IAM] M2M Auth: Research, Design & POC Scalable M2M Solution",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
-    },
-    {
-      "key": "RSH-429",
-      "summary": "[IAM] Defects and Tech Debt - Backlog",
-      "status": "Ready",
-      "owner": "Adam Ennis",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Thomas Lechner",
-        "date": "23 Oct 2025",
-        "body": "could you pls sync with on the one ui change/bugfix requests?"
-      }
-    },
-    {
-      "key": "RSH-6566",
-      "summary": "[IAM] Investigate where to store client translation files",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-1366",
-      "summary": "[IAM] Clients management - Investigate iam-managed attribute as alternative to blacklist",
-      "status": "Ready",
-      "owner": "Robert Binder",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-4256",
-      "summary": "[IAM] WCAG 2.2 Level AA",
-      "status": "New",
-      "owner": "CE-Dominik Czerwiński",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Robert Binder",
-        "date": "14 Aug 2026",
-        "body": ", best-practice alignment with other RSH modules. Contractually required by OSFI."
-      }
-    },
-    {
-      "key": "RSH-794",
-      "summary": "[IAM] Client-Specific Translations",
-      "status": "Ready",
-      "owner": "Celso Garcia",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Robert Binder",
-        "date": "14 Aug 2026",
-        "body": ", renewed priority for OSFI and BNA."
-      }
     },
     {
       "key": "RSH-506",
@@ -676,99 +349,17 @@
       "spillover": false
     },
     {
-      "key": "RSH-5909",
-      "summary": "[PL] Make RSH PL & IAM OSFI Ready",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Robert Binder",
-        "date": "15 Sept 2026",
-        "body": ", , please see the updated description and linked stories from DC (for feature parity) for the extended scope of this epic."
-      }
-    },
-    {
-      "key": "RSH-1449",
-      "summary": "[IAM UI] Fix nx iam:package/publish/retag for dynamic version and local release",
+      "key": "RSH-420",
+      "summary": "[Blocked by UX] IAM API/UI - Foundational Admin Interface for Managing Custom Permissions",
       "status": "Ready",
-      "owner": "Unassigned",
+      "owner": "Adam Ennis",
       "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-3852",
-      "summary": "[IAM] Performance: Replace in-memory filtering with sql queries in Keycloak User Repository",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-804",
-      "summary": "[IAM UI] Allow customization of user profile information",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-797",
-      "summary": "[IAM API] Allow customization of user profile information",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-5936",
-      "summary": "[IAM] Investigate and remove the \"Direct Access Grants\" client setting",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-872",
-      "summary": "[IAM UI] Role display name for permission table",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
+      "spillover": true,
       "comment": {
-        "author": "ce-Zuzanna Twardowska",
-        "date": "2 Jun 2026",
-        "body": "duplicate of"
+        "author": "Thomas Lechner",
+        "date": "13 Oct 2025",
+        "body": "The output of the story was a wireframe pdf from design which can be now used to create followup stories [~accountid:635c4435d66d8108a124527d]"
       }
-    },
-    {
-      "key": "RSH-237",
-      "summary": "[IAM] Support integration with multiple IAM providers",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false,
-      "comment": {
-        "author": "Robert Binder",
-        "date": "28 Aug 2026",
-        "body": "43 seconds ago , , this RSH story is linked to an ASCEND epic, which should never be the case. Can you either move this story to the ASCEND space or attach it to an RSH epic? This one in particular looks sorted incorrectly to ASCEND."
-      }
-    },
-    {
-      "key": "RSH-4263",
-      "summary": "[IAM] Support for Third-Party Modules",
-      "status": "New",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-2629",
-      "summary": "[IAM] Replace Registration with new process",
-      "status": "New",
-      "owner": "Shashank Prasad",
-      "blocked": false,
-      "spillover": false
     },
     {
       "key": "RSH-399",
@@ -784,41 +375,62 @@
       }
     },
     {
-      "key": "RSH-1032",
-      "summary": "[IAM] Enable Keycloak configuration backup and diff generation during upgrades",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-1173",
-      "summary": "[IAM API] Validate new permission model",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-839",
-      "summary": "Configure DC to use the IAM Keyclock",
-      "status": "Ready",
-      "owner": "Sebastian Wolf",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-1540",
-      "summary": "[IAM API] Build using the frontend and the backend locally",
-      "status": "Ready",
-      "owner": "Unassigned",
-      "blocked": false,
-      "spillover": false
-    },
-    {
-      "key": "RSH-1301",
-      "summary": "[IAM] Implement OBO token exchange for user-scoped module communication",
+      "key": "RSH-237",
+      "summary": "[IAM] Support integration with multiple IAM providers",
       "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false,
+      "comment": {
+        "author": "Robert Binder",
+        "date": "28 Aug 2026",
+        "body": "43 seconds ago [~accountid:60263ea69887580068a4cdf3] , [~accountid:635c4435d66d8108a124527d] , this RSH story is linked to an ASCEND epic, which should never be the case. Can you either move this story to the ASCEND space or attach it to an RSH epic? This one in particular loo…"
+      }
+    },
+    {
+      "key": "RSH-797",
+      "summary": "[IAM API] Allow customization of user profile information",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-804",
+      "summary": "[IAM UI] Allow customization of user profile information",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-313",
+      "summary": "[IAM] IAM API/UI: Implement User & Group Management with Multi-CoreIDP Support",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-315",
+      "summary": "[IAM] Backend: Support Dynamic/Custom User Attributes for Multi-CoreIDPs",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-316",
+      "summary": "[IAM] Investigation: Multi-Keycloak Realm Configuration & Administration via IAM API/U",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-317",
+      "summary": "[IAM] Documentation: AuthN v2 - Federation (e.g. Okta), M2M Strategy, Multi-CoreIDP Operations",
+      "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
@@ -832,61 +444,141 @@
       "spillover": false
     },
     {
-      "key": "RSH-314",
-      "summary": "[IAM] M2M Auth: Research, Design & POC Scalable M2M Solution",
+      "key": "RSH-322",
+      "summary": "CPF1.1: Core Plugins: Design Plugin System Architecture for Module Extensibility",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-2149",
-      "summary": "[IAM]  Replace Remaining API Pull with configuration",
+      "key": "RSH-323",
+      "summary": "CPF1.2: Implement Core Plugin Broker/Manager & Event Bus in IAM Backend",
       "status": "New",
-      "owner": "Adam Ennis",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-795",
-      "summary": "[IAM] Multi-Core IDP",
+      "key": "RSH-324",
+      "summary": "CPF1.3: Develop POC Plugin & Integration Point (e.g., Post User Creation Notification)",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-325",
+      "summary": "CPF1.4: Documentation - IAM Plugin System SDK & Developer Guide",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-607",
+      "summary": "Investigate Configuration option",
       "status": "Ready",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-321",
-      "summary": "[IAM] Support for Non-Standard IDPs",
+      "key": "RSH-768",
+      "summary": "[IAM UI] Validate role selection on save in permission dialog",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-772",
+      "summary": "[IAM UI] Add Loading Indicators for Better User Experience",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-903",
-      "summary": "RSH IAM - Phase 2 (2026)",
-      "status": "In Implementation",
-      "owner": "Robert Binder",
+      "key": "RSH-774",
+      "summary": "[IAM UI] Fix Entity Groups Column Width",
+      "status": "New",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     },
     {
-      "key": "RSH-96",
-      "summary": "Introduce Shared IAM Module",
-      "status": "In Progress",
-      "owner": "Robert Binder",
+      "key": "RSH-872",
+      "summary": "[IAM UI] Role display name for permission table",
+      "status": "New",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false,
       "comment": {
-        "author": "Anke Dohse",
-        "date": "27 Jan 2026",
-        "body": "RTG in general fine for me. Looking at the fact that we got 2 add devs from FRR and we are hiring one add dev now, I think atm it is mostly about onboarding the additional resources efficiently."
+        "author": "ce-Zuzanna Twardowska",
+        "date": "2 Jun 2026",
+        "body": "duplicate of RSH-871"
       }
     },
     {
-      "key": "RSH-774",
-      "summary": "[IAM UI] Fix Entity Groups Column Width",
+      "key": "RSH-896",
+      "summary": "[Test Coverage]: RSH IAM -> Navigation",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-897",
+      "summary": "[Test Coverage]: RSH IAM -> User Accounts",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-898",
+      "summary": "[Test Coverage]: RSH IAM -> Groups and Permissions",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-899",
+      "summary": "[Test Coverage]: RSH IAM -> Settings",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-900",
+      "summary": "[Test Coverage]: RSH IAM -> Notifications",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-1200",
+      "summary": "[Test Coverage]: RSH IAM -> Import/Export",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-1201",
+      "summary": "[Test Coverage]: RSH IAM -> Registration process",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-1631",
+      "summary": "[Test Coverage]: RSH IAM -> Clients",
       "status": "New",
       "owner": "Unassigned",
       "blocked": false,
@@ -901,65 +593,154 @@
       "spillover": false
     },
     {
-      "key": "RSH-717",
-      "summary": "RSH IAM - Module Integration Support",
-      "status": "In Implementation",
-      "owner": "Robert Binder",
+      "key": "RSH-1301",
+      "summary": "[IAM] Implement OBO token exchange for user-scoped module communication",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-1449",
+      "summary": "[IAM UI] Fix nx iam:package/publish/retag for dynamic version and local release",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-1540",
+      "summary": "[IAM API] Build using the frontend and the backend locally",
+      "status": "Ready",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-9684",
+      "summary": "[IAM] API Performance scripts for IAM apis",
+      "status": "New",
+      "owner": "Unassigned",
+      "blocked": false,
+      "spillover": false
+    },
+    {
+      "key": "RSH-10329",
+      "summary": "[IAM] Bug: Disabling the global catalogue cache repeats Keycloak and module calls for every catalogue read",
+      "status": "New",
+      "owner": "Unassigned",
       "blocked": false,
       "spillover": false
     }
   ],
   "closedSprints": [
     {
-      "id": 22395,
-      "name": "RSH PL 2619",
-      "start": "25 Sept 2026",
-      "end": "8 Oct 2026",
-      "closed": [],
+      "id": 22397,
+      "name": "RSH IAM 2621",
+      "start": "23 Oct 2026",
+      "end": "5 Nov 2026",
+      "closed": [
+        {
+          "key": "RSH-2963",
+          "summary": "IAM module not starting ",
+          "status": "Closed",
+          "owner": "Pawel Skrzypczynski",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-8092",
+          "summary": "[IAM] Store translation catalogs outside the Keycloak realm",
+          "status": "PO Accepted",
+          "owner": "Paweł Śnieżek",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
       "leftover": [
         {
-          "key": "RSH-6721",
-          "summary": "[IAM] Implement RFleet RSH PL Review Agent",
-          "status": "In Implementation",
-          "owner": "Celso Garcia",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6790",
-          "summary": "Fix CI: Align the Xray Fix Version pin with the renamed 26.4.0 release date",
+          "key": "RSH-9288",
+          "summary": "[IAM] Deploy a per-branch module-mock as the source of truth for integration test data",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
-          "key": "RSH-6758",
-          "summary": "Fix SonarQube issues",
+          "key": "RSH-8750",
+          "summary": "[IAM] Translation fallback: selected language should fall back to reference, not through the default language",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
-          "key": "RSH-4211",
-          "summary": "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
+          "key": "RSH-8749",
+          "summary": "[IAM] Use Accept-Language header to pick a sensible default language when the user has no saved preference",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
-          "key": "RSH-2453",
-          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
+          "key": "RSH-8480",
+          "summary": "[IAM] ExternalSecret resources stay OutOfSync in Argo CD after ESO/API defaulting",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
-          "key": "RSH-427",
-          "summary": "[IAM] Implement Multi-Language Support Across IAM Module",
+          "key": "RSH-8401",
+          "summary": "[IAM] Translate Keycloak Login/Reset Password page",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-8372",
+          "summary": "[IAM] Backend gives up startup initialization while the Keycloak realm import is still running",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-8100",
+          "summary": "Fix RSH Container Vulnerabilities (Dependency-Track, Critical/High) — 2026-10-19",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-8094",
+          "summary": "[IAM] Show preferred language read-only in user details",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-8093",
+          "summary": "[IAM] Detect drift in runtime translation overrides",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-8091",
+          "summary": "[IAM] Move language administration to Settings",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6727",
+          "summary": "[IAM UI] Mark Personal Access Token modules the user can no longer access",
           "status": "Ready for integration",
           "owner": "Unassigned",
           "blocked": false,
@@ -968,932 +749,585 @@
         {
           "key": "RSH-6722",
           "summary": "[IAM] Bug: Delete group must unassign all permissions then delete in one action",
-          "status": "Quality Reviewed",
-          "owner": "Adam Ennis",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
-          "key": "RSH-6713",
-          "summary": "[PL/IAM] OSFI: Technical Helm chart improvements (secrets + workload identity)",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6690",
-          "summary": "[IAM] Add endpoints for batch adding module audiences to clients",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6665",
-          "summary": "[IAM] OSFI: Introduce Kubernetes Gateway API as successor of Ingress for auth-gateway",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6664",
-          "summary": "[IAM] OSFI: Remove wildcard Keycloak redirect URIs and make client URLs configurable",
-          "status": "Quality Reviewed",
-          "owner": "Shashank Prasad",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6663",
-          "summary": "[PL] OSFI: Support Azure storage for Platform API",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
+          "key": "RSH-6721",
+          "summary": "[IAM] Implement RFleet RSH PL Review Agent",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
           "key": "RSH-6512",
           "summary": "[IAM] Import/Export UI for language translation JSON files",
-          "status": "Quality Reviewed",
-          "owner": "Celso Garcia",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-426",
+          "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-412",
+          "summary": "[IAM] Rename \"Supervision Hub\" to \"Supervisory Hub\" across codebase and project assets",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-9592",
+          "summary": "[IAM] Fix SonarQube issues",
+          "status": "In PO Review",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-775",
+          "summary": "[IAM UI] Adjust Column Widths for Better Fit",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        }
+      ]
+    },
+    {
+      "id": 22396,
+      "name": "RSH IAM 2620",
+      "start": "9 Oct 2026",
+      "end": "22 Oct 2026",
+      "closed": [
+        {
+          "key": "RSH-7663",
+          "summary": "[IAM] Investigate backend pod OOMs on large entity and entity-group catalogs",
+          "status": "Closed",
+          "owner": "CE-Dominik Czerwiński",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6864",
+          "summary": "[IAM] Automate ESO secret rotation: config-cli re-import before consumer restart",
+          "status": "Closed",
+          "owner": "Shashank Prasad",
+          "blocked": false,
+          "spillover": false
+        }
+      ],
+      "leftover": [
+        {
+          "key": "RSH-7591",
+          "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6722",
+          "summary": "[IAM] Bug: Delete group must unassign all permissions then delete in one action",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6713",
+          "summary": "[PL/IAM] OSFI: Technical Helm chart improvements (secrets + workload identity)",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6690",
+          "summary": "[IAM] Add endpoints for batch adding module audiences to clients",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6665",
+          "summary": "[IAM] OSFI: Introduce Kubernetes Gateway API as successor of Ingress for auth-gateway",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6664",
+          "summary": "[IAM] OSFI: Remove wildcard Keycloak redirect URIs and make client URLs configurable",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6663",
+          "summary": "[PL] OSFI: Support Azure storage for Platform API",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-6512",
+          "summary": "[IAM] Import/Export UI for language translation JSON files",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         },
         {
           "key": "RSH-2180",
           "summary": "[PL/IAM] OSFI: Secret management via External Secrets Operator",
-          "status": "Quality Reviewed",
-          "owner": "Shashank Prasad",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-815",
+          "summary": "[IAM] Use preferred language in emails",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "blocked": false,
+          "spillover": false
+        },
+        {
+          "key": "RSH-426",
+          "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
           "blocked": false,
           "spillover": false
         }
       ]
-    },
-    {
-      "id": 22394,
-      "name": "RSH PL 2618",
-      "start": "10 Sept 2026",
-      "end": "24 Sept 2026",
-      "closed": [
-        {
-          "key": "RSH-6667",
-          "summary": "[IAM] IAM API OpenSSL failures on FIPS-enabled nodes",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6661",
-          "summary": "[IAM] Allow group scope label change",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6652",
-          "summary": "[IAM] Filter roles by scope in Add Permission and when assigning to user groups",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6651",
-          "summary": "[IAM] Add Unscoped option to Add group Scope label",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6559",
-          "summary": "[PL] Spike: initial investigation for RDM stand-alone on RSH",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5442",
-          "summary": "[IAM] DC Entity groups - \"All\" Group",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4784",
-          "summary": "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
-          "status": "Closed",
-          "owner": "Paweł Śnieżek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-2451",
-          "summary": "AppSec: Open ssl issue in IAM API",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        }
-      ],
-      "leftover": [
-        {
-          "key": "RSH-6620",
-          "summary": "[IAM] Add Keycloak table to track module and audience",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6560",
-          "summary": "[IAM] Spike: review SupTech modules' approaches to translations",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-6545",
-          "summary": "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4211",
-          "summary": "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-2453",
-          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-786",
-          "summary": "[IAM] Add preferred language to user profile and tokens",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-427",
-          "summary": "[IAM] Implement Multi-Language Support Across IAM Module",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-2169",
-          "summary": "[IAM] [Blocked] Entity group inheritance for entity access",
-          "status": "Ready",
-          "owner": "Unassigned",
-          "blocked": true,
-          "spillover": false
-        }
-      ]
-    },
-    {
-      "id": 21351,
-      "name": "RSH PL 2617",
-      "start": "27 Aug 2026",
-      "end": "10 Sept 2026",
-      "closed": [
-        {
-          "key": "RSH-6511",
-          "summary": "[IAM] Upgrade Keycloak beyond 26.6.3 (vulnerability fix)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5937",
-          "summary": "[Docs] Publish separate internal and external documentation site builds",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5925",
-          "summary": "Fix RSH Helm Chart SonarQube issues",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5675",
-          "summary": "[IAM CI] Cancel superseded pipelines and ensure terminal state.",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5442",
-          "summary": "[IAM] DC Entity groups - \"All\" Group",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4784",
-          "summary": "POC: Personal Access Token implemented using Keycloak’s standard OIDC offline session mechanism",
-          "status": "Closed",
-          "owner": "Paweł Śnieżek",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4394",
-          "summary": "Fix SonarQube issues",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4215",
-          "summary": "[IAM] Add module permission manager as IAM role",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4214",
-          "summary": "[IAM] Allow unscoped module permissions",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3824",
-          "summary": "[IAM] [UI] Fix whitespaces in create group modal",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        }
-      ],
-      "leftover": [
-        {
-          "key": "RSH-5678",
-          "summary": "[IAM] Integration Tests Consolidation",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4211",
-          "summary": "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-2453",
-          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-2169",
-          "summary": "[IAM] [Blocked] Entity group inheritance for entity access",
-          "status": "Ready",
-          "owner": "Unassigned",
-          "blocked": true,
-          "spillover": false
-        }
-      ]
-    },
-    {
-      "id": 9056,
-      "name": "RSH PL 2616",
-      "start": "13 Aug 2026",
-      "end": "27 Aug 2026",
-      "closed": [
-        {
-          "key": "RSH-5558",
-          "summary": "[IAM] Bug: IAM roles are filtered by available unscoped roles before selecting scope",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5458",
-          "summary": "[IAM] Improved Xray Jira Reports",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-5451",
-          "summary": "Allow platform-api storage credentials from an existing Kubernetes Secret",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4908",
-          "summary": "[IAM] Bug: Entity ID displayed instead of name in \"Permissions Unassigned\" email",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4907",
-          "summary": "[IAM] Bug: Missing permission information in \"Permission assigned\" email",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4302",
-          "summary": "SonarQube: Rules update Fixes",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4261",
-          "summary": "[IAM] Bug: Group delete failure exposes internal GUID in dialog and toast",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4260",
-          "summary": "[IAM UI] Bug: Join Group dialog has no scroll when many groups are available",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4251",
-          "summary": "IAM-Analyser integration issue",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4250",
-          "summary": "Testing 26.3.0.00_RSH-PL_27.08.26",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4249",
-          "summary": "Release Delivery 26.3.0.00_RSH-PL_27.08.26",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4246",
-          "summary": "[IAM] Bug: User cannot assign Scoped permission from IAM Module to Scoped group",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4244",
-          "summary": "[IAM] Bug: User can see Entity/Entity Groups for permission from assigned roles without Permission:Manage:<EntityId>",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4238",
-          "summary": "Permission mirroring (source / mirrored lifecycle)",
-          "status": "Closed",
-          "owner": "Kartik Sharma",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4222",
-          "summary": "Frontend access controls & restrictions by effective permissions",
-          "status": "Closed",
-          "owner": "Kartik Sharma",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4220",
-          "summary": "[IAM] Bug: Users with View + Manage Permissions can edit their own permissions and escalate to Manage Users/Groups/Clients",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4096",
-          "summary": "AppSec: Evaluate and adopt a hardened Keycloak runtime image without curl",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-4066",
-          "summary": "[IAM] Restart keycloak pod automatically in the pipeline when needed",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3763",
-          "summary": "[IAM] Provide join groups functionality with pagination and search",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3503",
-          "summary": "[IAM] Spike: Migrate existing IAM permissions to new version",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3496",
-          "summary": "[IAM] Make view/manage roles entity-aware (vocabulary, model, parsing, FE)",
-          "status": "Closed",
-          "owner": "Celso Garcia",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3481",
-          "summary": "[IAM] Remove direct group-id grant path entirely",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3239",
-          "summary": "[IAM] Bug: Duplicate permissions can be added for the same user with identical roles and modules",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-3042",
-          "summary": "[IAM] Spike: Migrate users and groups to entity scoping",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "blocked": false,
-          "spillover": false
-        },
-        {
-          "key": "RSH-2452",
-          "summary": "AppSec: keycloak-config-cli dependency track issue",
-          "status": "Closed",
-          "owner": "Celso Garcia",
-          "blocked": false,
-          "spillover": false
-        }
-      ],
-      "leftover": []
     }
   ],
   "activity": {
     "days": 30,
     "delivered": {
-      "total": 25,
+      "total": 31,
       "items": [
         {
-          "key": "RSH-7663",
-          "summary": "[IAM] Investigate backend pod OOMs on large entity and entity-group catalogs",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-10-21",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-1314",
-          "summary": "[IAM] Support for Windows Server Deployments",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-16",
-          "priority": "Low"
-        },
-        {
-          "key": "RSH-4262",
-          "summary": "[IAM] PAT",
-          "status": "Ready for integration",
-          "owner": "Shashank Prasad",
-          "date": "2026-10-16",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-524",
-          "summary": "[IAM] Add support for language codes in queries",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-786",
-          "summary": "[IAM] Add preferred language to user profile and tokens",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-2453",
-          "summary": "Configure all modules to use IAM and Platform in Dev Cluster",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-4211",
-          "summary": "User-bound Personal Access Tokens (API Keys) for non-interactive access as the signed-in user",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-427",
-          "summary": "[IAM] Implement Multi-Language Support Across IAM Module",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-10-07",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-719",
-          "summary": "RSH IAM - Integration with RSH Analytics",
-          "status": "Closed",
-          "owner": "Julien REBER",
-          "date": "2026-10-05",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-6661",
-          "summary": "[IAM] Allow group scope label change",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-5442",
-          "summary": "[IAM] DC Entity groups - \"All\" Group",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "Blocker"
-        },
-        {
-          "key": "RSH-4215",
-          "summary": "[IAM] Add module permission manager as IAM role",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-3478",
-          "summary": "[IAM] Restrict unscoped group visibility (and creation) to unscoped principal users",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "Blocker"
-        },
-        {
-          "key": "RSH-2174",
-          "summary": "[IAM UI] Display mirrored permissions in UI",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-2451",
-          "summary": "AppSec: Open ssl issue in IAM API",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "Critical"
-        },
-        {
-          "key": "RSH-3824",
-          "summary": "[IAM] [UI] Fix whitespaces in create group modal",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "Low"
-        },
-        {
-          "key": "RSH-6667",
-          "summary": "[IAM] IAM API OpenSSL failures on FIPS-enabled nodes",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "Critical"
-        },
-        {
-          "key": "RSH-6651",
-          "summary": "[IAM] Add Unscoped option to Add group Scope label",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-5675",
-          "summary": "[IAM CI] Cancel superseded pipelines and ensure terminal state.",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-6511",
-          "summary": "[IAM] Upgrade Keycloak beyond 26.6.3 (vulnerability fix)",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-4214",
-          "summary": "[IAM] Allow unscoped module permissions",
-          "status": "Closed",
-          "owner": "Unassigned",
-          "date": "2026-10-01",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-6545",
-          "summary": "[IAM] [UI] Bug: paginated lists do not reset to page 1 when search changes",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-09-24",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-6560",
-          "summary": "[IAM] Spike: review SupTech modules' approaches to translations",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-09-24",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-6620",
-          "summary": "[IAM] Add Keycloak table to track module and audience",
-          "status": "Ready for integration",
-          "owner": "Unassigned",
-          "date": "2026-09-24",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-6652",
-          "summary": "[IAM] Filter roles by scope in Add Permission and when assigning to user groups",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-09-23",
-          "priority": "High"
-        }
-      ]
-    },
-    "raised": {
-      "total": 23,
-      "items": [
-        {
-          "key": "RSH-8479",
-          "summary": "eregulatory-app: re-register with IAM after an upgrade that restores the database",
-          "status": "New",
-          "owner": "Romain Chassat",
-          "date": "2026-10-22",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-8401",
-          "summary": "[IAM] Translate Keycloak Login/Reset Password page",
-          "status": "Ready",
-          "owner": "Unassigned",
-          "date": "2026-10-22",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-8373",
+          "key": "RSH-8091",
           "summary": "[IAM] Move language administration to Settings",
-          "status": "New",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-10-22",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RSH-8372",
-          "summary": "[IAM] Backend gives up startup initialization while the Keycloak realm import is still running",
-          "status": "In Implementation",
-          "owner": "Paweł Śnieżek",
-          "date": "2026-10-22",
-          "priority": "Not defined"
-        },
-        {
-          "key": "RSH-8094",
-          "summary": "[IAM] Show preferred language read-only in user details",
-          "status": "Ready",
+          "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-6721",
+          "summary": "[IAM] Implement RFleet RSH PL Review Agent",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-8749",
+          "summary": "[IAM] Use Accept-Language header to pick a sensible default language when the user has no saved preference",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
           "priority": "Medium"
         },
         {
           "key": "RSH-8093",
           "summary": "[IAM] Detect drift in runtime translation overrides",
-          "status": "Ready",
+          "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-10-19",
+          "date": "2026-11-06",
           "priority": "Medium"
         },
         {
-          "key": "RSH-8092",
-          "summary": "[IAM] Store translation catalogs outside the Keycloak realm",
-          "status": "In Implementation",
-          "owner": "Paweł Śnieżek",
-          "date": "2026-10-19",
+          "key": "RSH-8750",
+          "summary": "[IAM] Translation fallback: selected language should fall back to reference, not through the default language",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
           "priority": "Medium"
         },
         {
-          "key": "RSH-8091",
-          "summary": "[IAM] Move language administration to Settings",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-10-19",
-          "priority": "Medium"
+          "key": "RSH-8480",
+          "summary": "[IAM] ExternalSecret resources stay OutOfSync in Argo CD after ESO/API defaulting",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Critical"
         },
         {
-          "key": "RSH-7663",
-          "summary": "[IAM] Investigate backend pod OOMs on large entity and entity-group catalogs",
-          "status": "Closed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-10-15",
-          "priority": "High"
-        },
-        {
-          "key": "RSH-7591",
-          "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-10-14",
+          "key": "RSH-8372",
+          "summary": "[IAM] Backend gives up startup initialization while the Keycloak realm import is still running",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
           "priority": "Not defined"
         },
         {
-          "key": "RSH-7066",
-          "summary": "Deploy IAM as a module of its own after the team split",
-          "status": "New",
+          "key": "RSH-9885",
+          "summary": "[IAM] Bug: User locale is dropped when a user is created or reactivated",
+          "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-7065",
-          "summary": "Cover IAM's integration with tests",
-          "status": "Quality Reviewed",
-          "owner": "Shashank Prasad",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-7060",
-          "summary": "Wire Licensing to IAM on OpenShift",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-7036",
-          "summary": "Common RSH Dev Cluster - IAM",
-          "status": "New",
-          "owner": "Unassigned",
-          "date": "2026-10-09",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-6864",
-          "summary": "[IAM] Automate ESO secret rotation: config-cli re-import before consumer restart",
-          "status": "Quality Reviewed",
-          "owner": "Shashank Prasad",
-          "date": "2026-10-08",
-          "priority": "Medium"
-        },
-        {
-          "key": "RSH-6765",
-          "summary": "[IAM] Migrate to angular zoneless change detection",
-          "status": "Ready",
-          "owner": "Unassigned",
-          "date": "2026-10-06",
-          "priority": "Medium"
+          "date": "2026-11-06",
+          "priority": "Not defined"
         },
         {
           "key": "RSH-6727",
           "summary": "[IAM UI] Mark Personal Access Token modules the user can no longer access",
-          "status": "Ready",
+          "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-09-30",
+          "date": "2026-11-06",
           "priority": "Low"
         },
         {
-          "key": "RSH-6726",
-          "summary": "[IAM] Execute selected IAM API operations as a single Keycloak transaction",
-          "status": "Ready",
+          "key": "RSH-8401",
+          "summary": "[IAM] Translate Keycloak Login/Reset Password page",
+          "status": "Ready for integration",
           "owner": "Unassigned",
-          "date": "2026-09-29",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-8094",
+          "summary": "[IAM] Show preferred language read-only in user details",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-426",
+          "summary": "[IAM][Roles] Add Translation Capabilities and Language Setting to Roles Requests",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
           "priority": "Medium"
         },
         {
           "key": "RSH-6722",
           "summary": "[IAM] Bug: Delete group must unassign all permissions then delete in one action",
-          "status": "Quality Reviewed",
-          "owner": "Adam Ennis",
-          "date": "2026-09-25",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
           "priority": "High"
         },
         {
-          "key": "RSH-6721",
-          "summary": "[IAM] Implement RFleet RSH PL Review Agent",
-          "status": "In Implementation",
-          "owner": "Celso Garcia",
-          "date": "2026-09-25",
+          "key": "RSH-6512",
+          "summary": "[IAM] Import/Export UI for language translation JSON files",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
           "priority": "Medium"
+        },
+        {
+          "key": "RSH-9288",
+          "summary": "[IAM] Deploy a per-branch module-mock as the source of truth for integration test data",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-412",
+          "summary": "[IAM] Rename \"Supervision Hub\" to \"Supervisory Hub\" across codebase and project assets",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-6726",
+          "summary": "[IAM] Execute selected IAM API operations as a single Keycloak transaction",
+          "status": "Closed",
+          "owner": "Paweł Śnieżek",
+          "date": "2026-11-06",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-7065",
+          "summary": "Cover IAM's integration with tests",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-11-05",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-6566",
+          "summary": "[IAM] Investigate where to store client translation files",
+          "status": "Closed",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-6664",
+          "summary": "[IAM] OSFI: Remove wildcard Keycloak redirect URIs and make client URLs configurable",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
+          "priority": "Critical"
         },
         {
           "key": "RSH-6713",
           "summary": "[PL/IAM] OSFI: Technical Helm chart improvements (secrets + workload identity)",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-09-25",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
           "priority": "High"
+        },
+        {
+          "key": "RSH-6665",
+          "summary": "[IAM] OSFI: Introduce Kubernetes Gateway API as successor of Ingress for auth-gateway",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
+          "priority": "Critical"
+        },
+        {
+          "key": "RSH-7591",
+          "summary": "[IAM] All entity-group scope shows raw id; entities not selectable for permissions",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
+          "priority": "Not defined"
         },
         {
           "key": "RSH-6690",
           "summary": "[IAM] Add endpoints for batch adding module audiences to clients",
-          "status": "Quality Reviewed",
-          "owner": "CE-Dominik Czerwiński",
-          "date": "2026-09-24",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
           "priority": "High"
         },
         {
-          "key": "RSH-6667",
-          "summary": "[IAM] IAM API OpenSSL failures on FIPS-enabled nodes",
+          "key": "RSH-815",
+          "summary": "[IAM] Use preferred language in emails",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-23",
+          "priority": "Medium"
+        }
+      ]
+    },
+    "raised": {
+      "total": 38,
+      "items": [
+        {
+          "key": "RSH-10329",
+          "summary": "[IAM] Bug: Disabling the global catalogue cache repeats Keycloak and module calls for every catalogue read",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-12",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9986",
+          "summary": "[IAM] Bug: module client registration grants any requested IAM role (incl. super_admin) without a policy check",
+          "status": "New",
+          "owner": "CE-Dominik Czerwiński",
+          "date": "2026-11-09",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-9886",
+          "summary": "[IAM] Bug: Updating a user or profile may overwrite cached entity attributes",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9885",
+          "summary": "[IAM] Bug: User locale is dropped when a user is created or reactivated",
           "status": "Closed",
           "owner": "Unassigned",
-          "date": "2026-09-23",
-          "priority": "Critical"
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9884",
+          "summary": "[IAM] Bug: Deleting an assigned permission removes its mirrors before returning 409",
+          "status": "Ready",
+          "owner": "Paweł Śnieżek",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9883",
+          "summary": "[IAM] Realm supported locales and language picker labels in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9882",
+          "summary": "[IAM] Bulk user import: user, permissions and mirrors in one transaction per chunk",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9881",
+          "summary": "[IAM] Module and global context changes with self-permissions in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9880",
+          "summary": "[IAM] Module registry changes and PAT module scopes in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9879",
+          "summary": "[IAM] Client create, rename and delete with module binding in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9878",
+          "summary": "[IAM] Legacy group split repair and group updates in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9877",
+          "summary": "[IAM] User delete in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9876",
+          "summary": "[IAM] Permission create, update, delete, assign and unassign with mirrors in one Keycloak transaction",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9875",
+          "summary": "[IAM] Keycloak provider: in-transaction permission and mirror operations",
+          "status": "In Implementation",
+          "owner": "Paweł Śnieżek",
+          "date": "2026-11-06",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9874",
+          "summary": "[IAM] Set Argo CD IgnoreExtraneous and Prune=false on secret-init and ESO Secret templates",
+          "status": "In PO Review",
+          "owner": "CE-Dominik Czerwiński",
+          "date": "2026-11-05",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9690",
+          "summary": "[IAM] BPMN flow for IAM - documentation",
+          "status": "New",
+          "owner": "CE-Milan Kumar Nayak",
+          "date": "2026-11-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9689",
+          "summary": "[IAM] POC - Implementing IAM support for RRH Poland",
+          "status": "Ready",
+          "owner": "Paweł Śnieżek",
+          "date": "2026-11-04",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9684",
+          "summary": "[IAM] API Performance scripts for IAM apis",
+          "status": "New",
+          "owner": "Unassigned",
+          "date": "2026-11-03",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9594",
+          "summary": "[IAM] Replace the current Keycloak login theme with a minimal customizable theme (logo, CSS, footer)",
+          "status": "Quality Reviewed",
+          "owner": "Paweł Śnieżek",
+          "date": "2026-11-03",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-9592",
+          "summary": "[IAM] Fix SonarQube issues",
+          "status": "In PO Review",
+          "owner": "CE-Dominik Czerwiński",
+          "date": "2026-11-03",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-9385",
+          "summary": "[IAM] Enhance POST /User/filterByPermissions Endpoint to Support Dynamic AND/OR Search Conditions",
+          "status": "In Implementation",
+          "owner": "CE-Dominik Czerwiński",
+          "date": "2026-10-31",
+          "priority": "Not defined"
+        },
+        {
+          "key": "RSH-9291",
+          "summary": "[IAM] Refactor the module list to CRUD on CUSTOM_MODULE and align Deregister module",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-10-30",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-9288",
+          "summary": "[IAM] Deploy a per-branch module-mock as the source of truth for integration test data",
+          "status": "Ready for integration",
+          "owner": "Unassigned",
+          "date": "2026-10-29",
+          "priority": "Medium"
+        },
+        {
+          "key": "RSH-9195",
+          "summary": "[IAM] Bug: Fix the integration tests that fail repeatedly in CI",
+          "status": "In PO Review",
+          "owner": "Celso Garcia",
+          "date": "2026-10-29",
+          "priority": "High"
+        },
+        {
+          "key": "RSH-9194",
+          "summary": "[IAM] Bug: dependency rule with an empty then.item id list (item: []) is silently dropped instead of blocking the target type",
+          "status": "Ready",
+          "owner": "Unassigned",
+          "date": "2026-10-29",
+          "priority": "Medium"
         }
       ]
     },
@@ -1902,7 +1336,7 @@
       "items": []
     },
     "stalled": {
-      "total": 45,
+      "total": 49,
       "items": [
         {
           "key": "RSH-323",
@@ -2097,16 +1531,32 @@
           "priority": "High"
         },
         {
-          "key": "RSH-839",
-          "summary": "Configure DC to use the IAM Keyclock",
-          "status": "Ready",
-          "owner": "Sebastian Wolf",
+          "key": "RSH-399",
+          "summary": "[IAM] Helm - Add chart name to names of created resources",
+          "status": "In Implementation",
+          "owner": "Unassigned",
           "date": "2026-08-27",
-          "priority": "Medium"
+          "priority": "Low"
         }
       ]
     },
-    "releases": [],
+    "releases": [
+      {
+        "name": "26.4.0.00_RSH-IAM_25.11.26",
+        "date": "2026-11-25",
+        "released": false
+      },
+      {
+        "name": "26.4.0.00_RSH-EX_25.11.26",
+        "date": "2026-11-25",
+        "released": false
+      },
+      {
+        "name": "26.4.0.00_RSH-PL_25.11.26",
+        "date": "2026-11-26",
+        "released": false
+      }
+    ],
     "overdueReleases": [
       {
         "name": "R1.3.0.01_RSH_10.02.26",
@@ -2136,6 +1586,11 @@
       {
         "name": "26.3.2.00_RSH-PL-15.10.26",
         "date": "2026-10-15",
+        "released": false
+      },
+      {
+        "name": "26.3.3.00_RSH-PL_10.11.26",
+        "date": "2026-11-10",
         "released": false
       }
     ]
